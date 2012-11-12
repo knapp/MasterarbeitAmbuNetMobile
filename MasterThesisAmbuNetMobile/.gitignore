@@ -1,0 +1,7 @@
+/tmp
+/chicagode.bst
+/masterarbeit.pdf
+/masterarbeit.synctex.gz
+*.tex~
+*.aux
+.metadata
