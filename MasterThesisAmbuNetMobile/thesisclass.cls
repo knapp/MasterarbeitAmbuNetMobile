@@ -59,7 +59,7 @@
 \usepackage{setspace} % 1.5 line spacing
 \onehalfspacing
 
-\usepackage{natbib} % Bibliography style
+% \usepackage{natbib} % Bibliography style
 
 %% --- End of Packages ---
 
