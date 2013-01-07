@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MasterThesisAmbuNetMobile/thesis.bib&apos; to &apos;bibliography.bib&apos;" description="Rename resource &apos;thesis.bib&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="thesis.bib" name="bibliography.bib" stamp="1353402815027" updateReferences="true"/>
+</session>

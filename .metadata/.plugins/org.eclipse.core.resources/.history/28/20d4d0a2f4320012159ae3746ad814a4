@@ -1,0 +1,33 @@
+\begin{thebibliography}{Kop10}
+  \providebibliographyfont{name}{}%
+  \providebibliographyfont{lastname}{}%
+  \providebibliographyfont{title}{\emph}%
+  \providebibliographyfont{jtitle}{\btxtitlefont}%
+  \providebibliographyfont{etal}{\emph}%
+  \providebibliographyfont{journal}{}%
+  \providebibliographyfont{volume}{}%
+  \providebibliographyfont{ISBN}{\MakeUppercase}%
+  \providebibliographyfont{ISSN}{\MakeUppercase}%
+  \providebibliographyfont{url}{\url}%
+  \providebibliographyfont{numeral}{}%
+  \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+
+\expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+\bibitem [{Kop10}]{kopetsch2010}
+\btxnamefont {Dr.\btxfnamespacelong Thomas \btxlastnamefont
+  {Kopetsch}}\btxauthorcolon\ \btxtitlefont {\btxifchangecase {Dem deutschen
+  gesundheitswesen gehen die Ärzte aus! studie zur altersstruktur-und
+  arztzahlentwicklung}{Dem deutschen Gesundheitswesen gehen die Ärzte aus!
+  Studie zur Altersstruktur-und Arztzahlentwicklung}},
+  \btxprintmonthyear{.}{August}{2010}{long}\ifbtxprintISBN {,
+  \mbox{\btxISBN~\btxISBNfont {ISBN 978-3-00-030957-1}}}.
+
+\bibitem [{Pre06}]{stat2050}
+\btxnamefont {Statistisches\btxfnamespacelong Bundesamt \btxlastnamefont
+  {Pressestelle}}\btxauthorcolon\ \btxtitlefont {\btxifchangecase {Bevölkerung
+  deutschlands bis 2050 - 11. koordinierte
+  bevölkerungsvorausberechnung}{Bevölkerung deutschlands bis 2050 - 11.
+  koordinierte Bevölkerungsvorausberechnung}},
+  \btxprintmonthyear{.}{November}{2006}{long}.
+
+\end{thebibliography}

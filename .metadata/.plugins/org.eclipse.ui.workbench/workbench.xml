@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="26" version="2.0">
+<workbenchAdvisor/>
+<window height="728" maximized="true" width="1024" x="125" y="0">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="32"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="61" y="32"/>
+<coolItem id="adt.actionSet.lint" itemType="typeToolBarContribution" x="53" y="32"/>
+<coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="84" y="32"/>
+<coolItem id="com.example.helloworld.actionSet" itemType="typeToolBarContribution" x="48" y="32"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="53" y="32"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="76" y="32"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="32"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="61" y="32"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="PDFViewer.toolbar" itemType="typeToolBarContribution" x="130" y="32"/>
+<coolItem id="s.com.aptana.ide.core.ui.actionSet.ShowAptanaView" itemType="typeToolBarContribution" x="53" y="32"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="32"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="net.sourceforge.texlipse.bibeditor.BibEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="de.vonloesch.pdf4eclipse.editors.PDFEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="net.sourceforge.texlipse.TexEditor" itemType="typeToolBarContribution" x="176" y="32"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1353406165397" focus="true" label="Workspace - LaTeX">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="net.sourceforge.texlipse.TexEditor" name="thesis.tex" partName="thesis.tex" path="C:/MTAmbuNetMobile/MasterarbeitAmbuNetMobile/MasterThesisAmbuNetMobile/thesis.tex" title="thesis.tex" tooltip="MasterThesisAmbuNetMobile/thesis.tex" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MasterThesisAmbuNetMobile/thesis.tex"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="209" selectionTopPixel="0"/>
+</editor>
+<editor id="net.sourceforge.texlipse.TexEditor" name="conclusion.tex" partName="conclusion.tex" path="C:/MTAmbuNetMobile/MasterarbeitAmbuNetMobile/MasterThesisAmbuNetMobile/text/conclusion.tex" title="conclusion.tex" tooltip="MasterThesisAmbuNetMobile/text/conclusion.tex" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MasterThesisAmbuNetMobile/text/conclusion.tex"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="180" selectionTopPixel="0"/>
+</editor>
+<editor id="net.sourceforge.texlipse.TexEditor" name="thesisclass.cls" partName="thesisclass.cls" path="C:/MTAmbuNetMobile/MasterarbeitAmbuNetMobile/MasterThesisAmbuNetMobile/thesisclass.cls" title="thesisclass.cls" tooltip="MasterThesisAmbuNetMobile/thesisclass.cls" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MasterThesisAmbuNetMobile/thesisclass.cls"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2048" selectionTopPixel="720"/>
+</editor>
+<editor id="net.sourceforge.texlipse.TexEditor" name="einleitung.tex" partName="einleitung.tex" path="C:/MTAmbuNetMobile/MasterarbeitAmbuNetMobile/MasterThesisAmbuNetMobile/text/einleitung.tex" title="einleitung.tex" tooltip="MasterThesisAmbuNetMobile/text/einleitung.tex" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MasterThesisAmbuNetMobile/text/einleitung.tex"/>
+<editorState selectionHorizontalPixel="0" selectionLength="81" selectionOffset="326" selectionTopPixel="0"/>
+</editor>
+<editor id="de.vonloesch.pdf4eclipse.editors.PDFEditor" name="thesis.pdf" partName="thesis.pdf" path="C:/MTAmbuNetMobile/MasterarbeitAmbuNetMobile/MasterThesisAmbuNetMobile/thesis.pdf" title="thesis.pdf" tooltip="MasterThesisAmbuNetMobile/thesis.pdf" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MasterThesisAmbuNetMobile/thesis.pdf"/>
+</editor>
+</editors>
+<views>
+<view id="net.sourceforge.texlipse.TableView" partName="LaTeX Table View"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="net.sourceforge.texlipse.FullOutline" partName="Full Latex Outline"/>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (3 items)"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
+<viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="Aggregate for window 1353406165397">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter1" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
+<child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+</xmlDefinedFilters>
+<lastRecentlyUsedFilters>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*"/>
+</lastRecentlyUsedFilters>
+</customFilters>
+</viewState>
+</view>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List">
+<viewState linkWithEditor="true" presentation="org.eclipse.mylyn.tasks.ui.categorized">
+<sorter groupBy="CATEGORY_QUERY">
+<sorter>
+<sort0 sortDirection="1" sortKey="PRIORITY"/>
+<sort1 sortDirection="1" sortKey="RANK"/>
+<sort2 sortDirection="1" sortKey="DATE_CREATED"/>
+<sort3 sortDirection="1" sortKey="NONE"/>
+<sort4 sortDirection="1" sortKey="NONE"/>
+<sort5 sortDirection="1" sortKey="NONE"/>
+<sort6 sortDirection="1" sortKey="NONE"/>
+<sort7 sortDirection="1" sortKey="NONE"/>
+</sorter>
+</sorter>
+<filteredTreeFindHistory/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+</views>
+<perspectives activePart="net.sourceforge.texlipse.TexEditor" activePerspective="net.sourceforge.texlipse.TexlipsePerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="adt.actionSet.wizards"/>
+<alwaysOnActionSet id="adt.actionSet.refactorings"/>
+<alwaysOnActionSet id="adt.actionSet.avdManager"/>
+<alwaysOnActionSet id="adt.actionSet.lint"/>
+<alwaysOnActionSet id="com.example.helloworld.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="com.aptana.ide.core.ui.actionSet.aptanamenu"/>
+<alwaysOnActionSet id="s.com.aptana.ide.core.ui.actionSet.ShowAptanaView"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
+<show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<show_view_action id="org.eclipse.jdt.ui.SourceView"/>
+<show_view_action id="org.eclipse.jdt.ui.JavadocView"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.texteditor.TemplatesView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewInterfaceCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewEnumCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewAnnotationCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSourceFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSnippetFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewJavaWorkingSetWizard"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<new_wizard_action id="com.android.ide.eclipse.adt.project.NewProjectWizard"/>
+<new_wizard_action id="com.android.ide.eclipse.editors.wizards.NewXmlFileWizard"/>
+<new_wizard_action id="org.eclipse.jdt.junit.wizards.NewTestCaseCreationWizard"/>
+<new_wizard_action id="org.eclipse.mylyn.tasks.ui.wizards.new.repository.task"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="com.android.ide.eclipse.ddms.Perspective"/>
+<perspective_action id="com.android.ide.eclipse.hierarchyviewer.PixelPerfectPespective"/>
+<perspective_action id="com.android.ide.eclipse.hierarchyviewer.TreeViewPerspective"/>
+<perspective_action id="org.eclipse.wst.jsdt.ui.JavaPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.jdt.ui.JavadocView"/>
+<view id="org.eclipse.jdt.ui.SourceView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.junit.ResultView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="250" ratioRight="750" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.74958813" ratioLeft="455" ratioRight="152" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
+<page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@88e2c12" ratio="0.7493333" ratioLeft="562" ratioRight="188" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.mylyn.tasks.ui.views.tasks" appearance="2" expanded="2">
+<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="Task List"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="right" ratio="0.4989011" ratioLeft="227" ratioRight="228" relationship="4" relative="org.eclipse.ui.internal.ViewStack@88e2c12">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="net.sourceforge.texlipse.TexPerspectiveFactory" id="net.sourceforge.texlipse.TexlipsePerspective" label="LaTeX"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="adt.actionSet.wizards"/>
+<alwaysOnActionSet id="adt.actionSet.refactorings"/>
+<alwaysOnActionSet id="adt.actionSet.avdManager"/>
+<alwaysOnActionSet id="adt.actionSet.lint"/>
+<alwaysOnActionSet id="com.example.helloworld.actionSet"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkView"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="net.sourceforge.texlipse.FullOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="net.sourceforge.texlipse.TableView"/>
+<new_wizard_action id="net.sourceforge.texlipse.TexProjectWizard"/>
+<new_wizard_action id="net.sourceforge.texlipse.wizards.TexlipseNewTexFileWizard"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="net.sourceforge.texlipse.FullOutline"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="net.sourceforge.texlipse.TableView"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@7db56458">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="org.eclipse.ui.internal.ViewStack@7db56458">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.17490774" ratioLeft="237" ratioRight="1118" relationship="2" relative="org.eclipse.ui.internal.ViewStack@7db56458"/>
+<info folder="true" part="bottom" ratio="0.67704916" ratioLeft="413" ratioRight="197" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="net.sourceforge.texlipse.TableView" label="LaTeX Table View"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="left" ratio="0.704918" ratioLeft="430" ratioRight="180" relationship="4" relative="org.eclipse.ui.internal.ViewStack@7db56458">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="net.sourceforge.texlipse.FullOutline" label="Full Latex Outline"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/MasterThesisAmbuNetMobile/thesis.tex"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/MasterThesisAmbuNetMobile/tmp/thesis.bbl"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/MasterThesisAmbuNetMobile/text/conclusion.tex"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/MasterThesisAmbuNetMobile/thesis.pdf"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/Test/document.tex"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/Test/document.pdf"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/MasterThesisAmbuNetMobile/thesisclass.cls"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/MasterThesisAmbuNetMobile/tmp/thesis.aux"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/MasterThesisAmbuNetMobile/text/einleitung.tex"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.bibeditor.BibEditor" path="/MasterThesisAmbuNetMobile/bibliography.bib"/>
+</editors>
+<item historyLabel="conclusion.tex" index="2">
+<position info="not_deleted" x="211" y="0"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5127" y="0"/>
+</item>
+<item historyLabel="thesis.bbl" index="1">
+<position/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="280" y="6"/>
+</item>
+<item historyLabel="document.tex" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="document.pdf" index="5">
+<position Page="1"/>
+</item>
+<item historyLabel="document.tex" index="4">
+<position info="not_deleted" x="317" y="0"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5460" y="30"/>
+</item>
+<item historyLabel="document.tex" index="4">
+<position info="not_deleted" x="317" y="0"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5126" y="0"/>
+</item>
+<item historyLabel="thesisclass.cls" index="6">
+<position info="not_deleted" x="315" y="0"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5127" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="3">
+<position Page="1"/>
+</item>
+<item historyLabel="thesis.pdf" index="3">
+<position Page="1"/>
+</item>
+<item historyLabel="thesis.pdf" index="3">
+<position Page="3"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5127" y="0"/>
+</item>
+<item historyLabel="document.tex" index="4">
+<position info="not_deleted" x="317" y="0"/>
+</item>
+<item historyLabel="document.tex" index="4">
+<position info="not_deleted" x="205" y="0"/>
+</item>
+<item historyLabel="conclusion.tex" index="2">
+<position info="not_deleted" x="160" y="18"/>
+</item>
+<item historyLabel="document.tex" index="4">
+<position info="not_deleted" x="318" y="0"/>
+</item>
+<item historyLabel="document.pdf" index="5">
+<position Page="1"/>
+</item>
+<item historyLabel="document.tex" index="4">
+<position info="not_deleted" x="254" y="0"/>
+</item>
+<item historyLabel="document.pdf" index="5">
+<position Page="1"/>
+</item>
+<item historyLabel="conclusion.tex" index="2">
+<position info="not_deleted" x="160" y="18"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5460" y="0"/>
+</item>
+<item historyLabel="conclusion.tex" index="2">
+<position info="not_deleted" x="160" y="18"/>
+</item>
+<item historyLabel="thesisclass.cls" index="6">
+<position/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5460" y="0"/>
+</item>
+<item historyLabel="thesisclass.cls" index="6">
+<position info="not_deleted" x="2048" y="0"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5490" y="0"/>
+</item>
+<item historyLabel="thesis.aux" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="thesis.bbl" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="thesis.aux" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5490" y="0"/>
+</item>
+<item historyLabel="conclusion.tex" index="2">
+<position info="not_deleted" x="180" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="3">
+<position Page="1"/>
+</item>
+<item historyLabel="thesis.pdf" index="3">
+<position Page="3"/>
+</item>
+<item historyLabel="conclusion.tex" index="2">
+<position info="not_deleted" x="180" y="0"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="5490" y="0"/>
+</item>
+<item historyLabel="thesisclass.cls" index="6">
+<position info="not_deleted" x="2048" y="0"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="2277" y="0"/>
+</item>
+<item historyLabel="einleitung.tex" index="8">
+<position info="not_deleted" x="462" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="3">
+<position Page="3"/>
+</item>
+<item historyLabel="einleitung.tex" index="8">
+<position info="not_deleted" x="443" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="3">
+<position Page="3"/>
+</item>
+<item historyLabel="thesis.pdf" index="3">
+<position Page="3"/>
+</item>
+<item historyLabel="einleitung.tex" index="8">
+<position info="not_deleted" x="326" y="81"/>
+</item>
+<item historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="1981" y="0"/>
+</item>
+<item historyLabel="bibliography.bib" index="9">
+<position info="not_deleted" x="1033" y="0"/>
+</item>
+<item active="true" historyLabel="thesis.tex" index="0">
+<position info="not_deleted" x="1981" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@7db56458"/>
+<trimItem IMemento.internal.id="left"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottom"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.bibeditor.BibEditor" name="bibliography.bib" tooltip="MasterThesisAmbuNetMobile/bibliography.bib">
+<persistable path="/MasterThesisAmbuNetMobile/bibliography.bib"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" name="thesis.pdf" tooltip="MasterThesisAmbuNetMobile/thesis.pdf">
+<persistable path="/MasterThesisAmbuNetMobile/thesis.pdf"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="einleitung.tex" tooltip="MasterThesisAmbuNetMobile/text/einleitung.tex">
+<persistable path="/MasterThesisAmbuNetMobile/text/einleitung.tex"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="thesis.bbl" tooltip="MasterThesisAmbuNetMobile/tmp/thesis.bbl">
+<persistable path="/MasterThesisAmbuNetMobile/tmp/thesis.bbl"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="thesis.aux" tooltip="MasterThesisAmbuNetMobile/tmp/thesis.aux">
+<persistable path="/MasterThesisAmbuNetMobile/tmp/thesis.aux"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" name="document.pdf" tooltip="Test/document.pdf">
+<persistable path="/Test/document.pdf"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="thesisclass.cls" tooltip="MasterThesisAmbuNetMobile/thesisclass.cls">
+<persistable path="/MasterThesisAmbuNetMobile/thesisclass.cls"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="document.tex" tooltip="Test/document.tex">
+<persistable path="/Test/document.tex"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="einleitung.aux" tooltip="MasterThesisAmbuNetMobile/tmp/text/einleitung.aux">
+<persistable path="/MasterThesisAmbuNetMobile/tmp/text/einleitung.aux"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="bibliography.bib.bak" tooltip="MasterThesisAmbuNetMobile/bibliography.bib.bak">
+<persistable path="/MasterThesisAmbuNetMobile/bibliography.bib.bak"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="conclusion.tex" tooltip="MasterThesisAmbuNetMobile/text/conclusion.tex">
+<persistable path="/MasterThesisAmbuNetMobile/text/conclusion.tex"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="thesis.tex" tooltip="MasterThesisAmbuNetMobile/thesis.tex">
+<persistable path="/MasterThesisAmbuNetMobile/thesis.tex"/>
+</file>
+</mruList>
+</workbench>

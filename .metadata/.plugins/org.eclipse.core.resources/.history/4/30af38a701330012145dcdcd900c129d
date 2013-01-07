@@ -1,0 +1,38 @@
+\relax 
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\@input{titlepage.aux}
+\@input{text/einleitung.aux}
+\@input{text/zieleArbeit.aux}
+\@input{text/anforderungsanalyse.aux}
+\@input{text/entwurfsentscheidungen.aux}
+\@input{text/plugins.aux}
+\@input{text/evaluation.aux}
+\@input{text/ausblick.aux}
+\@input{text/conclusion.aux}
+\@input{text/declaration.aux}
+\@writefile{toc}{\contentsline {chapter}{Anhang}{11}{chapter*.2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {A}First Appendix Section}{11}{section.9.1}}
+\newlabel{Anhang-Implementierung}{{A}{11}{First Appendix Section\relax }{section.9.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces A figure}}{11}{figure.9.1}}
+\newlabel{fig:BPMNBeispiela}{{A.1}{11}{A figure\relax }{figure.9.1}{}}
+\bibstyle{chicagode}
+\bibstyle{IEEEtranSA}
+\bibdata{bibliography}
+\global\@altsecnumformattrue

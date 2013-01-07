@@ -1,0 +1,26 @@
+% This file was created with JabRef 2.8.1.
+% Encoding: Cp1252
+
+@MISC{kopetsch2010,
+  author = {Dr. Thomas Kopetsch},
+  title = {Dem deutschen Gesundheitswesen gehen die Ärzte aus! Studie zur Altersstruktur-und
+	Arztzahlentwicklung},
+  month = {August},
+  year = {2010},
+  isbn = {ISBN 978-3-00-030957-1},
+  organization = {Bundesärztekammer und Kassenärztliche Bundesvereinigung},
+  location = {Berlin},
+  owner = {Thomas},
+  timestamp = {2012.11.19}
+}
+
+@MISC{stat2050,
+  author = {Statistisches Bundesamt - Pressestelle},
+  title = {Bevölkerung deutschlands bis 2050 - 11. koordinierte Bevölkerungsvorausberechnung},
+  month = {November},
+  year = {2006},
+  file = {:C\:\\Users\\Thomas\\Dropbox\\Masterarbeit\\Literatur\\bevoelkerungsprojektion2050.pdf:PDF},
+  owner = {Thomas},
+  timestamp = {2012.11.19}
+}
+

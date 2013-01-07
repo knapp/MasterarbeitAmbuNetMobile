@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;MasterThesisAmbuNetMobile&apos;&#x0D;&#x0A;- Original project: &apos;MasterThesisAmbuNetMobile&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     documen.synctex.gz&#x0D;&#x0A;     document.pdf&#x0D;&#x0A;     document.synctex.gz&#x0D;&#x0A;     document.tex" description="Delete elements" element1="document.pdf" element2="document.synctex.gz" element3="document.tex" element4="documen.synctex.gz" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="4" stamp="1352737118745" subPackages="false" version="1.0"/>
+</session>
