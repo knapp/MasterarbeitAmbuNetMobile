@@ -1,4 +1,8 @@
 BiBTeXTemplates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+TeXTemplates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 builderNum=2
 eclipse.preferences.version=1
+lineLength=120
 outputFormat=pdf
+spellcheckerDictDir=C\:\\MACareNetMobile\\ProjectMACareNetMobile\\de.dict
+styleCompletionSet=bold\=\\textbf{,teletype\=\\texttt{,emphasize\=\\emph{,italic\=\\textit{,slanted\=\\textsl{,roman\=\\textrm{,sans serif\=\\textsf{,small caps\=\\textsc{

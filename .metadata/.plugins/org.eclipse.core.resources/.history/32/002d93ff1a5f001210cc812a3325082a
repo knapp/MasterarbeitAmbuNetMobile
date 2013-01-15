@@ -1,0 +1,42 @@
+% % introduction.tex %
+
+% % ==============================
+\chapter{Einleitung}
+\label{ch:einleitung}
+% % ==============================
+
+Nach Schätzungen des Statistischen Bundesamtes steigt der Anteil der über 65jährigen in der Bundesrepublik Deutschland
+von 19\% im Jahr 2005 auf 30\% im Jahr 2050 \cite{stat2050} bei gleichzeitig steigender Lebenserwartung. Dieser
+demographische Wandel birgt große Herausforderungen für das Gesundheitswesen, da eine größere Anzahl an Patienten mit
+altersbedingten Krankheiten versorgt werden muss, die häufig multimorbide und immobil sind.\\
+Insbesondere Hausarztpraxen als zentrale Anlaufstellen für Beschwerden im Alter stehen vor neuen Aufgaben. Wo früher nur
+Heilkunde angewandt wurde, werden heute beispielsweise auch koordinative Aufgaben zwischen Fachärzten, Pflegediensten
+und Apotheken übernommen. Mit einer gestiegenen Anzahl an pflegebedürftigen Personen wird sich dieser Trend weiter
+verstärken. Hinzu kommt, dass häufigere Immobilität der älteren Patienten von den Hausärzten mehr zeitaufwendige
+Hausbesuche abverlangen wird. Dem gegenüber steht eine sinkende Anzahl an Hausärzten, da auch deren Altersstruktur vom 
+demographischen Wandel geprägt ist. Nach Schätzungen wird die Anzahl der Hausärzte bis 2020 bundesweit um etwa 7000
+zurückgehen, was einem Anteil von 13.3\% entspricht (\cite[S. 65]{kopetsch2010}). Überdurchschnittlich hoch wird
+der Rückgang an Hausärzten in den ländlichen Regionen der neuen Bundesländer ausfallen (\cite[S. 52 ff.]{kopetsch2010}).
+Der Rückgang der Hausärzte wird bundesweit zu signifikanten Versorgungsengpässen führen.\\
+
+Um auch in Zukunft eine ausreichende Versorgung von Patienten gewährleisten zu können, wurde vom Gemeinsamen
+Bundesausschuss eine Richtlinie herausgegeben, die Rahmenbedingungen formuliert, in denen ärztliche Tätigkeiten auf
+Berufsangehörige der Alten- und Krankenpflege übertragen werden können \cite{richtlinie}. Diese Maßnahme soll Hausärzte
+bei Tätigkeiten entlasten, für die nicht unbedingt ärztliche Expertise notwendig ist. Insbesondere die Anzahl der vom
+Arzt durchzuführenden Hausbesuche könnte sich hierdurch verringern. Ärztliche Tätigkeiten können dabei sowohl an
+Arzthelfer in einer Praxis, Mitarbeiter eines ambulanten Pflegedienstes, Pfleger in einem Alten- und Pflegeheim sowie
+Gesundheits- und Krankenpflegern in einem Krankenhaus delegiert werden. Vor der Herausgabe der Richtlinie im März 2012
+wurde bereits in verschiedenen Modellprojekten der Nutzen von Delegation evaluiert. Mit dem Modellprojekt AGnES
+\cite{agnes} beispielsweise ließ sich belegen, dass durch Delegation positive Effekte bzgl. Effizienz und Qualität der
+ärztlichen Leistungen erzielt werden können. Um diese Effizienz- und Qualität zu erreichen, benötigen die
+Berufsangehörigen der Alten- und Krankenpflege allerdings gewisse Zusatzqualifikationen, die im Rahmen verschiedener
+Weiterbildungsprogramme erworben werden können. Beispiele hierfür sind VERAH (Versorgungsassistentin in der
+Hausarztpraxis) (\cite{verahZiele} und \cite{verahInfo}) oder MFP (Medizinisches Fachpersonal)
+\textcolor{red}{[QUELLE]}. In einem ca. 200stündigen Fortbildungsprogramm werden unter anderem Kenntnisse aus den
+Bereichen Case Management, Gesundheits-, Praxis- und Wundmanagement sowie IT vermittelt.\\
+Das Gesamtziel des Gesetzgebers ist, eine integrierte Versorgung von Pflegebedürftigen zu erreichen, bei der die
+Parteien des Gesundheitssystems (Ärzte, Pflegekräfte, Krankenkassen) intensiv zusammenarbeiten sollen. Ein enge
+Zusammenarbeit bedeutet einen hohen Koordinationsaufwand und damit verbunden ein hohes Maß an Informationsaustausch. Um
+das volle Potential der Delegation ärztlicher Leistungen ausschöpfen zu können, muss der Informationsaustausch mit EDV
+bestmöglich unterstützt werden. Neben
+

@@ -1,0 +1,22 @@
+\chapter{Ziele der Arbeit}
+\label{ch:zielederarbeit}
+
+
+
+
+\begin{itemize}
+  \item In MA wird elektronisches System zur Koordination der Zusammenarbeit von Ärzten und MFPs entwickelt
+  \item Einerseits Delegation von Aufgaben
+  \item Andererseits Dokumentation der durchgeführten Tätigkeiten
+  \item Vermeidung von Medienbrüchen: Elektronische Dokumentation vor Ort beim Kunden $\Rightarrow mobile Anwendung$
+  \item Entwicklung einer App zunächst für Android inkl. Serverkommunikation (Aufsetzen eines erweiterbaren Middleware-Ansatzes)
+  \item Anpassung einer SaaS-Lösung, um den Anforderungen von CareNetmobile zu genügen (CareNet)
+  \item Durchführung einer Anforderungsanalyse (Sammeln von Anforderungen, Priorisierung, Abschätzung was möglich ist)
+  \item Implementierung der Kernanforderungen, um eine grundsätzliche Dokumentation zu ermöglichen
+  \item Evaluation in mehreren Schritten:
+  \begin{itemize}
+    \item Messen der Architektur an ISO-Software-Qualitätskriterien (vor allem Wartbarkeit) (Focus: Technische Umsetzung)
+    \item Schulung/Anforderungsevaluation mit Endnutzern (Pflegepersonal) (Focus: Usability/ Akzeptanztests)
+    \item Überprüfung, ob ein bestimmter Prozess (z.B. Pneunomie) mit der App abgebildet werden kann
+  \end{itemize}  
+\end{itemize}
