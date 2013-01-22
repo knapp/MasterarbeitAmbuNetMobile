@@ -3,9 +3,9 @@
 
 Ziel dieser Master-Arbeit ist es, ein elektronisches System zur Unterstützung der Zusammenarbeit von Ärzten und
 Berufsangehörigen der Alten- und Pflegeberufe, die eine Zusatzqualifikation zur Ausübung ärztlicher Tätigkeiten haben,
-zu entwerfen und zu implementieren. Einerseits soll eine Delegation von Aufgaben möglich sein, andererseits sollen die
-ausgeführten Tätigkeiten elektronisch dokumentiert werden können. Da die ärztlichen Tätigkeiten vornehmlich vor Ort
-beim Klienten durchgeführt werden, lassen sich im Kern zwei notwendige Komponenten identifizieren.
+zu entwickeln. Einerseits soll eine Delegation von Aufgaben möglich sein, andererseits sollen die ausgeführten
+Tätigkeiten elektronisch dokumentiert werden können. Da die ärztlichen Tätigkeiten vornehmlich vor Ort beim Klienten
+durchgeführt werden, lassen sich im Kern zwei notwendige Komponenten identifizieren.
 
 \begin{figure}
 	\includegraphics{figures/ZielederArbeitGrafischFinal.pdf}
@@ -45,14 +45,6 @@ Richtlinie zur Delegation ärztlicher Leistungen mit der entstandenen Software de
 Das zentrale Verwaltungssystem wird in dieser Arbeit nicht von Grund auf entwickelt, sondern basiert auf einer im
 Projekt VitaBit \textcolor{red}{QUELLE} entwickelten Software-Lösung zur Dokumentation von Pflegeleistungen.
 Bereitgestellt wird es von der nubedian GmbH \cite{nubedian}, die außerdem Unterstützung bei der Anpassung des Systems
-an die Anforderungen der Dokumentation ärztlicher Leistungen anbietet, da das System momentan lediglich zur
-Dokumentation von Pflegeleistungen gedacht ist. Im Laufe der Entwicklung der mobilen Anwendung sollen notwendige
-Anpassungen des zentralen Verwaltungssystem identifiziert und dokumentiert werden.\\
-
-Neben der nubedian GmbH wird der Entwicklungsprozess dieser Arbeit von Mitarbeitern der Residenz Bad Friedrichshall
-\cite{residenzBF} unterstützt. Hier werden Pflegekräfte mit einem an VERAH angelehnten Fortbildungsprogramm zu
-Medizinischen Fachpflegekräften (MFP) ausgebildet. Um die Terminologie in dieser Arbeit zu vereinfachen, wird künftig
-anstatt von "`Angehörigen der Alten- und Krankenpflege"' oder "`Medizinischen Fachpflegekraft"' stellvertretend für alle
-Fortbildungsmöglichkeiten zur Erfüllung der Richtlinie nach § 63 Abs. 3c SGB V lediglich die Bezeichnung "`Pflegekraft"'
-verwendet.
-
+an die Anforderungen der Dokumentation ärztlicher Leistungen anbietet, da das System momentan zur Dokumentation von
+Pflegeleistungen gedacht ist. Im Laufe der Entwicklung der mobilen Anwendung sollen notwendige Anpassungen des zentralen
+Verwaltungssystem identifiziert und dokumentiert werden.

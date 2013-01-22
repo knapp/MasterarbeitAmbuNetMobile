@@ -1,0 +1,17 @@
+\chapter{Analyse der Anforderungen}
+\label{ch:anforderungsanalyse}
+
+\begin{itemize}
+  \item Wie wurden die Anforderungen erhoben?
+  \item Welche Quellen gab es hierfür?
+  	\begin{itemize}
+  		\item Richtlinie, die Delegation erlaubt (für grundsätzliche Tätigkeiten)
+  		\item Gespräch mit Mitarbeiter eines Pflegedienstes (Raymond)
+  		\item Anforderungen aus dem Projekt Vitabit (z.B. Schlüsselnummer)
+  		\item Abgeleitete Anforderungen aus Wissen über Endnutzer (besonders Usability)
+  		\item \ldots   
+  	\end{itemize}
+  \item Kernanforderungen (Prio A)
+  \item Wünschenswerte Eigenschaften, um Nutzungskomfort zu steigern (Prio B)
+  \item Anforderungen, die über die reine Dokumentation oder dessen Unterstützung hinausgehen (Prio C, werden in der Arbeit nicht behandelt)
+\end{itemize}

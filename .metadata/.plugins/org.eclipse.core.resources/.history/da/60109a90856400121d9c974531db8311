@@ -116,6 +116,7 @@ titlepage,
 text/einleitung,
 text/zieleArbeit,
 text/anforderungsanalyse,
+text/entwurfsentscheidungen,
 text/plugins,
 text/evaluation,
 text/ausblick,
@@ -155,6 +156,7 @@ text/appendix
 \include{text/einleitung}
 \include{text/zieleArbeit}
 \include{text/anforderungsanalyse}
+\include{text/entwurfsentscheidungen}
 \include{text/plugins}
 \include{text/evaluation}
 \include{text/ausblick}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="15" version="2.0">
+<workbench progressCount="16" version="2.0">
 <workbenchAdvisor/>
 <window height="728" maximized="true" width="1024" x="125" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -47,13 +47,16 @@
 </folder>
 </info>
 </editorArea>
-<editor id="net.sourceforge.texlipse.TexEditor" name="einleitung.tex" partName="einleitung.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/einleitung.tex" title="einleitung.tex" tooltip="ProjectMACareNetMobile/text/einleitung.tex" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="net.sourceforge.texlipse.TexEditor" name="einleitung.tex" partName="einleitung.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/einleitung.tex" title="einleitung.tex" tooltip="ProjectMACareNetMobile/text/einleitung.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/einleitung.tex"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4551" selectionTopPixel="373"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4646" selectionTopPixel="259"/>
 </editor>
-<editor activePart="true" focus="true" id="net.sourceforge.texlipse.TexEditor" name="zieleArbeit.tex" partName="zieleArbeit.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/zieleArbeit.tex" title="zieleArbeit.tex" tooltip="ProjectMACareNetMobile/text/zieleArbeit.tex" workbook="DefaultEditorWorkbook">
+<editor id="net.sourceforge.texlipse.TexEditor" name="zieleArbeit.tex" partName="zieleArbeit.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/zieleArbeit.tex" title="zieleArbeit.tex" tooltip="ProjectMACareNetMobile/text/zieleArbeit.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/zieleArbeit.tex"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4575" selectionTopPixel="409"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4172" selectionTopPixel="241"/>
+</editor>
+<editor id="de.vonloesch.pdf4eclipse.editors.PDFEditor" name="thesis.pdf" partName="thesis.pdf" path="C:/MACareNetMobile/ProjectMACareNetMobile/thesis.pdf" title="thesis.pdf" tooltip="ProjectMACareNetMobile/thesis.pdf" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/thesis.pdf"/>
 </editor>
 </editors>
 <views>
@@ -65,7 +68,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (7 items)"/>
+<category IMemento.internal.id="Warnings (10 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -313,162 +316,160 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/einleitung.tex"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/thesis.pdf"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/tempPartial00000.pdf"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/zieleArbeit.tex"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/zieleArbeit.tex"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/figures/zielederArbeitFinal.pdf"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/figures/ZielederArbeitGrafischFinal.pdf"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/einleitung.tex"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/thesis.pdf"/>
 </editors>
-<item historyLabel="tempPartial00000.pdf" index="2">
+<item historyLabel="tempPartial00000.pdf" index="1">
 <position Page="1"/>
 </item>
-<item historyLabel="einleitung.tex" index="0">
-<position/>
-</item>
-<item historyLabel="einleitung.tex" index="0">
-<position info="not_deleted" x="3534" y="0"/>
-</item>
-<item historyLabel="tempPartial00000.pdf" index="2">
-<position Page="2"/>
-</item>
-<item historyLabel="einleitung.tex" index="0">
-<position info="not_deleted" x="137" y="0"/>
-</item>
-<item historyLabel="tempPartial00000.pdf" index="2">
-<position Page="2"/>
-</item>
-<item historyLabel="einleitung.tex" index="0">
-<position info="not_deleted" x="4380" y="0"/>
-</item>
-<item historyLabel="tempPartial00000.pdf" index="2">
-<position Page="2"/>
-</item>
-<item historyLabel="einleitung.tex" index="0">
-<position info="not_deleted" x="4553" y="0"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="3">
-<position info="not_deleted" x="387" y="0"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="3">
-<position info="not_deleted" x="644" y="0"/>
-</item>
-<item historyLabel="tempPartial00000.pdf" index="2">
-<position Page="1"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="3">
-<position info="not_deleted" x="416" y="0"/>
-</item>
-<item historyLabel="tempPartial00000.pdf" index="2">
-<position Page="1"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="3">
-<position info="not_deleted" x="416" y="0"/>
-</item>
-<item historyLabel="einleitung.tex" index="0">
-<position info="not_deleted" x="4553" y="0"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="einleitung.tex" index="0">
-<position info="not_deleted" x="4553" y="0"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position/>
-</item>
-<item historyLabel="thesis.pdf" index="1">
-<position Page="4"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position/>
-</item>
-<item historyLabel="einleitung.tex" index="0">
-<position info="not_deleted" x="4553" y="0"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position/>
-</item>
-<item historyLabel="thesis.pdf" index="1">
-<position Page="5"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position info="not_deleted" x="219" y="0"/>
-</item>
-<item historyLabel="einleitung.tex" index="0">
-<position info="not_deleted" x="3082" y="0"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position info="not_deleted" x="740" y="0"/>
-</item>
-<item historyLabel="tempPartial00000.pdf" index="2">
-<position Page="2"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position info="not_deleted" x="712" y="0"/>
-</item>
-<item historyLabel="zielederArbeitFinal.pdf" index="5">
-<position Page="1"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position info="not_deleted" x="646" y="0"/>
-</item>
-<item historyLabel="tempPartial00000.pdf" index="2">
-<position Page="2"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position info="not_deleted" x="646" y="0"/>
-</item>
-<item historyLabel="ZielederArbeitGrafischFinal.pdf" index="6">
-<position Page="1"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position info="not_deleted" x="646" y="0"/>
-</item>
-<item historyLabel="einleitung.tex" index="0">
-<position info="not_deleted" x="3082" y="0"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
+<item historyLabel="zieleArbeit.tex" index="2">
 <position info="not_deleted" x="741" y="0"/>
 </item>
-<item historyLabel="tempPartial00000.pdf" index="2">
-<position Page="1"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
-<position info="not_deleted" x="741" y="0"/>
-</item>
-<item historyLabel="zieleArbeit.tex" index="4">
+<item historyLabel="zieleArbeit.tex" index="2">
 <position info="not_deleted" x="1610" y="0"/>
 </item>
-<item historyLabel="tempPartial00000.pdf" index="2">
+<item historyLabel="tempPartial00000.pdf" index="1">
 <position Page="1"/>
 </item>
-<item historyLabel="zieleArbeit.tex" index="4">
+<item historyLabel="zieleArbeit.tex" index="2">
 <position info="not_deleted" x="2417" y="0"/>
 </item>
-<item historyLabel="zieleArbeit.tex" index="4">
+<item historyLabel="zieleArbeit.tex" index="2">
 <position/>
 </item>
-<item historyLabel="tempPartial00000.pdf" index="2">
+<item historyLabel="tempPartial00000.pdf" index="1">
 <position Page="2"/>
 </item>
-<item historyLabel="zieleArbeit.tex" index="4">
+<item historyLabel="zieleArbeit.tex" index="2">
 <position info="not_deleted" x="3237" y="0"/>
 </item>
-<item historyLabel="zieleArbeit.tex" index="4">
+<item historyLabel="zieleArbeit.tex" index="2">
 <position info="not_deleted" x="3675" y="0"/>
 </item>
-<item historyLabel="zieleArbeit.tex" index="4">
+<item historyLabel="zieleArbeit.tex" index="2">
 <position info="not_deleted" x="3785" y="37"/>
 </item>
 <item historyLabel="einleitung.tex" index="0">
 <position info="not_deleted" x="4551" y="0"/>
 </item>
-<item active="true" historyLabel="zieleArbeit.tex" index="4">
+<item historyLabel="zieleArbeit.tex" index="2">
 <position info="not_deleted" x="3785" y="37"/>
+</item>
+<item historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="3114" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="3"/>
+</item>
+<item historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="1679" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="4"/>
+</item>
+<item historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="3139" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="4"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position info="not_deleted" x="4589" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="4"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position info="not_deleted" x="4589" y="0"/>
+</item>
+<item historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="3583" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="4"/>
+</item>
+<item historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="3968" y="0"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position info="not_deleted" x="4589" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="4"/>
+</item>
+<item historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="4118" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="5"/>
+</item>
+<item historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="4118" y="0"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position/>
+</item>
+<item historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="4118" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="5"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="5"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="6"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position info="not_deleted" x="3440" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="6"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position info="not_deleted" x="3444" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="6"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position info="not_deleted" x="4589" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="6"/>
+</item>
+<item historyLabel="zieleArbeit.tex" index="2">
+<position info="not_deleted" x="4172" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="6"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="6"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="1"/>
+</item>
+<item historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="4646" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="1"/>
+</item>
+<item historyLabel="thesis.pdf" index="4">
+<position Page="17"/>
+</item>
+<item active="true" historyLabel="einleitung.tex" index="3">
+<position info="not_deleted" x="4646" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
