@@ -117,8 +117,8 @@ separaten Mobiltelefons.\\
 
 Von der bisher beschriebenen Menge an Funktionen ist lediglich die automatische Erfassung von Blutdruck und Puls mittels
 eines per Bluetooth angeschlossenen Messgerätes durch manuelle Erfassung substituierbar. Alle anderen Anforderungen
-müssen auf Basis der in der Literatur gewonnen Erkenntnisse umgesetzt werden, um einen sinnvollen Einsatz der mobilen
-Anwendung überhaupt erst zu ermöglichen.\\
+müssen auf Basis der in der Literatur gewonnen Erkenntnisse umgesetzt werden, um einen Betrieb der mobilen Anwendung
+überhaupt erst zu ermöglichen.\\
 
 Aus den beschriebenen funktionalen Anforderungen an die mobile Anwendung ergeben sich eine Reihe von technischen
 Anforderungen an das Endgerät. Grundanforderung ist eine Internetverbindung sowohl über ein lokales \acs{wlan}, als
@@ -132,9 +132,10 @@ und Puls angeschlossen werden, muss eine Bluetooth-Verbindung verfügbar sein.
 
 Da Alten- und Krankenpflege dem sozialen Bereich zuzuordnen ist und ein Ziel die Einsparung von Kosten ist,
 sollten die Endgeräte möglichst geringe Kosten verursachen. Obwohl grundsätzlich Tablet-PCs sowohl mit dem
-Android-Betriebssystem als auch mit iOS die technischen Anforderungen erfüllen, können Android Geräte im Schnitt zu
-einem deutlich niedrigeren Preis erworben werden \textcolor{red}{[QUELLE]}. Aus diesem Grund fällt die Entscheidung bei
-der Wahl der Plattform auf Android.
+Android-Betriebssystem als auch mit iOS die technischen Anforderungen erfüllen, können Android Geräte zu einem deutlich
+niedrigeren Preis erworben werden. Aus diesem Grund fällt die Entscheidung bei der Wahl der Plattform auf Android.
+
+
 
 \begin{itemize}
   \item Wie wurden die Anforderungen erhoben?

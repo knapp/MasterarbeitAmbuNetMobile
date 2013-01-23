@@ -89,13 +89,13 @@ Fehler bei der manuellen Eintragung von Messwerten würden somit ausgeschlossen. 
 automatische Messgerät ausfällt, muss eine manuelle Eintragung jedoch trotzdem möglich sein.\\
 Das Projekt VitaBit befasste sich, ähnlich wie diese Arbeit, mit der Dokumentation von Pflegeleistungen ambulanter
 Dienste. Auch hier musste einer Pflegekraft ein Tages-/Tourenplan angezeigt werden. Da die Leistungen ambulanter Dienste
-ausschließlich vor Ort beim Klienten erbracht werden, die häufig allein leben und nur noch eingeschränkt mobil sind, hat
-die Pflegekraft in der Regel einen Schlüssel zu den Wohnräumen des Klienten. Die Schlüssel aller Klienten werden meist
-an einem Bund zusammengefasst und mit Nummern zur Zuordnung versehen. Damit die Pflegekraft nicht erst lang nach dem
-passenden Schlüssel suchen muss, war eine Anforderung, dass die Schlüsselnummer direkt in der Übersicht der Stationen
-auftaucht. Da die in dieser Arbeit entwickelte Arbeit ebenfalls für den ambulanten Pflegedienst gedacht ist, wird diese
-Anforderung auch hier übernommen. Im Falle der stationären Betreuung von Klienten soll anstatt einer Schlüsselnummer die
-Zimmernummer in der Einrichtung angezeigt werden.\\
+ausschließlich vor Ort beim Klienten erbracht werden, die häufig allein leben und nur noch eingeschränkt mobil sind,
+hat die Pflegekraft in der Regel einen Schlüssel zu den Wohnräumen des Klienten. Die Schlüssel aller Klienten werden
+meist an einem Bund zusammengefasst und mit Nummern zur Zuordnung versehen. Damit die Pflegekraft nicht erst lang nach
+dem passenden Schlüssel suchen muss, war eine Anforderung, dass die Schlüsselnummer direkt in der Übersicht der
+Stationen auftaucht. Da die in dieser Arbeit entwickelte Arbeit ebenfalls für den ambulanten Pflegedienst gedacht ist,
+wird diese Anforderung auch hier übernommen. Im Falle der stationären Betreuung von Klienten soll anstatt einer
+Schlüsselnummer die Zimmernummer in der Einrichtung angezeigt werden.\\
 Die Zielgruppe, für die die mobile Anwendung entwickelt wird, sind Angehörige der Alten- und Pflegeberufe. Da es sich
 bei dieser Gruppe in der Regel um wenig IT-affine Personen handelt, muss die Anwendung übersichtlich strukturiert werden
 und intuitiv bedienbar sein, damit die Hürden der Benutzung durch die Bedienbarkeit möglichst gering sind. Ziel ist es,
@@ -103,38 +103,8 @@ dass das grundsätzliche Wissen über die Bedienung von Tablet-PCs sowie das Fachw
 Leistungen ausreicht, um die mobile Anwendung zu verwenden. Der Aufwand für Schulungen soll so minimal gehalten werden.
 Konzeptionell soll eine Orientierung an den graphischen Benutzerschnittstellen von iOS und Android stattfinden, den
 Betriebssystemen für mobile Geräte von Apple und Google.\\
-Eine Funktionalität, die in erster Linie für ambulante Pflegedienste interessant ist, ist die Möglichkeit die Adresse
-eines Klienten auf einer Karte anzeigen zu lassen. Alternativ könnte \acs{gps} könnte auch die aktuelle Position relativ
-zur Adresse des Klienten angezeigt werden, um eine Routenplanung durchzuführen und somit Fahrzeiten besser abschätzen zu
-können. Hierzu ist allerdings eine aktive Internetverbindung notwendig. Eine vollständige Navigation ist nicht
-geplant.\\
-Um eine Reduzierung der elektronischen Geräte zu erreichen, die eine Pflegekraft mitführen muss, ist eine Funktion zum
-Führen von Telefongesprächen hilfreich. Einerseits könnten normale Telefongespräche beispielsweise mit der Zentrale,
-Angehörigen oder Ärzten geführt werden, andererseits wäre es aber auch möglich, einen Notruf-Knopf in die Anwendung zu
-integrieren, um in Notsituationen direkt Hilfe anfordern zu können. Beschränkt wird die Funktionalität zwar durch die
-Notwendigkeit der Verfügbarkeit eines Mobilfunknetzes, jedoch kann diese Einschränkung ebenso beim Mitführen eines
-separaten Mobiltelefons.\\
 
-Von der bisher beschriebenen Menge an Funktionen ist lediglich die automatische Erfassung von Blutdruck und Puls mittels
-eines per Bluetooth angeschlossenen Messgerätes durch manuelle Erfassung substituierbar. Alle anderen Anforderungen
-müssen auf Basis der in der Literatur gewonnen Erkenntnisse umgesetzt werden, um einen sinnvollen Einsatz der mobilen
-Anwendung überhaupt erst zu ermöglichen.\\
 
-Aus den beschriebenen funktionalen Anforderungen an die mobile Anwendung ergeben sich eine Reihe von technischen
-Anforderungen an das Endgerät. Grundanforderung ist eine Internetverbindung sowohl über ein lokales \acs{wlan}, als
-auch über ein Mobilfunknetz, um Tourendaten und Aktualisierungen empfangen und senden zu könnnen. Zur Dokumentation von
-Wunden per Foto muss eine Kamera mit einer ausreichend hohen Auflösung vorhanden sein, damit das medizinische Personal
-bei der Beurteilung der Wunden nicht durch schlechte Bildqualität eingeschränkt wird. Zur Unterstützung der intuitiven
-Bedienung sollte das mobile Gerät einen berührungsempfindlichen Bildschirm haben, was aber bei allen Engeräten der Fall
-sein sollte, da dies eines der Hauptmerkmale von Tablet-PCs ist. Zur Bestimmung der Position einer Pflegekraft, um die
-Route zum nächsten Klienten zu berechnen, muss eine \acs{gps}-Verbindung möglich sein. Sollen Messgeräte für Blutdruck
-und Puls angeschlossen werden, muss eine Bluetooth-Verbindung verfügbar sein.
-
-Da Alten- und Krankenpflege dem sozialen Bereich zuzuordnen ist und ein Ziel die Einsparung von Kosten ist,
-sollten die Endgeräte möglichst geringe Kosten verursachen. Obwohl grundsätzlich Tablet-PCs sowohl mit dem
-Android-Betriebssystem als auch mit iOS die technischen Anforderungen erfüllen, können Android Geräte im Schnitt zu
-einem deutlich niedrigeren Preis erworben werden \textcolor{red}{[QUELLE]}. Aus diesem Grund fällt die Entscheidung bei
-der Wahl der Plattform auf Android.
 
 \begin{itemize}
   \item Wie wurden die Anforderungen erhoben?
@@ -169,9 +139,8 @@ der Wahl der Plattform auf Android.
 			  		\item Erfassung von Vitalwerten (Blutdruck, Puls), evtl. mittels automatischer Erfassung [CHECK]
 			  		\item Schlüsselnummer für Hausbesuche bzw. Zimmernummer bei stationären Behandlungen (aus VitaBIT)	[CHECK]		  		
 			  		\item Klar und übersichtlich strukturierte Anwendung, intuitive Bedienung (am besten Touch, Endnutzerwissen)
-			  		[CHECK]
-			  		\item Für ambulanten Dienst eventuell Navigation mittels GPS [CHECK]
-			  		\item Telefongespräche? [CHECK]
+			  		\item Für ambulanten Dienst eventuell Navigation mittels GPS
+			  		\item Telefongespräche?
 			  		\item \ldots   
 		  	    \end{itemize}
 		  	\item Abgeleitete technische Anforderungen

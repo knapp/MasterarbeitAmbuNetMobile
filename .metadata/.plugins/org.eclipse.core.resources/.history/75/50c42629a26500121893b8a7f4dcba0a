@@ -117,24 +117,12 @@ separaten Mobiltelefons.\\
 
 Von der bisher beschriebenen Menge an Funktionen ist lediglich die automatische Erfassung von Blutdruck und Puls mittels
 eines per Bluetooth angeschlossenen Messgerätes durch manuelle Erfassung substituierbar. Alle anderen Anforderungen
-müssen auf Basis der in der Literatur gewonnen Erkenntnisse umgesetzt werden, um einen sinnvollen Einsatz der mobilen
-Anwendung überhaupt erst zu ermöglichen.\\
+müssen auf Basis der in der Literatur gewonnen Erkenntnisse umgesetzt werden, um einen Betrieb der mobilen Anwendung
+überhaupt erst zu ermöglichen.\\
 
-Aus den beschriebenen funktionalen Anforderungen an die mobile Anwendung ergeben sich eine Reihe von technischen
-Anforderungen an das Endgerät. Grundanforderung ist eine Internetverbindung sowohl über ein lokales \acs{wlan}, als
-auch über ein Mobilfunknetz, um Tourendaten und Aktualisierungen empfangen und senden zu könnnen. Zur Dokumentation von
-Wunden per Foto muss eine Kamera mit einer ausreichend hohen Auflösung vorhanden sein, damit das medizinische Personal
-bei der Beurteilung der Wunden nicht durch schlechte Bildqualität eingeschränkt wird. Zur Unterstützung der intuitiven
-Bedienung sollte das mobile Gerät einen berührungsempfindlichen Bildschirm haben, was aber bei allen Engeräten der Fall
-sein sollte, da dies eines der Hauptmerkmale von Tablet-PCs ist. Zur Bestimmung der Position einer Pflegekraft, um die
-Route zum nächsten Klienten zu berechnen, muss eine \acs{gps}-Verbindung möglich sein. Sollen Messgeräte für Blutdruck
-und Puls angeschlossen werden, muss eine Bluetooth-Verbindung verfügbar sein.
 
-Da Alten- und Krankenpflege dem sozialen Bereich zuzuordnen ist und ein Ziel die Einsparung von Kosten ist,
-sollten die Endgeräte möglichst geringe Kosten verursachen. Obwohl grundsätzlich Tablet-PCs sowohl mit dem
-Android-Betriebssystem als auch mit iOS die technischen Anforderungen erfüllen, können Android Geräte im Schnitt zu
-einem deutlich niedrigeren Preis erworben werden \textcolor{red}{[QUELLE]}. Aus diesem Grund fällt die Entscheidung bei
-der Wahl der Plattform auf Android.
+
+
 
 \begin{itemize}
   \item Wie wurden die Anforderungen erhoben?
