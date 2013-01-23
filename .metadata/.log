@@ -1098,3 +1098,119 @@ org.eclipse.core.runtime.AssertionFailedException: unknown saveable: org.eclipse
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+!SESSION 2013-01-22 10:23:31.136 -----------------------------------------------
+eclipse.buildId=I20120608-1200
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 4 2 2013-01-22 18:38:32.769
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at net.sourceforge.texlipse.TexlipsePlugin.getCurrentWorkbenchPage(TexlipsePlugin.java:259)
+	at net.sourceforge.texlipse.TexlipsePlugin.getCurrentProject(TexlipsePlugin.java:221)
+	at net.sourceforge.texlipse.viewer.ViewerManager.initialize(ViewerManager.java:277)
+	at net.sourceforge.texlipse.viewer.ViewerManager.closeOutputDocument(ViewerManager.java:184)
+	at net.sourceforge.texlipse.builder.TexBuilder.buildResource(TexBuilder.java:241)
+	at net.sourceforge.texlipse.builder.AbstractBuilder.build(AbstractBuilder.java:121)
+	at net.sourceforge.texlipse.builder.TexlipseBuilder.buildFile(TexlipseBuilder.java:370)
+	at net.sourceforge.texlipse.builder.TexlipseBuilder.build(TexlipseBuilder.java:102)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 75 2013-01-22 18:38:32.831
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 net.sourceforge.texlipse 4 75 2013-01-22 18:38:32.831
+!MESSAGE Errors running builder 'Latex Builder' on project 'ProjectMACareNetMobile'.
+!STACK 0
+java.lang.NullPointerException
+	at net.sourceforge.texlipse.TexlipsePlugin.getCurrentWorkbenchPage(TexlipsePlugin.java:259)
+	at net.sourceforge.texlipse.TexlipsePlugin.getCurrentProject(TexlipsePlugin.java:221)
+	at net.sourceforge.texlipse.viewer.ViewerManager.initialize(ViewerManager.java:277)
+	at net.sourceforge.texlipse.viewer.ViewerManager.closeOutputDocument(ViewerManager.java:184)
+	at net.sourceforge.texlipse.builder.TexBuilder.buildResource(TexBuilder.java:241)
+	at net.sourceforge.texlipse.builder.AbstractBuilder.build(AbstractBuilder.java:121)
+	at net.sourceforge.texlipse.builder.TexlipseBuilder.buildFile(TexlipseBuilder.java:370)
+	at net.sourceforge.texlipse.builder.TexlipseBuilder.build(TexlipseBuilder.java:102)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2013-01-23 10:08:39.325 -----------------------------------------------
+eclipse.buildId=I20120608-1200
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 4 2 2013-01-23 13:44:51.491
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at net.sourceforge.texlipse.TexlipsePlugin.getCurrentWorkbenchPage(TexlipsePlugin.java:259)
+	at net.sourceforge.texlipse.TexlipsePlugin.getCurrentProject(TexlipsePlugin.java:221)
+	at net.sourceforge.texlipse.viewer.ViewerManager.initialize(ViewerManager.java:277)
+	at net.sourceforge.texlipse.viewer.ViewerManager.closeOutputDocument(ViewerManager.java:184)
+	at net.sourceforge.texlipse.builder.TexBuilder.buildResource(TexBuilder.java:241)
+	at net.sourceforge.texlipse.builder.AbstractBuilder.build(AbstractBuilder.java:121)
+	at net.sourceforge.texlipse.builder.TexlipseBuilder.buildFile(TexlipseBuilder.java:370)
+	at net.sourceforge.texlipse.builder.TexlipseBuilder.build(TexlipseBuilder.java:102)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 75 2013-01-23 13:44:51.583
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 net.sourceforge.texlipse 4 75 2013-01-23 13:44:51.583
+!MESSAGE Errors running builder 'Latex Builder' on project 'ProjectMACareNetMobile'.
+!STACK 0
+java.lang.NullPointerException
+	at net.sourceforge.texlipse.TexlipsePlugin.getCurrentWorkbenchPage(TexlipsePlugin.java:259)
+	at net.sourceforge.texlipse.TexlipsePlugin.getCurrentProject(TexlipsePlugin.java:221)
+	at net.sourceforge.texlipse.viewer.ViewerManager.initialize(ViewerManager.java:277)
+	at net.sourceforge.texlipse.viewer.ViewerManager.closeOutputDocument(ViewerManager.java:184)
+	at net.sourceforge.texlipse.builder.TexBuilder.buildResource(TexBuilder.java:241)
+	at net.sourceforge.texlipse.builder.AbstractBuilder.build(AbstractBuilder.java:121)
+	at net.sourceforge.texlipse.builder.TexlipseBuilder.buildFile(TexlipseBuilder.java:370)
+	at net.sourceforge.texlipse.builder.TexlipseBuilder.build(TexlipseBuilder.java:102)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

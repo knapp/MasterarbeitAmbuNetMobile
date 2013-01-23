@@ -1,0 +1,7 @@
+\chapter*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+
+\begin{acronym}
+	\acro{drk}[DRK]{Deutsches Rotes Kreuz}
+
+\end{acronym}

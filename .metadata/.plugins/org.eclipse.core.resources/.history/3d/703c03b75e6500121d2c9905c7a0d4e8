@@ -1,0 +1,9 @@
+\chapter*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+
+\begin{acronym}{SEPSEP}
+	\acro{verah}[VERAH]{Versorgungsassistentin in der Hausarztpraxis}
+	\acro{mfp}[MFP]{Medizinische Fachpflegekraft}
+	\acro{drk}[DRK]{Deutsches Rotes Kreuz}
+
+\end{acronym}

@@ -20,6 +20,7 @@
 %% 
 
 \usepackage{graphicx}
+\usepackage[printonlyused]{acronym}
 %http://en.wikibooks.org/wiki/LaTeX/Importing_Graphics#Graphics_storage
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 \graphicspath{{./figures/}} %Use curly braces for each path to add and don't
@@ -113,6 +114,7 @@ Information \& Market Engineering}}
 % Userful command for partially translating the document (for bug-fixing e.g.)
 \includeonly{%
 titlepage,
+text/acronyms,
 text/einleitung,
 text/zieleArbeit,
 text/anforderungsanalyse,
@@ -143,6 +145,9 @@ text/appendix
 %% |   Directories   |
 %% -------------------
 \tableofcontents
+\listoffigures
+\listoftables
+\include{text/acronyms}
 % IM Style: No additional blank page
 % \blankpage
 

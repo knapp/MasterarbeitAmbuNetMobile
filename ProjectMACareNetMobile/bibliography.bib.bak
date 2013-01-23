@@ -77,6 +77,15 @@
   timestamp = {2012.11.19}
 }
 
+@ELECTRONIC{residenzBF,
+  month = {01},
+  year = {2013},
+  organization = {Residenz Bad Friedrichshall},
+  url = {http://www.pflegedienste-hn.drk.de/},
+  owner = {Thomas},
+  timestamp = {2013.01.22}
+}
+
 @RICHTLINIE{richtlinie,
   institution = {Gemeinsamer Bundesausschuss},
   title = {{Richtlinie des Gemeinsamen Bundesauschusses über die Festlegung
