@@ -32,11 +32,20 @@ I.~für hausärztliche Fortbildung im Deutschen Hausärzteverband (IhF)~e. V.,
   ``{Versorgungsassistentin in der Hausarztpraxis - VERAH® [Informationen für
   Praxisinhaber]},'' 2008.
 
+\bibitem[GMR12]{bluetoothPuls}
+R.~Görlitz, L.~Müller, and A.~Rashid, ``An individual patient-oriented stroke
+  manager architecture,'' in \emph{Proceedings of the eHealth2012}, Schreier,
+  Hayn, Hörbst, and Ammenwerth, Eds., Wien, Österreich, Mai 2012.
+
 \bibitem[Har10]{diplChristina}
 C.~Hardt, ``{Entwicklung eines prototypischen Softwaresystems zur Unterstützung
   der Kommunikation und Dokumentation in der stationären Pflege},''
   Diplomarbeit, {Hochschule Karlsruhe Technik und Wirtschaft; Universität
   Karlsruhe (TH)}, April 2010.
+
+\bibitem[Kli10]{vitaBithaeuslich}
+D.~Klingbeil, ``{Mehr Zeit für die Pflege der Kunden},'' \emph{{Häusliche
+  Pflege}}, vol.~11, pp. 32--34, November 2010.
 
 \bibitem[Kop10]{kopetsch2010}
 D.~T. Kopetsch, ``{Dem deutschen Gesundheitswesen gehen die Ärzte aus! Studie
@@ -71,5 +80,18 @@ N.~van~den Berg, C.~Meinke, R.~Heymann, T.~Fiß, E.~Suckert, C.~Pöller,
   Hausarztunterstützung durch qualifizierte Praxismitarbeiter; Evaluation der
   Modellprojekte: Qualität und Akzeptanz},'' \emph{Deutsches Ärzteblatt}, vol.
   Heft 1-2, no. 106, pp. 3--9, Januar 2009.
+
+\bibitem[Vit09]{vitaBitAerzteblatt}
+F.~VitaBIT, ``{Pflegeservice von morgen},'' \emph{{Deutsches Ärzteblatt}}, vol.
+  106, no.~50, pp. 3,4, 2009.
+
+\bibitem[zMNS05]{zurMuehlen20059}
+\BIBentryALTinterwordspacing
+M.~zur Muehlen, J.~V. Nickerson, and K.~D. Swenson, ``{Developing web services
+  choreography standards - the case REST vs. SOAP},'' \emph{Decision Support
+  Systems}, vol.~40, no.~1, pp. 9 -- 29, 2005, <ce:title>Web services and
+  process management</ce:title>. [Online]. Available:
+  \url{http://www.sciencedirect.com/science/article/pii/S0167923604000612}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

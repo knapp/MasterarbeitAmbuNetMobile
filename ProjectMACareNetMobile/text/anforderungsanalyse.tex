@@ -23,7 +23,7 @@ Dokumentation von Blutdruck und Puls als wertbasierte Leistungen notwendig ist, 
 Weitere zu dokumentierende Werte konnten erst bei einem Treffen mit den Endnutzern ermittelt werden. Die Ergebnisse
 werden in Kapitel \ref{sec:evalEndnutzer} vorgestellt.\\
 
-Das Ausbildungsprogramm zu einer \acs{mfp} nimmt keine Einschränkung des Arbeitsgebietes vor. Eine Pflegekraft kann
+Das Ausbildungsprogramm zu einer \ac{mfp} nimmt keine Einschränkung des Arbeitsgebietes vor. Eine Pflegekraft kann
 somit sowohl stationär in einer Pflegeeinrichtung arbeiten, als auch im ambulanten Dienst tätig sein, bei der die
 jeweiligen Klienten besucht werden. Die mobile Anwendung ist folglich so zu gestalten, dass beide Einsatzbereiche
 abgedeckt werden können. Es ist zu erwarten, dass die zu erbringenden Leistungen im stationären und im ambulanten
@@ -84,9 +84,11 @@ in der mobilen Anwendung, die es ermöglicht, direkt über eine interne Kamera Wun
 zentrale System zu übertragen.\\
 Eine ähnliche Anforderung wurde bei der Erfassung der Vitalwerte wie Puls und Blutdruck identifiziert. Neben der
 manuellen Messung und Eintragung der ermittelten Werte gäbe es die Möglichkeit, ein automatisches Messgerät via
-Bluetooth an das mobile Endgerät anzuschließen und damit die Messung und Eintragung vollständig zu automatisieren.
-Fehler bei der manuellen Eintragung von Messwerten würden somit ausgeschlossen. Da die Möglichkeit besteht, dass das
-automatische Messgerät ausfällt, muss eine manuelle Eintragung jedoch trotzdem möglich sein.\\
+Bluetooth an das mobile Endgerät anzuschließen und damit die Messung und Eintragung vollständig zu automatisieren. Dass
+dies grundsätzlich möglich ist, wurde im Projekt \textit{Stroke Manager} des \ac{fzi} gezeigt \cite{bluetoothPuls}. Die
+automatische Erfassung würde Fehler bei der manuellen Eintragung von Messwerten würden somit ausgeschlossen.
+Da die Möglichkeit besteht, dass das automatische Messgerät ausfällt, muss eine manuelle Eintragung jedoch trotzdem
+möglich sein.\\
 Das Projekt VitaBit befasste sich, ähnlich wie diese Arbeit, mit der Dokumentation von Pflegeleistungen ambulanter
 Dienste. Auch hier musste einer Pflegekraft ein Tages-/Tourenplan angezeigt werden. Da die Leistungen ambulanter Dienste
 ausschließlich vor Ort beim Klienten erbracht werden, die häufig allein leben und nur noch eingeschränkt mobil sind, hat
@@ -104,7 +106,7 @@ Leistungen ausreicht, um die mobile Anwendung zu verwenden. Der Aufwand für Schu
 Konzeptionell soll eine Orientierung an den graphischen Benutzerschnittstellen von iOS und Android stattfinden, den
 Betriebssystemen für mobile Geräte von Apple und Google.\\
 Eine Funktionalität, die in erster Linie für ambulante Pflegedienste interessant ist, ist die Möglichkeit die Adresse
-eines Klienten auf einer Karte anzeigen zu lassen. Alternativ könnte \acs{gps} könnte auch die aktuelle Position relativ
+eines Klienten auf einer Karte anzeigen zu lassen. Alternativ könnte \ac{gps} könnte auch die aktuelle Position relativ
 zur Adresse des Klienten angezeigt werden, um eine Routenplanung durchzuführen und somit Fahrzeiten besser abschätzen zu
 können. Hierzu ist allerdings eine aktive Internetverbindung notwendig. Eine vollständige Navigation ist nicht
 geplant.\\
@@ -121,11 +123,11 @@ müssen auf Basis der in der Literatur gewonnen Erkenntnisse umgesetzt werden, um
 Anwendung überhaupt erst zu ermöglichen.\\
 
 Aus den beschriebenen funktionalen Anforderungen an die mobile Anwendung ergeben sich eine Reihe von technischen
-Anforderungen an das Endgerät. Grundanforderung ist eine Internetverbindung sowohl über ein lokales \acs{wlan}, als
-auch über ein Mobilfunknetz, um Tourendaten und Aktualisierungen empfangen und senden zu könnnen. Zur Dokumentation von
+Anforderungen an das Endgerät. Grundanforderung ist eine Internetverbindung sowohl über ein lokales \ac{wlan}, als
+auch über ein Mobilfunknetz, um Tourendaten und Aktualisierungen empfangen und senden zu können. Zur Dokumentation von
 Wunden per Foto muss eine Kamera mit einer ausreichend hohen Auflösung vorhanden sein, damit das medizinische Personal
 bei der Beurteilung der Wunden nicht durch schlechte Bildqualität eingeschränkt wird. Zur Unterstützung der intuitiven
-Bedienung sollte das mobile Gerät einen berührungsempfindlichen Bildschirm haben, was aber bei allen Engeräten der Fall
+Bedienung sollte das mobile Gerät einen berührungsempfindlichen Bildschirm haben, was aber bei allen Enderäten der Fall
 sein sollte, da dies eines der Hauptmerkmale von Tablet-PCs ist. Zur Bestimmung der Position einer Pflegekraft, um die
 Route zum nächsten Klienten zu berechnen, muss eine \acs{gps}-Verbindung möglich sein. Sollen Messgeräte für Blutdruck
 und Puls angeschlossen werden, muss eine Bluetooth-Verbindung verfügbar sein.
@@ -136,83 +138,65 @@ Android-Betriebssystem als auch mit iOS die technischen Anforderungen erfüllen, 
 einem deutlich niedrigeren Preis erworben werden \textcolor{red}{[QUELLE]}. Aus diesem Grund fällt die Entscheidung bei
 der Wahl der Plattform auf Android.
 
-\begin{itemize}
-  \item Wie wurden die Anforderungen erhoben?
-	  \begin{itemize}
-	  		\item Richtlinie
-	  		\item Gespräche mit Raymond
-	  		\item Gespräche Corinna
-	  		\item Gesunder Menschenverstand
-	  		\item Wissen über Zielgruppe
-	  		\item Artikel Ärzteblatt
-	  		\item Diplomarbeit Christina Hardt
-	  		\item Projekt VitaBit (Schlüsselnummer, Tourenplan)
-	  		\item \ldots   
-  	  \end{itemize}
-  \item Kernanforderungen (Prio A)
-  	\begin{itemize}
-	  		\item Funktionalität
-	  			\begin{itemize}
-			  		\item Informationen über Klienten müssen verfügbar sein (Patientenakte) [CHECK]
-			  		\item Persönliche Daten $\rightarrow$ Schutz durch Login-Funktion [CHECK]
-			  		\item Dokumentation von Tätigkeiten aus Richtlinie muss möglich sein [CHECK]
-			  		\item ambulante und stationäre Pflege abdecken! [CHECK]			  		
-			  		\item Dokumentierte Tätigkeiten müssen an zentrales System übertragbar sein [CHECK] 
-			  		\item Ablaufplan jeweils für eine MFP pro Tag/Schicht	[CHECK]	
-			  		\item Übersicht, ob jeweilige Station schon vollständig abgearbeitet [CHECK]	  		
-			  		\item Es muss eine Tätigkeit als \textit{nicht durchgeführt} markiert werden können + Begründung,falls etwas			  		
-			  		dazwischenkommt [CHECK]
-			  		\item Einmal dokumentierte Werte sollten korrigierbar sein [CHECK]
-			  		\item Nachvollziehbarkeit von Änderungen [CHECK]		  		
-			  		\item Daten "`offline"' auf dem Endgerät verfügbar, d.h. keine zwangsläufige Internetverbindung [CHECK]
-			  		\item Dokumentation von Wunden (Fotos) [CHECK]
-			  		\item Erfassung von Vitalwerten (Blutdruck, Puls), evtl. mittels automatischer Erfassung [CHECK]
-			  		\item Schlüsselnummer für Hausbesuche bzw. Zimmernummer bei stationären Behandlungen (aus VitaBIT)	[CHECK]		  		
-			  		\item Klar und übersichtlich strukturierte Anwendung, intuitive Bedienung (am besten Touch, Endnutzerwissen)
-			  		[CHECK]
-			  		\item Für ambulanten Dienst eventuell Navigation mittels GPS [CHECK]
-			  		\item Telefongespräche? [CHECK]
-			  		\item \ldots   
-		  	    \end{itemize}
-		  	\item Abgeleitete technische Anforderungen
-			   \begin{itemize}
-			     	\item sozialer Kontext $\rightarrow$ günstige Hardware
-			  		\item da zentrales System über REST (Erklärung REST!) kommuniziert, muss diese Schnittstelle bedient werden
-			  		\item \textbf{Hardware:} mobiles Endgerät muss internetfähig sein (am besten über Mobilfunknetze für ambulanten
-			  		Dienst), eine Kamera haben (Wunddokumentation), am besten Touch-Bedienung, darf trotzdem nicht so teuer sein, evtl. GPS, falls
-			  		automatische Erfassung evtl. Bluetooth $\rightarrow$ Android-Tablet
-			  		\item Falls doch jemand Apple will, nach Mglk. suchen, wie das evtl. auch bedienst werden kann
-			  		\item Änderungen an zu dokumentierenden Tätigkeiten sind zu erwarten, also möglichst flexible Architektur
-			  		\item Lokale Datenbanken müssen einrichtbar sein
-			  		\item \ldots   
-		  	  \end{itemize} 
-	  		\item \ldots   
-  	  \end{itemize}
-  \item Wünschenswerte Eigenschaften, um Nutzungskomfort zu steigern (Prio B)
-  \item Anforderungen, die über die reine Dokumentation oder dessen Unterstützung hinausgehen (Prio C, werden in der Arbeit nicht behandelt)
-\end{itemize}
+
 
 \section{Entwurfsentscheidungen des Gesamtsystems auf Basis der erhobenen Anforderungen}
 \label{sec:entwurfsentscheidungen}
 
+Zur Dokumentation von Pflegetätigkeiten auf Tablet-PC-ähnlichen Endgeräten arbeitete Christina Hardt
+\cite{diplChristina} in Ihrer Diplomarbeit mit der im Projekt VitaBIT (\cite{vitaBitAerzteblatt} und
+\cite{vitaBithaeuslich}) entwickelten Software. Diese bietet bereits Datenstrukturen für Tourenpläne und die Definition
+von zu erledigenden Tätigkeiten pro Station. Da die Anforderungen dieser Arbeit auch Touren- bzw. Schichtpläne
+benötigen, um diese auf einem Tablet-PC abrufen und anzeigen zu können, wird VitaVBIT die Basis für das in Kapitel
+\ref{ch:ziele} beschriebene zentrale System darstellen. Da es im Kontext dieser Arbeit aber nicht mehr
+um die Dokumentation von Pflegetätigkeiten geht, sondern um die effiziente Übertragung ärztlicher Tätigkeiten an
+Pflegepersonal, müssen Änderungen an VitaBIT vorgenommen werden. Um den Änderungen und dem Kontext der vernetzten Pflege
+auch namentlich gerecht zu werden, wurde das zentrale System in CareNet (Care = Pflege, Net = Netz) umbenannt.\\
+
+\begin{figure}
+	\includegraphics{figures/VerwendeteTechnologienGesamtsystem.pdf}
+	\caption{Verwendete Technologien in der Gesamtarchitektur}
+	\label{fig:technologien}
+\end{figure}
+
+Abbildung \ref{fig:technologien} zeigt die Komponenten des Gesamtsystems erweitert um die verwendeten
+Technologien, auf denen diese basieren. Die Kommunikation zwischen den Komponenten erfolgt via Internet
+mittels \acs{rest}. \acs{rest} steht für \textit{\acl{rest}} und stellt einen Architekturstil zur zustandslosen
+Interaktion dar. Im Gegensatz zu aufwendigen Sitzungen (Sessions), die von Servern während der Interaktion mit einem
+Benutzer verwaltet werden müssen, werden bei dem REST-Prinzip vorberechnete Ressourcen, beispielsweise eine Webseite,
+über eine \acs{uri} (\acl{uri}) referenziert und geladen. Alle Informationen über den Kontext einer Anfrage sind in der
+Anfrage selbst enthalten und es werden keine weiteren lokal beim Nutzer oder auf dem Server gespeicherten Informationen
+benötigt. Eine Kommunikation via \acs{rest} bedeutet eine lose Verkoppelung von vordefinierten Ressourcen, durch die ein
+Nutzer anhand gegebener \acs{uri}s navigieren kann. Es werden lediglich die grundlegenden \acs{http}-Methoden PUT, POST,
+GET und DELETE verwendet, um Anfragen zu formulieren. Übertragen werden Ressourcen bzw. Datenobjekte in der Regel in
+Form einer \acs{xml}- oder \acs{json}-Datei \cite[S. 19]{zurMuehlen20059}.\\
+
+Die Einführung einer Middleware hat zwei Gründe. Der erste ist die bereits in Kapitel \ref{ch:ziele} erwähnte
+Platzhalterfunktion, um weitere Schnittstellen zu CareNet implementieren zu können, ohne CareNet selbst verändern zu
+müssen. Der zweite Grund ist das so genannte \textit{Cross Domain Calling}-Problem
+
+
+
 \begin{itemize}
-  \item Kurze Erklärung der Kommunikation zwischen App und zentralem System (CareNet). Erklärung,  
-  warum Middleware notwendig (Cross Domain Calling) und warum gewünscht (Erweiterung um
+  \item Zentrales System: CareNet, basierend auf VitaBit [CHECK]
+  \item Kommunikation mit REST; Was ist REST? Prinzipien? [CHECK]
+  \item Erklärung, warum Middleware notwendig (Cross Domain Calling) und warum gewünscht (Erweiterung um
   Schnittstellen zu Krankenhäusern und Hausarztpraxen).
   \item Middleware
   	\begin{itemize}
   	 	\item Technologie (PHP)
-  	 	\item Wo wird Middleware positioniert? Welcher Server? (konzeptionell)
-  	 	\item Kommunikation mit REST (Was ist es? Was sind die Vorteile? Wie wird Sicherheit
-  	 	hergestellt?)  	 	
+  	 	\item Wo wird Middleware positioniert? Welcher Server? (konzeptionell)  	 	
   	\end{itemize}
   \item Technologie des Software-Assistenten
   	\begin{itemize}
   	  \item Warum überhaupt Tablet? (Vgl. mit Diplomarbeit der anderen Studentin auf Nokia-Handy)
   	  \item Plattform (Android)
-  	  \item Nativ vs. hybrid
+  	  \item Nativ vs. hybrid (Erklärung von PhoneGap und Zusammenhang mit jQuery mobile)
+  	  \item Lokale Datenbanken müssen einrichtbar sein
+  	  \item Falls doch jemand Apple will, nach Mglk. suchen, wie das evtl. auch bedienst werden kann
   	\end{itemize}
   \item Architektur (Plug-In-Struktur)
+  \item Änderungen an zu dokumentierenden Tätigkeiten sind zu erwarten, also möglichst flexible Architektur
   \begin{itemize}
   	  \item Warum Plug-In? Vorteile?
   	  \item Argumentation mit Wartbarkeit (ISO-Richtlinie), Erwartete Änderungen der Anforderungen,

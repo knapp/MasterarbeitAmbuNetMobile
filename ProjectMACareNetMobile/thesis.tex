@@ -121,7 +121,7 @@ text/anforderungsanalyse,
 text/plugins,
 text/evaluation,
 text/ausblick,
-text/fazit,
+%text/fazit,
 text/declaration,
 text/appendix
 }
@@ -145,8 +145,13 @@ text/appendix
 %% |   Directories   |
 %% -------------------
 \tableofcontents
+
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 \listoffigures
+
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 \listoftables
+
 \include{text/acronyms}
 % IM Style: No additional blank page
 % \blankpage
@@ -163,7 +168,7 @@ text/appendix
 \include{text/plugins}
 \include{text/evaluation}
 \include{text/ausblick}
-\include{text/fazit}
+%\include{text/fazit}
 \include{text/declaration}
 
 %% ----------------

@@ -49,6 +49,43 @@
   timestamp = {2013.01.16}
 }
 
+@INPROCEEDINGS{bluetoothPuls,
+  author = {Roland Görlitz and Lars Müller and Asarnusch Rashid},
+  title = {An individual patient-oriented stroke manager architecture},
+  booktitle = {Proceedings of the eHealth2012},
+  year = {2012},
+  editor = {Schreier and Hayn and Hörbst and Ammenwerth},
+  address = {Wien, Österreich},
+  month = {Mai},
+  owner = {Thomas},
+  timestamp = {2013.01.24}
+}
+
+@MASTERSTHESIS{diplChristina,
+  author = {Christina Hardt},
+  title = {{Entwicklung eines prototypischen Softwaresystems zur Unterstützung
+	der Kommunikation und Dokumentation in der stationären Pflege}},
+  school = {{Hochschule Karlsruhe Technik und Wirtschaft; Universität Karlsruhe
+	(TH)}},
+  year = {2010},
+  type = {Diplomarbeit},
+  month = {April},
+  owner = {Thomas},
+  timestamp = {2013.01.23}
+}
+
+@ARTICLE{vitaBithaeuslich,
+  author = {Darren Klingbeil},
+  title = {{Mehr Zeit für die Pflege der Kunden}},
+  journal = {{Häusliche Pflege}},
+  year = {2010},
+  volume = {11},
+  pages = {32-34},
+  month = {November},
+  owner = {Thomas},
+  timestamp = {2013.01.24}
+}
+
 @TECHREPORT{kopetsch2010,
   author = {Dr. Thomas Kopetsch},
   title = {{Dem deutschen Gesundheitswesen gehen die Ärzte aus! Studie zur Altersstruktur-und
@@ -66,6 +103,22 @@
   timestamp = {2012.11.19}
 }
 
+@ARTICLE{zurMuehlen20059,
+  author = {Michael zur Muehlen and Jeffrey V. Nickerson and Keith D. Swenson},
+  title = {{Developing web services choreography standards - the case REST vs.
+	SOAP}},
+  journal = {Decision Support Systems},
+  year = {2005},
+  volume = {40},
+  pages = {9 - 29},
+  number = {1},
+  note = {<ce:title>Web services and process management</ce:title>},
+  doi = {10.1016/j.dss.2004.04.008},
+  issn = {0167-9236},
+  keywords = {Workflow},
+  url = {http://www.sciencedirect.com/science/article/pii/S0167923604000612}
+}
+
 @MISC{stat2050,
   author = {Statistisches Bundesamt - Pressestelle},
   title = {{Bevölkerung Deutschlands bis 2050 - 11. koordinierte Bevölkerungsvorausberechnung}},
@@ -77,6 +130,28 @@
   timestamp = {2012.11.19}
 }
 
+@ARTICLE{vitaBitAerzteblatt,
+  author = {Forschungsprojekt VitaBIT},
+  title = {{Pflegeservice von morgen}},
+  journal = {{Deutsches Ärzteblatt}},
+  year = {2009},
+  volume = {106},
+  pages = {3,4},
+  number = {50},
+  owner = {Thomas},
+  timestamp = {2013.01.24}
+}
+
+@ELECTRONIC{mozillaSop,
+  month = {Januar},
+  year = {2013},
+  title = {Same-origin policy},
+  organization = {{Mozilla Developer Network and individual contributors}},
+  url = {https://developer.mozilla.org/en-US/docs/JavaScript/Same_origin_policy_for_JavaScript},
+  owner = {Thomas},
+  timestamp = {2013.01.24}
+}
+
 @ELECTRONIC{residenzBF,
   month = {01},
   year = {2013},
@@ -84,6 +159,16 @@
   url = {http://www.pflegedienste-hn.drk.de/},
   owner = {Thomas},
   timestamp = {2013.01.22}
+}
+
+@ELECTRONIC{,
+  month = {Januar},
+  year = {2013},
+  title = {{Same Origin Policy}},
+  organization = {{W3C - World Wide Web Consortium}},
+  url = {http://www.w3.org/Security/wiki/Same_Origin_Policy},
+  owner = {Thomas},
+  timestamp = {2013.01.24}
 }
 
 @RICHTLINIE{richtlinie,
