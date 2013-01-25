@@ -222,7 +222,7 @@ Vorteile in Bezug auf Kosten und Zeit gegenüber der Entwicklung individueller na
 Als Anforderung an \app wurde zwar zunächst nur die Bereitstellung auf Android-Endgeräten gefordert, jedoch ist nicht
 auszuschließen, dass in Zukunft auch die Nutzbarkeit auf iOS- oder Windows-Geräten gefordert wird. Da es mit der
 Verwendung von PhoneGap möglich ist, diese Option mit geringem Aufwand offen zu halten, wurde entschieden, \app in als
-hybride Anwendung zu entwickeln. \textcolor{red}{[Same Origin Policy reinnehmen?]}\\
+hybride Anwendung zu entwickeln. \textit{[Same Origin Policy reinnehmen?]}\\
 Zusammen mit PhoneGap bietet sich die Verwendung bereits existierender JavaScript-Bibliotheken an, die zum Entwurf
 touch-optimierter Benutzeroberflächen entwickelt wurden. Zwei verbreite Bibliotheken sind jQuery mobile .\cite{jqmobile}
 und Sencha Touch \cite{sencha}. Im Kontext dieser Arbeit wurde jQuery mobile aufgrund der Einfachheit in der Entwicklung

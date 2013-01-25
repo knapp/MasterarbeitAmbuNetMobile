@@ -222,7 +222,7 @@ Vorteile in Bezug auf Kosten und Zeit gegenüber der Entwicklung individueller na
 Als Anforderung an \app wurde zwar zunächst nur die Bereitstellung auf Android-Endgeräten gefordert, jedoch ist nicht
 auszuschließen, dass in Zukunft auch die Nutzbarkeit auf iOS- oder Windows-Geräten gefordert wird. Da es mit der
 Verwendung von PhoneGap möglich ist, diese Option mit geringem Aufwand offen zu halten, wurde entschieden, \app in als
-hybride Anwendung zu entwickeln. \textcolor{red}{[Same Origin Policy reinnehmen?]}\\
+hybride Anwendung zu entwickeln. \textit{[Same Origin Policy reinnehmen?]}\\
 Zusammen mit PhoneGap bietet sich die Verwendung bereits existierender JavaScript-Bibliotheken an, die zum Entwurf
 touch-optimierter Benutzeroberflächen entwickelt wurden. Zwei verbreite Bibliotheken sind jQuery mobile .\cite{jqmobile}
 und Sencha Touch \cite{sencha}. Im Kontext dieser Arbeit wurde jQuery mobile aufgrund der Einfachheit in der Entwicklung
@@ -239,11 +239,28 @@ entfernt werden. Im Idealfall sollten Änderungen an den Plug-Ins keine Auswirkun
 untereinander können jedoch Abhängigkeiten aufweisen. Wie die Plug-In-Architektur von \app genau aussehen wird, wird in
 Kapitel \ref{ch:pluginarchitektur} beschrieben.
 
-Wie bereits in Kapitel \ref{ch:ziele} erwähnt, hat die Middleware in erster Linie eine Platzhalterfunktion, um den
-Zugang zu CareNet später um weitere Schnittstellen erweitern können. Da im Moment nur eine \acs{rest}-Schnittstelle
-angeboten wird, die auch von \app verwendet wird, wäre die Middleware zur Kommunikation nicht notwendig. Sie nimmt
-lediglich \acs{rest}-Aufrufe an und leitet diese unbearbeitet weiter. Es wurde entschieden, die Middleware
-in PHP \cite{php} zu implementieren, da es sich hierbei um eine mächtige und weit verbreite serverseitige
-Programmiersprache handelt. PHP wird von einem Großteil der Server-Hosting-Anbieter unterstützt und stellt somit keine
-Limitierung bei der Auswahl des Ortes dar, an dem die Middleware installiert wird. 
 
+
+\begin{itemize}
+  \item Zentrales System: CareNet, basierend auf VitaBit [CHECK]
+  \item Kommunikation mit REST; Was ist REST? Prinzipien? [CHECK]
+  \item \textbf{CareNet mobile}
+  	\begin{itemize}
+  	  \item Name [CHECK]
+  	  \item Warum überhaupt Tablet? (Vgl. mit Diplomarbeit der anderen Studentin auf Nokia-Handy) [CHECK]
+  	  \item Nativ - WebApp - Hybrid [CHECK]
+  	  \item PhoneGap, jQuery mobile  [CHECK]
+  	  \item Falls doch jemand Apple will, nach Mglk. suchen, wie das evtl. auch bedienst werden kann [CHECK]
+  	\end{itemize}
+  \item Architektur (Plug-In-Struktur) [CHECK]
+  \item Änderungen an zu dokumentierenden Tätigkeiten sind zu erwarten, also möglichst flexible Architektur [CHECK]
+  	\begin{itemize}
+  	  \item Warum Plug-In? Vorteile? [CHECK]
+  	\end{itemize}
+  \item \textbf{Middleware}
+  	\begin{itemize}
+  	  	\item Schnittstellenfunktion nochmal erwähnen 
+  	 	\item Technologie (PHP)
+  	 	\item Wo wird Middleware positioniert? Welcher Server? (konzeptionell)  	 	
+  	\end{itemize}
+\end{itemize}

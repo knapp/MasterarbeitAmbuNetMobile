@@ -69,29 +69,7 @@
 \setcounter{figure}{0}
 
 
-\section{Liste grundsätzliche Entwurfsentscheidungen \app}
+\dots
 
-\begin{itemize}
-  \item Zentrales System: CareNet, basierend auf VitaBit [CHECK]
-  \item Kommunikation mit REST; Was ist REST? Prinzipien? [CHECK]
-  \item \textbf{CareNet mobile}
-  	\begin{itemize}
-  	  \item Name [CHECK]
-  	  \item Warum überhaupt Tablet? (Vgl. mit Diplomarbeit der anderen Studentin auf Nokia-Handy) [CHECK]
-  	  \item Nativ - WebApp - Hybrid [CHECK]
-  	  \item PhoneGap, jQuery mobile  [CHECK]
-  	  \item Falls doch jemand Apple will, nach Mglk. suchen, wie das evtl. auch bedienst werden kann [CHECK]
-  	\end{itemize}
-  \item Architektur (Plug-In-Struktur) [CHECK]
-  \item Änderungen an zu dokumentierenden Tätigkeiten sind zu erwarten, also möglichst flexible Architektur [CHECK]
-  	\begin{itemize}
-  	  \item Warum Plug-In? Vorteile? [CHECK]
-  	\end{itemize}
-  \item \textbf{Middleware}
-  	\begin{itemize}
-  	  	\item Schnittstellenfunktion nochmal erwähnen [CHECK]
-  	 	\item Technologie (PHP) [CHECK]
-  	 	\item Wo wird Middleware positioniert? Welcher Server? (konzeptionell) [NEIN]  	 	
-  	\end{itemize}
-\end{itemize}
+
 

@@ -151,9 +151,7 @@ benötigen, um diese auf einem Tablet-PC abrufen und anzeigen zu können, wird Vit
 \ref{ch:ziele} beschriebene zentrale System darstellen. Da es im Kontext dieser Arbeit aber nicht mehr
 um die Dokumentation von Pflegetätigkeiten geht, sondern um die Übermittlung und Dokumentation ärztlicher Tätigkeiten
 durch Pflegepersonal, müssen Änderungen an VitaBIT vorgenommen werden. Um den Änderungen und dem Kontext der vernetzten
-Pflege auch namentlich gerecht zu werden, wurde das zentrale System in CareNet (Care = Pflege, Net = Netz) umbenannt.
-Auf die Änderungen an VitaBIT wird in dieser Arbeit nicht eingegangen, da diese von Mitarbeitern der nubedian GmbH
-durchgeführt werden.\\
+Pflege auch namentlich gerecht zu werden, wurde das zentrale System in CareNet (Care = Pflege, Net = Netz) umbenannt.\\
 
 \begin{figure}
 	\includegraphics{figures/VerwendeteTechnologienGesamtsystem.pdf}
@@ -164,86 +162,40 @@ durchgeführt werden.\\
 Abbildung \ref{fig:technologien} zeigt die Komponenten des Gesamtsystems erweitert um die verwendeten
 Technologien, auf denen diese basieren. Die Kommunikation zwischen den Komponenten erfolgt via Internet
 mittels \acs{rest}. \acs{rest} steht für \textit{\acl{rest}} und stellt einen Architekturstil zur zustandslosen
-Interaktion dar. Im Gegensatz zu Sitzungen (Sessions), die von Servern während der Interaktion mit einem
-Benutzer aufwendig verwaltet werden müssen, werden bei dem REST-Prinzip vorberechnete Ressourcen, beispielsweise eine
-Webseite, über eine \acs{uri} (\acl{uri}) referenziert und geladen. Alle Informationen über den Kontext einer Anfrage sind in der
+Interaktion dar. Im Gegensatz zu aufwendigen Sitzungen (Sessions), die von Servern während der Interaktion mit einem
+Benutzer verwaltet werden müssen, werden bei dem REST-Prinzip vorberechnete Ressourcen, beispielsweise eine Webseite,
+über eine \acs{uri} (\acl{uri}) referenziert und geladen. Alle Informationen über den Kontext einer Anfrage sind in der
 Anfrage selbst enthalten und es werden keine weiteren lokal beim Nutzer oder auf dem Server gespeicherten Informationen
 benötigt. Eine Kommunikation via \acs{rest} bedeutet eine lose Verkoppelung von vordefinierten Ressourcen, durch die ein
 Nutzer anhand gegebener \acs{uri}s navigieren kann. Es werden lediglich die grundlegenden \acs{http}-Methoden PUT, POST,
 GET und DELETE verwendet, um Anfragen zu formulieren. Übertragen werden Ressourcen bzw. Datenobjekte in der Regel in
 Form einer \acs{xml}- oder \acs{json}-Datei \cite[S. 19]{zurMuehlen20059}.\\
 
-Die in dieser Arbeit zu entwickelnde mobile Anwendung stellt im Wesentlichen eine mobile Erweiterung von CareNet dar,
-aufgrund dessen der Name \app gewählt wurde. Die Verwendung von Tablet-PCs als Hardware ist vorgegeben, da sie den
-neuesten Stand der Technik repräsentieren. Es wurde eine Neuentwicklung einer Lösung zur mobilen Dokumentation
-angestoßen, da in den vorangegangenen Projekten Probleme mit der verwendeten Hardware identifiziert werden konnten. Im
-Projekt VitaBIT wurden zur Dokumentation Smartphones der ersten Generation eingesetzt und in \cite{diplChristina} wurde
-ein Panasonic CF-H1 eingesetzt, ein Vorläufer heutiger Tablet-PCs. Dieses Gerät hatte zwar bereits einen
-berührungsempfindlichen Bildschirm und eine Kamera, jedoch war die Leistungsfähigkeit nicht ausreichend, was zu
-Performanzproblemen führte. Außerdem konnte die Intuitivität der Bedienung nicht so umgesetzt werden, wie es
-beispielsweise unter Android oder iOS heute möglich ist. Das in VitaBIT verwendete Smartphone ist zwar sehr handlich
-und damit leicht mitzuführen, jedoch schränkt der kleine Bildschirm die Möglichkeiten der Darstellung ein, was gegen
-die Anforderung der Übersichtlichkeit spricht.\\
 
-Jedes Betriebssystem von Tablet-PCs basiert auf einer eigenen Programmiersprache. Android basiert beispielsweise auf
-Java, iOS auf Objective-C und Windows Phone auf C\#. Anwendungen für die Betriebssysteme können nur in den jeweiligen
-Sprachen entwickelt werden. Eine so entwickelte Anwendung wird als \textit{nativ} bezeichnet. Dieser Umstand impliziert,
-dass bei der Entwicklung neuer Anwendungen vorher die Entscheidung getroffen werden muss, auf welcher Plattform diese
-bereitgestellt werden soll. Sollen mehrere Plattformen bedient werden, müssen mehrere Anwendungen mit der gleichen
-Funktionalität, aber anderer Quellcodebasis erstellt werden. Dies führt zu hohem zeitlichen Aufwand und ist
-kostenintensiv.\\
-Eine Alternative ist die Erstellung von \textit{WebApps}. Prinzipiell handelt es sich hierbei um Webseiten, jedoch sind
-diese für Touch-Oberflächen optimiert und sie sollen optisch an native Anwendungen erinnern. Da WebApps aber in einem
-Browser auf dem Tablet-PCs aufgerufen werden müssen, können sie nicht das Gefühl einer vollwertigen \acs{app}
-(\acl{app} = Anwendung) bieten. Ungleich größer sind die Einschränkungen von WebApps bei der bereitstellbaren
-Funktionalität. Mit reinen Webtechnologien wie HTML5 oder JavaScript ist es nämlich nicht möglich, hardspezifische
-Funktionen wie die Kamera, den GPS-Sensor oder eine Bluetooth-Verbindung anzusprechen. Dies ist nur über die jeweilige
-native Programmiersprache möglich. Da in den Anforderungen aber eine Nutzung der Kamera sowie des GPS-Sensors gefordert
-wird, ist eine Implementierung von \app als WebApp nicht möglich.\\
- 
-\begin{figure}
-	\includegraphics{figures/hybridDev.png}
-	\caption{Hybride Anwendungsentwicklung mit PhoneGap}
-	\label{fig:phoneGap}
-\end{figure}
 
-Ein Ansatz zur Lösung dieses Problems bietet das Projekt PhoneGap \cite{phoneGap}. Die Idee ist, in dem Gerüst einer
-nativen Anwendung, einem nativen Container, einen Browser zu platzieren, der Implementierungen in Webtechnologien wie
-HTML5, CSS3 und JavaScript interpretieren kann. Abbildung \ref{fig:phoneGap} zeigt den Zusammenhang der verschiedenen
-Technologien. Um den Zugriff auf endgerätgspezifische Funktionen zu ermöglichen, bietet PhoneGap zur Kommunikation mit
-allen wichtigen Hardware-Funktionen JavaScript-Methoden an, die auf die jeweiligen Befehle in der nativen
-Programmiersprache abgebildet werden. Anstatt beispielsweise die Kamera unter Android direkt über Java anzusprechen,
-erfolgt der Aufruf in JavaScript, welcher von einer Java-Klasse verarbeitet und an die Hardware weitergereicht wird.
-PhoneGap verfolgt somit einen hybriden Ansatz aus nativer Entwicklung und der Nutzung von WebApps.\\
-Die reine Nutzung von Webtechnologien und die Bereitstellung verschiedener nativer Container durch PhoneGap für die
-jeweils gewünschte Plattform ermöglicht eine Portabilität der Anwendung. Einmal entwickelt kann diese beispielsweise
-sowohl auf Android, als auch auf PhoneGap oder Windows Phone bereitgestellt werden. Diese Möglichkeit bringt
-Vorteile in Bezug auf Kosten und Zeit gegenüber der Entwicklung individueller nativer Anwendungen.\\
-Als Anforderung an \app wurde zwar zunächst nur die Bereitstellung auf Android-Endgeräten gefordert, jedoch ist nicht
-auszuschließen, dass in Zukunft auch die Nutzbarkeit auf iOS- oder Windows-Geräten gefordert wird. Da es mit der
-Verwendung von PhoneGap möglich ist, diese Option mit geringem Aufwand offen zu halten, wurde entschieden, \app in als
-hybride Anwendung zu entwickeln. \textcolor{red}{[Same Origin Policy reinnehmen?]}\\
-Zusammen mit PhoneGap bietet sich die Verwendung bereits existierender JavaScript-Bibliotheken an, die zum Entwurf
-touch-optimierter Benutzeroberflächen entwickelt wurden. Zwei verbreite Bibliotheken sind jQuery mobile .\cite{jqmobile}
-und Sencha Touch \cite{sencha}. Im Kontext dieser Arbeit wurde jQuery mobile aufgrund der Einfachheit in der Entwicklung
-und der Mächtigkeit der gebotenen Funktionalität gewählt.\\
-
-In \cite{diplChristina} hat sich gezeigt, dass sich einmal gestellte Anforderungen rasch ändern können und dass
-eine Anwendung so entworfen sein sollte, dass Anpassungen mit vertretbarem Aufwand durchgeführt werden können. Zwar ist
-momentan die Menge an zu dokumentierenden Tätigkeiten durch eine abgeschlossene Liste in Richtlinie § 63 Abs. 3c SGB V
-beschränkt, jedoch sind Änderungen in Zukunft möglich. Neben zusätzlichen Tätigkeiten könnten auch andere funktionale
-Erweiterungen hinzukommen. Um diesen Anforderungen gerecht zu werden, wird die Anwendung auf Basis einer
-Plug-In-Architektur entwickelt, angelehnt an die bewährte Architektur der Entwicklungsumgebung Eclipse \cite{eclipse}.
-Bei einer Plug-In-Architektur können Funktionalitäten nach dem Steckerprinzip ("`plug-In"' = einstecken) hinzugefügt und wieder
-entfernt werden. Im Idealfall sollten Änderungen an den Plug-Ins keine Auswirkungen auf das Gesamtsystem haben. Plug-Ins
-untereinander können jedoch Abhängigkeiten aufweisen. Wie die Plug-In-Architektur von \app genau aussehen wird, wird in
-Kapitel \ref{ch:pluginarchitektur} beschrieben.
-
-Wie bereits in Kapitel \ref{ch:ziele} erwähnt, hat die Middleware in erster Linie eine Platzhalterfunktion, um den
-Zugang zu CareNet später um weitere Schnittstellen erweitern können. Da im Moment nur eine \acs{rest}-Schnittstelle
-angeboten wird, die auch von \app verwendet wird, wäre die Middleware zur Kommunikation nicht notwendig. Sie nimmt
-lediglich \acs{rest}-Aufrufe an und leitet diese unbearbeitet weiter. Es wurde entschieden, die Middleware
-in PHP \cite{php} zu implementieren, da es sich hierbei um eine mächtige und weit verbreite serverseitige
-Programmiersprache handelt. PHP wird von einem Großteil der Server-Hosting-Anbieter unterstützt und stellt somit keine
-Limitierung bei der Auswahl des Ortes dar, an dem die Middleware installiert wird. 
-
+\begin{itemize}
+  \item Zentrales System: CareNet, basierend auf VitaBit [CHECK]
+  \item Kommunikation mit REST; Was ist REST? Prinzipien? [CHECK]
+  \item Erklärung, warum Middleware notwendig (Cross Domain Calling) und warum gewünscht (Erweiterung um
+  Schnittstellen zu Krankenhäusern und Hausarztpraxen).
+  \item Middleware
+  	\begin{itemize}
+  	 	\item Technologie (PHP)
+  	 	\item Wo wird Middleware positioniert? Welcher Server? (konzeptionell)  	 	
+  	\end{itemize}
+  \item Technologie des Software-Assistenten
+  	\begin{itemize}
+  	  \item Warum überhaupt Tablet? (Vgl. mit Diplomarbeit der anderen Studentin auf Nokia-Handy)
+  	  \item Plattform (Android)
+  	  \item Nativ vs. hybrid (Erklärung von PhoneGap und Zusammenhang mit jQuery mobile)
+  	  \item Lokale Datenbanken müssen einrichtbar sein
+  	  \item Falls doch jemand Apple will, nach Mglk. suchen, wie das evtl. auch bedienst werden kann
+  	\end{itemize}
+  \item Architektur (Plug-In-Struktur)
+  \item Änderungen an zu dokumentierenden Tätigkeiten sind zu erwarten, also möglichst flexible Architektur
+  \begin{itemize}
+  	  \item Warum Plug-In? Vorteile?
+  	  \item Argumentation mit Wartbarkeit (ISO-Richtlinie), Erwartete Änderungen der Anforderungen,
+			Verweis auf Entwurfsmuster, Vgl.mit Eclipse als Praktische Implementierung
+  	\end{itemize}
+\end{itemize}

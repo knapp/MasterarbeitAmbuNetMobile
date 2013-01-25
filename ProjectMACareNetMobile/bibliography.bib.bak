@@ -142,6 +142,35 @@
   timestamp = {2013.01.24}
 }
 
+@ELECTRONIC{eclipse,
+  month = {Januar},
+  year = {2013},
+  title = {{Architektur Eclipse}},
+  organization = {{The Eclipse Foundation}},
+  url = {http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Farch.htm},
+  owner = {Thomas},
+  timestamp = {2013.01.25}
+}
+
+@ELECTRONIC{jqmobile,
+  year = {2013},
+  title = {jQuery mobile Homepage},
+  organization = {The jQuery Foundation},
+  url = {http://jquerymobile.com/},
+  owner = {Thomas},
+  timestamp = {2013.01.25}
+}
+
+@ELECTRONIC{jquery,
+  month = {Januar},
+  year = {2013},
+  title = {jQuery Homepage},
+  organization = {The jQuery Foundation},
+  url = {http://www.jquery.com/},
+  owner = {Thomas},
+  timestamp = {2013.01.25}
+}
+
 @ELECTRONIC{mozillaSop,
   month = {Januar},
   year = {2013},
@@ -150,6 +179,16 @@
   url = {https://developer.mozilla.org/en-US/docs/JavaScript/Same_origin_policy_for_JavaScript},
   owner = {Thomas},
   timestamp = {2013.01.24}
+}
+
+@ELECTRONIC{phonegap,
+  month = {Januar},
+  year = {2013},
+  title = {PhoneGap Homepage},
+  organization = {Adobe Systems Inc.},
+  url = {http://www.phonegap.com/},
+  owner = {Thomas},
+  timestamp = {2013.01.25}
 }
 
 @ELECTRONIC{residenzBF,
@@ -161,7 +200,17 @@
   timestamp = {2013.01.22}
 }
 
-@ELECTRONIC{,
+@ELECTRONIC{sencha,
+  month = {Januar},
+  year = {2013},
+  title = {Sencha Touch Homepage},
+  organization = {Sencha Inc.},
+  url = {http://www.sencha.com/products/touch},
+  owner = {Thomas},
+  timestamp = {2013.01.25}
+}
+
+@ELECTRONIC{w3cSop,
   month = {Januar},
   year = {2013},
   title = {{Same Origin Policy}},

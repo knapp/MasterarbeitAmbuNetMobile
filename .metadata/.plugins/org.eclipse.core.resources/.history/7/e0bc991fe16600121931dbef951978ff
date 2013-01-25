@@ -219,31 +219,34 @@ Die reine Nutzung von Webtechnologien und die Bereitstellung verschiedener nativ
 jeweils gewünschte Plattform ermöglicht eine Portabilität der Anwendung. Einmal entwickelt kann diese beispielsweise
 sowohl auf Android, als auch auf PhoneGap oder Windows Phone bereitgestellt werden. Diese Möglichkeit bringt
 Vorteile in Bezug auf Kosten und Zeit gegenüber der Entwicklung individueller nativer Anwendungen.\\
-Als Anforderung an \app wurde zwar zunächst nur die Bereitstellung auf Android-Endgeräten gefordert, jedoch ist nicht
+Als Anforderung an \app wurde zwar zunächst nur die Bereitstellung auf Andorid-Endgeräten gefordert, jedoch ist nicht
 auszuschließen, dass in Zukunft auch die Nutzbarkeit auf iOS- oder Windows-Geräten gefordert wird. Da es mit der
 Verwendung von PhoneGap möglich ist, diese Option mit geringem Aufwand offen zu halten, wurde entschieden, \app in als
-hybride Anwendung zu entwickeln. \textcolor{red}{[Same Origin Policy reinnehmen?]}\\
-Zusammen mit PhoneGap bietet sich die Verwendung bereits existierender JavaScript-Bibliotheken an, die zum Entwurf
-touch-optimierter Benutzeroberflächen entwickelt wurden. Zwei verbreite Bibliotheken sind jQuery mobile .\cite{jqmobile}
-und Sencha Touch \cite{sencha}. Im Kontext dieser Arbeit wurde jQuery mobile aufgrund der Einfachheit in der Entwicklung
-und der Mächtigkeit der gebotenen Funktionalität gewählt.\\
+hybride Anwendung zu entwickeln. 
 
-In \cite{diplChristina} hat sich gezeigt, dass sich einmal gestellte Anforderungen rasch ändern können und dass
-eine Anwendung so entworfen sein sollte, dass Anpassungen mit vertretbarem Aufwand durchgeführt werden können. Zwar ist
-momentan die Menge an zu dokumentierenden Tätigkeiten durch eine abgeschlossene Liste in Richtlinie § 63 Abs. 3c SGB V
-beschränkt, jedoch sind Änderungen in Zukunft möglich. Neben zusätzlichen Tätigkeiten könnten auch andere funktionale
-Erweiterungen hinzukommen. Um diesen Anforderungen gerecht zu werden, wird die Anwendung auf Basis einer
-Plug-In-Architektur entwickelt, angelehnt an die bewährte Architektur der Entwicklungsumgebung Eclipse \cite{eclipse}.
-Bei einer Plug-In-Architektur können Funktionalitäten nach dem Steckerprinzip ("`plug-In"' = einstecken) hinzugefügt und wieder
-entfernt werden. Im Idealfall sollten Änderungen an den Plug-Ins keine Auswirkungen auf das Gesamtsystem haben. Plug-Ins
-untereinander können jedoch Abhängigkeiten aufweisen. Wie die Plug-In-Architektur von \app genau aussehen wird, wird in
-Kapitel \ref{ch:pluginarchitektur} beschrieben.
-
-Wie bereits in Kapitel \ref{ch:ziele} erwähnt, hat die Middleware in erster Linie eine Platzhalterfunktion, um den
-Zugang zu CareNet später um weitere Schnittstellen erweitern können. Da im Moment nur eine \acs{rest}-Schnittstelle
-angeboten wird, die auch von \app verwendet wird, wäre die Middleware zur Kommunikation nicht notwendig. Sie nimmt
-lediglich \acs{rest}-Aufrufe an und leitet diese unbearbeitet weiter. Es wurde entschieden, die Middleware
-in PHP \cite{php} zu implementieren, da es sich hierbei um eine mächtige und weit verbreite serverseitige
-Programmiersprache handelt. PHP wird von einem Großteil der Server-Hosting-Anbieter unterstützt und stellt somit keine
-Limitierung bei der Auswahl des Ortes dar, an dem die Middleware installiert wird. 
-
+\begin{itemize}
+  \item Zentrales System: CareNet, basierend auf VitaBit [CHECK]
+  \item Kommunikation mit REST; Was ist REST? Prinzipien? [CHECK]
+  \item \textbf{CareNet mobile}
+  	\begin{itemize}
+  	  \item Name [CHECK]
+  	  \item Warum überhaupt Tablet? (Vgl. mit Diplomarbeit der anderen Studentin auf Nokia-Handy) [CHECK]
+  	  \item Nativ - WebApp - Hybrid [CHECK]
+  	  \item PhoneGap, jQuery mobile  	  
+  	  \item Lokale Datenbanken müssen einrichtbar sein
+  	  \item Falls doch jemand Apple will, nach Mglk. suchen, wie das evtl. auch bedienst werden kann
+  	\end{itemize}
+  \item Architektur (Plug-In-Struktur)
+  \item Änderungen an zu dokumentierenden Tätigkeiten sind zu erwarten, also möglichst flexible Architektur
+  	\begin{itemize}
+  	  \item Warum Plug-In? Vorteile?
+  	  \item Argumentation mit Wartbarkeit (ISO-Richtlinie), Erwartete Änderungen der Anforderungen,
+			Verweis auf Entwurfsmuster, Vgl.mit Eclipse als Praktische Implementierung
+  	\end{itemize}
+  \item \textbf{Middleware}
+  	\begin{itemize}
+  	  	\item Schnittstellenfunktion nochmal erwähnen 
+  	 	\item Technologie (PHP)
+  	 	\item Wo wird Middleware positioniert? Welcher Server? (konzeptionell)  	 	
+  	\end{itemize}
+\end{itemize}
