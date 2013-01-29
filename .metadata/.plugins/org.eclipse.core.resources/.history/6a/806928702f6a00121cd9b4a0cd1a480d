@@ -15,7 +15,7 @@ Bearbeitung des eigentlichen Inhalts gedacht.\\
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.4]{figures/GUICareNetMobile.pdf}
+	\includegraphics[scale=0.3]{figures/GUICareNetMobile.pdf}
 	\caption{Struktur der grafischen Oberfläche von \app}
 	\label{fig:gui}
 \end{figure}
@@ -31,39 +31,14 @@ selbst wenn er bereits auf einer Webseite ausgeführt wird, dem Nutzer im Klartex
 Java-Code nur bedingt und durch aufwendige Verfahren wieder dekompiliert und somit im Klartext verfügbar gemacht werden
 kann. Dieser Eigenschaft muss sich ein Entwickler besonders im Bezug auf im Quellcode vermerkte sicherheitsrelevante
 Informationen bewusst sein.\\
-Während der Entwicklung kann vor allem die fehlende Möglichkeit der Kapselung problematisch werden. Abbildung
-\ref{fig:vergleichJavaJS} zeigt Beispielimplementierungen in Java und JavaScript. Links wurde eine Klasse erstellt, die
-Methoden und Variablen kapselt. Wird eine Variable außerhalb einer Methode definiert (Abbildung
-\ref{fig:vergleichJavaJS}: \textit{ersteVariableJava}, ist diese in der gesamten Klasse verfügbar. Ist die Variable
-als \textit{public} gekennzeichnet, kann auf sie über \textit{Klassenname.variablenName} zugegriffen werden.
-Wird sie als \textit{private} deklariert, ist sie nur innerhalb der Klasse verfügbar. Das gleiche gilt für Methoden.
-Wird eine Variable innerhalb einer Methode definiert (Abbildung \ref{fig:vergleichJavaJS}: \textit{zweiteVariable}),
-kann auch nur innerhalb dieser Methode auf die Variable zugegriffen werden.\\
+Für die reine Entwicklertätigkeit kann vor allem die fehlende Möglichkeit der Kapselung problematisch werden.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{figures/VergleichJavaJavaScript.pdf}
 	\caption{Vergleich zweier Beispielimplementierungen von Java und JavaScript}
 	\label{fig:vergleichJavaJS}
-\end{figure}
-
-In JavaScript sind grundsätzlich alle Methoden global verfügbar. Die Verfügbarkeit beschränkt sich hier nicht auf eine
-Klasse oder Datei, sondern auf eine einmal deklarierte Methode kann von allen anderen JavaScript- und HTML-Dateien, die
-gleichzeitig mit dieser Datei vom Browser geladen wurden, zugegriffen werden. Eine Klassendefinition kann nur in sofern
-erfolgen, dass einem Methodennamen der Name einer anderen vorher definierten Methode vorangestellt wird (Abbildung
-\ref{fig:vergleichJavaJS}: \textit{beispiel.methodeJS()}). Hiermit wird es möglich, einen Namensraum zu definieren,
-um Methoden einem bestimmten Kontext (hier: \textit{beispiel}) zuzuordnen. Wird nun aber an irgend einer anderen Stelle
-im Kontext der geladenen HTML- und JavaScript-Dateien der Name der Methode verwendet, kann der Interpreter, der Browser,
-keine eindeutige Zuordnung des Namens zu ausführbarem Quellcode mehr herstellen und es wird nichts ausgeführt.\\
-Ebenso verhält es sich mit Variablen. Wird eine Variable mit dem Zusatz \textit{var} außerhalb einer Methode definiert,
-ist sie global verfügbar. Das gleiche gilt, wenn eine Variable ganz ohne Zusatz (Abbildung
-\ref{fig:vergleichJavaJS}: \textit{zweiteVariableJS}) definiert wird. Nur wenn eine Variable innerhalb einer Methode mit
-dem Zusatz \textit{var} erstellt wird, kann sie nur innerhalb der Methode verwendet werden. Dieser Umstand kann zu
-massiven Problemen führen. Vergisst ein Entwickler beispielsweise nur ein einziges Mal den Zusatz \textit{var} bei der
-Definition einer Laufvariable in einer Schleife (häufig mit dem Namen \textit{i}), wird diese nun global geltende
-Variable alle anderen Schleifen, die ebenfalls die Laufvariable \textit{i} verwenden, beeinflussen. Da dies kein
-syntaktischer, sondern ein semantischer Fehler ist, kann dieser nicht von automatisierten Fehlerfindungswerkzeugen
-entdeckt werden und es beginnt die Suche nach der Nadel im Heuhaufen. Derartige Umstände können sehr viel Zeit kosten.\\
+\end{figure} 
 
 Wie in Kapitel \ref{sec:entwurfsentscheidungen} beschrieben, wird \app auf Basis einer Plug-In-Architektur entworfen.
 Abbildung \ref{fig:archikonzept} zeigt das grundsätzliche Konzept. Die Basisanwendung bietet wichtige

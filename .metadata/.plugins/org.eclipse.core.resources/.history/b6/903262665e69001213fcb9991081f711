@@ -1,0 +1,79 @@
+\chapter{Basisanwendung und Plug-Ins zur Realisierung der identifizierten Anforderungen}
+\label{ch:pluginarchitektur}
+
+[Vorgeplänkel Kapitel]
+
+\section{Aufgaben und Struktur der Basisanwendung}
+
+\begin{figure}
+	\includegraphics{figures/ArchitekturCareNetmobileAusarb.pdf}
+	\caption{Architekturkonzept \app }
+	\label{fig:archikonzept}
+\end{figure}
+
+\begin{itemize}
+  \item Grundsätzlich: Plug-In-Architektur angelehnt an Eclipse-Bsp
+  \item Bestandteile: Grundanwendung (Basis), Plug-Ins
+  \item Aufgaben Grundanwendung: Sicherheit (Login, Kommunikation), Verwaltung von Plug-Ins, Bereitstellen einer
+  GUI-Struktur, zentrale Verwaltung lokaler Datenbanken (Methoden)
+  \item Plug-Ins sollten keinen Einfluss auf Grundanwendung haben
+  \item unbegrenzte Anzahl an Plug-Ins
+  \item Konfiguration eingebundener Plug-Ins (JSON)
+  \item Grafik Gesamtarchitektur
+  \item Grundstruktur: jQuery mobile (Seitenaufbau, alles mit Divs, CSS, wie Webseite)
+  \item Login
+	  \begin{itemize}
+	    \item als Dialog (vorgeschaltete Seite)
+	    \item Mandant, Nutzername, PW
+	    \item Wg. REST-Prinzip: Nur einmalige Überprüfung, ob Daten korrekt sind, kein Aufbau einer dauerhaften Verbindung
+	    \item Speicherung der Daten im lokalen Speicher im Klartext (HTML5/PhoneGap Key-Value-Speicher)
+	    \item Senden der Daten bei jeder Anfrage (Beispielanfrage)
+	    \item Authentifizierungstring: mandant/nutzername:passwort
+	    \item Middleware verschlüsselt String mit Base64 und sendet den an CareNet (kann einfach entschlüsselt werden)
+	    \item Daten werden so unverschlüsselt gesendet, d.h. Verbindung an sich muss gesichert werden (https)
+	    \item Bei Logout werden Daten einfach aus lokalem Speicher gelöscht
+	    \item Sicherheitsproblem bei eingeschleuster Spyware (JS) über Browser? Nein, wg. Unabhängigkeit von
+	    PhoneGap-Browser/WebView und installierten anderen Browsern
+	  \end{itemize}
+\end{itemize}
+
+\ldots
+
+\section{Einbinden von Plug-Ins in die Basisanwendung}
+\ldots
+
+\begin{itemize}
+  \item Plug-Struktur:
+	  \begin{itemize}
+	    \item Namenskonventionen wg. JS global
+	    \item Alle zugehörigen Dateien gekapselt in einem Ordner
+	    \item Icon
+	    \item JS-Datei (Problem der dynamischen Einbingung)
+	    \item CSS-Datei
+	    \item Versionsnummer, Konfig-Datei (Abhängigkeiten inkl. Versionsnummern)
+	    \item Konstruktor, Methode zur Initialisierung
+	    \item Arbeit mir Cotainern für GUI
+	    \item Beschreibung der Abhängigkeiten zu Bibliotheken wie jQuery, jQuery mobile, PhoneGap (Redundanzen vermeiden)
+	    \item Grafik zu Plug-In-Strukur
+	  \end{itemize}
+  \item Namenskonventionen
+  \item Vorgang des Einbindens
+  \item Probleme, Erweiterungsmöglichkeiten
+\end{itemize}
+
+\section{Das Plug-In "`Kontakte"'}
+Für alle Plug-Ins feste Beschreibungsstruktur:
+\begin{itemize}
+  \item Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)
+  \item Aufbau/Navigationsstruktur
+  \item Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
+  Anforderung hervor?
+\end{itemize}
+
+\ldots
+
+\section{Das Plug-In "`Touren"'}
+\ldots
+
+\section{Das Plug-In "`Hilfe"'}
+\ldots

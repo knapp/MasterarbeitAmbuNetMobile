@@ -1,0 +1,63 @@
+\chapter{Basisanwendung und Plug-Ins zur Realisierung der identifizierten Anforderungen}
+\label{ch:pluginarchitektur}
+
+Bis hier hin wurde Plug-In-Architektur vorgestellt. Jetzt muss konkret beschrieben werden, welche
+Eigenschaften der Gesamtarchitektur und der Plug-Ins welche Anforderungen erfüllen. Hierzu werden
+zunächst die Aufgaben der Basisanwendungen beschrieben (Bereitstellen einer grafischen Struktur,
+eines Systems zur Einbindung von Plug-Ins, Herstellen von Sicherheit mittels Log-In und Verwaltung
+der Kommunikation mit einem zentralen Server). Anschließend werden die wichtigsten Plug-Ins im
+Details beschrieben.
+
+\section{Aufgaben und Struktur der Basisanwendung}
+
+\begin{itemize}
+  \item Grundsätzlich: Plug-In-Architektur angelehnt an Eclipse-Bsp
+  \item Bestandteile: Grundanwendung (Basis), Plug-Ins
+  \item Aufgaben Grundanwendung: Sicherheit (Login, Kommunikation), Verwaltung von Plug-Ins, Bereitstellen einer
+  GUI-Struktur, zentrale Verwaltung lokaler Datenbanken (Methoden)
+  \item Plug-Ins sollten keinen Einfluss auf Grundanwendung haben
+  \item unbegrenzte Anzahl an Plug-Ins
+  \item Konfiguration eingebundener Plug-Ins (JSON)
+  \item Grafik Gesamtarchitektur
+\end{itemize}
+
+\ldots
+
+\section{Einbinden von Plug-Ins in die Basisanwendung}
+\ldots
+
+\begin{itemize}
+  \item Plug-Struktur:
+	  \begin{itemize}
+	    \item Namenskonventionen wg. JS global
+	    \item Alle zugehörigen Dateien gekapselt in einem Ordner
+	    \item Icon
+	    \item JS-Datei (Problem der dynamischen Einbingung)
+	    \item CSS-Datei
+	    \item Versionsnummer, Konfig-Datei (Abhängigkeiten inkl. Versionsnummern)
+	    \item Konstruktor, Methode zur Initialisierung
+	    \item Arbeit mir Cotainern für GUI
+	    \item Beschreibung der Abhängigkeiten zu Bibliotheken wie jQuery, jQuery mobile, PhoneGap (Redundanzen vermeiden)
+	    \item Grafik zu Plug-In-Strukur
+	  \end{itemize}
+  \item Namenskonventionen
+  \item Vorgang des Einbindens
+  \item Probleme, Erweiterungsmöglichkeiten
+\end{itemize}
+
+\section{Das Plug-In "`Kontakte"'}
+Für alle Plug-Ins feste Beschreibungsstruktur:
+\begin{itemize}
+  \item Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)
+  \item Aufbau/Navigationsstruktur
+  \item Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
+  Anforderung hervor?
+\end{itemize}
+
+\ldots
+
+\section{Das Plug-In "`Touren"'}
+\ldots
+
+\section{Das Plug-In "`Hilfe"'}
+\ldots
