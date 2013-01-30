@@ -68,29 +68,22 @@ viel Zeit kosten.\\
 
 Einzelne Plug-Ins sollen die in Abbildung \ref{fig:gui} gezeigte Struktur nutzen, um Inhalte darzustellen. Damit dies
 möglich ist, müssen die einzelnen Bereiche, welche als HTML-DIV-Elemente erstellt wurden, eindeutig durch \acs{id}s
-gekennzeichnet werden. Da es in JavaScript nicht, wie in Java, möglich ist, Konstanten zu definieren, wurden in einer
+gekennzeichnet werden. Da es in JavaScript nicht wie in Java möglich ist, Konstanten zu definieren, wurden in einer
 separaten JavaScript-Datei \textit{CONSTANTS.js} alle \acs{id}s in Form von Variablen hinterlegt, welche den
 DIV-Elementen zugewiesen wurden. Der Nachteil von Variablen ist, dass diese während der Laufzeit aus den Plug-Ins heraus
 verändert werden können. Aus diesem Grund muss die Konvention eingehalten werden, zentral definierte Variablen nicht zu
 verändern, da dies Auswirkungen auf andere Plug-Ins haben könnte. Die Eigenschaft einer Plug-In-Architektur, dass
 Plug-Ins keinen Einfluss auf die Basisanwendung haben, kann somit nicht vollständig in JavaScript umgesetzt werden.
-Menschliche Fehler durch Nicht-Einhaltung der Konvention bleiben möglich.\\
+Menschliche Fehler durch Nicht-Einhaltung der Konvention bleiben somit möglich.\\
 Der Vorteil von zentral definierten Variablen ist, dass an einer zentralen, übersichtlichen Stelle nachgeschaut werden
 kann, wie eine \acs{id} lautet, und dass die wichtigen Strukturelemente für Informationen, Navigation und Inhalt zentral
 referenziert werden können. Die Datei \textit{CONSTANTS.js} wird außerdem dazu genutzt, um alle sonstigen in der
-Implementierung verwendeten Zeichenketten als Variablen zu hinterlegen. Hierzu zählt beispielsweise die Server-Adresse
-der Middleware oder alle Arten von Meldungen an einen Nutzer. Dieses Verfahren erhöht die Wartbarkeit der Anwendung, da
-Änderungen an mehrfach verwendeten Zeichenketten nicht \textit{mehrfach} umgesetzt werden müssen, sondern lediglich
-\textit{einmal} in der zentralen Datei. Die Fehlerwahrscheinlichkeit durch vergessene Änderungen kann so verringert
-werden. Dieses Vorgehen ist angelehnt an die zentrale Verwaltung von \textit{String Ressources} bei der Entwicklung nativer
-Android-Anwendungen \cite{androidStringRessources}.\\
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{figures/AuthentifizierungCareCMviaREST}
-	\caption{Überprüfung der Benutzerdaten in \app }
-	\label{fig:login}
-\end{figure}
+Implementierung verwendeten Zeichenketten als Variablen zu hinterlegen. Hierzu zählt beispielsweise die Adresse von
+CareNet oder alle Arten von Meldungen an einen Nutzer. Dieses Verfahren erhöht die Wartbarkeit der Anwendung, da
+Änderungen an mehrfach verwendeten Zeichenketten nicht mehrfach umgesetzt werden müssen, sondern lediglich einmal in der
+zentralen Datei. Die Fehlerwahrscheinlichkeit durch vergessene Änderungen kann so verringert werden. Dieses Vorgehen ist
+angelehnt an die zentrale Verwaltung von \textit{String Ressources} bei der Entwicklung nativer Android-Anwendungen
+\cite{androidStringRessources}.\\
 
 Eine Grundfunktion, die die Basisanwendung zur Verfügung stellt, ist ein Log-In, durch welchen eine Sicherung der
 persönlichen Daten und eine Identifizierung des Nutzers möglich sein soll.
@@ -135,7 +128,12 @@ Datenbanken sowie eine Koordination der Plug-Ins. Die eigentliche Funktionalität
 ausschließlich über Plug-Ins hinzugefügt. Diese werden über eine vordefinierte Schnittstelle, in Abbildung
 \ref{fig:archikonzept} dargestellt als Ring, hinzugefügt. 
 
-
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.75]{figures/ArchitekturCareNetmobileAusarb.pdf}
+	\caption{Architekturkonzept \app }
+	\label{fig:archikonzept}
+\end{figure}
 
 \begin{itemize}
   \item Plug-Struktur:

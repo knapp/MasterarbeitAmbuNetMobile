@@ -85,13 +85,6 @@ der Middleware oder alle Arten von Meldungen an einen Nutzer. Dieses Verfahren e
 werden. Dieses Vorgehen ist angelehnt an die zentrale Verwaltung von \textit{String Ressources} bei der Entwicklung nativer
 Android-Anwendungen \cite{androidStringRessources}.\\
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{figures/AuthentifizierungCareCMviaREST}
-	\caption{Überprüfung der Benutzerdaten in \app }
-	\label{fig:login}
-\end{figure}
-
 Eine Grundfunktion, die die Basisanwendung zur Verfügung stellt, ist ein Log-In, durch welchen eine Sicherung der
 persönlichen Daten und eine Identifizierung des Nutzers möglich sein soll.
 
@@ -135,7 +128,12 @@ Datenbanken sowie eine Koordination der Plug-Ins. Die eigentliche Funktionalität
 ausschließlich über Plug-Ins hinzugefügt. Diese werden über eine vordefinierte Schnittstelle, in Abbildung
 \ref{fig:archikonzept} dargestellt als Ring, hinzugefügt. 
 
-
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.75]{figures/ArchitekturCareNetmobileAusarb.pdf}
+	\caption{Architekturkonzept \app }
+	\label{fig:archikonzept}
+\end{figure}
 
 \begin{itemize}
   \item Plug-Struktur:

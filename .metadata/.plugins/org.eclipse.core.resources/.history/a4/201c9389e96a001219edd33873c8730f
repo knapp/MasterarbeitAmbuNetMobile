@@ -87,7 +87,7 @@ Android-Anwendungen \cite{androidStringRessources}.\\
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{figures/AuthentifizierungCareCMviaREST}
+	\includegraphics[scale=\textwidth]{figures/AuthentifizierungCareCMviaREST}
 	\caption{Überprüfung der Benutzerdaten in \app }
 	\label{fig:login}
 \end{figure}

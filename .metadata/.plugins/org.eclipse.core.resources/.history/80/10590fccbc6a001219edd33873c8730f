@@ -68,44 +68,37 @@ viel Zeit kosten.\\
 
 Einzelne Plug-Ins sollen die in Abbildung \ref{fig:gui} gezeigte Struktur nutzen, um Inhalte darzustellen. Damit dies
 möglich ist, müssen die einzelnen Bereiche, welche als HTML-DIV-Elemente erstellt wurden, eindeutig durch \acs{id}s
-gekennzeichnet werden. Da es in JavaScript nicht, wie in Java, möglich ist, Konstanten zu definieren, wurden in einer
-separaten JavaScript-Datei \textit{CONSTANTS.js} alle \acs{id}s in Form von Variablen hinterlegt, welche den
-DIV-Elementen zugewiesen wurden. Der Nachteil von Variablen ist, dass diese während der Laufzeit aus den Plug-Ins heraus
-verändert werden können. Aus diesem Grund muss die Konvention eingehalten werden, zentral definierte Variablen nicht zu
-verändern, da dies Auswirkungen auf andere Plug-Ins haben könnte. Die Eigenschaft einer Plug-In-Architektur, dass
-Plug-Ins keinen Einfluss auf die Basisanwendung haben, kann somit nicht vollständig in JavaScript umgesetzt werden.
-Menschliche Fehler durch Nicht-Einhaltung der Konvention bleiben möglich.\\
-Der Vorteil von zentral definierten Variablen ist, dass an einer zentralen, übersichtlichen Stelle nachgeschaut werden
-kann, wie eine \acs{id} lautet, und dass die wichtigen Strukturelemente für Informationen, Navigation und Inhalt zentral
-referenziert werden können. Die Datei \textit{CONSTANTS.js} wird außerdem dazu genutzt, um alle sonstigen in der
-Implementierung verwendeten Zeichenketten als Variablen zu hinterlegen. Hierzu zählt beispielsweise die Server-Adresse
-der Middleware oder alle Arten von Meldungen an einen Nutzer. Dieses Verfahren erhöht die Wartbarkeit der Anwendung, da
-Änderungen an mehrfach verwendeten Zeichenketten nicht \textit{mehrfach} umgesetzt werden müssen, sondern lediglich
-\textit{einmal} in der zentralen Datei. Die Fehlerwahrscheinlichkeit durch vergessene Änderungen kann so verringert
-werden. Dieses Vorgehen ist angelehnt an die zentrale Verwaltung von \textit{String Ressources} bei der Entwicklung nativer
-Android-Anwendungen \cite{androidStringRessources}.\\
+gekennzeichnet werden. 
+
+Wie in Kapitel \ref{sec:entwurfsentscheidungen} beschrieben, wird \app auf Basis einer Plug-In-Architektur entworfen.
+Abbildung \ref{fig:archikonzept} zeigt das grundsätzliche Konzept. Die Basisanwendung bietet wichtige
+Grundfunktionalitäten wie einen Log-In, Methoden zur sicheren Kommunikation mit CareNet, Methoden zur Verwaltung lokaler
+Datenbanken sowie eine Koordination der Plug-Ins. Die eigentliche Funktionalität, um mit \app arbeiten zu können, wird
+ausschließlich über Plug-Ins hinzugefügt. Diese werden über eine vordefinierte Schnittstelle, in Abbildung
+\ref{fig:archikonzept} dargestellt als Ring, hinzugefügt. 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{figures/AuthentifizierungCareCMviaREST}
-	\caption{Überprüfung der Benutzerdaten in \app }
-	\label{fig:login}
+	\includegraphics[scale=0.75]{figures/ArchitekturCareNetmobileAusarb.pdf}
+	\caption{Architekturkonzept \app }
+	\label{fig:archikonzept}
 \end{figure}
 
-Eine Grundfunktion, die die Basisanwendung zur Verfügung stellt, ist ein Log-In, durch welchen eine Sicherung der
-persönlichen Daten und eine Identifizierung des Nutzers möglich sein soll.
+
+
+
 
 \begin{itemize}
   \item Grundsätzlich: Plug-In-Architektur angelehnt an Eclipse-Bsp [CHECK]
   \item Bestandteile: Grundanwendung (Basis), Plug-Ins [CHECK]
   \item Aufgaben Grundanwendung: Sicherheit (Login, Kommunikation), Verwaltung von Plug-Ins, Bereitstellen einer
   GUI-Struktur, zentrale Verwaltung lokaler Datenbanken (Methoden) [CHECK]
-  \item Programmiereigenschaften von JavaScrip ggü. Java [CHECK]
-  \item Zentrale Verwaltung von IDs und sonstigen Strings [CHECK]
+  \item Programmiereigenschaften von JavaScrip ggü. Java
   \item Plug-Ins sollten keinen Einfluss auf Grundanwendung haben (Kapselung, aber komplette Trennung nicht möglich)
-  [CHECK] 
-   \item Grafik Gesamtarchitektur [CHECK]
-  \item Grundstruktur: jQuery mobile (Seitenaufbau, alles mit Divs, CSS, wie Webseite) [MMHHH\ldots, NÜTZLICH?]
+  \item unbegrenzte Anzahl an Plug-Ins
+  \item Konfiguration eingebundener Plug-Ins (JSON)
+  \item Grafik Gesamtarchitektur
+  \item Grundstruktur: jQuery mobile (Seitenaufbau, alles mit Divs, CSS, wie Webseite)
   \item Login
 	  \begin{itemize}
 	    \item als Dialog (vorgeschaltete Seite)
@@ -128,22 +121,11 @@ persönlichen Daten und eine Identifizierung des Nutzers möglich sein soll.
 \section{Einbinden von Plug-Ins in die Basisanwendung}
 \ldots
 
-Wie in Kapitel \ref{sec:entwurfsentscheidungen} beschrieben, wird \app auf Basis einer Plug-In-Architektur entworfen.
-Abbildung \ref{fig:archikonzept} zeigt das grundsätzliche Konzept. Die Basisanwendung bietet wichtige
-Grundfunktionalitäten wie einen Log-In, Methoden zur sicheren Kommunikation mit CareNet, Methoden zur Verwaltung lokaler
-Datenbanken sowie eine Koordination der Plug-Ins. Die eigentliche Funktionalität, um mit \app arbeiten zu können, wird
-ausschließlich über Plug-Ins hinzugefügt. Diese werden über eine vordefinierte Schnittstelle, in Abbildung
-\ref{fig:archikonzept} dargestellt als Ring, hinzugefügt. 
-
-
-
 \begin{itemize}
   \item Plug-Struktur:
 	  \begin{itemize}
 	    \item Namenskonventionen wg. JS global
-	    \item unbegrenzte Anzahl an Plug-Ins
 	    \item Alle zugehörigen Dateien gekapselt in einem Ordner
-	     \item Konfiguration eingebundener Plug-Ins (JSON)
 	    \item Icon
 	    \item JS-Datei (Problem der dynamischen Einbingung)
 	    \item CSS-Datei
