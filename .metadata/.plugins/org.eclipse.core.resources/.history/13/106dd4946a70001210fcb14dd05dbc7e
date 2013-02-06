@@ -1,0 +1,128 @@
+%% appendix.tex
+%%
+
+%% ==============================
+%\chapter{Appendix}
+%\label{ch:Appendix}
+%% ==============================
+
+\appendix
+
+\addchap{Anhang}
+
+\section{Kernanforderungen an eine mobile Anwendung zur Dokumentation ärztlich übertragener Tätigkeiten}
+\label{anh:anforderungen}
+
+\begin{itemize}
+  \item Wie wurden die Anforderungen erhoben?
+	  \begin{itemize}
+	  		\item Richtlinie
+	  		\item Gespräche mit Raymond
+	  		\item Gespräche Corinna
+	  		\item Gesunder Menschenverstand
+	  		\item Wissen über Zielgruppe
+	  		\item Artikel Ärzteblatt
+	  		\item Diplomarbeit Christina Hardt
+	  		\item Projekt VitaBit (Schlüsselnummer, Tourenplan)
+	  		\item \ldots   
+  	  \end{itemize}
+  \item Kernanforderungen (Prio A)
+  	\begin{itemize}
+	  		\item Funktionalität
+	  			\begin{itemize}
+			  		\item Informationen über Klienten müssen verfügbar sein (Patientenakte) [CHECK]
+			  		\item Persönliche Daten $\rightarrow$ Schutz durch Login-Funktion [CHECK]
+			  		\item Dokumentation von Tätigkeiten aus Richtlinie muss möglich sein [CHECK]
+			  		\item ambulante und stationäre Pflege abdecken! [CHECK]			  		
+			  		\item Dokumentierte Tätigkeiten müssen an zentrales System übertragbar sein [CHECK] 
+			  		\item Ablaufplan jeweils für eine MFP pro Tag/Schicht	[CHECK]	
+			  		\item Übersicht, ob jeweilige Station schon vollständig abgearbeitet [CHECK]	  		
+			  		\item Es muss eine Tätigkeit als \textit{nicht durchgeführt} markiert werden können + Begründung,falls etwas			  		
+			  		dazwischenkommt [CHECK]
+			  		\item Einmal dokumentierte Werte sollten korrigierbar sein [CHECK]
+			  		\item Nachvollziehbarkeit von Änderungen [CHECK]		  		
+			  		\item Daten "`offline"' auf dem Endgerät verfügbar, d.h. keine zwangsläufige Internetverbindung [CHECK]
+			  		\item Dokumentation von Wunden (Fotos) [CHECK]
+			  		\item Erfassung von Vitalwerten (Blutdruck, Puls), evtl. mittels automatischer Erfassung [CHECK]
+			  		\item Schlüsselnummer für Hausbesuche bzw. Zimmernummer bei stationären Behandlungen (aus VitaBIT)	[CHECK]		  		
+			  		\item Klar und übersichtlich strukturierte Anwendung, intuitive Bedienung (am besten Touch, Endnutzerwissen)
+			  		[CHECK]
+			  		\item Für ambulanten Dienst eventuell Navigation mittels GPS [CHECK]
+			  		\item Telefongespräche? [CHECK]
+			  		\item \ldots   
+		  	    \end{itemize}
+		  	\item Abgeleitete technische Anforderungen
+			   \begin{itemize}
+			     	\item sozialer Kontext $\rightarrow$ günstige Hardware [CHECK]			  		
+			  		\item \textbf{Hardware:} mobiles Endgerät muss internetfähig sein (am besten über Mobilfunknetze für ambulanten
+			  		Dienst), eine Kamera haben (Wunddokumentation), am besten Touch-Bedienung, darf trotzdem nicht so teuer sein, evtl. GPS, falls
+			  		automatische Erfassung evtl. Bluetooth $\rightarrow$ Android-Tablet [CHECK]
+			  		\item \ldots   
+		  	  \end{itemize} 
+	  		\item \ldots   
+  	  \end{itemize}
+  \item Wünschenswerte Eigenschaften, um Nutzungskomfort zu steigern (Prio B) [NEIN]
+  \item Anforderungen, die über die reine Dokumentation oder dessen Unterstützung hinausgehen (Prio C, werden in der
+  Arbeit nicht behandelt) [NEIN]
+\end{itemize}
+		
+\setcounter{figure}{0}
+
+
+\section{Liste grundsätzliche Entwurfsentscheidungen \app}
+
+\begin{itemize}
+  \item Zentrales System: CareNet, basierend auf VitaBit [CHECK]
+  \item Kommunikation mit REST; Was ist REST? Prinzipien? [CHECK]
+  \item \textbf{CareNet mobile}
+  	\begin{itemize}
+  	  \item Name [CHECK]
+  	  \item Warum überhaupt Tablet? (Vgl. mit Diplomarbeit der anderen Studentin auf Nokia-Handy) [CHECK]
+  	  \item Nativ - WebApp - Hybrid [CHECK]
+  	  \item PhoneGap, jQuery mobile  [CHECK]
+  	  \item Falls doch jemand Apple will, nach Mglk. suchen, wie das evtl. auch bedienst werden kann [CHECK]
+  	\end{itemize}
+  \item Architektur (Plug-In-Struktur) [CHECK]
+  \item Änderungen an zu dokumentierenden Tätigkeiten sind zu erwarten, also möglichst flexible Architektur [CHECK]
+  	\begin{itemize}
+  	  \item Warum Plug-In? Vorteile? [CHECK]
+  	\end{itemize}
+  \item \textbf{Middleware}
+  	\begin{itemize}
+  	  	\item Schnittstellenfunktion nochmal erwähnen [CHECK]
+  	 	\item Technologie (PHP) [CHECK]
+  	 	\item Wo wird Middleware positioniert? Welcher Server? (konzeptionell) [NEIN]  	 	
+  	\end{itemize}
+\end{itemize}
+
+\section{Basisanwendung}
+
+\begin{itemize}
+  \item Grundsätzlich: Plug-In-Architektur angelehnt an Eclipse-Bsp [CHECK]
+  \item Bestandteile: Grundanwendung (Basis), Plug-Ins [CHECK]
+  \item Aufgaben Grundanwendung: Sicherheit (Login, Kommunikation), Verwaltung von Plug-Ins, Bereitstellen einer
+  GUI-Struktur, zentrale Verwaltung lokaler Datenbanken (Methoden) [CHECK]
+  \item Programmiereigenschaften von JavaScrip ggü. Java [CHECK]
+  \item Zentrale Verwaltung von IDs und sonstigen Strings [CHECK]
+  \item Plug-Ins sollten keinen Einfluss auf Grundanwendung haben (Kapselung, aber komplette Trennung nicht möglich)
+  [CHECK] 
+  \item Struktur GUI
+  \item Grundstruktur: jQuery mobile (Seitenaufbau, alles mit Divs, CSS, wie Webseite) [MMHHH\ldots, NÜTZLICH?]
+  \item Login
+	  \begin{itemize}
+	    \item als Dialog (vorgeschaltete Seite) [CHECK]
+	    \item Mandant, Nutzername, PW [CHECK]
+	    \item Wg. REST-Prinzip: Nur einmalige Überprüfung, ob Daten korrekt sind, kein Aufbau einer dauerhaften Verbindung
+	    [CHECK]
+	    \item Speicherung der Daten im lokalen Speicher im Klartext (HTML5/PhoneGap Key-Value-Speicher) [CHECK]
+	    \item Senden der Daten bei jeder Anfrage (Beispielanfrage) [CHECK]
+	    \item Authentifizierungstring: mandant/nutzername:passwort [CHECK]
+	    \item Middleware verschlüsselt String mit Base64 und sendet den an CareNet (kann einfach entschlüsselt werden)
+	    [TEIL-CHECK]
+	    \item Daten werden so unverschlüsselt gesendet, d.h. Verbindung an sich muss gesichert werden (https) [CHECK]
+	    \item Bei Logout werden Daten einfach aus lokalem Speicher gelöscht [CHECK]
+	    \item Sicherheitsproblem bei eingeschleuster Spyware (JS) über Browser? Nein, wg. Unabhängigkeit von
+	    PhoneGap-Browser/WebView und installierten anderen Browsern [MMMHHH\ldots]
+	  \end{itemize}
+  
+\end{itemize}

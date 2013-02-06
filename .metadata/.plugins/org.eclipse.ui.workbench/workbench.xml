@@ -52,12 +52,12 @@
 </folder>
 </info>
 </editorArea>
-<editor id="de.vonloesch.pdf4eclipse.editors.PDFEditor" name="thesis.pdf" partName="thesis.pdf" path="C:/MACareNetMobile/ProjectMACareNetMobile/thesis.pdf" title="thesis.pdf" tooltip="ProjectMACareNetMobile/thesis.pdf" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" name="thesis.pdf" partName="thesis.pdf" path="C:/MACareNetMobile/ProjectMACareNetMobile/thesis.pdf" title="thesis.pdf" tooltip="ProjectMACareNetMobile/thesis.pdf" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/thesis.pdf"/>
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="acronyms.tex" partName="acronyms.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/acronyms.tex" title="acronyms.tex" tooltip="ProjectMACareNetMobile/text/acronyms.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/acronyms.tex"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="715" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="712" selectionTopPixel="0"/>
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="thesis.tex" partName="thesis.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/thesis.tex" title="thesis.tex" tooltip="ProjectMACareNetMobile/thesis.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/thesis.tex"/>
@@ -65,11 +65,11 @@
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="appendix.tex" partName="appendix.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/appendix.tex" title="appendix.tex" tooltip="ProjectMACareNetMobile/text/appendix.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/appendix.tex"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3246" selectionTopPixel="1051"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6118" selectionTopPixel="1417"/>
 </editor>
-<editor activePart="true" focus="true" id="net.sourceforge.texlipse.TexEditor" name="plugins.tex" partName="plugins.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/plugins.tex" title="plugins.tex" tooltip="ProjectMACareNetMobile/text/plugins.tex" workbook="DefaultEditorWorkbook">
+<editor id="net.sourceforge.texlipse.TexEditor" name="plugins.tex" partName="plugins.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/plugins.tex" title="plugins.tex" tooltip="ProjectMACareNetMobile/text/plugins.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/plugins.tex"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7640" selectionTopPixel="1393"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="13375" selectionTopPixel="2389"/>
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="zieleArbeit.tex" partName="zieleArbeit.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/zieleArbeit.tex" title="zieleArbeit.tex" tooltip="ProjectMACareNetMobile/text/zieleArbeit.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/zieleArbeit.tex"/>
@@ -77,7 +77,7 @@
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="anforderungsanalyse.tex" partName="anforderungsanalyse.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/anforderungsanalyse.tex" title="anforderungsanalyse.tex" tooltip="ProjectMACareNetMobile/text/anforderungsanalyse.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/anforderungsanalyse.tex"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="19743" selectionTopPixel="3492"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="19508" selectionTopPixel="2437"/>
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="ausblick.tex" partName="ausblick.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/ausblick.tex" title="ausblick.tex" tooltip="ProjectMACareNetMobile/text/ausblick.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/ausblick.tex"/>
@@ -93,7 +93,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (25 items)"/>
+<category IMemento.internal.id="Warnings (27 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -142,7 +142,7 @@
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="net.sourceforge.texlipse.TexEditor" activePerspective="net.sourceforge.texlipse.TexlipsePerspective">
+<perspectives activePart="de.vonloesch.pdf4eclipse.editors.PDFEditor" activePerspective="net.sourceforge.texlipse.TexlipsePerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -307,7 +307,7 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.15757939" ratioLeft="263" ratioRight="1406" relationship="2" relative="org.eclipse.ui.internal.ViewStack@7db56458"/>
+<info part="org.eclipse.ui.editorss" ratio="0.16655004" ratioLeft="238" ratioRight="1191" relationship="2" relative="org.eclipse.ui.internal.ViewStack@7db56458"/>
 <info folder="true" part="bottom" ratio="0.67704916" ratioLeft="413" ratioRight="197" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -340,162 +340,160 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/thesis.pdf"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/plugins.tex"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/thesis.pdf"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/thesis.pdf"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/appendix.tex"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/acronyms.tex"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/thesis.tex"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/ausblick.tex"/>
 </editors>
-<item historyLabel="thesis.pdf" index="1">
-<position Page="22"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="7283" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="4003" y="0"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="24"/>
 </item>
-<item historyLabel="thesis.pdf" index="1">
-<position Page="23"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="9347" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="5202" y="0"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="24"/>
 </item>
-<item historyLabel="thesis.pdf" index="1">
-<position Page="23"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="10307" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="5202" y="0"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="25"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="1"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="10778" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="2"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="25"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="21"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="10778" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="1263" y="0"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="11728" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="22"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="14402" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="2714" y="0"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="27"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="22"/>
-</item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="4125" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="23"/>
-</item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="4125" y="0"/>
-</item>
-<item historyLabel="acronyms.tex" index="3">
-<position info="not_deleted" x="674" y="0"/>
-</item>
-<item historyLabel="acronyms.tex" index="3">
-<position info="not_deleted" x="716" y="0"/>
-</item>
-<item historyLabel="acronyms.tex" index="3">
-<position info="not_deleted" x="703" y="0"/>
-</item>
-<item historyLabel="acronyms.tex" index="3">
-<position info="not_deleted" x="715" y="0"/>
-</item>
-<item historyLabel="plugins.tex" index="0">
+<item historyLabel="plugins.tex" index="1">
 <position/>
 </item>
-<item historyLabel="thesis.tex" index="4">
-<position info="not_deleted" x="4068" y="0"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="27"/>
 </item>
-<item historyLabel="ausblick.tex" index="5">
-<position info="not_deleted" x="750" y="0"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13777" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="6692" y="0"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="27"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="24"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13627" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="6864" y="0"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="24"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13627" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="7461" y="0"/>
+<item historyLabel="appendix.tex" index="2">
+<position info="not_deleted" x="4316" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="24"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="11730" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="33"/>
+<item historyLabel="appendix.tex" index="2">
+<position info="not_deleted" x="6118" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="32"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="11730" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="2"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="4"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="11788" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="6"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="6"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="11788" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="21"/>
+<item historyLabel="acronyms.tex" index="3">
+<position info="not_deleted" x="584" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="23"/>
+<item historyLabel="acronyms.tex" index="3">
+<position info="not_deleted" x="754" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="8330" y="0"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13594" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="23"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13625" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
+</item>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13625" y="0"/>
+</item>
+<item historyLabel="acronyms.tex" index="3">
+<position info="not_deleted" x="754" y="0"/>
+</item>
+<item historyLabel="acronyms.tex" index="3">
+<position info="not_deleted" x="713" y="0"/>
+</item>
+<item historyLabel="acronyms.tex" index="3">
+<position info="not_deleted" x="712" y="0"/>
+</item>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13550" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
+</item>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13550" y="0"/>
+</item>
+<item historyLabel="plugins.tex" index="1">
 <position/>
 </item>
-<item historyLabel="thesis.tex" index="4">
-<position info="not_deleted" x="3430" y="0"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="23"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13623" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="24"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13107" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="7517" y="0"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="24"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13360" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="6"/>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="4"/>
+<item historyLabel="plugins.tex" index="1">
+<position info="not_deleted" x="13375" y="0"/>
 </item>
-<item historyLabel="thesis.pdf" index="2">
-<position Page="24"/>
-</item>
-<item active="true" historyLabel="plugins.tex" index="0">
-<position info="not_deleted" x="7517" y="0"/>
+<item active="true" historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -514,14 +512,20 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="PluginStrukturAmbuNetMobile.png" tooltip="ProjectMACareNetMobile/figures/PluginStrukturAmbuNetMobile.png">
+<persistable path="/ProjectMACareNetMobile/figures/PluginStrukturAmbuNetMobile.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="thesis.pdf" tooltip="ProjectMACareNetMobile/thesis.pdf">
+<persistable path="/ProjectMACareNetMobile/thesis.pdf"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="AuthentifizierungCareCMviaREST.pdf" tooltip="ProjectMACareNetMobile/figures/AuthentifizierungCareCMviaREST.pdf">
+<persistable path="/ProjectMACareNetMobile/figures/AuthentifizierungCareCMviaREST.pdf"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="ausblick.tex" tooltip="ProjectMACareNetMobile/text/ausblick.tex">
 <persistable path="/ProjectMACareNetMobile/text/ausblick.tex"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="VergleichJavaJavaScript.pdf" tooltip="ProjectMACareNetMobile/figures/VergleichJavaJavaScript.pdf">
 <persistable path="/ProjectMACareNetMobile/figures/VergleichJavaJavaScript.pdf"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="thesis.pdf" tooltip="ProjectMACareNetMobile/thesis.pdf">
-<persistable path="/ProjectMACareNetMobile/thesis.pdf"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="anforderungsanalyse.tex" tooltip="ProjectMACareNetMobile/text/anforderungsanalyse.tex">
 <persistable path="/ProjectMACareNetMobile/text/anforderungsanalyse.tex"/>
@@ -552,12 +556,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="google.png" tooltip="ProjectMACareNetMobile/figures/google.png">
 <persistable path="/ProjectMACareNetMobile/figures/google.png"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="einleitung.tex" tooltip="ProjectMACareNetMobile/text/einleitung.tex">
-<persistable path="/ProjectMACareNetMobile/text/einleitung.tex"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="entwurfsentscheidungen.tex" tooltip="ProjectMACareNetMobile/text/entwurfsentscheidungen.tex">
-<persistable path="/ProjectMACareNetMobile/text/entwurfsentscheidungen.tex"/>
 </file>
 </mruList>
 </workbench>

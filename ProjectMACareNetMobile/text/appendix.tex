@@ -95,3 +95,55 @@
   	\end{itemize}
 \end{itemize}
 
+\section{Basisanwendung}
+
+\begin{itemize}
+  \item Grundsätzlich: Plug-In-Architektur angelehnt an Eclipse-Bsp [CHECK]
+  \item Bestandteile: Grundanwendung (Basis), Plug-Ins [CHECK]
+  \item Aufgaben Grundanwendung: Sicherheit (Login, Kommunikation), Verwaltung von Plug-Ins, Bereitstellen einer
+  GUI-Struktur, zentrale Verwaltung lokaler Datenbanken (Methoden) [CHECK]
+  \item Programmiereigenschaften von JavaScrip ggü. Java [CHECK]
+  \item Zentrale Verwaltung von IDs und sonstigen Strings [CHECK]
+  \item Plug-Ins sollten keinen Einfluss auf Grundanwendung haben (Kapselung, aber komplette Trennung nicht möglich)
+  [CHECK] 
+  \item Struktur GUI
+  \item Grundstruktur: jQuery mobile (Seitenaufbau, alles mit Divs, CSS, wie Webseite) [MMHHH\ldots, NÜTZLICH?]
+  \item Login
+	  \begin{itemize}
+	    \item als Dialog (vorgeschaltete Seite) [CHECK]
+	    \item Mandant, Nutzername, PW [CHECK]
+	    \item Wg. REST-Prinzip: Nur einmalige Überprüfung, ob Daten korrekt sind, kein Aufbau einer dauerhaften Verbindung
+	    [CHECK]
+	    \item Speicherung der Daten im lokalen Speicher im Klartext (HTML5/PhoneGap Key-Value-Speicher) [CHECK]
+	    \item Senden der Daten bei jeder Anfrage (Beispielanfrage) [CHECK]
+	    \item Authentifizierungstring: mandant/nutzername:passwort [CHECK]
+	    \item Middleware verschlüsselt String mit Base64 und sendet den an CareNet (kann einfach entschlüsselt werden)
+	    [TEIL-CHECK]
+	    \item Daten werden so unverschlüsselt gesendet, d.h. Verbindung an sich muss gesichert werden (https) [CHECK]
+	    \item Bei Logout werden Daten einfach aus lokalem Speicher gelöscht [CHECK]
+	    \item Sicherheitsproblem bei eingeschleuster Spyware (JS) über Browser? Nein, wg. Unabhängigkeit von
+	    PhoneGap-Browser/WebView und installierten anderen Browsern [MMMHHH\ldots]
+	  \end{itemize}
+  
+\end{itemize}
+
+\section{Plug-In-Struktur}
+
+\begin{itemize}
+  \item Plug-Struktur:
+	  \begin{itemize}
+	    \item Plug-In = Menge von Dateien [CHECK]
+	    \item Alle zugehörigen Dateien gekapselt in einem Ordner [CHECK]
+	    \item Namenskonventionen wg. JS global bzgl. Dateien [CHECK]
+	    \item Namenskonventionen bzgl. Methoden, Variablen, CSS-Klassen [CHECK]
+	    \item Konfiguration eingebundener Plug-Ins (JSON) [CHECK]
+	    \item Icons (Darstellung in Dreierreihen + Grafik) [CHECK]	    
+	    \item CSS-Datei [CHECK]
+	    \item Beschreibung der Abhängigkeiten zu Bibliotheken wie jQuery, jQuery mobile, PhoneGap (Redundanzen vermeiden)
+	    [CHECK]
+	    \item Grafik zu Plug-In-Strukur [CHECK]
+	    \item JS-Datei (Problem der dynamischen Einbindung) [CHECK]	    
+	    \item Konstruktor, Methode zur Initialisierung [CHECK]   
+	  \end{itemize}
+  \item Probleme (Einbinden von JS und CSS Dateien) [CHECK]
+\end{itemize}
