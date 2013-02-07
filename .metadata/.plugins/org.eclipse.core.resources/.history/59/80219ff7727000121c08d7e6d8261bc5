@@ -114,90 +114,128 @@ entweder der HTML-Code 200 (\textit{OK}) oder 401 (\textit{Unauthorized}). Sind 
 sie im lokalen Speicher der Anwendung abgelegt, um sie für spätere Anfragen an CareNet nicht noch einmal eingeben zu
 müssen. Hierzu kann der von HTML5 angebotene lokale Key-Value-Speicher genutzt werden. In diesem Speicher können
 Zeichenketten, referenziert über einen Schlüssel, permanent abgelegt werden und auch nach dem Schließen der hybriden
-mobilen Anwendung wieder abgerufen werden. Die Nutzerdaten werden hier allerdings unverschlüsselt abgelegt. Meldet sich
-ein Nutzer wieder von \app ab, werden die lokal abgelegten Daten wieder gelöscht und es sind keine weiteren Anfragen an
-CareNet mehr möglich.\\
+mobilen Anwendung wieder abgerufen werden. Die Nutzerdaten werden hier allerdings unverschlüsselt abgelegt. Aus
+diesem Grund werden die Nutzerdaten aus dem lokalen Speicher gelöscht, sobald sich der Nutzer wieder von
+\app abmeldet. Weitere Anfragen an CareNet sind so nicht mehr möglich.\\
 In Abbildung \ref{fig:login} wird die Rolle der Middleware vernachlässigt, da diese nicht für das grundsätzliche
 Kommunikationsprinzip relevant ist. Tatsächlich übernimmt die Middleware aber einen Arbeitsschritt bei der
 Kommunikation. Die Nutzerdaten werden als Zeichenkette \textit{Mandant/Benutzername:Passwort} an die Middleware
 übertragen. CareNet benötigt die Daten zur Authentifizierung jedoch in Form einer nach der Base Access Authentication
-Zeichenkette. Base Access Authentication ist \textcolor{red}{[Erlärung Base64 nach Network security: private
-communication in a public world, second edition]}. Da PHP standardisierte Methoden zur Erstellung dieser
+verschlüsselten Zeichenkette. Base Access Authentication ist \textcolor{red}{[Erlärung Base64 nach Network security:
+private communication in a public world, second edition]}. Da PHP standardisierte Methoden zur Erstellung dieser
 Verschlüsselung anbietet, wurde entschieden, die Verschlüsselung in die Middleware zu verlagern.\\
 Auch wenn es sich bei der Base Access Authentication namentlich um eine Verschlüsselung handelt, ist diese jedoch kein
 Schutz gegen einen Zugriff auf die Daten Dritter, da das Verfahren öffentlich bekannt ist. Im Prinzip werden die
 Benutzerdaten also im Klartext von \app zu CareNet übertragen. Hört ein Dritter die Kommunikation ab, kann er die
-Nutzerdaten auslesen und seinen Zwecken nutzen. Aus diesem Grund muss die Verbindung an sich verschlüsselt werden.
+Nutzerdaten auslesen und zweckentfremden. Aus diesem Grund muss die Verbindung an sich verschlüsselt werden.
 Hierzu wird eine \acs{https}-Verbindung sowohl von \app zur Middleware als auch von der Middleware zu CareNet verwendet.
-
-\begin{itemize}
-  \item Grundsätzlich: Plug-In-Architektur angelehnt an Eclipse-Bsp [CHECK]
-  \item Bestandteile: Grundanwendung (Basis), Plug-Ins [CHECK]
-  \item Aufgaben Grundanwendung: Sicherheit (Login, Kommunikation), Verwaltung von Plug-Ins, Bereitstellen einer
-  GUI-Struktur, zentrale Verwaltung lokaler Datenbanken (Methoden) [CHECK]
-  \item Programmiereigenschaften von JavaScrip ggü. Java [CHECK]
-  \item Zentrale Verwaltung von IDs und sonstigen Strings [CHECK]
-  \item Plug-Ins sollten keinen Einfluss auf Grundanwendung haben (Kapselung, aber komplette Trennung nicht möglich)
-  [CHECK] 
-  \item Struktur GUI
-  \item Grundstruktur: jQuery mobile (Seitenaufbau, alles mit Divs, CSS, wie Webseite) [MMHHH\ldots, NÜTZLICH?]
-  \item Login
-	  \begin{itemize}
-	    \item als Dialog (vorgeschaltete Seite) [CHECK]
-	    \item Mandant, Nutzername, PW [CHECK]
-	    \item Wg. REST-Prinzip: Nur einmalige Überprüfung, ob Daten korrekt sind, kein Aufbau einer dauerhaften Verbindung
-	    [CHECK]
-	    \item Speicherung der Daten im lokalen Speicher im Klartext (HTML5/PhoneGap Key-Value-Speicher) [CHECK]
-	    \item Senden der Daten bei jeder Anfrage (Beispielanfrage) [CHECK]
-	    \item Authentifizierungstring: mandant/nutzername:passwort [CHECK]
-	    \item Middleware verschlüsselt String mit Base64 und sendet den an CareNet (kann einfach entschlüsselt werden)
-	    [TEIL-CHECK]
-	    \item Daten werden so unverschlüsselt gesendet, d.h. Verbindung an sich muss gesichert werden (https) [CHECK]
-	    \item Bei Logout werden Daten einfach aus lokalem Speicher gelöscht [CHECK]
-	    \item Sicherheitsproblem bei eingeschleuster Spyware (JS) über Browser? Nein, wg. Unabhängigkeit von
-	    PhoneGap-Browser/WebView und installierten anderen Browsern [MMMHHH\ldots]
-	  \end{itemize}
-  
-\end{itemize}
-
-\ldots
+\textcolor{red}{[https erklären mit security Buch]}.
 
 \section{Einbinden von Plug-Ins in die Basisanwendung}
-\ldots
-
-Wie in Kapitel \ref{sec:entwurfsentscheidungen} beschrieben, wird \app auf Basis einer Plug-In-Architektur entworfen.
-Die Basisanwendung bietet wichtige Grundfunktionalitäten wie den bereits beschriebenen Log-In, Methoden zur sicheren
-Kommunikation mit CareNet, Methoden zur Verwaltung lokaler Datenbanken sowie eine Koordination der Plug-Ins. Die eigentliche
-Funktionalität, um mit \app arbeiten zu können, wird ausschließlich über Plug-Ins hinzugefügt.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{figures/PluginStrukturAmbuNetMobile.pdf}
-	\caption{Struktur eines Plug-Ins}
+	\includegraphics[scale=0.7]{figures/PluginStrukturAmbuNetMobile.png}
+	\caption{Struktur eines Plug-Ins in \app}
 	\label{fig:plugin}
 \end{figure}
 
+Wie in Kapitel \ref{sec:entwurfsentscheidungen} beschrieben, wird \app auf Basis einer Plug-In-Architektur entwickelt.
+Die eigentliche Funktionalität, um die Anwendung produktiv einsetzen zu können, soll ausschließlich über Plug-Ins
+hinzugefügt werden. Diese sind prinzipiell gekapselte Programmstücke, die bestimmte Funktionen bereitstellen. Plug-Ins
+sollen der Basisanwendung leicht hinzugefügt und wieder entfernt werden können.\\
+Plug-Ins werden in \app in Form eines Ordners zum Zeitpunkt der Entwicklung eingebunden, bevor die Anwendung zur
+Installation auf dem Tablet-PC generiert wird. Ein Einbinden von Plug-Ins zur Laufzeit ist somit nicht möglich. Um eine
+unbegrenzte Anzahl Plug-Ins über ein generisches Verfahren einbinden zu können, muss eine einheitliche Struktur gegeben
+sein.  Abbildung \ref{fig:plugin} zeigt die Struktur eines Plug-Ins. Es besteht aus einer Menge von Dateien, die in
+einem Ordner zusammengefasst werden. Der Ordner muss den Namen des Plug-Ins tragen und die darin enthaltenen Dateien
+müssen der Namenskonventionen folgen, dass sie jeweils den Namen des Plug-Ins enthalten und ein beschreibendes Stichwort
+für den Inhalt der Datei. Zwar könnte auch schon die Dateiendung als Indikator für den Inhalt dienen, jedoch wird es
+durch den beschreibenden Zusatz noch eindeutiger.\\
+Jedes Plug-In muss die in Abbildung \ref{fig:gui} gezeigte Struktur der Anwendung nutzen und die einzelnen Div-Elemente
+über die in Variablen abgelegten \acs{id}s ansteuern. Um nicht bei jeder Veränderung eine neue HTML-Datei laden zu
+müssen, wird der Inhalt der Div-Elemente dynamisch angepasst. Hierzu ist JavaScript notwendig, folglich muss ein Plug-In
+eine JavaScript-Datei enthalten (\textit{Plug-In-Name.js}), die sowohl die Methoden zum Aufbau der grafischen Oberfläche
+als auch die Anwendungslogik enthält. Wichtig für die grafische Darstellung von \acs{html}-Elementen sind \ac{css}. Sie
+wird dazu verwendet, wiederverwendbare Formatierungen zu hinterlegen, die den \acs{html}-Elementen zugewiesen werden
+können. Diese müssen, wie JavaScript auch, in einer separaten Datei zusammengefasst werden
+(\textit{Plug-In-Name\_style.css}).\\
+Die Basisanwendung soll keinerlei Abhängigkeiten zu den Plug-Ins haben, jedoch verwenden Plug-Ins von der Basisanwendung
+bereitgestellte Methoden. Außerdem können Abhängigkeiten der Plug-Ins untereinander bestehen. Sind notwendige Methoden
+nicht verfügbar oder wurden diese verändert (beispielsweise die Methodensignatur), kann dies dazu führen, dass ein
+Plug-In nicht mehr funktioniert. Um die fehlenden Abhängigkeiten nicht erst zu entdecken, während der Nutzer eine nicht
+verfügbare Funktion versucht zu verwenden, müssen Abhängigkeiten in einer Konfigurationsdatei beschrieben werden. Die
+Datei \textit{Plug-In-Name\_config.json} enthält eine Liste aller Plug-Ins sowie deren Versionsnummer, die ein Plug-In
+benötigt, um grundsätzlich funktionieren zu können. Außerdem enthält die Datei die Versionsnummer des Plug-Ins selbst,
+um eventuelle Änderungen anzuzeigen. Werden nun Plug-Ins beim Öffnen der Anwendung geladen, kann zunächst überprüft
+werden, ob alle notwendigen Abhängigkeiten aufgelöst werden können. Ist dies nicht der Fall, wird ein Plug-In nicht
+geladen und der Nutzer bekommt einen Hinweis angezeigt. Neben den Abhängigkeiten zu anderen Plug-Ins können außerdem
+Abhängigkeiten zu JavaScript-Bibliotheken wie jQuery mobile oder PhoneGap bestehen. Um hier Redundanzen zu vermeiden,
+die entstehen, wenn jedes Plug-In diese Bibliotheken selbst einbindet, können auch diese in der Konfigurationsdatei
+angegeben werden. So wird der benötigte Speicherplatz der Anwendung möglichst gering gehalten.\\
 
-\begin{itemize}
-  \item Plug-Struktur:
-	  \begin{itemize}
-	    \item Namenskonventionen wg. JS global
-	    \item unbegrenzte Anzahl an Plug-Ins
-	    \item Alle zugehörigen Dateien gekapselt in einem Ordner
-	     \item Konfiguration eingebundener Plug-Ins (JSON)
-	    \item Icon
-	    \item JS-Datei (Problem der dynamischen Einbingung)
-	    \item CSS-Datei
-	    \item Versionsnummer, Konfig-Datei (Abhängigkeiten inkl. Versionsnummern)
-	    \item Konstruktor, Methode zur Initialisierung
-	    \item Arbeit mir Cotainern für GUI
-	    \item Beschreibung der Abhängigkeiten zu Bibliotheken wie jQuery, jQuery mobile, PhoneGap (Redundanzen vermeiden)
-	    \item Grafik zu Plug-In-Strukur
-	  \end{itemize}
-  \item Namenskonventionen
-  \item Vorgang des Einbindens
-  \item Probleme, Erweiterungsmöglichkeiten
-\end{itemize}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{figures/Startseite.png}
+	\caption{Übersicht der verwendbaren der Plug-Ins}
+	\label{fig:pluginView}
+\end{figure}
+
+Die Basisanwendung soll auf einer Seite einen Überblick über die verwendbaren Plug-Ins anbieten. Hier gibt es
+verschiedene Möglichkeiten der Darstellung. Es könnte beispielsweise eine Liste mit den Namen aller Plug-Ins angezeigt
+werden, es könnte eine Repräsentation durch Symbole erfolgen oder eine Kombination aus Symbolen und Namen verwendet
+werden. Da \app auf einem Tablet-PC verwendet wird, der durch Berührung gesteuert wird, ist eine Liste keine gute
+Alternative, da die Bedienung nicht so Präzise erfolgen kann wie mit einer Maus an einem PC. Fehler bei der Auswahl von
+Plug-Ins sind so leicht möglich. Orientiert man sich an dem Bedienkonzept der Apps auf einem Tablet-PC, liegt die
+Verwendung von Symbolen bzw. Icons nahe. Im Falle von \app entschieden, Symbole und einen Textbezeichner zu verwenden,
+um Plug-Ins eindeutig zu kennzeichnen und eine intuitive Bedienung zu ermöglichen. Abbildung \ref{fig:pluginView} zeigt
+eine exemplarische Darstellung von fünf Plug-Ins. Da die Anzahl verwendbarer Plug-Ins unbegrenzt sein soll, werden
+jeweils drei Symbole pro Reihe angezeigt und diese nach unten hin erweitert. Müssen mehr Plug-Ins angezeigt werden, als
+Platz auf dem Bildschirm zu Verfügung steht, kann der Bereich für den Inhalt nach unten gescrollt werden. Jedes Plug-In
+muss ein eigenes Icon mit dem Namen \textit{Plug-In-Name\_icon.png} bereitstellen.\\
+Zur Zeit der Abgabe dieser Arbeit war es leider noch nicht möglich, JavaScript- und CSS-Dateien zur Laufzeit
+einzubinden. Es muss jede Datei im Plug-In-Ordner manuell in der zentralen HTML-Datei eingebunden werden. Dies
+verursacht zusätzlichen Aufwand, jedoch konnte keine andere Lösung gefunden werden. Außerdem muss der Name jedes
+Plug-Ins in einer Konfigurationsdatei der Basisanwendung hinterlegt werden, denn es werden nur die Plug-Ins eingebunden,
+die hier aufgelistet wurden. Ein Nachteil der manuellen Einbindung \textit{einer} JavaScript-Datei ist, dass nicht
+einfach eine Menge von Dateien hinterlegt werden kann, die automatisch verwendet werden. Wäre dies möglich, könnte die
+Anwendungslogik eines Plug-Ins auf mehrere JavaScript-Dateien aufgeteilt werden. Wird nur eine Datei eingebunden, muss
+jeglicher JavaScript-Code in dieser Datei zusammengefasst werden, was die Übersichtlichkeit während der Entwicklung
+hindert, da diese Datei mehrere tausend Zeilen Code enthalten kann.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{figures/aufbauJsDatei.pdf}
+	\caption{Grundstruktur einer Plug-In-JavaScript-Datei}
+	\label{fig:pluginJsFile}
+\end{figure}
+
+Die Benutzung von \app soll auch ohne eine Internetverbindung möglich sein, wenn vorher alle relevanten Daten auf den
+Tablet-PC geladen wurden. Hierzu wird eine lokale Datenbank von der Basisanwendung bereitgestellt. Die Einzelnen
+Plug-Ins können über vordefinierte Methoden eigene Tabellen anlegen, um Plug-In spezifische Informationen
+abzuspeichern. Damit es beim ersten Öffnen eines Plug-Ins zu keiner größeren Verzögerung wegen des Anlegens benötigter
+Tabellen kommt, ist eine Funktion wünschenswert, mit der Plug-Ins Vorgänge anstoßen können, die schon vor dem ersten
+Öffnen ausgeführt werden. Um dies zu ermöglichen, muss die JavaScript-Datei die in Abbildung \ref{fig:pluginJsFile}
+gezeigten Methoden implementieren.\\
+Benötigt wird zunächst ein Konstruktor, der nach dem Plug-In benannt wurde. Dieser wird aufgerufen, sobalb ein Plug-In
+zur Anzeige auf der Übersicht geladen und festgestellt wurde, dass all Abhängigkeiten erfüllt sind. Hier können
+beispielsweise Tabellen einer Datenbank initialisiert werden. Neben einem Konstruktor wird eine Methode zur
+Initialisierung der Anwendung benötigt. Diese wird aufgerufen, sobald ein Nutzer ein Plug-In öffnet. In dieser Methode
+muss die Anzeige der App in den Bereichen Navigation, Information und Inhalt angepasst werden. Beispielsweise könnte ein
+Button in die Navigationsleiste gesetzt werden oder, wie in Abbildung \ref{fig:pluginJsFile} gezeigt, dem Inhalts-Div
+der Schriftzug "`Hallo"' in dem HTML-Größenelement "`<h1>"' hinzugefügt werden. Würde die Plug-In-Struktur in Java
+implementiert, könnte die Methode \textit{init()} in ein Interface gefasst werden, welches jedes Plug-in implementieren
+muss. Auch ein Konstruktor wäre gegeben. Dies wäre eine bessere Variante, da so sichergestellt werden kann, dass ein
+Programmierer die Methoden implementiert (alle Methoden eines verwendeten Interfaces müssen in Java implementiert
+werden). In JavaScript kann die Anforderung nur über Konventionen eingefordert werden, was zu menschlichen Fehlern durch
+Vergessen der Methoden führen kann.\\
+Ähnlich wie bei der Namensgebung der Dateien müssen auch innerhalb der Dateien Konventionen eingehalten werden. Um zu
+verhindern, dass Methoden mit gleichen Namen oder CSS-Klassen mit gleichen Namen in verschiedenen Plug-Ins implementiert
+werden, die sich dann gegenseitig stören, muss jede Methode mit dem Namen des Plug-Ins beginnen
+(\textit{Plug-In-Name.methode}), ebenso wie jede CSS-Klasse, jedoch hier ohne Punkt (\textit{Plug-In-NameKlassenname}).
+Auch jede global verwendete Variable muss den Plug-In-Namen vorangestellt bekommen, um Konflikte zu vermeiden. Eine
+Nicht-Einhaltung der Konventionen kann zu einer völligen Funkionsstörung der Anwendung führen.
+
 
 \section{Das Plug-In "`Kontakte"'}
 Für alle Plug-Ins feste Beschreibungsstruktur:
@@ -211,7 +249,4 @@ Für alle Plug-Ins feste Beschreibungsstruktur:
 \ldots
 
 \section{Das Plug-In "`Touren"'}
-\ldots
-
-\section{Das Plug-In "`Hilfe"'}
 \ldots

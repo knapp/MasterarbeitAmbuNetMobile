@@ -293,7 +293,6 @@ Für alle Plug-Ins feste Beschreibungsstruktur:
 	    \item Services nur mit Stichwort und Status zum Aufklappen
 	    \item nur von Übersicht Tagestour kann auf Startseite der App navigiert werden
 	    \item sonst immer noch zurückkehren zum letzten Schritt
-	    \item Atomare Transaktionen: Rückabwicklung, wenn während des Datenabrufs ein Fehler auftritt
 	  \end{itemize}
   \item \textbf{Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
   Anforderung hervor?}

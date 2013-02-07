@@ -258,9 +258,6 @@ Für alle Plug-Ins feste Beschreibungsstruktur:
 	    \item drei Tabellen: eine mit Views, eine mit Kontaktinfos, eine für Mapping
 	    \item Wie wird Laden der Infos vollzogen, sodass es zu keinen Brüchen kommt (View versucht Kontakte anzuzeigen,
 	    die noch nicht geladen wurden)
-	    \item Erstellen der Tabellen bei Initialisierung
-	    \item Füllen der Tabellen beim Öffnen des Plug-Ins, falls keine Daten vorhanden sind
-	    \item Ansonsten Anzeige der vorhandenen Daten, manuelle Aktualisierung notwendig
 	  \end{itemize}
   \item \textbf{Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
   Anforderung hervor?}
@@ -293,7 +290,6 @@ Für alle Plug-Ins feste Beschreibungsstruktur:
 	    \item Services nur mit Stichwort und Status zum Aufklappen
 	    \item nur von Übersicht Tagestour kann auf Startseite der App navigiert werden
 	    \item sonst immer noch zurückkehren zum letzten Schritt
-	    \item Atomare Transaktionen: Rückabwicklung, wenn während des Datenabrufs ein Fehler auftritt
 	  \end{itemize}
   \item \textbf{Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
   Anforderung hervor?}

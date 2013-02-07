@@ -148,12 +148,11 @@ text/appendix
 %% -------------------
 \tableofcontents
 
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 \listoffigures
-%\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 
-
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 \listoftables
-%\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 
 \include{text/acronyms}
 % IM Style: No additional blank page

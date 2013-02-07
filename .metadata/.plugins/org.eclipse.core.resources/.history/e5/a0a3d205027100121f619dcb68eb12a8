@@ -238,19 +238,16 @@ Nicht-Einhaltung der Konventionen kann zu einer völligen Funkionsstörung der Anw
 
 
 \section{Das Plug-In "`Kontakte"'}
-
 Für alle Plug-Ins feste Beschreibungsstruktur:
-
 \begin{itemize}
-  \item \textbf{Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)}
+  \item Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)
 	  \begin{itemize}
 	    \item Gezielt Infos über Klienten, Ärzte, Angehörige herausfinden
 	    \item Vorwiegend Anzeige von Stammdaten
 	    \item Unterscheidung der Anzeige nach Kontaktart (Klient, Angehöriger, Arzt)
 	    \item falls es das Endgerät zulässt: Direkte Telefongespräche
-	    \item Aktualisieren von Kontakten
 	  \end{itemize}
-  \item \textbf{Aufbau/Navigationsstruktur}
+  \item Aufbau/Navigationsstruktur
 	  \begin{itemize}
 	    \item in CareNet: verschiedene Sichten auf Kontakte (soll auch im Mobilteil verfügbar sein)
 	    \item Views und Kontakte über Zeiger miteinander verbunden
@@ -258,46 +255,17 @@ Für alle Plug-Ins feste Beschreibungsstruktur:
 	    \item drei Tabellen: eine mit Views, eine mit Kontaktinfos, eine für Mapping
 	    \item Wie wird Laden der Infos vollzogen, sodass es zu keinen Brüchen kommt (View versucht Kontakte anzuzeigen,
 	    die noch nicht geladen wurden)
-	    \item Erstellen der Tabellen bei Initialisierung
-	    \item Füllen der Tabellen beim Öffnen des Plug-Ins, falls keine Daten vorhanden sind
-	    \item Ansonsten Anzeige der vorhandenen Daten, manuelle Aktualisierung notwendig
 	  \end{itemize}
-  \item \textbf{Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
-  Anforderung hervor?}
+  \item Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
+  Anforderung hervor?
 	  \begin{itemize}
-	    \item Finden von Infos zu Klienten, Ärzten\ldots
+	    \item
 	  \end{itemize}
 \end{itemize}
+
+
+
+\ldots
 
 \section{Das Plug-In "`Touren"'}
-
-\begin{itemize}
-  \item \textbf{Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)}
-	  \begin{itemize}
-	    \item Ziel: Anzeige und Dokumentation von Touren
-	    \item Tour für einen bestimmten Tag
-	    \item Auflistung aller Stationen/Klienten eines Tages
-	    \item Geben übersichtlicher Kunzinfos
-	    \item Zeigen einer Schlüsselnummer/Zimmernummer
-	    \item Liste von zu erbringenden Services
-	    \item Abhaken von Tätigkeiten
-	    \item Dokumentation von Blutdruck und Puls [IMPL]
-	    \item Wunddokumentation mit Bildern (interne Kamera) [IMPL]
-	    \item Aktualisieren von Tourdaten [BUG]
-	    \item Senden der dokumentierten Ergebnisse an CareNet [IMPL] 
-	    \item Patientenakte + Statistiken [IMPL]
-	  \end{itemize}
-  \item  \textbf{Aufbau/Navigationsstruktur}
-	  \begin{itemize}
-	    \item Startseite: Aufgaben des Tages
-	    \item Services nur mit Stichwort und Status zum Aufklappen
-	    \item nur von Übersicht Tagestour kann auf Startseite der App navigiert werden
-	    \item sonst immer noch zurückkehren zum letzten Schritt
-	    \item Atomare Transaktionen: Rückabwicklung, wenn während des Datenabrufs ein Fehler auftritt
-	  \end{itemize}
-  \item \textbf{Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
-  Anforderung hervor?}
-	  \begin{itemize}
-	    \item 
-	  \end{itemize}
-\end{itemize}
+\ldots

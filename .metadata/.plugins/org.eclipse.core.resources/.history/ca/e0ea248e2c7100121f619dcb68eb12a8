@@ -11,7 +11,7 @@
 
 \NeedsTeXFormat{LaTeX2e}										% We do need LaTeX2e
 \ProvidesClass{thesisclass}
-\LoadClass[a4paper,11pt,titlepage,openany,liststotoc]{scrbook}	% Class based on scrbook
+\LoadClass[a4paper,11pt,titlepage,openany,listtotoc]{scrbook}	% Class based on scrbook
 % IM Style: Add openany to avoid blank pages after every chapter
 
 \RequirePackage{ngerman}										% New german orthography
