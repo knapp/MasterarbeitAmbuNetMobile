@@ -322,8 +322,8 @@ Für alle Plug-Ins feste Beschreibungsstruktur:
 \begin{itemize}
   \item \textbf{Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)}
 	  \begin{itemize}
-	    \item Gezielt Infos über Klienten, Ärzte, Angehörige herausfinden [CHECK]
-	    \item Vorwiegend Anzeige von Stammdaten [CHECK]
+	    \item Gezielt Infos über Klienten, Ärzte, Angehörige herausfinden
+	    \item Vorwiegend Anzeige von Stammdaten
 	    \item Unterscheidung der Anzeige nach Kontaktart (Klient, Angehöriger, Arzt, Organisation) [CHECK]    
 	    \item Aktualisieren von Kontakten [CHECK]
 	  \end{itemize}
@@ -333,11 +333,16 @@ Für alle Plug-Ins feste Beschreibungsstruktur:
 	    \item Views und Kontakte über Zeiger miteinander verbunden [CHECK]
 	    \item n:n-Beziehung [CHECK]
 	    \item drei Tabellen: eine mit Views, eine mit Kontaktinfos, eine für Mapping [CHECK]
-	    \item Erstellen der Tabellen bei Initialisierung [CHECK]
-	    \item Füllen der Tabellen beim Öffnen des Plug-Ins, falls keine Daten vorhanden sind [CHECK]
-	    \item Ansonsten Anzeige der vorhandenen Daten, manuelle Aktualisierung notwendig [CHECK]
 	    \item Wie wird Laden der Infos vollzogen, sodass es zu keinen Brüchen kommt (View versucht Kontakte anzuzeigen,
-	    die noch nicht geladen wurden)
+	    die noch nicht geladen wurden) 
+	    \item Erstellen der Tabellen bei Initialisierung
+	    \item Füllen der Tabellen beim Öffnen des Plug-Ins, falls keine Daten vorhanden sind
+	    \item Ansonsten Anzeige der vorhandenen Daten, manuelle Aktualisierung notwendig
+	  \end{itemize}
+  \item \textbf{Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
+  Anforderung hervor?}
+	  \begin{itemize}
+	    \item Finden von Infos zu Klienten, Ärzten\ldots
 	  \end{itemize}
 \end{itemize}
 

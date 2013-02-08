@@ -252,11 +252,12 @@ unterschieden. Bei Organisationen können einige Einrichtungen des Gesundsheitssy
 Krankenhaus, ein ambulanter Pflegedienst oder auch ein Hausarzt. Angezeigt werden die Kontakte über sogenannte
 \textit{Sichten} (Views). Eine Sicht stellt einen Filter dar, der jeweils nur die Kontakte einer bestimmten Gruppe
 anzeigt. Diese sind beispielsweise \textit{Alle Kontakte}, \textit{Alle Angehörigen}, \textit{Alle Klienten} oder auch
-\textit{Alle Organisationen}. Diese Filterung nach Sichten sollte auch in \app möglich sein. Bei dem Verhältnis von
-Kontakten zu Sichten handelt es sich um eine n:n-Beziehung. Das bedeutet, dass ein Kontakt in mehreren Sichten enthalten
-sein kann und mehrere Kontakte einer Sicht zugeordnet werden. Beispielsweise wird ein Kontakt Klient sowohl unter
-\textit{Alle Kontakte} als auch unter \textit{Alle Klienten} angezeigt werden. Außerdem wird es in der Regel mehr als
-einen Klienten geben.
+\textit{Alle Organisationen}. Diese Filterung nach Sichten sollte auch in \app möglich sein. Da auch die
+Kontaktinformationen offline verfügbar sein sollen, müssen entsprechende Tabellen zur lokalen Speicherung vorhanden
+sein. Bei dem Verhältnis von Kontakten zu Sichten handelt es sich um eine n:n-Beziehung. Das bedeutet, dass ein Kontakt
+in mehreren Sichten enthalten sein kann und mehrere Kontakte einer Sicht zugeordnet werden. Beispielsweise wird ein
+Kontakt Klient sowohl unter \textit{Alle Kontakte} als auch unter \textit{Alle Klienten} angezeigt werden. Außerdem wird
+es in der Regel mehr als einen Klienten geben.
 
 \begin{figure}
 	\centering
@@ -265,23 +266,19 @@ einen Klienten geben.
 	\label{fig:tablesContacts}
 \end{figure}
 
-Da auch die Kontaktinformationen offline verfügbar sein sollen, müssen entsprechende Tabellen zur lokalen Speicherung
-vorhanden sein. Als Speicher wird eine von HTML5 angebotene Sqlite-Datenbank verwendet. Diese speichert Daten
-persistent, d.h. auch wenn die Anwendung auf dem Tablet-PC geschlossen wird oder der Tablet-PC heruntergefahren wird,
-werden die Daten nicht gelöscht. Beim Start von \app wird eine Datenbank angelegt bzw. überprüft, ob bereits eine
-Datenbank mit entsprechendem Namen vorhanden ist. Da die Datenbank innerhalb des von PhoneGap angebotenen Browsers/Web
-Views angelegt wird, kann von außen bzw. anderen auf dem Tablet-PC installierten Anwendungen nicht darauf zugegriffen
-werden. So entsteht kein Sicherheitsproblem durch die Speicherung sensibler Daten auf dem Tablet-PC. Alle Daten werden
-in Tabellen gespeichert, die in unbegrenzter Zahl erstellt werden können. Abbildung \ref{fig:tablesContacts} zeigt die
-notwendige Tabellenstruktur, um Sichten und Kontakte lokal abspeichern zu können. Die linke Tabelle enthält die
-\acs{id}s und Namen aller Sichten, die aus CareNet geladen wurden. In der rechten Tabelle sind alle Kontakte mit
-\acs{id}s und einer Reihe von Attributen enthalten. Die mittlere Tabelle verbindet beide Tabellen, indem sie durch
-Gegenüberstellung der \acs{id}s der Sichten und der Kontakte eine Abbildung schafft, welcher Kontakt in welcher Sicht
-enthalten ist. Beispielsweise ist in Abbildung \ref{fig:tablesContacts} der Kontakt mit der \acs{id} C2 in den
-Sichten mit den \acs{id}s V1 und V2 enthalten, während die anderen Kontakte jeweils nur in einer Sicht enthalten sind.
-Wählt ein Nutzer eine Sicht aus, wird in der Tabelle \textit{Mapping} nach allen Kontakt-\acs{id}s gesucht, die der
-\acs{id} der Sicht zugeordnet sind. Mit Hilfe der gesammelten \acs{id}s werden die eigentlichen Kontaktinformationen aus
-der Tabelle \textit{Contacts} abgefragt, welche nun dargestellt werden können.
+Als Speicher wird eine von HTML5 angebotene Sqlite-Datenbank verwendet. Diese speichert Daten persistent, d.h.
+auch wenn die Anwendung auf dem Tablet-PC geschlossen wird oder der Tablet-PC heruntergefahren wird, werden die Daten
+nicht gelöscht. Beim Start von \app wird eine Datenbank angelegt bzw. überprüft, ob bereits eine Datenbank mit
+entsprechendem Namen vorhanden ist. Alle Daten werden in Tabellen gespeichert, die in unbegrenzter Zahl erstellt werden
+können. Abbildung \ref{fig:tablesContacts} zeigt die notwendige Tabellenstruktur, um Sichten und Kontakte lokal
+abspeichern zu können. Die linke Tabelle enthält die \acs{id}s und Namen aller Sichten, die aus CareNet geladen wurden.
+In der rechten Tabelle sind alle Kontakte mit \acs{id}s und einer Reihe von Attributen enthalten. Die mittlere Tabelle
+verbindet beide Tabellen, indem sie durch Gegenüberstellung der \acs{id}s der Sichten und der Kontakte eine Abbildung
+schafft, welcher Kontakt in welcher Sicht enthalten ist. Beispielsweise ist in Abbildung \ref{fig:tablesContacts} der
+Kontakt mit der \acs{id}s C2 in beiden Sichten mit den \acs{id}s V1 und V2 enthalten, während die anderen Kontakte
+jeweils nur in einer Sicht enthalten sind. Wählt ein Nutzer eine Sicht aus, wird in der Tabelle \textit{Mapping} nach
+allen Kontakt-\acs{id}s gesucht, die der \acs{id} der Sicht zugeordnet sind. Mit Hilfe der gesammelten \acs{id}s werden
+die eigentlichen Kontaktinformationen aus der Tabelle \textit{Contacts} abgefragt, welche nun dargestellt werden können.
 
 \begin{figure}
 	\centering
@@ -296,34 +293,26 @@ links sind alle vorhandenen Sichten aufgeführt (die Liste ist scrollbar). Moment
 ausgewählt. Auf der rechten Seite werden die verbundenen Kontakte in Form von Kacheln aufgelistet. In dem orangenen
 Balken ist vermerkt, ob es sich um eine Person oder eine Organisation handelt, im grauen Kasten darunter werden Vorname
 und Name sowie Wohnort aufgeführt. Es könnten beispielsweise auch die Telefonnummer, die E-Mail-Adresse oder ein Foto
-einer Person angezeigt werden, jedoch wurden aus Gründen er Übersichtlichkeit diese Informationen gewählt.\\
-Jedes Element in der Liste der Sichten weist nach oben und unten einen gewissen Abstand vom Text zum Rand auf, um genug
-Fläche für eine Auswahl mit dem Finger zu bieten und somit die Wahrscheinlichkeit neben die gewollte Schaltfläche zu
-tippen zu verringern. Das gleiche gilt für die Kacheln zur Auflistung der Kontakte. Neben der Informationsfunktion soll
-auch hier eine komfortable Bedienung ermöglicht werden.\\
+einer Person angezeigt werden, jedoch wurden aus Gründen er Übersichtlichkeit diese Informationen gewählt. Jedes
+Element in der Liste der Sichten weist nach oben und unten einen gewissen Abstand vom Text zum Rand auf, um genug Fläche
+für eine Auswahl mit dem Finger zu bieten und somit die Wahrscheinlichkeit neben die gewollte Schaltfläche zu tippen zu
+verringern. Das gleiche gilt für die Kacheln zur Auflistung der Kontakte. Neben der Informationsfunktion soll auch hier
+eine komfortable Bedienung ermöglicht werden.\\
 Wählt ein Nutzer einen Kontakt aus, werden alle relevanten Informationen in einem separaten Fenster dargestellt.
 Momentan findet lediglich eine Unterscheidung bei der Darstellung von Personen und Organisationen statt, jedoch ist eine
 Differenzierung nach Adressarten geplant.\\
 Zum Zeitpunkt der Fertigstellung dieser Arbeit hatte das Plug-In nur eine Funktion zum Anzeigen von Kontakten. Eine
-Editierfunktion bestehender Kontakte oder die Neuanlage von Kontakten ist nicht möglich.\\
+Editierfunktion bestehender Kontakte oder die Neuanlage von Kontakten ist nicht möglich.
 
-Die in Abbildung \ref{fig:tablesContacts} gezeigten Tabellen werden im Konstruktor des Plug-Ins erzeugt bzw. wird
-überprüft, ob sie vorhanden sind. Wird das Plug-In geöffnet und es sind keine Kontaktdaten vorhanden, wird angenommen,
-dass das Plug-In zum ersten Mal geöffnet wird und es wird automatisch ein Versuch unternommen, Kontaktinformationen von
-CareNet zu laden. Sind bereits Daten vorhanden, werde diese lediglich angezeigt. Meint der Nutzer, die angezeigten Daten
-wären nicht aktuell, kann er über einen Button in der Navigationsleiste einen Aktualisierungsvorgang anstoßen. Ist
-dieser abgeschlossen, werden die aktualisierten Daten angezeigt.\\
-Da Sichten, Kontakte und das Mapping in verschiedenen Tabellen abgespeichert werden, muss sichergestellt werden, dass
-alle Daten vollständig geladen wurden, bevor dem Nutzer die Möglichkeit gegeben wird, Sichten auszuwählen. Hierzu wurde
-ein [ENTWURFSMUSTER zu Callback vorstellen, Umsetzung erklären]
+
 
 Für alle Plug-Ins feste Beschreibungsstruktur:
 
 \begin{itemize}
   \item \textbf{Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)}
 	  \begin{itemize}
-	    \item Gezielt Infos über Klienten, Ärzte, Angehörige herausfinden [CHECK]
-	    \item Vorwiegend Anzeige von Stammdaten [CHECK]
+	    \item Gezielt Infos über Klienten, Ärzte, Angehörige herausfinden
+	    \item Vorwiegend Anzeige von Stammdaten
 	    \item Unterscheidung der Anzeige nach Kontaktart (Klient, Angehöriger, Arzt, Organisation) [CHECK]    
 	    \item Aktualisieren von Kontakten [CHECK]
 	  \end{itemize}
@@ -333,11 +322,16 @@ Für alle Plug-Ins feste Beschreibungsstruktur:
 	    \item Views und Kontakte über Zeiger miteinander verbunden [CHECK]
 	    \item n:n-Beziehung [CHECK]
 	    \item drei Tabellen: eine mit Views, eine mit Kontaktinfos, eine für Mapping [CHECK]
-	    \item Erstellen der Tabellen bei Initialisierung [CHECK]
-	    \item Füllen der Tabellen beim Öffnen des Plug-Ins, falls keine Daten vorhanden sind [CHECK]
-	    \item Ansonsten Anzeige der vorhandenen Daten, manuelle Aktualisierung notwendig [CHECK]
 	    \item Wie wird Laden der Infos vollzogen, sodass es zu keinen Brüchen kommt (View versucht Kontakte anzuzeigen,
-	    die noch nicht geladen wurden)
+	    die noch nicht geladen wurden) 
+	    \item Erstellen der Tabellen bei Initialisierung
+	    \item Füllen der Tabellen beim Öffnen des Plug-Ins, falls keine Daten vorhanden sind
+	    \item Ansonsten Anzeige der vorhandenen Daten, manuelle Aktualisierung notwendig
+	  \end{itemize}
+  \item \textbf{Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
+  Anforderung hervor?}
+	  \begin{itemize}
+	    \item Finden von Infos zu Klienten, Ärzten\ldots
 	  \end{itemize}
 \end{itemize}
 
