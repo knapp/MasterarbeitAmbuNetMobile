@@ -17,10 +17,6 @@ entworfen. Oben links befindet sich das Logo der Anwendung, darunter ist ein Ber
 Informationen wie das aktuell verwendete Plug-In oder der gerade behandelte Klient reserviert. Am oberen Rand, rechts
 des Logos, wurde eine Leiste zum Platzieren von Buttons zur Navigation eingefügt. Der größte Bereich ist zur Darstellung
 und Bearbeitung des eigentlichen Inhalts gedacht.\\
-Die gesamte Anwendung basiert lediglich auf zwei HTML-Dateien und einer Menge von JavaScript-Dateien. Eine HTML-Datei
-wird für einen Login-Dialog verwendet, die zweite um den kompletten Inhalt darzustellen. Alle Strukturelemente und
-Funktionalität wird über JavaScript hinzugefügt. Zur Manipulation der HTML-Elemente wird jQuery und jQuery mobile
-verwendet.
 
 \begin{figure}
 	\centering
