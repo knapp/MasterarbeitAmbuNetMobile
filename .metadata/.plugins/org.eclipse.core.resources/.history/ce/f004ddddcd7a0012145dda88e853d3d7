@@ -5,15 +5,18 @@
 
 \section{Aufgaben und Struktur der Basisanwendung}
 
+\begin{itemize}
+  \item Einbringen, dass "Zurück"-Button abgefangen werden muss (weil es nur eine Seite ist)
+  \item Effekte von Pausieren und zurückkehren in die App erklären 8Sicherheit!)
+\end{itemize}
+
 Um einem Benutzer von \app die Bedienung der Anwendung zu erleichtern, sollte ein einheitliches Gesamterscheinungsbild
 eingehalten werden, da ständige Strukturwechsel in der grafischen Oberfläche zu Unübersichtlichkeit führen können
 \textcolor{red}{[Quelle]}. Hierzu wurde die in Abbildung \ref{fig:gui} gezeigte feste Struktur der grafischen Oberfläche
 entworfen. Oben links befindet sich das Logo der Anwendung, darunter ist ein Bereich für die Darstellung von
 Informationen wie das aktuell verwendete Plug-In oder der gerade behandelte Klient reserviert. Am oberen Rand, rechts
-des Logos, wurde eine Leiste zum Platzieren von Buttons zur Navigation eingefügt. Hier sollen Schaltflächen zur
-Navigation zwischen Basisanwendung und Plug-Ins platziert werden (z.B. ein "Home"-Button) und auch zur Navigation
-zwischen verschiedenen Sichten innerhalb eines Plug-Ins. Der größte Bereich ist zur Darstellung und Bearbeitung des
-eigentlichen Inhalts gedacht.\\
+des Logos, wurde eine Leiste zum Platzieren von Buttons zur Navigation eingefügt. Der größte Bereich ist zur Darstellung
+und Bearbeitung des eigentlichen Inhalts gedacht.\\
 Die gesamte Anwendung basiert lediglich auf zwei HTML-Dateien und einer Menge von JavaScript-Dateien. Eine HTML-Datei
 wird für einen Login-Dialog verwendet, die zweite um den kompletten Inhalt darzustellen. Alle Strukturelemente und
 Funktionalität wird über JavaScript hinzugefügt. Zur Manipulation der HTML-Elemente wird jQuery und jQuery mobile
@@ -145,25 +148,11 @@ verschlüsselten Zeichenkette. Base Access Authentication ist \textcolor{red}{[Er
 private communication in a public world, second edition]}. Da PHP standardisierte Methoden zur Erstellung dieser
 Verschlüsselung anbietet, wurde entschieden, die Verschlüsselung in die Middleware zu verlagern.\\
 Auch wenn es sich bei der Base Access Authentication namentlich um eine Verschlüsselung handelt, ist diese jedoch kein
-Schutz gegen einen Zugriff auf die Daten Dritter, da das Verfahren öffentlich bekannt ist und leicht entschlüsselt
-werden kann. Im Prinzip werden die Benutzerdaten also im Klartext von \app zu CareNet übertragen. Hört ein Dritter die
-Kommunikation ab, kann er die Nutzerdaten auslesen und zweckentfremden. Aus diesem Grund muss die Verbindung an sich
-verschlüsselt werden. Hierzu wird eine \acs{https}-Verbindung sowohl von \app zur Middleware als auch von der Middleware
-zu CareNet verwendet.\\
-\acs{https} steht für \textit{\acl{https}} und stellt eine Kombination aus einem symmetrischen und einem asymmetrischen
-Verschlüsselungsverfahren dar, um Internetverbindungen abhörsicher zu machen. Bei einem symmetrischen Verfahren benutzen
-Sender und Empfänger beide den gleichen Schlüssel, um Nachrichten zu ver- und entschlüsseln. Bei einem asymmetrischen
-Verfahren wird eine Nachricht mit einem öffentlichen Schlüssel verschlüsselt und mit einem privaten Schlüssel, den nur
-der Empfänger kennt, wieder entschlüsselt. Die symmetrische Verschlüsselung ist zwar deutlich schneller, jedoch auch
-unsicherer, da der Schlüssel zunächst über eine unverschlüsselte Verbindung übertragen werden muss und so eventuell
-abgehört werden könnte. Beim \acs{https}-Verfahren wird zum Aufbau einer sicheren Verbindung der öffentliche Schlüssel
-an den Empfänger übertragen.
-Dieser nutzt den Schlüssel, um eine Nachricht mit einem symmetrischen Schlüssel an den Server zu schicken. Diesen
-symmetrischen Schlüssel können in der folgenden Kommunikation beide Seiten verwenden. Eine langsame asymmetrische
-Kommunikation findet also nur beim Aufbau der Verbindung statt \cite[S. 152]{sicherheitInternet}.
-
-
-
+Schutz gegen einen Zugriff auf die Daten Dritter, da das Verfahren öffentlich bekannt ist. Im Prinzip werden die
+Benutzerdaten also im Klartext von \app zu CareNet übertragen. Hört ein Dritter die Kommunikation ab, kann er die
+Nutzerdaten auslesen und zweckentfremden. Aus diesem Grund muss die Verbindung an sich verschlüsselt werden.
+Hierzu wird eine \acs{https}-Verbindung sowohl von \app zur Middleware als auch von der Middleware zu CareNet verwendet.
+\textcolor{red}{[https erklären mit security Buch]}.
 
 \section{Einbinden von Plug-Ins in die Basisanwendung}
 
@@ -191,7 +180,7 @@ Jedes Plug-In muss die in Abbildung \ref{fig:gui} gezeigte Struktur der Anwendun
 müssen, wird der Inhalt der Div-Elemente dynamisch angepasst. Hierzu ist JavaScript notwendig, folglich muss ein Plug-In
 eine JavaScript-Datei enthalten (\textit{Plug-In-Name.js}), die sowohl die Methoden zum Aufbau der grafischen Oberfläche
 als auch die Anwendungslogik enthält. Wichtig für die grafische Darstellung von \acs{html}-Elementen sind \ac{css}. Sie
-werden dazu verwendet, wiederverwendbare Formatierungen zu hinterlegen, die den \acs{html}-Elementen zugewiesen werden
+wird dazu verwendet, wiederverwendbare Formatierungen zu hinterlegen, die den \acs{html}-Elementen zugewiesen werden
 können. Diese müssen, wie JavaScript auch, in einer separaten Datei zusammengefasst werden
 (\textit{Plug-In-Name\_style.css}).\\
 Die Basisanwendung soll keinerlei Abhängigkeiten zu den Plug-Ins haben, jedoch verwenden Plug-Ins von der Basisanwendung
@@ -206,7 +195,7 @@ werden, ob alle notwendigen Abhängigkeiten aufgelöst werden können. Ist dies nic
 geladen und der Nutzer bekommt einen Hinweis angezeigt. Neben den Abhängigkeiten zu anderen Plug-Ins können außerdem
 Abhängigkeiten zu JavaScript-Bibliotheken wie jQuery mobile oder PhoneGap bestehen. Um hier Redundanzen zu vermeiden,
 die entstehen, wenn jedes Plug-In diese Bibliotheken selbst einbindet, können auch diese in der Konfigurationsdatei
-angegeben werden. So wird der benötigte Speicherplatz der Anwendung möglichst gering gehalten.
+angegeben werden. So wird der benötigte Speicherplatz der Anwendung möglichst gering gehalten.\\
 
 \begin{figure}
 	\centering
@@ -215,21 +204,18 @@ angegeben werden. So wird der benötigte Speicherplatz der Anwendung möglichst ge
 	\label{fig:pluginView}
 \end{figure}
 
-Die Basisanwendung bietet außer dem Login ausschließlich Funktionalitäten an, die der Nutzer nicht direkt verwenden
-kann, sondern die nur programmatisch von Plug-Ins genutzt werden können. Da die gesamte produktiv nutzbare
-Funktionalität folglich über die Plug-Ins hinzugefügt wird, dient die Startseite von \app als eine Art Sprungbrett, um
-die hinterlegten Anwendungen zu starten. \cite[S. 3 ff.]{mobileDesignPatterns} beschreibt das sogenannte
-\textit{Springboard}-Muster (Sprungbrett-Muster) als häufig verwendetes und etabliertes Entwurfsmuster für die primäre
-Navigation in mobilen Anwendungen. Meist wird ein Gittermuster verwendet, in welchem zu den jeweiligen Anwendungen
-passende Abbildungen und ein textueller Bezeichner angeordnet werden. Bei dem Entwurf der grafischen Oberfläche von \app
-wurde dieses Muster gewählt, da es eine hohe Übersichtlichkeit auf der Startseite bietet. Abbildung \ref{fig:pluginView}
-zeigt die Umsetzung in \app für fünf eingebundene Plug-Ins. Die Abstände zwischen den Symbolen wurden bewusst groß
-gewählt, um eine Fehlauswahl durch versehentliches Tippen auf falsche Symbole zu vermeiden. Alle Symbole werden in
-gleicher Größe dargestellt, um dem Nutzer zu vermitteln, dass es sich um gleichwertig gewichtete Anwendungen handelt.
-Es werden jeweils drei Symbole pro Reihe angezeigt. Bei mehr als drei Plug-Ins werden zusätzliche Reihen nach unten
-hinzugefügt. Müssen mehr Plug-Ins angezeigt werden, als Platz auf dem Bildschirm zu Verfügung steht, kann der Bereich
-für den Inhalt nach unten gescrollt werden. Jedes Plug-In muss ein eigenes Icon mit dem Namen
-\textit{Plug-In-Name\_icon.png} bereitstellen.\\
+Die Basisanwendung soll auf einer Seite einen Überblick über die verwendbaren Plug-Ins anbieten. Hier gibt es
+verschiedene Möglichkeiten der Darstellung. Es könnte beispielsweise eine Liste mit den Namen aller Plug-Ins angezeigt
+werden, es könnte eine Repräsentation durch Symbole erfolgen oder eine Kombination aus Symbolen und Namen verwendet
+werden. Da \app auf einem Tablet-PC verwendet wird, der durch Berührung gesteuert wird, ist eine Liste keine gute
+Alternative, da die Bedienung nicht so Präzise erfolgen kann wie mit einer Maus an einem PC. Fehler bei der Auswahl von
+Plug-Ins sind so leicht möglich. Orientiert man sich an dem Bedienkonzept der Apps auf einem Tablet-PC, liegt die
+Verwendung von Symbolen bzw. Icons nahe. Im Falle von \app entschieden, Symbole und einen Textbezeichner zu verwenden,
+um Plug-Ins eindeutig zu kennzeichnen und eine intuitive Bedienung zu ermöglichen. Abbildung \ref{fig:pluginView} zeigt
+eine exemplarische Darstellung von fünf Plug-Ins. Da die Anzahl verwendbarer Plug-Ins unbegrenzt sein soll, werden
+jeweils drei Symbole pro Reihe angezeigt und diese nach unten hin erweitert. Müssen mehr Plug-Ins angezeigt werden, als
+Platz auf dem Bildschirm zu Verfügung steht, kann der Bereich für den Inhalt nach unten gescrollt werden. Jedes Plug-In
+muss ein eigenes Icon mit dem Namen \textit{Plug-In-Name\_icon.png} bereitstellen.\\
 Zur Zeit der Abgabe dieser Arbeit war es leider noch nicht möglich, JavaScript- und CSS-Dateien zur Laufzeit
 einzubinden. Es muss jede Datei im Plug-In-Ordner manuell in der zentralen HTML-Datei eingebunden werden. Dies
 verursacht zusätzlichen Aufwand, jedoch konnte keine andere Lösung gefunden werden. Außerdem muss der Name jedes
@@ -291,7 +277,7 @@ Krankenhaus, ein ambulanter Pflegedienst oder auch ein Hausarzt. Angezeigt werde
 anzeigt. Diese sind beispielsweise \textit{Alle Kontakte}, \textit{Alle Angehörigen}, \textit{Alle Klienten} oder auch
 \textit{Alle Organisationen}. Diese Filterung nach Sichten sollte auch in \app möglich sein. Bei dem Verhältnis von
 Kontakten zu Sichten handelt es sich um eine n:n-Beziehung. Das bedeutet, dass ein Kontakt in mehreren Sichten enthalten
-sein kann und mehrere Kontakte einer Sicht zugeordnet werden. Beispielsweise wird ein Klient sowohl unter
+sein kann und mehrere Kontakte einer Sicht zugeordnet werden. Beispielsweise wird ein Kontakt Klient sowohl unter
 \textit{Alle Kontakte} als auch unter \textit{Alle Klienten} angezeigt werden. Außerdem wird es in der Regel mehr als
 einen Klienten geben.
 
@@ -327,15 +313,15 @@ der Tabelle \textit{Contacts} abgefragt, welche nun dargestellt werden können.
 	\label{fig:presentationContacts}
 \end{figure}
 
-Die Darstellung soll sowohl die Sichten als auch die darin enthaltenen Kontakte auf einen Blick enthalten. Für die
-Auflistung der verfügbaren Sichten wurde eine einzeilige Tabelle ohne Kopfzeile gewählt. Die zugehörigen Kontakte einer
-Sicht werden als Kacheln bzw. als Galerie (\cite[S. 17]{mobileDesignPatterns}) dargestellt. Abbildung
-\ref{fig:presentationContacts} zeigt einen Ausschnitt aus der Darstellung der Kontakte in \app. In dem orangefarbenen
+Die Darstellung der Kontakte wurde an die Anforderungen einer Bedienung mit dem Finger angepasst. Abbildung
+\ref{fig:presentationContacts} zeigt einen Ausschnitt aus der Darstellung der Kontakte in \app. In der blauen Liste
+links sind alle vorhandenen Sichten aufgeführt (die Liste ist scrollbar). Momentan ist die Sicht \textit{Alle Klienten}
+ausgewählt. Auf der rechten Seite werden die verbundenen Kontakte in Form von Kacheln aufgelistet. In dem orangenen
 Balken ist vermerkt, ob es sich um eine Person oder eine Organisation handelt, im grauen Kasten darunter werden Vorname
 und Name sowie Wohnort aufgeführt. Es könnten beispielsweise auch die Telefonnummer, die E-Mail-Adresse oder ein Foto
 einer Person angezeigt werden, jedoch wurden aus Gründen er Übersichtlichkeit diese Informationen gewählt.\\
-Jedes Element in der Tabelle der Sichten weist nach oben und unten einen gewissen Abstand vom Text zum Rand auf, um
-genug Fläche für eine Auswahl mit dem Finger zu bieten und somit die Wahrscheinlichkeit neben die gewollte Schaltfläche zu
+Jedes Element in der Liste der Sichten weist nach oben und unten einen gewissen Abstand vom Text zum Rand auf, um genug
+Fläche für eine Auswahl mit dem Finger zu bieten und somit die Wahrscheinlichkeit neben die gewollte Schaltfläche zu
 tippen zu verringern. Das gleiche gilt für die Kacheln zur Auflistung der Kontakte. Neben der Informationsfunktion soll
 auch hier eine komfortable Bedienung ermöglicht werden.\\
 Wählt ein Nutzer einen Kontakt aus, werden alle relevanten Informationen in einem separaten Fenster dargestellt.

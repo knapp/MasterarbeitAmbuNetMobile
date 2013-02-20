@@ -119,6 +119,20 @@
   url = {http://www.sciencedirect.com/science/article/pii/S0167923604000612}
 }
 
+@BOOK{mobileDesignPatterns,
+  title = {Mobile Design Pattern Gallery : [UI Patterns for iOS, Android and
+	more]},
+  publisher = {OReilly},
+  year = {2012},
+  author = {Neil, Theresa},
+  address = {Beijing},
+  edition = {1. ed.},
+  isbn = {978-1-449-31432-3; 1-449-31432-5},
+  keywords = { ; Graphische Benutzeroberfläche ; Mobiles Endgerät ; App <Programm>},
+  size = {XII, 261 S. : zahlr. Ill.},
+  url = {http://deposit.d-nb.de/cgi-bin/dokserv?id=3962922&prov=M&dok_var=1&dok_ext=htm ; http://swbplus.bsz-bw.de/bsz363523030cov.htm}
+}
+
 @MISC{stat2050,
   author = {Statistisches Bundesamt - Pressestelle},
   title = {{Bevölkerung Deutschlands bis 2050 - 11. koordinierte Bevölkerungsvorausberechnung}},
@@ -256,10 +270,10 @@
 }
 
 @STANDARD{iso25000,
-  title = {{ISO/IEC 25000: Software engineering — Software product Quality Requirements
-	and Evaluation (SQuaRE) — Guide to SQuaRE}},
+  title = {ISO/IEC 25000 Software engineering - Software product Quality Requirements
+	and Evaluation SQuaRE - Guide to SQuaRE},
   organization = {{International Standards Organization}},
-  institution = {International Electrotechnical Commission},
+  institution = {{International Electrotechnical Commission}},
   number = {1},
   revision = {1},
   month = {8},

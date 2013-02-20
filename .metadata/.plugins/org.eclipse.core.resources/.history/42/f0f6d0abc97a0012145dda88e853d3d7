@@ -43,8 +43,8 @@ Im letzten Teil der Evaluation wird überprüft, ob ein typischer Prozess \textcol
 Richtlinie zur Delegation ärztlicher Leistungen mit der entstandenen Software delegierbar und dokumentierbar ist.\\
 
 Das zentrale Verwaltungssystem wird in dieser Arbeit nicht von Grund auf entwickelt, sondern basiert auf einer im
-Projekt VitaBit (\cite{vitaBitAerzteblatt} und \cite{vitaBithaeuslich}) entwickelten Software-Lösung zur Dokumentation
-von Pflegeleistungen. Bereitgestellt wird es von der nubedian GmbH \cite{nubedian}, die außerdem Unterstützung bei der
+Projekt VitaBit (\cite{vitaBitAerzteblatt} & \cite{vitaBithaeuslich}) entwickelten Software-Lösung zur Dokumentation von
+Pflegeleistungen. Bereitgestellt wird es von der nubedian GmbH \cite{nubedian}, die außerdem Unterstützung bei der
 Anpassung des Systems an die Anforderungen der Dokumentation ärztlicher Leistungen anbietet, da das System momentan
 lediglich zur Dokumentation von Pflegeleistungen gedacht ist. Im Laufe der Entwicklung der mobilen Anwendung sollen
 notwendige Anpassungen des zentralen Verwaltungssystem identifiziert und dokumentiert werden.\\

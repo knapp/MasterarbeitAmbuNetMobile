@@ -155,9 +155,8 @@ Verschlüsselungsverfahren dar, um Internetverbindungen abhörsicher zu machen. Be
 Sender und Empfänger beide den gleichen Schlüssel, um Nachrichten zu ver- und entschlüsseln. Bei einem asymmetrischen
 Verfahren wird eine Nachricht mit einem öffentlichen Schlüssel verschlüsselt und mit einem privaten Schlüssel, den nur
 der Empfänger kennt, wieder entschlüsselt. Die symmetrische Verschlüsselung ist zwar deutlich schneller, jedoch auch
-unsicherer, da der Schlüssel zunächst über eine unverschlüsselte Verbindung übertragen werden muss und so eventuell
-abgehört werden könnte. Beim \acs{https}-Verfahren wird zum Aufbau einer sicheren Verbindung der öffentliche Schlüssel
-an den Empfänger übertragen.
+unsicherer, da der Schlüssel übertragen werden muss und eventuell abgehört werden könnte. Beim
+\acs{https}-Verfahren wird zum Aufbau einer sicheren Verbindung der öffentliche Schlüssel an den Empfänger übertragen.
 Dieser nutzt den Schlüssel, um eine Nachricht mit einem symmetrischen Schlüssel an den Server zu schicken. Diesen
 symmetrischen Schlüssel können in der folgenden Kommunikation beide Seiten verwenden. Eine langsame asymmetrische
 Kommunikation findet also nur beim Aufbau der Verbindung statt \cite[S. 152]{sicherheitInternet}.
