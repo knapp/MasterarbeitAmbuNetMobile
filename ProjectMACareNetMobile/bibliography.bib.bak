@@ -19,6 +19,18 @@
   timestamp = {2013.01.15}
 }
 
+@ARTICLE{vitaBitAerzteblatt,
+  author = {{Forschungsprojekt VitaBIT}},
+  title = {{Pflegeservice von morgen}},
+  journal = {{Deutsches Ärzteblatt}},
+  year = {2009},
+  volume = {106},
+  pages = {3,4},
+  number = {50},
+  owner = {Thomas},
+  timestamp = {2013.01.24}
+}
+
 @MISC{verahZiele,
   author = {Instituts für hausärztliche Fortbildung im Deutschen Hausärzteverband
 	(IhF) e.V.},
@@ -38,6 +50,19 @@
   year = {2008},
   owner = {Thomas},
   timestamp = {2013.01.15}
+}
+
+@BOOK{patternsBook,
+  title = {Patterns of enterprise application architecture},
+  publisher = {Addison-Wesley},
+  year = {2003},
+  author = {Fowler, Martin},
+  series = {The Addison-Wesley signature series},
+  address = {Boston, Mass.},
+  isbn = {0-321-12742-0},
+  keywords = { ; System design / Computer architecture / Application software /
+	Business ; Unternehmen / Anwendungssystem / Systementwicklung / Objektorientierung},
+  size = {XXIV, 533 S. : Ill., graph. Darst.}
 }
 
 @ELECTRONIC{nubedian,
@@ -72,6 +97,26 @@
   month = {April},
   owner = {Thomas},
   timestamp = {2013.01.23}
+}
+
+@BOOK{sicherheitInternet,
+  title = {Sicherheit im Internet : [Gefahren einschätzen, Risiken minimieren:
+	fundiertes Hintergrundwissen rund ums Internet; effektiver Schutz
+	für den PC: behandelt Windows XP und Vista; mit zahlreichen Sicherheitstools
+	auf CD-ROM]},
+  publisher = {OReilly},
+  year = {2007},
+  author = {Janowicz, Krzysztof},
+  series = {oreillys basics},
+  address = {Beijing},
+  edition = {3. Aufl.},
+  note = {Früher mit der Nummer 9783897214255},
+  isbn = {978-3-89721-715-7; 3-89721-715-5},
+  keywords = {Internet / Kryptoanalyse ; Internet / Computersicherheit / Datensicherung
+	; Internet / Firewall ; Web-Seite / Vertrauenswürdigkeit / Datensicherung
+	; Electronic Banking / Passwort / Zugriffskontrolle / Datensicherung},
+  size = {XIV, 349 S. : Ill., graph. Darst. ; 1 CD-ROM (12 cm)},
+  url = {http://swbplus.bsz-bw.de/bsz26744186xcov.htm ; http://www.gbv.de/dms/ilmenau/toc/527923656.PDF}
 }
 
 @ARTICLE{vitaBithaeuslich,
@@ -142,18 +187,6 @@
   location = {Wiesbaden},
   owner = {Thomas},
   timestamp = {2012.11.19}
-}
-
-@ARTICLE{vitaBitAerzteblatt,
-  author = {Forschungsprojekt VitaBIT},
-  title = {{Pflegeservice von morgen}},
-  journal = {{Deutsches Ärzteblatt}},
-  year = {2009},
-  volume = {106},
-  pages = {3,4},
-  number = {50},
-  owner = {Thomas},
-  timestamp = {2013.01.24}
 }
 
 @ELECTRONIC{androidStringRessources,

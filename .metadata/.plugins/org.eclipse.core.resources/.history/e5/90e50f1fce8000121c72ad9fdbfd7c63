@@ -177,28 +177,28 @@ Kommunikation findet also nur beim Aufbau der Verbindung statt \cite[S. 152]{sic
 
 Wie in Kapitel \ref{sec:entwurfsentscheidungen} beschrieben, wird \app auf Basis einer Plug-In-Architektur entwickelt.
 Die eigentliche Funktionalität, um die Anwendung produktiv einsetzen zu können, soll ausschließlich über Plug-Ins
-hinzugefügt werden, welche gekapselte Programmstücke darstellen. Plug-Ins sollen der Basisanwendung leicht hinzugefügt
-und wieder entfernt werden können. Außerdem soll durch die programmatische Entkopplung logisch getrennter Programmstücke
-eine höhere Code-Qualität erreicht werden, da so Teile des Programms verändert werden können, ohne die Gesamte Anwendung
-zu beeinflussen.\\
+hinzugefügt werden. Diese sind prinzipiell gekapselte Programmstücke, die bestimmte Funktionen bereitstellen. Plug-Ins
+sollen der Basisanwendung leicht hinzugefügt und wieder entfernt werden können. Außerdem soll durch die programmatische
+Entkopplung logisch getrennter Programmstücke eine höhere Code-Qualität erreicht werden, da so Teile des Programms
+verändert werden können, ohne die Gesamte Anwendung zu beeinflussen.\\
 Die Idee des Plug-In-Musters (\cite[S. 499 ff.]{patternsBook}) ist, einer Anwendung Implementierungen zur Laufzeit durch
 Konfiguration hinzufügen zu können. Ein erneutes Kompilieren bzw. ein neuer Build-Prozess soll nicht notwendig sein. Da
-\app nicht mit einer objektorientierten Sprache wie Java oder C\# entwickelt wird, sondern mit JavaScript, kann diese
+\app nicht mit einer objektorientierten Sprache wie Java oder C# entwickelt wird, sondern mit JavaScript, kann diese
 Eigenschaft nicht vollständig umgesetzt werden. Der Quellcode eines Plug-Ins muss in \app gekapselt in einen Ordner zum
 Zeitpunkt der Entwicklung eingebunden werden, bevor die Anwendung zur Installation auf dem Tablet-PC generiert wird.
 Damit ein Plug-In aber tatsächlich in der Anwendung bereitgestellt wird, muss es namentlich in einer zentralen
 Konfigurationsdatei \textit{pluginConfig.json} aufgeführt werden. Beim Start der App werden alle hier aufgeführten
 Plug-Ins geladen, falls der benötigte Quellcode tatsächlich vorhanden ist. Die Konfigurationsdatei dient somit als
-Startpunkt zum Laden der eigentlichen Funktionalität. Zwar muss bei dem hier skizzierten Vorgehen der Quellcode der
-Plug-Ins noch zur Entwicklungszeit eingebunden werden, jedoch ermöglicht die Konfigurationsdatei ein Einbinden und
-Ausschließen von Plug-Ins zur Laufzeit, da die Konfigurationsdatei im \acs{json}-Format durch JavaScript veränderbar
-ist. Die Anforderungen eines \textit{Plug-In}-Musters werden so zumindest in Teilen umgesetzt.\\
-Um eine unbegrenzte Anzahl Plug-Ins über ein generisches Verfahren einbinden zu können, muss eine einheitliche Struktur
-gegeben sein. Abbildung \ref{fig:plugin} zeigt die Struktur eines Plug-Ins. Es besteht aus einer Menge von Dateien, die
-in einem Ordner zusammengefasst werden. Der Ordner muss den Namen des Plug-Ins tragen und die darin enthaltenen Dateien
-müssen der Namenskonventionen folgen, dass sie jeweils den Namen des Plug-Ins enthalten und ein beschreibendes Stichwort
-für den Inhalt der Datei. Zwar könnte auch schon die Dateiendung als Indikator für den Inhalt dienen, jedoch wird es
-durch den beschreibenden Zusatz besser lesbar.\\
+Startpunkt zum Laden der eigentlichen Funktionalität und die Basisanwendung wird so impliziert zur \textit{Plug-In
+Factory}, ein Muster zur Bereitstellung von Implementierungen zur Laufzeit \cite[S.
+500]{patternsBook}.\\
+
+ Um eine unbegrenzte Anzahl Plug-Ins über ein generisches Verfahren
+einbinden zu können, muss eine einheitliche Struktur gegeben sein.  Abbildung \ref{fig:plugin} zeigt die Struktur eines
+Plug-Ins. Es besteht aus einer Menge von Dateien, die in einem Ordner zusammengefasst werden. Der Ordner muss den Namen
+des Plug-Ins tragen und die darin enthaltenen Dateien müssen der Namenskonventionen folgen, dass sie jeweils den Namen
+des Plug-Ins enthalten und ein beschreibendes Stichwort für den Inhalt der Datei. Zwar könnte auch schon die Dateiendung
+als Indikator für den Inhalt dienen, jedoch wird es durch den beschreibenden Zusatz noch eindeutiger.\\
 Jedes Plug-In muss die in Abbildung \ref{fig:gui} gezeigte Struktur der Anwendung nutzen und die einzelnen Div-Elemente
 über die in Variablen abgelegten \acs{id}s ansteuern. Um nicht bei jeder Veränderung eine neue HTML-Datei laden zu
 müssen, wird der Inhalt der Div-Elemente dynamisch angepasst. Hierzu ist JavaScript notwendig, folglich muss ein Plug-In
@@ -212,15 +212,14 @@ bereitgestellte Methoden. Außerdem können Abhängigkeiten der Plug-Ins untereinan
 nicht verfügbar oder wurden diese verändert (beispielsweise die Methodensignatur), kann dies dazu führen, dass ein
 Plug-In nicht mehr funktioniert. Um die fehlenden Abhängigkeiten nicht erst zu entdecken, während der Nutzer eine nicht
 verfügbare Funktion versucht zu verwenden, müssen Abhängigkeiten in einer Konfigurationsdatei beschrieben werden. Die
-Datei \textit{Plug-In-Name\_config.json} enthält eine Liste aller Plug-Ins sowie deren minimal und maximal mögliche
-Versionsnummer, die ein Plug-In benötigt, um grundsätzlich funktionieren zu können. Außerdem enthält die Datei die
-Versionsnummer des Plug-Ins selbst. Vor dem Laden eines Plug-Ins wird überprüft, ob die Plug-Ins, zu denen eine
-Abhängigkeit besteht, grundsätzlich vorhanden sind, und ob die Version des Plug-Ins in dem angegebenen Bereich liegt
-(Bsp: Min-Version: 1.0, Max-Version: 1.3, Plug-In-Version: 1.1 $\Rightarrow$ OK). Ist dies nicht der Fall, wird ein
-Plug-In nicht geladen und der Nutzer bekommt einen Hinweis angezeigt. Neben den Abhängigkeiten zu anderen Plug-Ins
-können außerdem Abhängigkeiten zu JavaScript-Bibliotheken wie jQuery mobile oder PhoneGap bestehen. Um hier Redundanzen
-zu vermeiden, die entstehen, wenn jedes Plug-In diese Bibliotheken selbst einbindet, können auch diese in der
-Konfigurationsdatei angegeben werden. So wird der benötigte Speicherplatz der Anwendung möglichst gering gehalten.
+Datei \textit{Plug-In-Name\_config.json} enthält eine Liste aller Plug-Ins sowie deren Versionsnummer, die ein Plug-In
+benötigt, um grundsätzlich funktionieren zu können. Außerdem enthält die Datei die Versionsnummer des Plug-Ins selbst,
+um eventuelle Änderungen anzuzeigen. Werden nun Plug-Ins beim Öffnen der Anwendung geladen, kann zunächst überprüft
+werden, ob alle notwendigen Abhängigkeiten aufgelöst werden können. Ist dies nicht der Fall, wird ein Plug-In nicht
+geladen und der Nutzer bekommt einen Hinweis angezeigt. Neben den Abhängigkeiten zu anderen Plug-Ins können außerdem
+Abhängigkeiten zu JavaScript-Bibliotheken wie jQuery mobile oder PhoneGap bestehen. Um hier Redundanzen zu vermeiden,
+die entstehen, wenn jedes Plug-In diese Bibliotheken selbst einbindet, können auch diese in der Konfigurationsdatei
+angegeben werden. So wird der benötigte Speicherplatz der Anwendung möglichst gering gehalten.
 
 \begin{figure}
 	\centering
@@ -263,26 +262,23 @@ hindert, da diese Datei mehrere tausend Zeilen Code enthalten kann.\\
 
 Die Benutzung von \app soll auch ohne eine Internetverbindung möglich sein, wenn vorher alle relevanten Daten auf den
 Tablet-PC geladen wurden. Hierzu wird eine lokale Datenbank von der Basisanwendung bereitgestellt. Die Einzelnen
-Plug-Ins können über vordefinierte Methoden eigene Tabellen anlegen, um Plug-In spezifische Informationen abzuspeichern.
-Damit es beim ersten Öffnen eines Plug-Ins zu keiner größeren Verzögerung wegen des Anlegens benötigter Tabellen kommt,
-ist eine Funktion wünschenswert, mit der Plug-Ins Vorgänge anstoßen können, die schon vor dem ersten Öffnen ausgeführt
-werden. Um dies zu ermöglichen, muss die JavaScript-Datei die in Abbildung \ref{fig:pluginJsFile} gezeigten Methoden
-implementieren. Prinzipiell wird hier ein \textit{Separated Interface}-Muster \cite[S. 476]{patternsBook} genutzt, bei
-dem generelle Methoden, die jedes Plug-In implementiert, jedoch mit unterschiedlicher Funktionalität, ausgelagert
-werden. Da in JavsScript die explizite Definition von Schnittstellen (Interfaces) nicht möglich ist, muss hier auf
-global verfügbare Methoden zurückgegriffen werden.\\
-Benötigt wird zunächst ein Konstruktor, der nach dem Plug-In benannt wurde. Dieser wird aufgerufen, wenn ein Plug-In
-geladen wird, bei dem alle Abhängigkeiten erfüllt sind . Hier können beispielsweise Tabellen einer Datenbank
-initialisiert werden. Neben einem Konstruktor wird eine Methode zur Initialisierung der Anwendung benötigt. Diese wird
-aufgerufen, sobald ein Nutzer ein Plug-In öffnet. In dieser Methode muss die Anzeige der App in den Bereichen
-Navigation, Information und Inhalt angepasst werden. Beispielsweise könnte ein Button in die Navigationsleiste gesetzt
-werden oder, wie in Abbildung \ref{fig:pluginJsFile} gezeigt, dem Inhalts-Div der Schriftzug "`Hallo"' in dem
-HTML-Größenelement "`<h1>"' hinzugefügt werden. Würde die Plug-In-Struktur in Java implementiert, könnte die Methode
-\textit{init()} in ein Interface gefasst werden, welches jedes Plug-in implementieren muss. Auch ein Konstruktor wäre
-gegeben. Dies wäre eine bessere Variante, da so sichergestellt werden kann, dass ein Programmierer die Methoden
-implementiert (alle Methoden eines verwendeten Interfaces müssen in Java implementiert werden). In JavaScript kann die
-Anforderung nur über Konventionen eingefordert werden, was zu menschlichen Fehlern durch Vergessen der Methoden führen
-kann.\\
+Plug-Ins können über vordefinierte Methoden eigene Tabellen anlegen, um Plug-In spezifische Informationen
+abzuspeichern. Damit es beim ersten Öffnen eines Plug-Ins zu keiner größeren Verzögerung wegen des Anlegens benötigter
+Tabellen kommt, ist eine Funktion wünschenswert, mit der Plug-Ins Vorgänge anstoßen können, die schon vor dem ersten
+Öffnen ausgeführt werden. Um dies zu ermöglichen, muss die JavaScript-Datei die in Abbildung \ref{fig:pluginJsFile}
+gezeigten Methoden implementieren.\\
+Benötigt wird zunächst ein Konstruktor, der nach dem Plug-In benannt wurde. Dieser wird aufgerufen, sobalb ein Plug-In
+zur Anzeige auf der Übersicht geladen und festgestellt wurde, dass all Abhängigkeiten erfüllt sind. Hier können
+beispielsweise Tabellen einer Datenbank initialisiert werden. Neben einem Konstruktor wird eine Methode zur
+Initialisierung der Anwendung benötigt. Diese wird aufgerufen, sobald ein Nutzer ein Plug-In öffnet. In dieser Methode
+muss die Anzeige der App in den Bereichen Navigation, Information und Inhalt angepasst werden. Beispielsweise könnte ein
+Button in die Navigationsleiste gesetzt werden oder, wie in Abbildung \ref{fig:pluginJsFile} gezeigt, dem Inhalts-Div
+der Schriftzug "`Hallo"' in dem HTML-Größenelement "`<h1>"' hinzugefügt werden. Würde die Plug-In-Struktur in Java
+implementiert, könnte die Methode \textit{init()} in ein Interface gefasst werden, welches jedes Plug-in implementieren
+muss. Auch ein Konstruktor wäre gegeben. Dies wäre eine bessere Variante, da so sichergestellt werden kann, dass ein
+Programmierer die Methoden implementiert (alle Methoden eines verwendeten Interfaces müssen in Java implementiert
+werden). In JavaScript kann die Anforderung nur über Konventionen eingefordert werden, was zu menschlichen Fehlern durch
+Vergessen der Methoden führen kann.\\
 Ähnlich wie bei der Namensgebung der Dateien müssen auch innerhalb der Dateien Konventionen eingehalten werden. Um zu
 verhindern, dass Methoden mit gleichen Namen oder CSS-Klassen mit gleichen Namen in verschiedenen Plug-Ins implementiert
 werden, die sich dann gegenseitig stören, muss jede Methode mit dem Namen des Plug-Ins beginnen
@@ -364,28 +360,12 @@ Editierfunktion bestehender Kontakte oder die Neuanlage von Kontakten ist nicht 
 Die in Abbildung \ref{fig:tablesContacts} gezeigten Tabellen werden im Konstruktor des Plug-Ins erzeugt bzw. wird
 überprüft, ob sie vorhanden sind. Wird das Plug-In geöffnet und es sind keine Kontaktdaten vorhanden, wird angenommen,
 dass das Plug-In zum ersten Mal geöffnet wird und es wird automatisch ein Versuch unternommen, Kontaktinformationen von
-CareNet zu laden. Sind bereits Daten vorhanden, werden diese lediglich angezeigt. Über einen Button in der
-Navigationsleiste kann der Nutzer auch manuell einen Aktualisierungsvorgang anstoßen. Ist dieser abgeschlossen, werden
-die verfügbaren Views angezeigt.\\
+CareNet zu laden. Sind bereits Daten vorhanden, werde diese lediglich angezeigt. Meint der Nutzer, die angezeigten Daten
+wären nicht aktuell, kann er über einen Button in der Navigationsleiste einen Aktualisierungsvorgang anstoßen. Ist
+dieser abgeschlossen, werden die aktualisierten Daten angezeigt.\\
 Da Sichten, Kontakte und das Mapping in verschiedenen Tabellen abgespeichert werden, muss sichergestellt werden, dass
-alle Daten vollständig geladen wurden, bevor dem Nutzer die Möglichkeit gegeben wird, Sichten auszuwählen. Sind die
-Kontakte zu einer Sicht noch nicht vollständig geladen und der Nutzer möchte einen dieser Kontakte anzeigen lassen,
-kommt es zu einem Fehler, versucht wird, auf einen leeren Datensatz zuzugreifen. Das Laden der Daten von CareNet erfolgt
-über \acs{rest}-basierte \acs{ajax}-Aufrufe. \acs{ajax} steht für \acl{ajax}. Wie der Name schon sagt, handelt es sich
-hierbei um \textit{asynchrone} Webservice-Aufrufe, was bedeutet, dass der Aufruf getätigt wird, ohne dass bekannt ist,
-wann das Ergebnis zurück kommt. Da die Ausführung des übrigen JavaScript-Codes nicht automatisch auf das Ergebnis
-wartet, auch wenn dieses benötigt wird, muss manuell ein "Warte-Verfahren" implementiert werden. Hierzu wird das
-Entwurfsmuster \textit{Command} (Kommando) verwendet. Die Idee ist, dass ausführbarer Code bzw. im Falle von JavaScript
-eine ganze Methode in ein Objekt gekapselt wird, welche der asynchronen Methode als Parameter übergeben wird. Ist die
-Ausführung der asynchronen Methode beendet, kann diese den übergebenen Code ausführen, der in der Regel Logik zum
-Verarbeiten der angefragten Daten enthält. Die als Parameter übergebene Methode wird auch \textit{Callback}-Methode
-(Rückruf-Methode) genannt.\\
-Vor dem Abfragen der Views und der Kontaktdaten wird für beide Datensätze ein True-False-Marker angelegt, der besagt,
-ob bereits alle Daten übertragen und in die Datenbank eingepflegt wurden. Initial enthält der Marker den Wert
-\textit{false}. Wird die Callback-Methode aufgerufen, wird der entsprechende Marker auf \textit{true} gesetzt und
-anschließend überprüft, ob alle asynchronen Methoden zum Abrufen der Kontaktdaten beendet sind. Stehen alle Marker auf
-\textit{true}, wird die Anzeige der Daten angestoßen.\\
-Da Aufrufe an die lokale Datenbank ebenfalls asynchron verlaufen, findet hier ebenfalls das Command-Muster Anwendung. 
+alle Daten vollständig geladen wurden, bevor dem Nutzer die Möglichkeit gegeben wird, Sichten auszuwählen. Hierzu wurde
+ein [ENTWURFSMUSTER zu Callback vorstellen, Umsetzung erklären]
 
 Für alle Plug-Ins feste Beschreibungsstruktur:
 

@@ -929,3 +929,12 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY net.sourceforge.texlipse 4 4 2013-01-31 11:35:41.177
 !MESSAGE Error while parsing the LaTeX output. Please consult the console output
+!SESSION 2013-02-27 09:49:30.826 -----------------------------------------------
+eclipse.buildId=I20120608-1200
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY net.sourceforge.texlipse 4 4 2013-02-27 12:22:10.326
+!MESSAGE Error while parsing the LaTeX output. Please consult the console output

@@ -1,0 +1,71 @@
+%% evaluation.tex
+%%
+
+%% ==================
+\chapter{Evaluation}
+\label{ch:Evaluation}
+%% ==================
+
+\section{Evaluation von Nutzbarkeit, Funktionsumfang und Akzeptanz anhand einer Zielgruppenschulung}
+\label{sec:evalEndnutzer}
+
+Evaluation der antizipierten Anforderungen aufgrund von Literaturrecherche und logischem Denken. Wichtiger Teil:
+Ergebnisse der Schulung der Alten- und Pflegekräfte vom 19.01.12 . Wie fanden die Teilnehmer die aufgrund der
+antizipierten Anforderungen entworfene App? Welche Änderungen wurden vorgeschlagen? Welche Erweiterungen sind
+notwendig? $\langle$ Nutzbarkeit, Funktionsumfang, Akzeptanz $\rangle$
+
+\subsection{Vorwissen der Teilnehmer und vorbereitende Maßnahmen}
+
+\begin{itemize}
+  \item Eindruck, Vorwissen (inkl. CAS-Bogen)
+  \item CareCM-Schulung (nur erwähnen, kein Mehrwert)
+  \item Grundlagenvermittlung Tablet-PCs
+\end{itemize}
+ 
+
+\subsection{Ermittlung des Status Quo - Ablauf und Schlussfolgerungen}
+
+[Orientierung an Fazit]\\
+ Laut Teilnehmern wichtigster Faktor: Zeit Das in der Veranstaltung erstellte Diagramm über den
+Ablauf einer Frühschicht wird hier nicht reproduziert, da es vor allem um einen Gesamteindruck ging.
+Eine wichtige Erkenntnis ist, dass es nicht eine Reihe von Tätigkeiten gibt, die während eines Besuchs beim Patienten
+abgearbeitet werden, sondern dass während einer Schicht, zumindest im stationären Bereich, mehrere Besuche beim
+Patienten mit verschiedenen Aufgaben gibt. Alle Tätigkeiten werden dem Personal in einer sogenannten Tagesstruktur
+mitgeteilt, die im Laufe der Schicht abgearbeitet werden müssen.  Es lassen sich bestimmte Tätigkeitsblöcke
+identifizieren, die in einer bestimmten zeitlichen Reihenfolge liegen wie z.B.  die Grundpflege vor dem Essen reichen,
+anschließend Transfer der Bewohner zu individuellen Beschäftigungsprogrammen. Dokumentiert müssen hier alle Tätigkeiten,
+die später abgerechnet werden müssen.\\
+Daneben gibt es eine Reihe von Tätigkeiten, die nicht zu einem0 bestimmten Zeitpunkt erledigt werden müssen, sondern
+jeweils dann, wenn Bedarf besteht. Hierzu gehören beispielsweise die Lagerung der Bewohner sowie Toilettengänge. Beide
+Vorgänge müssen einerseits dokumentiert werden, weil sie abrechenbar sind, andererseits haben sie aber auch medizinische
+Relevanz. Konnte bei einem Patienten beispielsweise für eine gewisse Zeit kein Stuhlgang festgestellt werden, wird
+hieraus abgeleitet, dass dieser an einer Verstopfung leidet und es werden abführende Medikamente verabreicht.
+Eine weitere Erkenntnis der Analyse des Tagesablaufs ist, dass sowohl das Pflegepersonal als auch die Schichtleitung für
+die Dokumentation von Vorgängen zuständig ist. Hier gibt es allerdings signifikante Unterschiede in der
+Aufgabenverteilung. Die Schichtleitung, die in der Regel eine examinierte Krankenschwester ist, übernimmt schon jetzt
+Aufgaben wie Medikamentenausgabe, Spritzen, Verbandswechsel und Blutdruckmessungen, welche in den Tätigkeitskatalog der
+Richtlinie BLA (63\ldots) fallen. Außerdem werden eine Reihe organisatorischer Aufgaben erledigt sowie die Kommunikation mit
+Ärzten und Angehörigen übernommen. Die organisatorischen Aufgaben müssen nicht im Zusammenhang mit Abrechnungen
+dokumentiert werden, jedoch ist fraglich, in wie fern die Arztkommunikation in den Zuständigkeitsbereich einer mobilen
+Anwendung fällt oder ob dies nicht an einem Zentralsystem erledigt würde (wahrscheinlich).\\
+Die Dokumentation in der stationären Pflege erfolgt im Moment über ein Computerprogramm, welches über drei PCs auf der
+Station erreicht werden kann. Da es sich nur bei einem PC um einen Laptop handelt, ist die Dokumentation örtlich an das
+Schwesternzimmer gebunden und kann nicht im Patientenzimmer erfolgen. Alle fünf Mitarbeiter einer Schicht müssen hier
+die komplette Dokumentation für ca. 40 Bewohner erledigen. Papier als Zwischenmedium zur Dokumentation im
+Schwesternzimmer wird nicht verwendet. Entweder muss nach jedem Bewohner die Dokumentation im Schwesternzimmer erfolgen,
+oder die Mitarbeiterin muss sich alle durchgeführten Tätigkeiten bis zum Schluss merken und dann alle auf einmal
+dokumentieren. Im Zusammenhang mit der Dokumentation wurden folgende Probleme genannt.
+
+
+\subsection{Anforderungen an CareNet\textit{mobile} aus Sicht der Zielnutzergruppe}
+		   
+\section{Evaluation der technischen Umsetzung der mobilen Anwendung}
+
+Evaluation der Anforderungen dahingehend, welche umgesetzt werden konnten und in welcher
+		   Qualität (inkl. der, die noch in der Schulung dazukamen). Vergleich mit
+		   Software-Entwicklungs-Standards (ISO xxx), Architekturprinzipien.
+Evaluation in zwei Teilen:
+
+\section{Fallstudie Pneunomie}
+
+Überprüfung der Anwendbarkeit der mobilen Anwendung auf einen Ablauf in der Praxis.

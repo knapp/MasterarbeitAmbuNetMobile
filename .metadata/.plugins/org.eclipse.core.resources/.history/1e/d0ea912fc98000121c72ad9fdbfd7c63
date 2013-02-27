@@ -228,16 +228,16 @@ touch-optimierter Benutzeroberflächen entwickelt wurden. Zwei verbreite Biblioth
 und Sencha Touch \cite{sencha}. Im Kontext dieser Arbeit wurde jQuery mobile aufgrund der Einfachheit in der Entwicklung
 und der Mächtigkeit der gebotenen Funktionalität gewählt.\\
 
-In \cite{diplChristina} hat sich gezeigt, dass sich einmal gestellte Anforderungen rasch ändern können und dass eine
-Anwendung so entworfen sein sollte, dass Anpassungen mit vertretbarem Aufwand durchgeführt werden können. Zwar ist
+In \cite{diplChristina} hat sich gezeigt, dass sich einmal gestellte Anforderungen rasch ändern können und dass
+eine Anwendung so entworfen sein sollte, dass Anpassungen mit vertretbarem Aufwand durchgeführt werden können. Zwar ist
 momentan die Menge an zu dokumentierenden Tätigkeiten durch eine abgeschlossene Liste in Richtlinie § 63 Abs. 3c SGB V
 beschränkt, jedoch sind Änderungen in Zukunft möglich. Neben zusätzlichen Tätigkeiten könnten auch andere funktionale
 Erweiterungen hinzukommen. Um diesen Anforderungen gerecht zu werden, wird die Anwendung auf Basis einer
 Plug-In-Architektur entwickelt, angelehnt an die bewährte Architektur der Entwicklungsumgebung Eclipse \cite{eclipse}.
-Bei einer Plug-In-Architektur kann gekapselte Funktionalität nach dem Steckerprinzip ("`plug-In"' = einstecken)
-hinzugefügt und wieder entfernt werden. Im Idealfall sollten Änderungen an den Plug-Ins keine Auswirkungen auf das
-Gesamtsystem haben. Plug-Ins untereinander können jedoch Abhängigkeiten aufweisen. Wie die Plug-In-Architektur von \app
-genau aussehen wird, wird in Kapitel \ref{sec:basisanwendung} beschrieben.
+Bei einer Plug-In-Architektur können Funktionalitäten nach dem Steckerprinzip ("`plug-In"' = einstecken) hinzugefügt und wieder
+entfernt werden. Im Idealfall sollten Änderungen an den Plug-Ins keine Auswirkungen auf das Gesamtsystem haben. Plug-Ins
+untereinander können jedoch Abhängigkeiten aufweisen. Wie die Plug-In-Architektur von \app genau aussehen wird, wird in
+Kapitel \ref{ch:pluginarchitektur} beschrieben.
 
 Wie bereits in Kapitel \ref{ch:ziele} erwähnt, hat die Middleware in erster Linie eine Platzhalterfunktion, um den
 Zugang zu CareNet später um weitere Schnittstellen erweitern können. Da im Moment nur eine \acs{rest}-Schnittstelle
