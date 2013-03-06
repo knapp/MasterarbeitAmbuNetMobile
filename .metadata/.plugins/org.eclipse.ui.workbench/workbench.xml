@@ -104,9 +104,6 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings (32 items)"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="627"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -353,52 +350,14 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/thesis.pdf"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/evaluation.tex"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/acronyms.tex"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/anforderungsanalyse.tex"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/plugins.tex"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/acronyms.tex"/>
 </editors>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="2468" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="35"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="3160" y="0"/>
-</item>
-<item historyLabel="acronyms.tex" index="2">
-<position info="not_deleted" x="913" y="0"/>
-</item>
-<item historyLabel="acronyms.tex" index="2">
-<position info="not_deleted" x="956" y="0"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="3218" y="0"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="3217" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="35"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="2"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="21"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="26"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="16"/>
-</item>
-<item historyLabel="anforderungsanalyse.tex" index="3">
+<item historyLabel="anforderungsanalyse.tex" index="1">
 <position info="not_deleted" x="19508" y="0"/>
 </item>
-<item historyLabel="anforderungsanalyse.tex" index="3">
+<item historyLabel="anforderungsanalyse.tex" index="1">
 <position info="not_deleted" x="13977" y="2"/>
 </item>
 <item historyLabel="thesis.pdf" index="0">
@@ -410,34 +369,34 @@
 <item historyLabel="thesis.pdf" index="0">
 <position Page="21"/>
 </item>
-<item historyLabel="anforderungsanalyse.tex" index="3">
+<item historyLabel="anforderungsanalyse.tex" index="1">
 <position info="not_deleted" x="13977" y="2"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="225" y="0"/>
 </item>
-<item historyLabel="anforderungsanalyse.tex" index="3">
+<item historyLabel="anforderungsanalyse.tex" index="1">
 <position info="not_deleted" x="23005" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="225" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="20120" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="20634" y="0"/>
 </item>
 <item historyLabel="thesis.pdf" index="0">
 <position Page="21"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="20510" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="26589" y="0"/>
 </item>
 <item historyLabel="thesis.pdf" index="0">
@@ -452,19 +411,19 @@
 <item historyLabel="thesis.pdf" index="0">
 <position Page="33"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="26622" y="0"/>
 </item>
 <item historyLabel="thesis.pdf" index="0">
 <position Page="33"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position/>
 </item>
 <item historyLabel="thesis.pdf" index="0">
 <position Page="33"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="20510" y="0"/>
 </item>
 <item historyLabel="thesis.pdf" index="0">
@@ -473,25 +432,25 @@
 <item historyLabel="thesis.pdf" index="0">
 <position Page="44"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="20510" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position/>
 </item>
-<item historyLabel="acronyms.tex" index="5">
+<item historyLabel="acronyms.tex" index="3">
 <position info="not_deleted" x="956" y="0"/>
 </item>
-<item historyLabel="acronyms.tex" index="5">
+<item historyLabel="acronyms.tex" index="3">
 <position info="not_deleted" x="970" y="0"/>
 </item>
-<item historyLabel="acronyms.tex" index="5">
+<item historyLabel="acronyms.tex" index="3">
 <position info="not_deleted" x="1009" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="34371" y="0"/>
 </item>
-<item historyLabel="plugins.tex" index="4">
+<item historyLabel="plugins.tex" index="2">
 <position info="not_deleted" x="33388" y="0"/>
 </item>
 <item historyLabel="thesis.pdf" index="0">
@@ -506,8 +465,44 @@
 <item historyLabel="thesis.pdf" index="0">
 <position Page="2"/>
 </item>
-<item active="true" historyLabel="thesis.pdf" index="0">
+<item historyLabel="thesis.pdf" index="0">
 <position Page="31"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="2"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="26"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="31"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="33"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="36"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="27"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="38"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="4"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="2"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="31"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="4"/>
+</item>
+<item active="true" historyLabel="thesis.pdf" index="0">
+<position Page="36"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
