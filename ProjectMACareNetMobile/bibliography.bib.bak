@@ -148,6 +148,16 @@
   timestamp = {2012.11.19}
 }
 
+@BOOK{deisgnPatternsC,
+  title = {{Design Patterns in C\#}},
+  publisher = {{Addison Wesley}},
+  year = {2004},
+  author = {Steven John Metsker},
+  series = {{The Software Patterns Series}},
+  owner = {Thomas},
+  timestamp = {2013.02.27}
+}
+
 @ARTICLE{zurMuehlen20059,
   author = {Michael zur Muehlen and Jeffrey V. Nickerson and Keith D. Swenson},
   title = {{Developing web services choreography standards - the case REST vs.
@@ -178,6 +188,17 @@
   url = {http://deposit.d-nb.de/cgi-bin/dokserv?id=3962922&prov=M&dok_var=1&dok_ext=htm ; http://swbplus.bsz-bw.de/bsz363523030cov.htm}
 }
 
+@ARTICLE{cas,
+  author = {G. S. Nickell and J. N. Pinto},
+  title = {{The Computer Attitude Scale}},
+  journal = {{Computers in Human Behavior}},
+  year = {1986},
+  volume = {2},
+  pages = {301-306},
+  owner = {Thomas},
+  timestamp = {2013.03.06}
+}
+
 @MISC{stat2050,
   author = {Statistisches Bundesamt - Pressestelle},
   title = {{Bevölkerung Deutschlands bis 2050 - 11. koordinierte Bevölkerungsvorausberechnung}},
@@ -187,6 +208,17 @@
   location = {Wiesbaden},
   owner = {Thomas},
   timestamp = {2012.11.19}
+}
+
+@MASTERSTHESIS{masterMathias,
+  author = {Mathias Schmon},
+  title = {{Herausforderungen einer nutzerorientierten Spezifikation, prototypische
+	Entwicklung und Evaluation einer Case Management Software für die
+	Pflege}},
+  school = {Hochschule Reutlingen},
+  year = {2011},
+  owner = {Thomas},
+  timestamp = {2013.03.06}
 }
 
 @ELECTRONIC{androidStringRessources,

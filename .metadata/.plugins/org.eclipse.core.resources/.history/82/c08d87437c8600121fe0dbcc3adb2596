@@ -121,18 +121,7 @@ im Schulungsraum.
 
 \subsection{Ermittlung des Status Quo - Ablauf und Schlussfolgerungen}
 
-Der zweite Teil der Anwenderschulung sollte in erster Linie dazu genutzt werden, um Wissen über den momentanen
-Arbeitslauf einer Pflegekraft zu gewinnen und daraus Anforderungen an eine mobile Anwendung zur Dokumentation von erbrachten
-Tätigkeiten zu erarbeiten. Der eigentliche Fokus der Master-Arbeit liegt zwar auf der Implementierung eines Systems zur
-Dokumentation \textit{ärztlich übertragener} Tätigkeiten, jedoch kann für diese Tätigkeiten kein Status Quo ermittelt
-werden, da die Teilnehmer der Schulung die ersten Alten- und Pflegekräfte sind, die zu einer \acl{mfp} ausgebildet
-werden. Es konnte jedoch in Erfahrung gebracht werden, dass einige übertragbare Tätigkeiten wie die Blutabnahme oder
-die Gabe von Medikamenten schon jetzt von examinierten Krankenschwestern im Rahmen der Pflege ausgeführt werden dürfen.
-Außerdem ähneln sich die zu erwartende Arbeitsstruktur einer \acs{mfp} und die einer Alten- und Krankenpflegerin
-dahingehend, dass in einem bestimmten Zeitraum (meist einer Arbeitsschicht), eine Reihe von Klienten mit bestimmten
-Dienstleistungen versorgt werden müssen.\\
-Durch eine Analyse des momentanen Ablaufes in Zusammenarbeit mit den ausführenden Kräften sollten Stärken und Schwächen
-mit besonderem Augenmerk auf der Dokumentation identifiziert werden.  
+
 
 
 \subsection{Anforderungen an CareNet\textit{mobile} aus Sicht der Zielnutzergruppe}

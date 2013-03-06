@@ -77,62 +77,12 @@ kommuniziert werden, damit nicht der Eindruck entsteht, es sollte nur eine besse
 möglich werden. Denn wenn die Einführung elektronischer Dokumentation als Überwachung wahrgenommen wird, könnten sich
 hierdurch Widerstände formieren.\\
 
-Für die Schulungen in CareCM und dem Umgang mit Tablet-PCs wurden die Teilnehmer in Zweierteams aufgeteilt.
-Da es sich um eine ungerade Anzahl an Teilnehmern handelte, wurde ein Team mit einem Studenten des FZI ergänzt, der
-ohnehin aus Interesse an der Schulung teilnahm, jedoch nicht in die Evaluation mit einbezogen wurde. Durch die
-Teambildung sollte eine gegenseitige Unterstützung der Teilnehmer gefördert werden und eine kommunikativere
-Arbeitsumgebung geschaffen werden. Durch unterschiedliches Vorwissen konnten sich die Teilnehmer mit ihren Fähigkeiten
-im Team bei der Mitarbeit im Workshop gegenseitig ergänzen.\\
-Die Schulung für CareCM war vor allem dafür gedacht, den Teilnehmern einen Eindruck von einem möglichen zentralen
-Verwaltungssystem zu geben. Es wurden verschiedene Funktionalitäten wie das Anlegen von Kontakten und Terminen sowie
-deren Verknüpfung vermittelt, die Struktur der grafischen Oberfläche erklärt und das Einsatzgebiet von CareCM erläutert.
-Von den Teilnehmern wurden häufig Vergleiche zu ihren momentan verwendeten Verwaltungssystemen gezogen. Da diese nach
-Aussagen der Teilnehmer ähnlich aufgebaut sind, kamen die meisten schnell mit der Benutzung von CareCM zurecht.
-Trotz der Aufgaben (siehe Anhang \textcolor{red}{[REFERENZ]}) zur Festigung des gelernten konnte in der Kürze der Zeit
-nur ein oberflächlicher Eindruck von CareCM vermittelt werden. Weil der Schulungsteil zu CareCM ohnehin in erster Linie
-zur Erfüllung der Schulungsrichtlinien zur Weiterbildung zur \acs{mfp} in das Programm eingefügt wurde, stand nicht mehr
-Zeit zur Schulung zu Verfügung. Da CareCM nur \textit{ähnlich} zu dem zentralen System CareNet ist, war den Teilnehmern
-schwer die Sinnhaftigkeit für den Schulungsteil zu vermitteln. Es ist zu vermuten, dass am Ende des Tages kaum noch ein
-Teilnehmer in der Lage gewesen wäre, die am Vormittag gestellten Aufgaben zu CareCM zu lösen, da der danach
-durchgeführte Teil der Schulung keinen Bezug hierzu hatte. Wahrscheinlich ist daher, dass dieser Teil der Schulung
-tatsächlich nur seinen Pflichtcharakter erfüllte.\\
 
-Zur Schulung im Umgang mit Tablet-PCs wurde jedem Zweierteam ein Tablet zur Verfügung gestellt (Samsung Galaxy Tab I und
-II). Die Geräte lagen schon zu Beginn der Schulung aus und es konnte beobachtet werden, dass einige der Teilnehmer schon
-vor dem eigentlichen Schulungsteil die Geräte in Augenschein nahmen. Ziel dieses Teils sollte neben dem reinen Erlernen
-der Funktionalität sein, die Alten- und Pflegekräften für die neue Technologie zu begeistern und Neugier zu wecken.
-Hierfür wurden zunächst allgemeine Eigenschaften eines Tablet-PCs wie die Bedienung durch Berührung, vorhandene Hardware
-wie eine oder mehrere eingebaute Kameras, den Beschleunigungssensor oder den GPS-Sensor und die damit verbundenen
-Möglichkeiten erklärt. Es erfolgte eine generelle Abgrenzung von Tablet-PCs zu herkömmlichen Desktop- und Laptop-PCs
-sowie Erklärungen zu den verschiedenen Betriebssystemen wie Android und dem bekannten iOS von Apple. Das Interesse der
-Teilnehmer war spürbar, da die Erklärungen zur Hardware und Ausstattung der Geräte häufig durch Fragen zu Preisen,
-erhältlichen Varianten und Einsatzmöglichkeiten unterbrochen wurden.\\
-Nach einer grundlegenden Erklärung der Eigenschaften wurden verschiedene Anwendungen vorgeführt. Die Teilnehmer waren
-aufgefordert, schon während der Erklärung selbst das Gesehene auszuprobieren. Vorgestellt wurde der Internet Browser,
-die Kamera-Funktion, Google Maps, die YouTube-Anwendung und der Google Playstore. Bei der Auswahl der vorzustellenden
-Anwendungen wurden bewusst ein Fokus auf Unterhaltung und tägliche Anwendbarkeit gelegt, da nach Meinung des Autors nur
-auf diesem spielerischen Wege in der Kürze der Zeit eine Begeisterung für die Geräte hervorgerufen werden konnte. Eine
-direkte Vorstellung von Anwendungen zur Unterstützung der täglichen Arbeit hätte diese Wirkung nicht erzielen können.
-Dass das Ziel der Schaffung von Interesse und Begeisterung erreicht wurde, konnte am Verhalten der Teilnehmer
-abgelesen werden, da bei den anschließend gestellten Aufgaben erkennbar war, dass deutlich mehr mit dem Gerät
-ausprobiert wurde als gefordert. Die Interaktion im Team und zwischen den Teams sorgte für eine aufgeheiterte Stimmung
-im Schulungsraum.
 
 
 \subsection{Ermittlung des Status Quo - Ablauf und Schlussfolgerungen}
 
-Der zweite Teil der Anwenderschulung sollte in erster Linie dazu genutzt werden, um Wissen über den momentanen
-Arbeitslauf einer Pflegekraft zu gewinnen und daraus Anforderungen an eine mobile Anwendung zur Dokumentation von erbrachten
-Tätigkeiten zu erarbeiten. Der eigentliche Fokus der Master-Arbeit liegt zwar auf der Implementierung eines Systems zur
-Dokumentation \textit{ärztlich übertragener} Tätigkeiten, jedoch kann für diese Tätigkeiten kein Status Quo ermittelt
-werden, da die Teilnehmer der Schulung die ersten Alten- und Pflegekräfte sind, die zu einer \acl{mfp} ausgebildet
-werden. Es konnte jedoch in Erfahrung gebracht werden, dass einige übertragbare Tätigkeiten wie die Blutabnahme oder
-die Gabe von Medikamenten schon jetzt von examinierten Krankenschwestern im Rahmen der Pflege ausgeführt werden dürfen.
-Außerdem ähneln sich die zu erwartende Arbeitsstruktur einer \acs{mfp} und die einer Alten- und Krankenpflegerin
-dahingehend, dass in einem bestimmten Zeitraum (meist einer Arbeitsschicht), eine Reihe von Klienten mit bestimmten
-Dienstleistungen versorgt werden müssen.\\
-Durch eine Analyse des momentanen Ablaufes in Zusammenarbeit mit den ausführenden Kräften sollten Stärken und Schwächen
-mit besonderem Augenmerk auf der Dokumentation identifiziert werden.  
+[Orientierung an Fazit]
 
 
 \subsection{Anforderungen an CareNet\textit{mobile} aus Sicht der Zielnutzergruppe}
@@ -144,6 +94,6 @@ Evaluation der Anforderungen dahingehend, welche umgesetzt werden konnten und in
 		   Software-Entwicklungs-Standards (ISO xxx), Architekturprinzipien.
 Evaluation in zwei Teilen:
 
-%\section{Fallstudie Pneunomie}
+\section{Fallstudie Pneunomie}
 
-%Überprüfung der Anwendbarkeit der mobilen Anwendung auf einen Ablauf in der Praxis.
+Überprüfung der Anwendbarkeit der mobilen Anwendung auf einen Ablauf in der Praxis.

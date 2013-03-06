@@ -155,7 +155,7 @@ Pflege auch namentlich gerecht zu werden, wurde das zentrale System in CareNet (
 Auf die Änderungen an VitaBIT wird in dieser Arbeit nicht eingegangen, da diese von Mitarbeitern der nubedian GmbH
 durchgeführt werden.\\
 
-\begin{figure}
+\begin{figure}[ht]
 	\includegraphics{figures/VerwendeteTechnologienGesamtsystem.pdf}
 	\caption{Verwendete Technologien in der Gesamtarchitektur}
 	\label{fig:technologien}
@@ -201,7 +201,7 @@ Funktionen wie die Kamera, den GPS-Sensor oder eine Bluetooth-Verbindung anzuspr
 native Programmiersprache möglich. Da in den Anforderungen aber eine Nutzung der Kamera sowie des GPS-Sensors gefordert
 wird, ist eine Implementierung von \app als WebApp nicht möglich.\\
  
-\begin{figure}[ht]
+\begin{figure}
 	\includegraphics{figures/hybridDev.png}
 	\caption{Hybride Anwendungsentwicklung mit PhoneGap}
 	\label{fig:phoneGap}

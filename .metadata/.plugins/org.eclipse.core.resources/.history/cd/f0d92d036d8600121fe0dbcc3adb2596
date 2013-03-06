@@ -94,45 +94,15 @@ zur Erfüllung der Schulungsrichtlinien zur Weiterbildung zur \acs{mfp} in das Pr
 Zeit zur Schulung zu Verfügung. Da CareCM nur \textit{ähnlich} zu dem zentralen System CareNet ist, war den Teilnehmern
 schwer die Sinnhaftigkeit für den Schulungsteil zu vermitteln. Es ist zu vermuten, dass am Ende des Tages kaum noch ein
 Teilnehmer in der Lage gewesen wäre, die am Vormittag gestellten Aufgaben zu CareCM zu lösen, da der danach
-durchgeführte Teil der Schulung keinen Bezug hierzu hatte. Wahrscheinlich ist daher, dass dieser Teil der Schulung
+durchgeführte Teil der Schulung keinen Bezug hierzu hatte. Es ist daher wahrscheinlich, dass dieser Teil der Schulung
 tatsächlich nur seinen Pflichtcharakter erfüllte.\\
 
-Zur Schulung im Umgang mit Tablet-PCs wurde jedem Zweierteam ein Tablet zur Verfügung gestellt (Samsung Galaxy Tab I und
-II). Die Geräte lagen schon zu Beginn der Schulung aus und es konnte beobachtet werden, dass einige der Teilnehmer schon
-vor dem eigentlichen Schulungsteil die Geräte in Augenschein nahmen. Ziel dieses Teils sollte neben dem reinen Erlernen
-der Funktionalität sein, die Alten- und Pflegekräften für die neue Technologie zu begeistern und Neugier zu wecken.
-Hierfür wurden zunächst allgemeine Eigenschaften eines Tablet-PCs wie die Bedienung durch Berührung, vorhandene Hardware
-wie eine oder mehrere eingebaute Kameras, den Beschleunigungssensor oder den GPS-Sensor und die damit verbundenen
-Möglichkeiten erklärt. Es erfolgte eine generelle Abgrenzung von Tablet-PCs zu herkömmlichen Desktop- und Laptop-PCs
-sowie Erklärungen zu den verschiedenen Betriebssystemen wie Android und dem bekannten iOS von Apple. Das Interesse der
-Teilnehmer war spürbar, da die Erklärungen zur Hardware und Ausstattung der Geräte häufig durch Fragen zu Preisen,
-erhältlichen Varianten und Einsatzmöglichkeiten unterbrochen wurden.\\
-Nach einer grundlegenden Erklärung der Eigenschaften wurden verschiedene Anwendungen vorgeführt. Die Teilnehmer waren
-aufgefordert, schon während der Erklärung selbst das Gesehene auszuprobieren. Vorgestellt wurde der Internet Browser,
-die Kamera-Funktion, Google Maps, die YouTube-Anwendung und der Google Playstore. Bei der Auswahl der vorzustellenden
-Anwendungen wurden bewusst ein Fokus auf Unterhaltung und tägliche Anwendbarkeit gelegt, da nach Meinung des Autors nur
-auf diesem spielerischen Wege in der Kürze der Zeit eine Begeisterung für die Geräte hervorgerufen werden konnte. Eine
-direkte Vorstellung von Anwendungen zur Unterstützung der täglichen Arbeit hätte diese Wirkung nicht erzielen können.
-Dass das Ziel der Schaffung von Interesse und Begeisterung erreicht wurde, konnte am Verhalten der Teilnehmer
-abgelesen werden, da bei den anschließend gestellten Aufgaben erkennbar war, dass deutlich mehr mit dem Gerät
-ausprobiert wurde als gefordert. Die Interaktion im Team und zwischen den Teams sorgte für eine aufgeheiterte Stimmung
-im Schulungsraum.
+
 
 
 \subsection{Ermittlung des Status Quo - Ablauf und Schlussfolgerungen}
 
-Der zweite Teil der Anwenderschulung sollte in erster Linie dazu genutzt werden, um Wissen über den momentanen
-Arbeitslauf einer Pflegekraft zu gewinnen und daraus Anforderungen an eine mobile Anwendung zur Dokumentation von erbrachten
-Tätigkeiten zu erarbeiten. Der eigentliche Fokus der Master-Arbeit liegt zwar auf der Implementierung eines Systems zur
-Dokumentation \textit{ärztlich übertragener} Tätigkeiten, jedoch kann für diese Tätigkeiten kein Status Quo ermittelt
-werden, da die Teilnehmer der Schulung die ersten Alten- und Pflegekräfte sind, die zu einer \acl{mfp} ausgebildet
-werden. Es konnte jedoch in Erfahrung gebracht werden, dass einige übertragbare Tätigkeiten wie die Blutabnahme oder
-die Gabe von Medikamenten schon jetzt von examinierten Krankenschwestern im Rahmen der Pflege ausgeführt werden dürfen.
-Außerdem ähneln sich die zu erwartende Arbeitsstruktur einer \acs{mfp} und die einer Alten- und Krankenpflegerin
-dahingehend, dass in einem bestimmten Zeitraum (meist einer Arbeitsschicht), eine Reihe von Klienten mit bestimmten
-Dienstleistungen versorgt werden müssen.\\
-Durch eine Analyse des momentanen Ablaufes in Zusammenarbeit mit den ausführenden Kräften sollten Stärken und Schwächen
-mit besonderem Augenmerk auf der Dokumentation identifiziert werden.  
+[Orientierung an Fazit]
 
 
 \subsection{Anforderungen an CareNet\textit{mobile} aus Sicht der Zielnutzergruppe}

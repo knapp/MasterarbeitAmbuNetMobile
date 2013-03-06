@@ -201,7 +201,7 @@ Funktionen wie die Kamera, den GPS-Sensor oder eine Bluetooth-Verbindung anzuspr
 native Programmiersprache möglich. Da in den Anforderungen aber eine Nutzung der Kamera sowie des GPS-Sensors gefordert
 wird, ist eine Implementierung von \app als WebApp nicht möglich.\\
  
-\begin{figure}[ht]
+\begin{figure}
 	\includegraphics{figures/hybridDev.png}
 	\caption{Hybride Anwendungsentwicklung mit PhoneGap}
 	\label{fig:phoneGap}
