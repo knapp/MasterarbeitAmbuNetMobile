@@ -233,17 +233,211 @@ es ein Problem mit unsleserlichen Werten geben oder es werden schlichtweg Werte 
 bei der Übertragung falsch in das System eingepflegt. Zur Verbesserung dieses Vorgangs müsste das Zwischenmedium
 abgeschafft werden oder sogar vollständig von der manuellen Dokumentation abgesehen werden.
 
+\begin{table}[htbp]
+	\begin{tabularx}{\textwidth}{|X|c|}
+		\hline
+		\textbf{Identifiziertes Problem} & \textbf{Kritischer Faktor}\\
+		\hline		
+		Häufiger Wechsel zwischen Patientenzimmer und Dienstzimmer zwecks Dokumentation & Zeit\\		
+		\hline		
+		Drei Computer zur Dokumentation bei 4 - 5 Mitarbeitern führen zu Engpässen und Wartezeiten & Zeit\\		
+		\hline			
+		Auf dem Weg von Dienstzimmer zum Patient und zurück treten häufig "Störfaktoren" auf (Gespräche mit Angehörigen,
+		Fragen durch Patienten, Telefon) & Zeit\\		
+		\hline		
+		Während der Arztvisite ist das Bereitstellen von Informationen zum Patienten wie die aktuelle Medikation meist mit
+		einem Gang ins Dienstzimmer verbunden, da die Pflegekräfte nicht alle Daten im Kopf haben können und die Daten auch
+		nicht vor Ort im Zimmer abgerufen werden können. & Zeit\\		
+		\hline		
+		Die Dokumentation dauert wegen fehlender Autovervollständigung oder vordefinierten Antworten relativ lange. & Zeit\\		
+		\hline		
+		Es werden nicht für jeden Bewohner direkt die durchgeführten Tätigkeiten dokumentiert, da dies zusätzliche Wege zum
+		Computer und eventuelle Wartezeiten bedeuten würde. Die Dokumentation erfolgt also nicht zeitnah und für mehrere
+		Bewohner auf einmal. Da die Informationen auch nicht übergangsweise auf Papier festgehalten werden (außer die
+		Viltaldaten-Messwerte), können hier bei der Dokumentation leicht Fehler durch vergessene oder falsche Informationen
+		auftreten. & Qualität\\		
+		\hline		
+		Wundfotos könnten zur Patientenakte falsch zugeordnet werden, da sie mit einer externen Kamera aufgenommen wurden und
+		erst später manuell der Akte hinzugefügt werden. & Qualität\\		
+		\hline		
+		Übertragungsfehler bei auf Papier zwischennotierten Messwerten & Qualität\\		
+		\hline		
+		Anordnungen des Arztes wie beispielsweise eine geänderte Medikation werden oft vor Ort beim Patienten von Hand
+		dokumentiert, um diese später in das Computersystem einzupflegen. Wegen Unleserlichkeit können hier Fehler mit
+		gesundheitsschädlichen oder sogar lebensbedrohlichen Folgen passieren. & Qualität\\		
+		\hline
+	\end{tabularx}
+	\caption{Liste der identifizierten Probleme bei der Dokumentation von Pflegeleistungen in der Residenz Bad
+	Friedrichshall}
+	\label{tab:docuProbs}
+\end{table}
+
 Der bisher beschriebene Status Quo der Dokumentation von Pflegeleistungen und vereinzelt auch ärztlich übertragbaren
 Tätigkeiten hat einige Punkte mit Verbesserungspotential offenbart. Die Befragung hat die Annahme bestätigt, dass eine
-Untersuchung sinnvoll ist, in wie fern eine stärkere Unterstützung durch IT den Dokumentationsvorgäng effizienter
-und qualitativ hochwertiger machen kann. In Tabelle [REFERENZ] werden die identifizierten Probleme noch einmal kurz
+Untersuchung sinnvoll ist, in wie fern eine stärkere Unterstützung durch IT den Dokumentationsvorgang effizienter
+und qualitativ hochwertiger machen kann. In Tabelle \ref{tab:docuProbs} werden die identifizierten Probleme noch einmal kurz
 zusammengefasst und die damit verbundenen kritischen Faktoren benannt. 
-
 
 \subsection{Anforderungen an CareNet\textit{mobile} aus Sicht der Zielnutzergruppe}
 
 Im folgenden Abschnitt werden die in der Diskussion des Status Quo identifizierten Anforderungen an eine mobile Lösung
-zur Unterstützung der hahha, hola
+zur Unterstützung der Dokumentation aufgelistet und bewertet. Die Bewertung erfolgt danach, ob eine Anforderung bereits
+vorher antizipiert wurde und falls ja, wie sie umgesetzt wurde. Falls es sich um eine neue Anforderung handelt, wird
+überprüft, ob sie überhaupt umsetzbar ist und ob die Umsetzung für den Erfolg der Arbeit notwendig ist. Bei der Erhebung
+der Anforderungen muss darauf hingewiesen werden, dass den Teilnehmern vorher die Rahmenbedingungen wie die Nutzung
+eines Tablet-PCs und die damit verbundenen Möglichkeiten genannt wurden. Aus diesem Grund wurden manche Anforderungen
+genannt, die nicht zwingend aus dem momentanen Tagesablauf hervorgehen, sondern mehr genannt wurden, weil es möglich
+gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und nicht umgekehrt.
+
+\begin{enumerate}
+  \item \textit{Die Anwendung muss übersichtlich strukturiert und intuitiv bedienbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Neben den fachlichen Anforderungen an die Anwendung wurde vor allem auf eine intuitive Bedienung und
+  		Übersichtlichkeit geachtet, da dies als kritischer Faktor für die Akzeptanz der Anwendung angesehen wird. Mit der
+  		in Abschnitt \ref{sec:basisanwendung} beschriebenen grafischen Oberfläche soll den meist wenig technik-affinen
+  		Nutzern das Erlernen der Bedienung erleichtert werden.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Tagesstruktur muss komplett pro Bewohner abrufbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Unter \textit{Tagesstruktur} verstanden die Teilnehmer der Schulung einen Plan, der alle zu versorgenden
+  		Patienten und die auszuführenden Tätigkeiten auflistet. Bisher wurde angenommen, dass die \acs{mfp}s eine Art
+  		Tourenplan bekommen, nachdem sie arbeiten. Es wurde also bisher vor allem von einer zumindest teilweisen ambulanten
+  		Erbringung von Dienstleistungen ausgegangen. Da die Konzepte einer Tagesstruktur und eines Tourenplans aber
+  		prinzipiell gleich sind, muss nur entsprechend dem Kontext (stationäre oder ambulante Dienste) die Namensgebung
+  		angepasst werden, um den Nutzern möglichst viele bekannte Elemente in der neuen Technologie zu bieten.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Dokumentation ausgeführter Tätigkeiten muss im Zimmer/vor Ort möglich sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Diese Anforderung wurde implizit dadurch erfüllt, dass in der Aufgabenstellung die Nutzung von Tablet-PCs
+  		gefordert war. Durch die mobile Verwendbarkeit ist eine Dokumentation im Zimmer möglich.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Patientenakte sollte auf dem Endgerät vollständig abrufbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Dass Informationen zum Patienten abrufbar sein müssen, wurde zu Beginn angenommen. Neben den
+  		Grundinformationen zum Finden des Patienten wie Name und Adresse sind auch Informationen zu Angehörigen, zuständigen
+  		Ärzten und aktueller Medikation gewünscht. Da CareNet diese Informationen bereits anbietet, wurde zumindest für die
+  		Stammdaten (Name, Adresse, Kontaktmöglichkeit) eine Repräsentation in den Plug-Ins "Kontakte" und Touren
+  		vorbereitet. Eine vollständige Implementierung aller möglichen Daten erfolgt im Rahmen dieser Arbeit nicht, da eine
+  		Vorbereitung zum Einfügen weiterer Daten das Ziel grundsätzlich erfüllt.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Patientenakte sollte vor Ort beim Patienten anpassbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Von den Teilnehmern wurde gewünscht, dass die Daten des Patienten auf dem Tablet-PC editierbar sein
+  		sollten. Da dies aber auch in CareNet möglich ist und anzunehmen ist, dass nicht bei jedem Besuch beim Patienten die
+  		Daten angepasst werden müssen, wurde entschieden, dass eine Implementierung dieser Anforderung zum jetzigen
+  		Zeitpunkt keinen Mehrwert bringt und deswegen nicht umgesetzt wird. Sollte die Anwendung später tatsächlich zum
+  		Einsatz kommen, ist die Umsetzung einer Editierfunktion aber sicherlich zu empfehlen, da sie den Nutzungskomfort
+  		steigert.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Patientenakte sollte Bilder vom Patienten enthalten, um Verwechslungen bei gleichem Namen
+  	 	          (z.B. bei einem Ehepaar) im gleichen Zimmer zu vermeiden.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Die Verwendung von Bildern in der Patientenakte und in der Tagesstruktur wurde zu Beginn der Arbeit
+  		bereits diskutiert. Die Anforderung wurde allerdings verworfen, da Bilder der Patienten zusätzliche
+  		Anforderungen an den Datenschutz in CareNet gestellt hätten, was in Anbetracht der Bearbeitungszeit der
+  		Master-Arbeit nicht zu realisieren gewesen wäre.
+  		\par
+  		\endgroup
+  	  		
+  	\item \textit{Zeitlich nicht planbare und plötzlich zu erbringende Tätigkeiten wie der Hilfe beim Toilettengang
+  				  müssen der Tagesstruktur am Tablet-PC hinzufügbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Die Ergänzung von Dienstleistungen, die von der geplanten Tagesstruktur abweichen, wurde bereits im ersten
+  		Anforderungskatalog aufgenommen, da angenommen wurde, dass die Arbeit mit Menschen immer unvorhergesehene
+  		Tätigkeiten nötig machen kann. \textcolor{red}{Die Funktionalität wurde bereits implementiert.}
+  		\par
+  		\endgroup	
+  		
+  	\item \textit{Möglichkeit bei jeder Tätigkeit anzugeben, dass diese nicht ausgeführt wurde und warum.}
+		\par 
+		\begingroup 
+		\leftskip=1cm 
+		\noindent Die Teilnehmer der Schulung gaben an, dass es immer wieder sein kann, dass aus irgend einem Grund eine
+		gefroderte Leistung nicht erbracht werden kann. Damit die Aufgaben des Tages trotzdem als erfüllt angesehen werden
+		können, muss eine Tätigkeit mi Begründung als "nicht erbracht" markiert werden können.  
+		\par 
+		\endgroup
+  	
+  	\item \textit{Vitaldaten (Blutdruck, Puls, Schmerzmanagement, Gewicht) müssen am Tablet-PC erfassbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Die Anforderung der Erfassung von Vitaldaten musste bereits im VitaBit Projekt umgesetzt werden und wurde
+  		aus diesem Grund auch in den Anforderungskatalog von \app aufgenommen. Allerdings beschränken sich die erfassbaren
+  		Daten bisher auf Blutdruck und Puls. Eine Erfassung von Gewicht und ein Schmerzmanagement ist jedoch möglich, wird
+  		aber im Rahmen dieser Arbeit nicht mehr implementiert.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Statistiken über alle Vitaldaten wären hilfreich (Bsp: Verlauf des Gewichts seit Einlieferung).}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Eine genaue Zustandsänderung bei einer Person lässt sich meist nur mit Hilfe von Vergleichswerten
+  		vergangener Erhebungen identifizieren. Aus dieser Annahme wurde bei der initialen Anforderungsevaluation abgeleitet,
+  		dass es hilfreich sein könnte, vorangegangene Messungen von Vitalparametern in einer übersichtlichen Statistik
+  		abfragen zu können. Die Implementierung einer solchen Funktionalität war zunächst geplant, musste jedoch wegen der
+  		Kürze der Zeit aus der Agenda genommen werden. Für einen produktiven Einsatz von \app wird diese Funktionalität
+  		allerdings als notwendig angesehen, um einen klaren Vorteil gegenüber manueller Dokumentation und Auswertung der
+  		erhobenen Daten zu bieten.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Automatische Plausibilitätsprüfung von eingegebenen Messwerten (Z.B. Puls > 250 $\Rightarrow$
+  	Warnung).}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Automatische Plausibilitätsprüfungen sind eine zentrale Möglichkeit zur Steigerung der Qualität bei
+  		EDV-gestützter Dokumentation. Diese Art der Überprüfung wurde von Anfang an als wünschenswert angesehen, jedoch ist
+  		dies ein Merkmal, das erst implementiert werden kann, wenn grundsätzlich die Dokumentation funktioniert. Da
+  		die Umsetzung der gesamten Architektur und der Basisfunktionalitäten schon die gesamte Bearbeitungszeit in Anspruch
+  		genommen hat, wurde eine Plausibilitätsprüfung nur in den Anforderungen für den Fall einer Weiterführung des
+  		Projektes aufgenommen. Je nach Komplexität der Werte ist die Implementierung zwar sehr aufwendig, aber möglich.
+  		\par
+  		\endgroup
+  		
+	 \item \textit{Warnungen, wenn gemessene Werte kritisch sind oder wenn dokumentierte Tätigkeiten auf mögliche
+	 Gefahren für den Bewohner/Patienten hindeuten (beispielsweise, wenn für einen Patienten schon länger kein Stuhlgang
+	 mehr dokumentiert wurde).}
+		\par 
+		\begingroup 
+		\leftskip=1cm 
+		\noindent Diese Anforderung ist ähnlich zu bewerten wie die Plausibilitätsprüfung, da sie prinzipiell die gleichen
+		Voraussetzungen haben. Auch hier wird eine Logik über die grundlegende Dokumentation hinaus benötigt, welche erst zu
+		einem sehr "reifen" Zeitpunkt der Entwicklung implementiert werden kann. Dieser konnte während dieser Arbeit noch
+		nicht erreicht werden. Logik, die aus den dokumentierten Daten Schlüsse zieht, sollte unbedingtes Ziel der Entwicklung
+		sein.
+		\par 
+		\endgroup
+		
+	
+  	
+\end{enumerate}
 
 \subsection{Ergebnisse des Abschlussfragebogens}
 

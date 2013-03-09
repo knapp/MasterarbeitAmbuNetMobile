@@ -50,6 +50,7 @@
 <part id="5"/>
 <part id="6"/>
 <part id="8"/>
+<part id="10"/>
 </presentation>
 </folder>
 </info>
@@ -67,7 +68,7 @@
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="plugins.tex" partName="plugins.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/plugins.tex" title="plugins.tex" tooltip="ProjectMACareNetMobile/text/plugins.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/plugins.tex"/>
-<editorState selectionHorizontalPixel="0" selectionLength="214" selectionOffset="30826" selectionTopPixel="5832"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="30615" selectionTopPixel="97"/>
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="zieleArbeit.tex" partName="zieleArbeit.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/zieleArbeit.tex" title="zieleArbeit.tex" tooltip="ProjectMACareNetMobile/text/zieleArbeit.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/zieleArbeit.tex"/>
@@ -83,7 +84,7 @@
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="thesis.tex" partName="thesis.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/thesis.tex" title="thesis.tex" tooltip="ProjectMACareNetMobile/thesis.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/thesis.tex"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="647" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1075" selectionTopPixel="0"/>
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="einleitung.tex" partName="einleitung.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/einleitung.tex" title="einleitung.tex" tooltip="ProjectMACareNetMobile/text/einleitung.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/einleitung.tex"/>
@@ -91,7 +92,11 @@
 </editor>
 <editor id="net.sourceforge.texlipse.TexEditor" name="evaluation.tex" partName="evaluation.tex" path="C:/MACareNetMobile/ProjectMACareNetMobile/text/evaluation.tex" title="evaluation.tex" tooltip="ProjectMACareNetMobile/text/evaluation.tex" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/text/evaluation.tex"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="22979" selectionTopPixel="3878"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="31325" selectionTopPixel="6527"/>
+</editor>
+<editor id="net.sourceforge.texlipse.TexEditor" name="thesisclass.cls" partName="thesisclass.cls" path="C:/MACareNetMobile/ProjectMACareNetMobile/thesisclass.cls" title="thesisclass.cls" tooltip="ProjectMACareNetMobile/thesisclass.cls" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ProjectMACareNetMobile/thesisclass.cls"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="139" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -105,8 +110,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (36 items)"/>
-<category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Errors (1 item)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="627"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -321,7 +325,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.16655004" ratioLeft="238" ratioRight="1191" relationship="2" relative="org.eclipse.ui.internal.ViewStack@7db56458"/>
-<info folder="true" part="bottom" ratio="0.7096774" ratioLeft="440" ratioRight="180" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.7951613" ratioLeft="493" ratioRight="127" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
@@ -355,156 +359,159 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="de.vonloesch.pdf4eclipse.editors.PDFEditor" path="/ProjectMACareNetMobile/thesis.pdf"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/evaluation.tex"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/acronyms.tex"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/evaluation.tex"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" path="/ProjectMACareNetMobile/text/plugins.tex"/>
 </editors>
+<item historyLabel="evaluation.tex" index="1">
+<position info="not_deleted" x="24591" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="acronyms.tex" index="2">
+<position info="not_deleted" x="1009" y="0"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26760" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="1"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26760" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26310" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26326" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26337" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26293" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26310" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26310" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26299" y="4"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26293" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="45"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26293" y="0"/>
+</item>
+<item historyLabel="plugins.tex" index="4">
+<position info="not_deleted" x="30615" y="0"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="27142" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="47"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26887" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="47"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="26179" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="47"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="27028" y="115"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="47"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="29576" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="48"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="29742" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="48"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="29742" y="0"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="30819" y="0"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="31933" y="0"/>
+</item>
+<item historyLabel="thesis.pdf" index="0">
+<position Page="48"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="31933" y="0"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="32994" y="0"/>
+</item>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="32809" y="0"/>
+</item>
 <item historyLabel="thesis.pdf" index="0">
 <position Page="49"/>
 </item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="36"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="36"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="41"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="41"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="15319" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="41"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="41"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="15416" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="41"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="15350" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="41"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="13553" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="41"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="13747" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="41"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="41"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="18272" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="18926" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="19694" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="23506" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="23165" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="23091" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="23099" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="23093" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="42"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="36"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="21735" y="0"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="36"/>
-</item>
-<item historyLabel="thesis.pdf" index="0">
-<position Page="43"/>
-</item>
-<item historyLabel="evaluation.tex" index="1">
-<position info="not_deleted" x="22979" y="0"/>
+<item historyLabel="evaluation.tex" index="3">
+<position info="not_deleted" x="31325" y="0"/>
 </item>
 <item active="true" historyLabel="thesis.pdf" index="0">
-<position Page="43"/>
+<position Page="49"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -523,6 +530,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="thesisclass.cls" tooltip="ProjectMACareNetMobile/thesisclass.cls">
+<persistable path="/ProjectMACareNetMobile/thesisclass.cls"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="thesis.pdf" tooltip="ProjectMACareNetMobile/thesis.pdf">
 <persistable path="/ProjectMACareNetMobile/thesis.pdf"/>
 </file>
@@ -543,9 +553,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="tabellenKontakte.pdf" tooltip="ProjectMACareNetMobile/figures/tabellenKontakte.pdf">
 <persistable path="/ProjectMACareNetMobile/figures/tabellenKontakte.pdf"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="thesisclass.cls" tooltip="ProjectMACareNetMobile/thesisclass.cls">
-<persistable path="/ProjectMACareNetMobile/thesisclass.cls"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="net.sourceforge.texlipse.TexEditor" name="thesis.tex" tooltip="ProjectMACareNetMobile/thesis.tex">
 <persistable path="/ProjectMACareNetMobile/thesis.tex"/>
