@@ -361,17 +361,6 @@ gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und n
   		\par
   		\endgroup
   	  		
-  	\item \textit{Zeitlich nicht planbare und plötzlich zu erbringende Tätigkeiten wie der Hilfe beim Toilettengang
-  				  müssen der Tagesstruktur am Tablet-PC hinzufügbar sein.}
-  		\par
-  		\begingroup
-  		\leftskip=1cm
-  		\noindent Die Ergänzung von Dienstleistungen, die von der geplanten Tagesstruktur abweichen, wurde bereits im ersten
-  		Anforderungskatalog aufgenommen, da angenommen wurde, dass die Arbeit mit Menschen immer unvorhergesehene
-  		Tätigkeiten nötig machen kann. \textcolor{red}{Die Funktionalität wurde bereits implementiert.}
-  		\par
-  		\endgroup	
-  		
   	\item \textit{Möglichkeit bei jeder Tätigkeit anzugeben, dass diese nicht ausgeführt wurde und warum.}
 		\par 
 		\begingroup 
@@ -381,6 +370,17 @@ gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und n
 		können, muss eine Tätigkeit mi Begründung als "nicht erbracht" markiert werden können.  
 		\par 
 		\endgroup
+		
+	\item \textit{Zeitlich nicht planbare und plötzlich zu erbringende Tätigkeiten wie der Hilfe beim Toilettengang
+  				  müssen der Tagesstruktur am Tablet-PC hinzufügbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Die Ergänzung von Dienstleistungen, die von der geplanten Tagesstruktur abweichen, wurde bereits im ersten
+  		Anforderungskatalog aufgenommen, da angenommen wurde, dass die Arbeit mit Menschen immer unvorhergesehene
+  		Tätigkeiten nötig machen kann. \textcolor{red}{Die Funktionalität wurde bereits implementiert.}
+  		\par
+  		\endgroup	
   	
   	\item \textit{Vitaldaten (Blutdruck, Puls, Schmerzmanagement, Gewicht) müssen am Tablet-PC erfassbar sein.}
   		\par
@@ -392,7 +392,7 @@ gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und n
   		aber im Rahmen dieser Arbeit nicht mehr implementiert.
   		\par
   		\endgroup
-  		
+  	
   	\item \textit{Statistiken über alle Vitaldaten wären hilfreich (Bsp: Verlauf des Gewichts seit Einlieferung).}
   		\par
   		\begingroup
@@ -435,6 +435,98 @@ gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und n
 		\par 
 		\endgroup
 		
+	\item \textit{Wundfotos sollten mit der internen Kamera des Tablet-PCs aufnehmbar sein und direkt dem Patienten
+  		zugeordnet werden.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Diese Anforderung wurde nicht aktiv von den Schulungsteilnehmern geäußert, sondern als mögliche
+  		Funktionalität aufgrund der Eigenschaften eines Tablet-PCs vorgeschlagen. Der Vorschlag wurde positiv
+  		aufgenommen und als möglicherweise komfortabel und nützlich bewertet. Einerseits aus dem Grund, weil keine
+  		zusätzlich Kamera mehr mitgeführt werden muss, und andererseits weil der Arbeitsschritt der manuellen Zuordnung
+  		wegfällt und somit Zeit gespart wird. Daneben fällt auch die Fehlerquelle der manuellen Zuordnung der Bilder zur
+  		Patientenakte weg. Diese Funktion wurde in der aktuellen Version der Anwendung implementiert.
+  		\par
+  		\endgroup
+  	
+  	\item \textit{Die Pflegestandards des Hauses sollten auf dem Tablet-PC abrufbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Diese Anforderung hat rein informativen Charakter und soll als Hilfestellung dienen, wenn unklar ist, wie
+  		in einem bestimmten Fall vorgegangen werden soll. Da sich die Teilnehmer über die Notwendigkeit dieser Funktion
+  		nicht einig waren, da die meisten Pflegekräfte bereits über langjährige Erfahrung verfügen und die Vorgänge ohnehin
+  		kennen, wurde die Anforderung nicht aufgenommen. Außerdem liefert sie keinen Mehrwert zur Dokumentation, welche das
+  		Kernthema der Evaluation ist.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Spracherkennung zur Eingabe von Freitext.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Eine Spracherkennung zur Eingabe von Freitext wurde häufig gewünscht, da die Eingabe von Freitext über die
+  		virtuelle Tastatur als zu langwierig angesehen wurde. Zwar bieten die neueren Betriebssysteme von Android und iOS
+  		die Möglichkeit der Spracheingabe, jedoch ist hierzu eine Internetverbindung notwendig, was nicht immer
+  		gewährleisten werden kann. Der initiale Anforderungskatalog enthielt die Anforderung, dass \app auch ohne
+  		Internetverbindung funktionieren muss, was mit einer internetabhängigen Spracherkennung nicht zu vereinbaren ist.
+  		Die Anforderung wurde folglich nicht aufgenommen.
+  		\par
+  		\endgroup
+  		
+  	 \item \textit{Abrufen des Tropfenplans auf dem Tablet-PC.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Der Tropfenplan ist eine Auflistung aller benötigten flüssigen Medikamente einer Schicht. Er wird dazu
+  		verwendet, die Medikamente in einem Arbeitsschritt an der Medikamentenausgabe zusammenzustellen. Prinzipiell könnte
+  		diese Anforderung mit vertretbarem Aufwand implementiert werden, jedoch fehlt hierfür die Voraussetzung in CareNet,
+  		da die flüssigen Medikamente nicht gesondert in der Patientenakte verfügbar sind. Weil der Tropfenplan keine
+  		Relevanz für die Dokumentation hat, sondern nur für die Vorbereitung der Tätigkeiten benötigt wird, wird die
+  		Anforderung zwar in die möglicherweise später umzusetzenden Liste von Anforderungen aufgenommen, in dieser Arbeit
+  		aber nicht weiter beachtet.
+  		\par
+  		\endgroup
+  	
+	\item \textit{Notrufknopf zum Absetzen eines Telefonanrufs für die ambulante Dienste.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent In einem vorangegangenen Projekt wurde ein Notrufknopf zum schnellen Absetzen von Notrufen eingebaut. Auf
+  		die Frage, ob dies auch eine wünschenswerte Funktionalität für \app sei, sagten die Teilnehmer, dass dies eigentlich
+  		nur im ambulanten Bereich sinnvoll wäre, da in der Residenz ohnehin Telefone schnell verfügbar wären. Da der Fokus
+  		momentan auf einem Einsatz im stationären Bereich liegt, wird kein Notrufknopf implementiert. Außerdem setzt das
+  		voraus, dass der Tablet-PC Telefonanrufe absetzen kann. Das verteuert die Hardware und macht weitere wirtschaftliche
+  		Untersuchungen erforderlich.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{"Rote Liste" auf Tablet-PC abrufbar.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Die "Rote Liste" stellt eine Sammlung aller zugelassenen Medikamente dar, in der Wirkung und
+  		Wechselwirkungen mit anderen Medikamenten beschrieben werden. Einige Teilnehmer wünschten sich, dass diese Liste auf
+  		dem Tablet-PC abrufbar sei. Da es sich hierbei aber eigentlich um ein Buch eines Anbieters handelt, dürfen die
+  		Inhalte des Buchs nicht ohne Lizenzzahlungen in der Anwendung verwendet werden. Zudem ist unklar, ob die Verwendung
+  		überhaupt erlaubt würde, da die Implementierung einer App zum Zugriff auf die Inhalte eigentlich Aufgabe des
+  		Verlages wäre. Da diese Funktionalität auch keine Relevanz für die Dokumentation hat, wird sie nicht in den
+  		Anforderungskatalog aufgenommen.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Tablet-PCs mit Glasoberfläche, um diese leicht reinigen zu können.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Hygiene ist im medizinischen und pflegerischen Bereich ein wichtiger Aspekt. Da die Tablet-PCs mit in die
+  		Zimmer oder Wohnungen der Bewohner/Klienten genommen werden, müssen diese nach jedem Besuch desinfiziert werden. Die
+  		Oberfläche sollte deswegen aus Glas sein, da die Desinfektionsmittel eine Kunststoffoberfläche bei häufigem Kontakt
+  		möglicherweise schädigen. Die Anforderung war zu Beginn der Arbeit zwar nicht bekannt, wurde aber erfüllt, da die
+  		Implementierung testweise auf Samsung Galaxy Tabs I und II erfolgte, welche eine Glasoberfläche besitzen. Die
+  		Anforderung wurde in den Gesamtkatalog aufgenommen.
+  		\par
+  		\endgroup
 	
   	
 \end{enumerate}

@@ -996,3 +996,24 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2013-03-10 16:29:10.640 -----------------------------------------------
+eclipse.buildId=I20120608-1200
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui.workbench.texteditor 4 2 2013-03-10 16:36:19.536
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench.texteditor".
+!STACK 0
+java.util.ConcurrentModificationException
+	at java.util.LinkedList$ListItr.checkForComodification(Unknown Source)
+	at java.util.LinkedList$ListItr.next(Unknown Source)
+	at net.sourceforge.texlipse.spelling.TexSpellingEngine.check(TexSpellingEngine.java:221)
+	at org.eclipse.ui.texteditor.spelling.SpellingService$1.run(SpellingService.java:104)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.texteditor.spelling.SpellingService.check(SpellingService.java:109)
+	at net.sourceforge.texlipse.editor.TeXSpellingReconcileStrategy.reconcile(TeXSpellingReconcileStrategy.java:238)
+	at net.sourceforge.texlipse.editor.TeXSpellingReconcileStrategy.initialReconcile(TeXSpellingReconcileStrategy.java:205)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
