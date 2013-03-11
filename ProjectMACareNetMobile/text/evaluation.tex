@@ -23,6 +23,7 @@ Dokumentation auf einem Tablet-PC abgeleitet werden.\\
 Abneigung\ldots]}
 
 \subsection{Vorwissen der Teilnehmer und vorbereitende Maßnahmen}
+\label{subsec:vorwissen}
 
 Zu Beginn der Schulung musste zunächst der EDV-Wissensstand ermittelt werden, um festzustellen, welche Kenntnisse
 vorausgesetzt werden können, ohne die Teilnehmer zu überfordern. Ziel war es, zu keinem Zeitpunkt wegen zu schneller
@@ -279,6 +280,7 @@ und qualitativ hochwertiger machen kann. In Tabelle \ref{tab:docuProbs} werden d
 zusammengefasst und die damit verbundenen kritischen Faktoren benannt. 
 
 \subsection{Anforderungen an CareNet\textit{mobile} aus Sicht der Zielnutzergruppe}
+\label{subsec:anforderungen}
 
 Im folgenden Abschnitt werden die in der Diskussion des Status Quo identifizierten Anforderungen an eine mobile Lösung
 zur Unterstützung der Dokumentation aufgelistet und bewertet. Die Bewertung erfolgt danach, ob eine Anforderung bereits
@@ -526,14 +528,108 @@ gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und n
   		Implementierung testweise auf Samsung Galaxy Tabs I und II erfolgte, welche eine Glasoberfläche besitzen. Die
   		Anforderung wurde in den Gesamtkatalog aufgenommen.
   		\par
-  		\endgroup
-	
-  	
+  		\endgroup 	
 \end{enumerate}
 
 \subsection{Ergebnisse des Abschlussfragebogens}
 
-Blubblub
+Nachdem die Anforderungen an \app mit den Teilnehmern evaluiert wurden, wurde der Stand der Entwicklung der Anwendung
+vorgestellt. Fertiggestellt war zu diesem Zeitpunkt die Einstiegsseite mit der Übersicht über die verfügbaren Plug-Ins,
+das Plug-In \textit{Kontakte} und im Plug-In \textit{Touren} konnte bereits eine einfache Tagestruktur abgerufen
+werden, sprich pro Bewohner Tätigkeiten, die nur Bestätigt werden müssen. Zudem konnte jede Tätigkeit mit
+Begründung als "nicht durchgeführt" markiert werden. Die Dokumentation von Wunden per Foto und die Erfassung von
+Vitaldaten war noch nicht möglich. Es konnte jedoch zu jedem Patienten eine erste Version der Patientenakte abgerufen
+werden.\\
+Nach der Vorführung, bei der jedes Team auf dem eigenen Tablet-PC die Anwendung ausprobieren konnte, wurde ein
+Fragebogen verteilt, mit dem die Benutzbarkeit, der Lernaufwand zur Nutzung der Anwendung und der erwartete Nutzen
+durch den Einsatz bei der täglichen Arbeit abgefragt wurde. Der verwendete Fragebogen ist im Anhang
+(\textcolor{red}{[REFERENZ]}) zu finden. Als Basis für die verwendeten Fragen wurde auf den bereits validierten
+Fragebogen des \acs{utaut}-Modells \cite{utaut} zurückgegriffen. \acs{utaut} steht für \textit{\acl{utaut}} und stellt eine
+Rahmenwerk zur Bewertung des Nutzens und der Akzeptanz durch den Endnutzer dar. Da die Fragen im Original auf englisch
+sind, mussten diese zunächst ins Deutsche überführt werden. \cite[S. 50 ff.]{masterMathias} hat dies zur Evaluation der
+Software CareCM der nubedian GmbH, auf der CareNet aufbaut, bereits getan. Die hier verwendeten Fragen sind an diese
+Übersetzung angelehnt und wurden an die Belange der Bewertung von \app angepasst.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/StatBenutzbarkeit.png}
+	\caption{Ergebnisse der Fragen zur Benutzbarkeit von \app.}
+	\label{fig:statBenutzbarkeit}
+\end{figure}
+
+Die Ergebnisse der Fragen zur Benutzbarkeit von \app sind in Abbildung \ref{fig:statBenutzbarkeit} aufgeführt.
+Den Fragen, ob die Anwendung leicht zu bedienen sein wird (5, 6 und 11), ist von allen Teilnehmern zugestimmt worden.
+Der Inhalt der drei Fragen überschneidet sich aus dem Grund, um festzustellen, ob die Teilnehmer nur zufällig angekreuzt
+haben.Da alle Fragen von allen Teilnehmern mit gleicher positiver Tendenz angekrauzt wurden, ist anzunehmen, dass die
+Fragen verstanden und konsistent beantwortet wurden. Auch der Frage, ob die Interaktion mit \app (3) verständlich ist,
+wurde zugestimmt. Dass "nur" fünf von sieben Teilnehmern zugestimmt und nicht voll zugestimmt, lässt darauf schließen,
+dass gewisse Anpassungen der grafischen Oberfläche notwendig sind, um eine volle Zufriedenheit zu erreichen. Die
+Gegenfrage, ob eine elektronische Dokumentation mit \app unnötig kompliziert sei, wurde konsequenter Weise im Vergleich
+zu den anderen Antworten verneint. Bei dieser Frage stimmte nur eine Teilnehmerin voll zu, was vermutlich auf den im
+ersten Fragebogen (vgl. Abbildung \ref{fig:casResults}) festgestellten Respekt gegenüber einer neuen Technologie
+zurückzuführen ist.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/StatLernaufwand.png}
+	\caption{Ergebnisse der Fragen zum benötigten Vorwissen und Lernaufwand zur Nutzung von \app.}
+	\label{fig:statLernaufwand}
+\end{figure}
+
+Abbildung \ref{fig:statLernaufwand} zeigt das Ergebnis der Fragen zum erwarteten Lernaufwand zur Nutzung von \app. Die
+Fragen, ob die Teilnehmer selbst den Umgang mit der Anwendung leicht lernen können (4) und wie sie dies bei anderen
+einschätzen (13), wurde positiv beantwortet. Die Angabe, das sechs von sieben Teilnehmern meinen, das grundsätzliche
+Wissen zu haben, um \app zu benutzen (7), spricht dafür, dass die Bedienung der Anwendung als ähnlich intuitiv angesehen
+wird wie die Bedienung sonstiger Anwendungen des Tablets, da bisher keine spezielle \app Schulung erfolgt ist. Bei der
+Frage nach zusätzlicher technischer Unterstützung (12) waren sich die Teilnehmer nicht einig. Ähnlich unentschieden
+fielen die Antworten bei der These aus, dass die Teilnehmer vor einem effektiven Einsatz noch viel zusätzlich lernen
+müssten (14). Es ist zu vermuten, dass eine Aussage, dass keine technische Unterstützung mehr nötig wäre, eher ein
+Ausdruck von technischem Selbstvertrauen ist als das tatsächlich vorhandene Wissen \app zu verwenden. Erwartet worden
+war hier, dass eine deutliche Mehrheit der Teilnehmer ausstehenden Schulungsbedarf sieht und Unterstützung für Notwendig
+hält. Dies wurde erwartet, da erstens keine echte Schulung statt gefunden hat und außerdem nur ein Teil der geforderten
+Funktionalität implementiert war.
+
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/StatAkzeptanz.png}
+	\caption{Ergebnisse der Fragen zu potentiellem Nutzen und Akzeptanz von \app.}
+	\label{fig:statAkzeptanz}
+\end{figure}
+
+Die Fragen zu Nutzen und Akzeptanz von \app sind sehr positiv ausgefallen. Alle Teilnehmerinnen sagten aus, dass die
+Anwendung grundsätzlich hilfreich sein könnte (1) und dass durch sie die Arbeit effizienter erledigt werden und somit
+Zeit eingespart werden könnte (2). Die Teilnehmerinnen sagten sogar durchweg aus, dass sie die Anwendung gerne
+regelmäßig nutzen würden, was ein sehr gutes Ergebnis des Schulungstages ist, da diese Aussage dafür spricht, dass
+eventuell vorhandene Widerstände und Vorbehalte, die zu Beginn identifiziert wurden (vgl. \ref{subsec:vorwissen}, erfolgreich
+überwunden wurden. Obwohl zunächst gewisse Ängste aufgrund der geringen Technikaffinität gegenüber der neuen Technologie
+bestanden, lehnte keine Teilnehmerin die Nutzung grundsätzlich ab.
+
+Lediglich die Frage nach der Freiwilligkeit der Verwendung von \app wurde aus der Bewertung des Fragebogens
+herausgenommen. Eigentlich war diese Frage dafür gedacht herauszufinden, ob die Alten- und Krankenpfleger durch
+Rückmeldung einen Einfluss auf die Art der Dokumentation haben, jedoch zeigen die widersprüchlichen Antworten, dass
+keine Einigkeit herrscht, obwohl die meisten Teilnehmer in der gleichen Einrichtung mit den gleichen Vorgesetzten
+arbeiten. Aus dem Ergebnis wurde geschlossen, dass die Frage missverständlich gestellt war und gegen die gängige
+Oganisationsstruktur in den Einrichtungen sprach, die meist hierarchisch geprägt ist. Aus diesem Grund wurde die Frage
+nicht berücksichtigt.
+
+Aufgrund der Ergebnisse des Abschlussfragebogens und des gewonnen Eindrucks kann die Schulung als grundsätzlich
+erfolgreich bewertet werden. Es konnte einerseits eine Reihe von Anforderungen gesammelt werden, andererseits konnte die
+Akzeptanz der bisher entwickelten Idee an einer ersten Endnutzergruppe getestet werden.  Das Ziel, bei den Teilnehmern
+eine gewisse Begeisterung für die Tablet-Technologie zu wecken und daraus mit einer positiven Stimmung in die
+Anforderungsevaluation zu starten ist gelungen. Es war sehr erfreulich zu erfahren, dass die initialen Ideen und
+Anforderungen nicht völlig in die falsche Richtung gingen, sondern im Grunde den Nerv und die Notwendigkeiten der
+Teilnehmer trafen. Die Evaluation der Anforderungen in Abschnitt \ref{subsec:anforderungen} hat gezeigt, dass nur wenige
+in der Schulung genannte Anforderungen neu waren und dass an bestehenden Anforderungen nur geringe Änderungen
+vorgenommen werden mussten. Da einige der neuen Anforderungen nichts mit dem eigentlichen Ziel der Dokumentation der
+erbrachten Leistungen zu tun hat, wie z.B. die Verfügbarkeit eines Tropfenplans oder eine Spracherkennung, wurden die
+meisten neuen Anforderungen verworfen oder für eine eventuelle Weiterentwicklung zurückgestellt. Die übrigen
+Anforderungen zusammen mit den technischen Voraussetzungen aus \section{ch:anforderungsanalyse} ergeben eine gute Basis
+zur Entwicklung einer Anwendung, die Chancen hat, bei einer Weiterentwicklung zur Marktreife vom zuständigen Personal
+akzeptiert zu werden und einen echten Mehrwert bei der Dokumentation ärztliche übertragener Tätigkeiten zu liefern.
+
+
+
+
 		   
 \section{Evaluation der technischen Umsetzung der mobilen Anwendung}
 
