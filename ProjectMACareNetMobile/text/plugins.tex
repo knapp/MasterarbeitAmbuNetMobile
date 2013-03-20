@@ -312,7 +312,7 @@ sein kann und mehrere Kontakte einer Sicht zugeordnet werden. Beispielsweise wir
 \textit{Alle Kontakte} als auch unter \textit{Alle Klienten} angezeigt werden. Außerdem wird es in der Regel mehr als
 einen Klienten geben.
 
-\begin{figure}
+\begin{figure}[hb]
 	\centering
 	\includegraphics[width=\textwidth]{figures/tabellenKontakte.pdf}
 	\caption{Tabellen  in der lokalen Datenbank des Plug-Ins \textit{Kontakte}}
@@ -387,31 +387,75 @@ anschließend überprüft, ob alle asynchronen Methoden zum Abrufen der Kontaktdate
 \textit{true}, wird die Anzeige der Daten angestoßen.\\
 Da Aufrufe an die lokale Datenbank ebenfalls asynchron verlaufen, findet hier ebenfalls das Command-Muster Anwendung. 
 
-Für alle Plug-Ins feste Beschreibungsstruktur:
 
-\begin{itemize}
-  \item \textbf{Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)}
-	  \begin{itemize}
-	    \item Gezielt Infos über Klienten, Ärzte, Angehörige herausfinden [CHECK]
-	    \item Vorwiegend Anzeige von Stammdaten [CHECK]
-	    \item Unterscheidung der Anzeige nach Kontaktart (Klient, Angehöriger, Arzt, Organisation) [CHECK]    
-	    \item Aktualisieren von Kontakten [CHECK]
-	  \end{itemize}
-  \item \textbf{Aufbau/Navigationsstruktur}
-	  \begin{itemize}
-	    \item in CareNet: verschiedene Sichten auf Kontakte (soll auch im Mobilteil verfügbar sein) [CHECK]
-	    \item Views und Kontakte über Zeiger miteinander verbunden [CHECK]
-	    \item n:n-Beziehung [CHECK]
-	    \item drei Tabellen: eine mit Views, eine mit Kontaktinfos, eine für Mapping [CHECK]
-	    \item Erstellen der Tabellen bei Initialisierung [CHECK]
-	    \item Füllen der Tabellen beim Öffnen des Plug-Ins, falls keine Daten vorhanden sind [CHECK]
-	    \item Ansonsten Anzeige der vorhandenen Daten, manuelle Aktualisierung notwendig [CHECK]
-	    \item Wie wird Laden der Infos vollzogen, sodass es zu keinen Brüchen kommt (View versucht Kontakte anzuzeigen,
-	    die noch nicht geladen wurden)
-	  \end{itemize}
-\end{itemize}
+\section{Das Plug-In \textit{Touren}}
 
-\section{Das Plug-In "`Touren"'}
+Das Plug-In "Touren" bildet den funktionellen Kern von \app. Hier werden alle Informationen und Funktionen, die zur
+Dokumentation der übertragenen ärztlichen Tätigkeiten notwendig sind, gekapselt zur Verfügung gestellt. Touren bzw.
+Tagesstrukturen müssen hier übersichtlich dargestellt werden, auszuführende Leistungen pro Klient müssen abrufbar sein
+und Zusatzinformationen zum Patienten müssen verfügbar sein, ohne das Plug-In verlassen zu müssen. Die gesamte
+Funktionalität basiert also auf dem Vorhandensein von Daten, die von CareNet bereitgestellt werden. Das Plug-In "Touren"
+bietet keinerlei Funktionen an, die auch ohne Touren- oder Patientendaten verwendbar sind. Um aber auch ohne eine
+Internetverbindung mit dem Plug-In arbeiten zu können (vgl. Anforderungen in Kapitel \ref{sec:analyse}), bilden eine
+Reihe von Tabellen in der lokalen Sqlite-Datenbank das Rückgrat des Plug-Ins.\\
+Das Datenmodell in CareNet ist so aufgebaut, dass alle Elemente wie Touren, Stationen oder auch Pflegeleistungen eigene
+Datenobjekte sind. Eine Verbindung zwischen zwei Datenobjekten wird in einem \textit{Dossier}, das jeweils einem
+bestimmten Datenobjekt zugeordnet wird, festgehalten. Es besteht aus einer Auflistung von Objektpaaren, von denen immer
+ein Objekt das dem Dossier zugeordnete ist. Zu jedem Objekt ist die entsprechende \acs{id}, der Objekttyp (z.B. TOUR))
+und die Art der Verbindung zum Partnerobjekt angegeben. Art der Verbindung kann beispielsweise "BIDIRECTIONAL" sein, was
+bedeutet, dass beide Objekte mit einer ungerichteten Kante verbunden sind, d.h. beide wissen von der Verbindung mit dem
+jeweils anderen Objekt. Alternativ könnte es auch eine gerichtete Kante sein, bei der nur ein Datenobjekt von der
+Verbindung weiß.
+
+Zur Darstellung einer Tagesstruktur in \app wird eine Tour, eine Menge von Stationen und für jede Station eine Menge von
+Pflegeleistungen benötigt. Stationen werden in CareNet als Termine (\textit{APPOINTMENT}) angesehen, da es sich im
+Prinzip um ein Treffen mit dem Klienten zu einem bestimmten Zeitpunkt handelt. Diese Konstellation von Datenobjekten
+erfordert drei Tabellen in der lokalen Datenbank. Eine zur Speicherung des Datenobjektes \textit{TOUR}, eine für die
+zugeordneten Termine und eine Dritte für die Menge der zu erbringenden Leistungen (\textit{SERVICES}). Die Tabellen
+werden im Konstruktor des Plug-Ins angelegt bzw. wird hier die Verbindung zu eventuell bereits vorhandenen Tabellen
+hergestellt. Die Verbindung zwischen den Datenobjekten, welche in CareNet in den genannten Dossiers beschrieben wird,
+wird in \app über Fremdschlüssel aufgelöst. Bei Fremdschlüsselbeziehungen wird die \acs{id} eines in einer anderen
+Tabelle liegenden Datenobjektes gespeichert, um dort das richtige Objekt identifizieren zu können. Da Pflegeleistungen
+eine Verfeinerung einer Station/eines Termins darstellen und Stationen einer Tour untergeordnet sind, besteht absteigend
+jeweils eine 1:n-Beziehung zwischen den Datenobjekten. Aus diesem Grund wird jeweils dem Datenobjekt, welches nur
+\textit{einem} anderen Objekt zugeordnet wird, der Fremdschlüssel gegeben. Beispielsweise weiß ein Datenobjekt
+"Pflegeleistung" so, welcher Station es zugeordnet ist, während von der lokal gespeicherten Station nicht auf die
+zugeordneten Datenobjekte geschlossen werden kann. Dieses Vorgehen macht den Aufbau der Tabellen einfacher, da so jedem
+Attribut in einer Tabelle nur ein Wert zugeordnet werden muss, während bei einer bidirektionalen Verbindung
+beispielsweise eine Station eine Menge von Attributen aller ihr zugeordneten Leistungen halten müsste. Dies würde
+entweder eine weitere Tabelle erfordern (ähnlich wie die in Abbildung \ref{fig:tablesContacts} gezeigten Tabellen), oder
+es müssten die \acs{id}s als Zeichenkette konkateniert werden, was einen erhöhten Aufwand beim Lesen der \acs{id}s
+bedeuten würde.\\
+
+Die \acs{rest}-Schnittstelle von CareNet bietet nur das Laden von allen oder einzelnen Objekten eines Typs an, die der
+angemeldeten Person freigegeben sind. Eine \acs{mfp} bekommt beispielsweise nur Informationen angezeigt, die sie für die
+Ausführung Ihrer Arbeit benötigt oder die explizit für sie freigegeben wurden. Eine Differenzierung einer Menge von
+Datenobjekten nach zeitlichen Kriterien ist nicht möglich. Soll nun also eine Tour eines bestimmten Tages vom Server
+geladen werden, müssen die Daten aller Touren abgefragt werden, damit auf dem Tablet-PC eine Filterung der Daten
+erfolgen kann. Ein Problem mit diesem Vorgehen kann entstehen, wenn nur ein Internetzugang mit begrenztem Datenvolumen
+zur Verfügung steht und dieses durch das Laden von Daten aufgebraucht wird, die eigentlich nicht benötigt werden. Die
+Folge wären entstehende Mehrkosten oder eine eingeschränkte Nutzbarkeit der Internetverbindung, wenn die
+Übertragungsgeschwindigkeit gedrosselt wird. Da \app auch bei ambulanten Diensten eingesetzt werden soll, die während
+eines Besuchs bei einem Klienten in der Regel nur auf Internetverbindungen über Mobilfunkanbieter zurückgreifen können,
+kann dies ein Problem darstellen. Eine Reduzierung des Problems auf Einzelfälle kann dadurch erreicht werden, dass die
+benötigten Daten zu Beginn der Schicht über eine unbegrenzte \acs{wlan}-Verbindung geladen werden und nur noch gezielte
+Aktualisierungen über das mobile Netzwerk werden. Eine weitere Möglichkeit wäre die Anpassung der
+\acs{rest}-Schnittstelle, sodass kontextsensitive Daten abgefragt werden können, jedoch bedeutet dies umfangreiche
+Anpassungen am zentralen System, von denen zum momentanen Zeitpunkt abgesehen wird. Zwar ist es jetzt schon möglich,
+statt des gesamten Datensatzes nur eine Liste von Quasi-Signaturen bestehend aus einem Bezeichner, der \acs{id} und der
+\acs{uri} zum Dossier herunterzuladen, jedoch enthält diese nicht die Informationen über die zeitliche Einordnung des
+Datenobjektes. Hiermit kann folglich keine Reduzierung erreicht werden.
+
+Wird das Plug-In geöffnet, wird zunächst überprüft, ob Daten in den Tabellen vorhanden sind. Sind keine Daten vorhanden,
+wird angenommen, dass das Plug-In zum ersten Mal nach der Installation der Anwendung oder der Löschung der Daten
+geöffnet wurde und der Vorgang zum Laden der Daten vom Server wird automatisch angestoßen. Sind Daten vorhanden, kann
+aber keine Tour/Tagesstruktur für das aktuelle Datum gefunden werden, wird der Nutzer gefragt, ob er nach aktuellen
+Informationen suchen lassen möchte.\\
+Das Laden der Daten erfolgt sequentiell. Zuerst werden alle vorhandenen Dienste (\textit{SERVICES}) geladen und in die
+lokale Datenbank eingepflegt. Das Feld für die \acs{id} der zugehörigen Station (Fremdschlüssel) wird zunächst leer
+gelassen.
+
+
 
 \begin{itemize}
   \item \textbf{Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)}

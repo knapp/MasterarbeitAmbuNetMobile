@@ -1,0 +1,478 @@
+\chapter{Basisanwendung und Plug-Ins zur Realisierung der identifizierten Anforderungen}
+\label{ch:pluginarchitektur}
+
+[Vorgeplänkel Kapitel]
+
+\section{Aufgaben und Struktur der Basisanwendung}
+\label{sec:basisanwendung}
+
+Um einem Benutzer von \app die Bedienung der Anwendung zu erleichtern, sollte ein einheitliches Gesamterscheinungsbild
+eingehalten werden, da ständige Strukturwechsel in der grafischen Oberfläche zu Unübersichtlichkeit führen können
+\textcolor{red}{[Quelle]}. Hierzu wurde die in Abbildung \ref{fig:gui} gezeigte feste Struktur der grafischen Oberfläche
+entworfen. Oben links befindet sich das Logo der Anwendung, darunter ist ein Bereich für die Darstellung von
+Informationen wie das aktuell verwendete Plug-In oder der gerade behandelte Klient reserviert. Am oberen Rand, rechts
+des Logos, wurde eine Leiste zum Platzieren von Buttons zur Navigation eingefügt. Hier sollen Schaltflächen zur
+Navigation zwischen Basisanwendung und Plug-Ins platziert werden (z.B. ein "Home"-Button) und auch zur Navigation
+zwischen verschiedenen Sichten innerhalb eines Plug-Ins. Der größte Bereich ist zur Darstellung und Bearbeitung des
+eigentlichen Inhalts gedacht.\\
+Die gesamte Anwendung basiert lediglich auf zwei HTML-Dateien und einer Menge von JavaScript-Dateien. Eine HTML-Datei
+wird für einen Login-Dialog verwendet, die zweite um den kompletten Inhalt darzustellen. Alle Strukturelemente und
+Funktionalität wird über JavaScript hinzugefügt. Zur Manipulation der HTML-Elemente wird jQuery und jQuery mobile
+verwendet.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{figures/GUICareNetMobile.pdf}
+	\caption{Struktur der grafischen Oberfläche von \app}
+	\label{fig:gui}
+\end{figure}
+
+Die Strukturierung und Gestaltung der grafischen Oberfläche erfolgt mittels HTML5 und CSS3, die Funktionalität wird mit
+JavaScript entwickelt. Gegenüber der Entwicklung einer nativen Anwendung für Android ergeben sich bei der Entwicklung
+mit JavaScript gewisse Schwierigkeiten. Während Java eine objektorientierte Sprache ist, bei der Typsicherheit und
+Kapselung von Funktionalität in Klassen zu den Eigenschaften gehören, ist JavaScript eine Scriptsprache, die keinerlei
+Typsicherheit und nur bedingte Kapselungsmöglichkeiten bietet. Ein wichtiger Unterschied ist, dass Java vor der
+Ausführung zunächst kompiliert, d.h. in eine maschinenverständliche Zwischensprache übersetzt werden muss, während
+JavaScript direkt vom Browser interpretiert werden kann. Dies impliziert, dass JavaScript-Code, selbst wenn er bereits
+auf einer Webseite ausgeführt wird, dem Nutzer im Klartext zur Verfügung steht, während der Java-Code nur bedingt und
+durch aufwendige Verfahren wieder dekompiliert und somit im Klartext verfügbar gemacht werden kann. Dieser Eigenschaft
+muss sich ein Entwickler besonders im Bezug auf im Quellcode vermerkte sicherheitsrelevante Informationen bewusst
+sein.\\
+Während der Entwicklung kann vor allem die fehlende Möglichkeit der Kapselung problematisch werden. Abbildung
+\ref{fig:vergleichJavaJS} zeigt Beispielimplementierungen in Java und JavaScript. Links wurde eine Klasse erstellt, die
+Methoden und Variablen kapselt. Wird eine Variable außerhalb einer Methode definiert (Abbildung
+\ref{fig:vergleichJavaJS}: \textit{ersteVariableJava}), ist diese in der gesamten Klasse verfügbar. Ist die Variable als
+\textit{public} gekennzeichnet, kann auf sie über \textit{Klassenname.variablenName} zugegriffen werden.
+Wird sie als \textit{private} deklariert, ist sie nur innerhalb der Klasse verfügbar. Das gleiche gilt für Methoden.
+Wird eine Variable innerhalb einer Methode definiert (Abbildung \ref{fig:vergleichJavaJS}: \textit{zweiteVariable}),
+kann auch nur innerhalb dieser Methode auf die Variable zugegriffen werden.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figures/VergleichJavaJavaScript.pdf}
+	\caption{Vergleich zweier Beispielimplementierungen von Java und JavaScript}
+	\label{fig:vergleichJavaJS}
+\end{figure}
+
+In JavaScript sind grundsätzlich alle Methoden global verfügbar. Die Verfügbarkeit beschränkt sich hier nicht auf eine
+Klasse oder Datei, sondern auf eine Methode kann von allen im Kontext einer HTML-Datei geladenen Dateien zugegriffen
+werden. Eine Klassendefinition kann nur in sofern erfolgen, dass einem Methodennamen der Name einer anderen vorher
+definierten Methode vorangestellt wird (Abbildung \ref{fig:vergleichJavaJS}: \textit{beispiel.methodeJS()}). Hiermit
+wird es möglich, einen Namensraum zu definieren, um Methoden einem bestimmten Kontext (hier: \textit{beispiel})
+zuzuordnen. Wird allerdings an anderer Stelle im geladenen JavaScript-Code die selbe Kontext-Methodennamen-Kombination
+verwendet, kann der Interpreter, der Browser, keine eindeutige Zuordnung des Namens zu ausführbarem Quellcode mehr
+herstellen und es wird nichts ausgeführt.\\
+Ebenso verhält es sich mit Variablen. Wird eine Variable mit dem Zusatz \textit{var} außerhalb einer Methode definiert,
+ist sie global verfügbar. Das gleiche gilt, wenn eine Variable ganz ohne Zusatz (Abbildung \ref{fig:vergleichJavaJS}:
+\textit{zweiteVariableJS}) definiert wird. Nur wenn eine Variable innerhalb einer Methode mit dem Zusatz \textit{var}
+erstellt wird, kann sie nur innerhalb der Methode verwendet werden. Dieser Umstand kann zu massiven Problemen führen.
+Vergisst ein Entwickler beispielsweise nur ein einziges Mal den Zusatz \textit{var} bei der Definition einer
+Laufvariable in einer Schleife (häufig mit dem Namen \textit{i}), wird diese nun global geltende Variable alle anderen
+Schleifen, die ebenfalls die Laufvariable \textit{i} verwenden, beeinflussen. Da dies kein syntaktischer, sondern ein
+semantischer Fehler ist, kann dieser nicht von automatisierten Fehlerfindungswerkzeugen entdeckt werden und es beginnt
+die sprichwörtliche Suche nach der Nadel im Heuhaufen. Derartige Umstände können sehr viel Zeit kosten.\\
+
+Einzelne Plug-Ins sollen die in Abbildung \ref{fig:gui} gezeigte Struktur nutzen, um Inhalte darzustellen. Damit dies
+möglich ist, müssen die einzelnen Bereiche, welche als HTML-DIV-Elemente erstellt wurden, eindeutig durch \acs{id}s
+gekennzeichnet werden. Da es in JavaScript nicht, wie in Java, möglich ist, Konstanten zu definieren, wurden in einer
+separaten JavaScript-Datei \textit{CONSTANTS.js} alle \acs{id}s in Form von Variablen hinterlegt, welche den
+DIV-Elementen zugewiesen wurden. Der Nachteil von Variablen ist, dass diese während der Laufzeit aus den Plug-Ins heraus
+verändert werden können. Aus diesem Grund muss die Konvention eingehalten werden, zentral definierte Variablen nicht zu
+verändern, da dies Auswirkungen auf andere Plug-Ins haben könnte. Die Eigenschaft einer Plug-In-Architektur, dass
+Plug-Ins keinen Einfluss auf die Basisanwendung haben, kann somit nicht vollständig in JavaScript umgesetzt werden.
+Menschliche Fehler durch Nicht-Einhaltung der Konvention bleiben möglich.\\
+Der Vorteil von zentral definierten Variablen ist, dass an einer zentralen, übersichtlichen Stelle nachgeschaut werden
+kann, wie eine \acs{id} lautet, und dass die wichtigen Strukturelemente für Informationen, Navigation und Inhalt zentral
+referenziert werden können. Die Datei \textit{CONSTANTS.js} wird außerdem dazu genutzt, um alle sonstigen in der
+Implementierung der Basisanwendung verwendeten Zeichenketten als Variablen zu hinterlegen. Hierzu zählt beispielsweise
+die Server-Adresse der Middleware oder alle Arten von Meldungen an einen Nutzer. Dieses Verfahren erhöht die Wartbarkeit
+der Anwendung, da Änderungen an mehrfach verwendeten Zeichenketten nicht \textit{mehrfach} umgesetzt werden müssen,
+sondern lediglich \textit{einmal} in der zentralen Datei. Die Wahrscheinlichkeit für Fehler durch nicht vollständig
+umgesetzte Anpassungen kann so verringert werden. Dieses Vorgehen ist angelehnt an die zentrale Verwaltung von
+\textit{String Ressources} bei der Entwicklung nativer Android-Anwendungen \cite{androidStringRessources}.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figures/AuthentifizierungCareCMviaREST.pdf}
+	\caption{Überprüfung der Benutzerdaten in \app }
+	\label{fig:login}
+\end{figure}
+
+Eine Grundfunktion, welche die Basisanwendung zur Verfügung stellt, ist ein Log-In zur Sicherung der persönlichen Daten
+und einer Identifizierung des Nutzers. Da \app eine mobile Erweiterung von CareNet darstellt, werden keine gesonderten
+Konten für die Nutzung der mobilen Anwendung angelegt, sondern es werden die schon existierenden Konten in CareNet
+verwendet. Folglich müssen die bei der Anmeldung eines Nutzer eingegebenen Daten an CareNet gesendet werden, wo sie
+überprüft werden und das Ergebnis an die mobile Anwendung zurückgesandt wird. Benötigt werden beim Login der Mandant,
+der Benutzername und das Passwort.\\
+In Kapitel \ref{sec:entwurfsentscheidungen} wurde die Kommunikation von \app mit CareNet via \acs{rest} erklärt. Aus
+dieser Kommunikation resultiert eine Besonderheit bei der Authentifizierung eines Nutzers mit einem zentralen System.
+Abbildung \ref{fig:login} zeigt die notwendigen Schritte zur Authentifizierung eines Nutzers und dem anschließenden
+Senden einer Anfrage. Da keine Sitzung aufgebaut werden kann, in der ein Nutzer dauerhaft angemeldet wird, müssen
+die kompletten Nutzerdaten bei jeder Anfrage mitgesendet werden.\\
+Meldet sich ein Nutzer in \app an, so werden zunächst nur die eingegebenen Daten an CareNet gesendet. Als Antwort kommt
+entweder der HTML-Code 200 (\textit{OK}) oder 401 (\textit{Unauthorized}). Sind die Daten korrekt (Code = 200), werden
+sie im lokalen Speicher der Anwendung abgelegt, um sie für spätere Anfragen an CareNet nicht noch einmal eingeben zu
+müssen. Hierzu kann der von PhoneGap angebotene lokale Key-Value-Speicher genutzt werden. In diesem Speicher können
+Zeichenketten, referenziert über einen Schlüssel, permanent abgelegt werden und auch nach dem Schließen der hybriden
+mobilen Anwendung wieder abgerufen werden. Die Nutzerdaten werden hier allerdings unverschlüsselt abgelegt. Aus
+diesem Grund werden diese aus dem lokalen Speicher gelöscht, sobald sich der Nutzer wieder von
+\app abmeldet. Weitere Anfragen an CareNet sind so nicht mehr möglich.\\
+Der Login von \app ist als eigenständige HTML-Datei in Form eines Dialogs realisiert. Wird die Anwendung gestartet, wird
+zwar zunächst die zentrale Datei \textit{index.html} geladen, jedoch wird vor der Anzeige der Startseite überprüft, ob
+Nutzerdaten im lokalen Speicher vorhanden sind oder nicht. Sind keine Daten vorhanden, wird zunächst der Login-Dialog
+aufgerufen und nur wenn die hier eingegebenen Nutzerdaten korrekt sind, erfolgt eine Anzeige der Startseite. Eine
+reine Überprüfung der Verfügbarkeit von Benutzerdaten im lokalen Speicher reicht als Kriterium zur Anzeige von
+Inhalten der Startseite aus, da aufgrund der vorherigen Überprüfung ausschließlich validierte Benutzerdaten im
+Speicher abgelegt werden.\\
+Neben einer Behandlung des Zustandsübergangs beim Starten der Anwendung müssen weitere Zustände im Lebenszyklus
+einer Android-Anwendung berücksichtigt werden. Wurde eine Anwendung einmal gestartet, kann sie nicht direkt vollständig
+durch einen Befehl oder die Betätigung des Home-Buttons geschlossen werden, sondern sie wird lediglich
+\textit{pausiert}. Wird die Anwendung aus dem Task-Manager heraus wieder geöffnet, wird diese nicht neu gestartet,
+sondern an dem Punkt fortgesetzt, an der sie geschlossen wurde. Dies kann zu einem Sicherheitsproblem werden, wenn ein
+Nutzer die Anwendung schließt und sich nicht darüber bewusst ist, dass diese eigentlich weiterhin verfügbar ist. Bekommt
+nun ein Dritter das Tablet in die Hände, kann dieser im Namen der angemeldeten Person Veränderungen vornehmen oder auf
+sensible Daten zugreifen. Um dies zu verhindern, werden die Nutzerdaten im lokalen Speicher gelöscht, sobald die
+Anwendung geschlossen wird. Wird diese wieder geöffnet, muss der Nutzer sich neu authentifizieren. Dieses Vorgehen führt
+zu Einbußen bei der Benutzbarkeit der Anwendung, da immer wieder neu Nutzername und Passwort eingegeben werden muss,
+auch wenn nur aus Versehen der Home-Button betätigt wurde, jedoch ist dies für den Schutz der sensiblen Daten
+unabdinglich. Zur Reduzierung der Wahrscheinlichkeit, dass \app unabsichtlich geschlossen wird, wurde der
+Zurück-Button deaktiviert, da dieser bei nur zwei verwendeten HTML-Seiten zu einem Verlassen der Anwendung führt.\\
+
+In Abbildung \ref{fig:login} wird die Rolle der Middleware vernachlässigt, da diese nicht für das grundsätzliche
+Kommunikationsprinzip relevant ist. Tatsächlich übernimmt die Middleware aber einen Arbeitsschritt bei der
+Kommunikation. Die Nutzerdaten werden als Zeichenkette \textit{Mandant/Benutzername:Passwort} an die Middleware
+übertragen. CareNet benötigt die Daten zur Authentifizierung jedoch in Form einer nach der Base Access Authentication
+verschlüsselten Zeichenkette. Base Access Authentication ist \textcolor{red}{[Erlärung Base64 nach Network security:
+private communication in a public world, second edition]}. Da PHP standardisierte Methoden zur Erstellung dieser
+Verschlüsselung anbietet, wurde entschieden, die Verschlüsselung in die Middleware zu verlagern.\\
+Auch wenn es sich bei der Base Access Authentication namentlich um eine Verschlüsselung handelt, ist diese jedoch kein
+Schutz gegen einen Zugriff auf die Daten Dritter, da das Verfahren öffentlich bekannt ist und leicht entschlüsselt
+werden kann. Im Prinzip werden die Benutzerdaten also im Klartext von \app zu CareNet übertragen. Hört ein Dritter die
+Kommunikation ab, kann er die Nutzerdaten auslesen und zweckentfremden. Aus diesem Grund muss die Verbindung an sich
+verschlüsselt werden. Hierzu wird eine \acs{https}-Verbindung sowohl von \app zur Middleware als auch von der Middleware
+zu CareNet verwendet.\\
+\acs{https} steht für \textit{\acl{https}} und stellt eine Kombination aus einem symmetrischen und einem asymmetrischen
+Verschlüsselungsverfahren dar, um Internetverbindungen abhörsicher zu machen. Bei einem symmetrischen Verfahren benutzen
+Sender und Empfänger beide den gleichen Schlüssel, um Nachrichten zu ver- und entschlüsseln. Bei einem asymmetrischen
+Verfahren wird eine Nachricht mit einem öffentlichen Schlüssel verschlüsselt und mit einem privaten Schlüssel, den nur
+der Empfänger kennt, wieder entschlüsselt. Die symmetrische Verschlüsselung ist zwar deutlich schneller, jedoch auch
+unsicherer, da der Schlüssel zunächst über eine unverschlüsselte Verbindung übertragen werden muss und so eventuell
+abgehört werden könnte. Beim \acs{https}-Verfahren wird zum Aufbau einer sicheren Verbindung der öffentliche Schlüssel
+an den Empfänger übertragen.
+Dieser nutzt den Schlüssel, um eine Nachricht mit einem symmetrischen Schlüssel an den Server zu schicken. Diesen
+symmetrischen Schlüssel können in der folgenden Kommunikation beide Seiten verwenden. Eine langsame asymmetrische
+Kommunikation findet also nur beim Aufbau der Verbindung statt \cite[S. 152]{sicherheitInternet}.
+
+
+
+
+\section{Einbinden von Plug-Ins in die Basisanwendung}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.7]{figures/PluginStrukturAmbuNetMobile.png}
+	\caption{Struktur eines Plug-Ins in \app}
+	\label{fig:plugin}
+\end{figure}
+
+Wie in Kapitel \ref{sec:entwurfsentscheidungen} beschrieben, wird \app auf Basis einer Plug-In-Architektur entwickelt.
+Die eigentliche Funktionalität, um die Anwendung produktiv einsetzen zu können, soll ausschließlich über Plug-Ins
+hinzugefügt werden, welche gekapselte Programmstücke darstellen. Plug-Ins sollen der Basisanwendung leicht hinzugefügt
+und wieder entfernt werden können. Außerdem soll durch die programmatische Entkopplung logisch getrennter Programmstücke
+eine höhere Code-Qualität erreicht werden, da so Teile des Programms verändert werden können, ohne die Gesamte Anwendung
+zu beeinflussen.\\
+Die Idee des Plug-In-Musters (\cite[S. 499 ff.]{patternsBook}) ist, einer Anwendung Implementierungen zur Laufzeit durch
+Konfiguration hinzufügen zu können. Ein erneutes Kompilieren bzw. ein neuer Build-Prozess soll nicht notwendig sein. Da
+\app nicht mit einer objektorientierten Sprache wie Java oder C\# entwickelt wird, sondern mit JavaScript, kann diese
+Eigenschaft nicht vollständig umgesetzt werden. Der Quellcode eines Plug-Ins muss in \app gekapselt in einen Ordner zum
+Zeitpunkt der Entwicklung eingebunden werden, bevor die Anwendung zur Installation auf dem Tablet-PC generiert wird.
+Damit ein Plug-In aber tatsächlich in der Anwendung bereitgestellt wird, muss es namentlich in einer zentralen
+Konfigurationsdatei \textit{pluginConfig.json} aufgeführt werden. Beim Start der App werden alle hier aufgeführten
+Plug-Ins geladen, falls der benötigte Quellcode tatsächlich vorhanden ist. Die Konfigurationsdatei dient somit als
+Startpunkt zum Laden der eigentlichen Funktionalität. Zwar muss bei dem hier skizzierten Vorgehen der Quellcode der
+Plug-Ins noch zur Entwicklungszeit eingebunden werden, jedoch ermöglicht die Konfigurationsdatei ein Einbinden und
+Ausschließen von Plug-Ins zur Laufzeit, da die Konfigurationsdatei im \acs{json}-Format durch JavaScript veränderbar
+ist. Die Anforderungen eines \textit{Plug-In}-Musters werden so zumindest in Teilen umgesetzt.\\
+Um eine unbegrenzte Anzahl Plug-Ins über ein generisches Verfahren einbinden zu können, muss eine einheitliche Struktur
+gegeben sein. Abbildung \ref{fig:plugin} zeigt die Struktur eines Plug-Ins. Es besteht aus einer Menge von Dateien, die
+in einem Ordner zusammengefasst werden. Der Ordner muss den Namen des Plug-Ins tragen und die darin enthaltenen Dateien
+müssen der Namenskonventionen folgen, dass sie jeweils den Namen des Plug-Ins enthalten und ein beschreibendes Stichwort
+für den Inhalt der Datei. Zwar könnte auch schon die Dateiendung als Indikator für den Inhalt dienen, jedoch wird es
+durch den beschreibenden Zusatz besser lesbar.\\
+Jedes Plug-In muss die in Abbildung \ref{fig:gui} gezeigte Struktur der Anwendung nutzen und die einzelnen Div-Elemente
+über die in Variablen abgelegten \acs{id}s ansteuern. Um nicht bei jeder Veränderung eine neue HTML-Datei laden zu
+müssen, wird der Inhalt der Div-Elemente dynamisch angepasst. Hierzu ist JavaScript notwendig, folglich muss ein Plug-In
+eine JavaScript-Datei enthalten (\textit{Plug-In-Name.js}), die sowohl die Methoden zum Aufbau der grafischen Oberfläche
+als auch die Anwendungslogik enthält. Wichtig für die grafische Darstellung von \acs{html}-Elementen sind \ac{css}. Sie
+werden dazu verwendet, wiederverwendbare Formatierungen zu hinterlegen, die den \acs{html}-Elementen zugewiesen werden
+können. Diese müssen, wie JavaScript auch, in einer separaten Datei zusammengefasst werden
+(\textit{Plug-In-Name\_style.css}).\\
+Die Basisanwendung soll keinerlei Abhängigkeiten zu den Plug-Ins haben, jedoch verwenden Plug-Ins von der Basisanwendung
+bereitgestellte Methoden. Außerdem können Abhängigkeiten der Plug-Ins untereinander bestehen. Sind notwendige Methoden
+nicht verfügbar oder wurden diese verändert (beispielsweise die Methodensignatur), kann dies dazu führen, dass ein
+Plug-In nicht mehr funktioniert. Um die fehlenden Abhängigkeiten nicht erst zu entdecken, während der Nutzer eine nicht
+verfügbare Funktion versucht zu verwenden, müssen Abhängigkeiten in einer Konfigurationsdatei beschrieben werden. Die
+Datei \textit{Plug-In-Name\_config.json} enthält eine Liste aller Plug-Ins sowie deren minimal und maximal mögliche
+Versionsnummer, die ein Plug-In benötigt, um grundsätzlich funktionieren zu können. Außerdem enthält die Datei die
+Versionsnummer des Plug-Ins selbst. Vor dem Laden eines Plug-Ins wird überprüft, ob die Plug-Ins, zu denen eine
+Abhängigkeit besteht, grundsätzlich vorhanden sind, und ob die Version des Plug-Ins in dem angegebenen Bereich liegt
+(Bsp: Min-Version: 1.0, Max-Version: 1.3, Plug-In-Version: 1.1 $\Rightarrow$ OK). Ist dies nicht der Fall, wird ein
+Plug-In nicht geladen und der Nutzer bekommt einen Hinweis angezeigt. Neben den Abhängigkeiten zu anderen Plug-Ins
+können außerdem Abhängigkeiten zu JavaScript-Bibliotheken wie jQuery mobile oder PhoneGap bestehen. Um hier Redundanzen
+zu vermeiden, die entstehen, wenn jedes Plug-In diese Bibliotheken selbst einbindet, können auch diese in der
+Konfigurationsdatei angegeben werden. So wird der benötigte Speicherplatz der Anwendung möglichst gering gehalten.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{figures/Startseite.png}
+	\caption{Übersicht der verwendbaren der Plug-Ins}
+	\label{fig:pluginView}
+\end{figure}
+
+Die Basisanwendung bietet außer dem Login ausschließlich Funktionalitäten an, die der Nutzer nicht direkt verwenden
+kann, sondern die nur programmatisch von Plug-Ins genutzt werden können. Da die gesamte produktiv nutzbare
+Funktionalität folglich über die Plug-Ins hinzugefügt wird, dient die Startseite von \app als eine Art Sprungbrett, um
+die hinterlegten Anwendungen zu starten. \cite[S. 3 ff.]{mobileDesignPatterns} beschreibt das sogenannte
+\textit{Springboard}-Muster (Sprungbrett-Muster) als häufig verwendetes und etabliertes Entwurfsmuster für die primäre
+Navigation in mobilen Anwendungen. Meist wird ein Gittermuster verwendet, in welchem zu den jeweiligen Anwendungen
+passende Abbildungen und ein textueller Bezeichner angeordnet werden. Bei dem Entwurf der grafischen Oberfläche von \app
+wurde dieses Muster gewählt, da es eine hohe Übersichtlichkeit auf der Startseite bietet. Abbildung \ref{fig:pluginView}
+zeigt die Umsetzung in \app für fünf eingebundene Plug-Ins. Die Abstände zwischen den Symbolen wurden bewusst groß
+gewählt, um eine Fehlauswahl durch versehentliches Tippen auf falsche Symbole zu vermeiden. Alle Symbole werden in
+gleicher Größe dargestellt, um dem Nutzer zu vermitteln, dass es sich um gleichwertig gewichtete Anwendungen handelt.
+Es werden jeweils drei Symbole pro Reihe angezeigt. Bei mehr als drei Plug-Ins werden zusätzliche Reihen nach unten
+hinzugefügt. Müssen mehr Plug-Ins angezeigt werden, als Platz auf dem Bildschirm zu Verfügung steht, kann der Bereich
+für den Inhalt nach unten gescrollt werden. Jedes Plug-In muss ein eigenes Icon mit dem Namen
+\textit{Plug-In-Name\_icon.png} bereitstellen.\\
+Zur Zeit der Abgabe dieser Arbeit war es leider noch nicht möglich, JavaScript- und CSS-Dateien zur Laufzeit
+einzubinden. Es muss jede Datei im Plug-In-Ordner manuell in der zentralen HTML-Datei eingebunden werden. Dies
+verursacht zusätzlichen Aufwand, jedoch konnte keine andere Lösung gefunden werden. Außerdem muss der Name jedes
+Plug-Ins in einer Konfigurationsdatei der Basisanwendung hinterlegt werden, denn es werden nur die Plug-Ins eingebunden,
+die hier aufgelistet wurden. Ein Nachteil der manuellen Einbindung \textit{einer} JavaScript-Datei ist, dass nicht
+einfach eine Menge von Dateien hinterlegt werden kann, die automatisch verwendet werden. Wäre dies möglich, könnte die
+Anwendungslogik eines Plug-Ins auf mehrere JavaScript-Dateien aufgeteilt werden. Wird nur eine Datei eingebunden, muss
+jeglicher JavaScript-Code in dieser Datei zusammengefasst werden, was die Übersichtlichkeit während der Entwicklung
+hindert, da diese Datei mehrere tausend Zeilen Code enthalten kann.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{figures/aufbauJsDatei.pdf}
+	\caption{Grundstruktur einer Plug-In-JavaScript-Datei}
+	\label{fig:pluginJsFile}
+\end{figure}
+
+Die Benutzung von \app soll auch ohne eine Internetverbindung möglich sein, wenn vorher alle relevanten Daten auf den
+Tablet-PC geladen wurden. Hierzu wird eine lokale Datenbank von der Basisanwendung bereitgestellt. Die Einzelnen
+Plug-Ins können über vordefinierte Methoden eigene Tabellen anlegen, um Plug-In spezifische Informationen abzuspeichern.
+Damit es beim ersten Öffnen eines Plug-Ins zu keiner größeren Verzögerung wegen des Anlegens benötigter Tabellen kommt,
+ist eine Funktion wünschenswert, mit der Plug-Ins Vorgänge anstoßen können, die schon vor dem ersten Öffnen ausgeführt
+werden. Um dies zu ermöglichen, muss die JavaScript-Datei die in Abbildung \ref{fig:pluginJsFile} gezeigten Methoden
+implementieren. Prinzipiell wird hier ein \textit{Separated Interface}-Muster \cite[S. 476]{patternsBook} genutzt, bei
+dem generelle Methoden, die jedes Plug-In implementiert, jedoch mit unterschiedlicher Funktionalität, ausgelagert
+werden. Da in JavsScript die explizite Definition von Schnittstellen (Interfaces) nicht möglich ist, muss hier auf
+global verfügbare Methoden zurückgegriffen werden.\\
+Benötigt wird zunächst ein Konstruktor, der nach dem Plug-In benannt wurde. Dieser wird aufgerufen, wenn ein Plug-In
+geladen wird, bei dem alle Abhängigkeiten erfüllt sind . Hier können beispielsweise Tabellen einer Datenbank
+initialisiert werden. Neben einem Konstruktor wird eine Methode zur Initialisierung der Anwendung benötigt. Diese wird
+aufgerufen, sobald ein Nutzer ein Plug-In öffnet. In dieser Methode muss die Anzeige der App in den Bereichen
+Navigation, Information und Inhalt angepasst werden. Beispielsweise könnte ein Button in die Navigationsleiste gesetzt
+werden oder, wie in Abbildung \ref{fig:pluginJsFile} gezeigt, dem Inhalts-Div der Schriftzug "`Hallo"' in dem
+HTML-Größenelement "`<h1>"' hinzugefügt werden. Würde die Plug-In-Struktur in Java implementiert, könnte die Methode
+\textit{init()} in ein Interface gefasst werden, welches jedes Plug-in implementieren muss. Auch ein Konstruktor wäre
+gegeben. Dies wäre eine bessere Variante, da so sichergestellt werden kann, dass ein Programmierer die Methoden
+implementiert (alle Methoden eines verwendeten Interfaces müssen in Java implementiert werden). In JavaScript kann die
+Anforderung nur über Konventionen eingefordert werden, was zu menschlichen Fehlern durch Vergessen der Methoden führen
+kann.\\
+Ähnlich wie bei der Namensgebung der Dateien müssen auch innerhalb der Dateien Konventionen eingehalten werden. Um zu
+verhindern, dass Methoden mit gleichen Namen oder CSS-Klassen mit gleichen Namen in verschiedenen Plug-Ins implementiert
+werden, die sich dann gegenseitig stören, muss jede Methode mit dem Namen des Plug-Ins beginnen
+(\textit{Plug-In-Name.methode}), ebenso wie jede CSS-Klasse, jedoch hier ohne Punkt (\textit{Plug-In-NameKlassenname}).
+Auch jede global verwendete Variable muss den Plug-In-Namen vorangestellt bekommen, um Konflikte zu vermeiden. Eine
+Nicht-Einhaltung der Konventionen kann zu einer völligen Funktionsstörung der Anwendung führen.
+
+
+\section{Das Plug-In \textit{Kontakte}}
+
+Das Plug-In \textit{Kontakte} wurde entworfen, um gezielt auf in CareNet hinterlegte Informationen über Personen und
+Organisationen zugreifen zu können, ohne dass diese einen Bezug zu einem aktuell im Tagesplan auszuführenden Auftrag
+haben. Beispielsweise soll die Telefonnummer eines Arztes abgerufen werden können, um Rückfragen zu einem Termin stellen
+zu können. Ein anderer Anwendungsfall wäre die Suche nach Angehörigen eines Klienten. Vorwiegend soll mit dem Plug-In
+auf Stammdaten wie Name, Anschrift, Alter und Kontaktmöglichkeiten zugegriffen werden können, jedoch ist im Falle von
+Klienten auch eine Erweiterung um Angaben zu Krankheitsverläufen, Vitaldatenstatistiken oder aktuelle Medikation
+denkbar. Im Rahmen dieser Arbeit wird die Anzeige jedoch auf Stammdaten reduziert.\\
+In CareNet wird unterschieden, ob es sich bei einem Kontakt um eine Organisation oder eine Person handelt. Im Falle von
+Personen wird jeweils eine bestimmte Adressart wie Klient, Angehöriger oder Ehepartner (nicht abschließend)
+unterschieden. Bei Organisationen können einige Einrichtungen des Gesundsheitssystems angegeben werden, z.B. ein
+Krankenhaus, ein ambulanter Pflegedienst oder auch ein Hausarzt. Angezeigt werden die Kontakte über sogenannte
+\textit{Sichten} (Views). Eine Sicht stellt einen Filter dar, der jeweils nur die Kontakte einer bestimmten Gruppe
+anzeigt. Diese sind beispielsweise \textit{Alle Kontakte}, \textit{Alle Angehörigen}, \textit{Alle Klienten} oder auch
+\textit{Alle Organisationen}. Diese Filterung nach Sichten sollte auch in \app möglich sein. Bei dem Verhältnis von
+Kontakten zu Sichten handelt es sich um eine n:n-Beziehung. Das bedeutet, dass ein Kontakt in mehreren Sichten enthalten
+sein kann und mehrere Kontakte einer Sicht zugeordnet werden. Beispielsweise wird ein Klient sowohl unter
+\textit{Alle Kontakte} als auch unter \textit{Alle Klienten} angezeigt werden. Außerdem wird es in der Regel mehr als
+einen Klienten geben.
+
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/tabellenKontakte.pdf}
+	\caption{Tabellen  in der lokalen Datenbank des Plug-Ins \textit{Kontakte}}
+	\label{fig:tablesContacts}
+\end{figure}
+
+Da auch die Kontaktinformationen offline verfügbar sein sollen, müssen entsprechende Tabellen zur lokalen Speicherung
+vorhanden sein. Als Speicher wird eine von HTML5 angebotene Sqlite-Datenbank verwendet. Diese speichert Daten
+persistent, d.h. auch wenn die Anwendung auf dem Tablet-PC geschlossen wird oder der Tablet-PC heruntergefahren wird,
+werden die Daten nicht gelöscht. Beim Start von \app wird eine Datenbank angelegt bzw. überprüft, ob bereits eine
+Datenbank mit entsprechendem Namen vorhanden ist. Da die Datenbank innerhalb des von PhoneGap angebotenen Browsers/Web
+Views angelegt wird, kann von außen bzw. anderen auf dem Tablet-PC installierten Anwendungen nicht darauf zugegriffen
+werden. So entsteht kein Sicherheitsproblem durch die Speicherung sensibler Daten auf dem Tablet-PC. Alle Daten werden
+in Tabellen gespeichert, die in unbegrenzter Zahl erstellt werden können. Abbildung \ref{fig:tablesContacts} zeigt die
+notwendige Tabellenstruktur, um Sichten und Kontakte lokal abspeichern zu können. Die linke Tabelle enthält die
+\acs{id}s und Namen aller Sichten, die aus CareNet geladen wurden. In der rechten Tabelle sind alle Kontakte mit
+\acs{id}s und einer Reihe von Attributen enthalten. Die mittlere Tabelle verbindet beide Tabellen, indem sie durch
+Gegenüberstellung der \acs{id}s der Sichten und der Kontakte eine Abbildung schafft, welcher Kontakt in welcher Sicht
+enthalten ist. Beispielsweise ist in Abbildung \ref{fig:tablesContacts} der Kontakt mit der \acs{id} C2 in den
+Sichten mit den \acs{id}s V1 und V2 enthalten, während die anderen Kontakte jeweils nur in einer Sicht enthalten sind.
+Wählt ein Nutzer eine Sicht aus, wird in der Tabelle \textit{Mapping} nach allen Kontakt-\acs{id}s gesucht, die der
+\acs{id} der Sicht zugeordnet sind. Mit Hilfe der gesammelten \acs{id}s werden die eigentlichen Kontaktinformationen aus
+der Tabelle \textit{Contacts} abgefragt, welche nun dargestellt werden können.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figures/scshContacts.png}
+	\caption{Ausschnitt der Darstellung von Kontakten innerhalb einer Sicht}
+	\label{fig:presentationContacts}
+\end{figure}
+
+Die Darstellung soll sowohl die Sichten als auch die darin enthaltenen Kontakte auf einen Blick enthalten. Für die
+Auflistung der verfügbaren Sichten wurde eine einzeilige Tabelle ohne Kopfzeile gewählt. Die zugehörigen Kontakte einer
+Sicht werden als Kacheln bzw. als Galerie (\cite[S. 17]{mobileDesignPatterns}) dargestellt. Abbildung
+\ref{fig:presentationContacts} zeigt einen Ausschnitt aus der Darstellung der Kontakte in \app. In dem orangefarbenen
+Balken ist vermerkt, ob es sich um eine Person oder eine Organisation handelt, im grauen Kasten darunter werden Vorname
+und Name sowie Wohnort aufgeführt. Es könnten beispielsweise auch die Telefonnummer, die E-Mail-Adresse oder ein Foto
+einer Person angezeigt werden, jedoch wurden aus Gründen er Übersichtlichkeit diese Informationen gewählt.\\
+Jedes Element in der Tabelle der Sichten weist nach oben und unten einen gewissen Abstand vom Text zum Rand auf, um
+genug Fläche für eine Auswahl mit dem Finger zu bieten und somit die Wahrscheinlichkeit neben die gewollte Schaltfläche zu
+tippen zu verringern. Das gleiche gilt für die Kacheln zur Auflistung der Kontakte. Neben der Informationsfunktion soll
+auch hier eine komfortable Bedienung ermöglicht werden.\\
+Wählt ein Nutzer einen Kontakt aus, werden alle relevanten Informationen in einem separaten Fenster dargestellt.
+Momentan findet lediglich eine Unterscheidung bei der Darstellung von Personen und Organisationen statt, jedoch ist eine
+Differenzierung nach Adressarten geplant.\\
+Zum Zeitpunkt der Fertigstellung dieser Arbeit hatte das Plug-In nur eine Funktion zum Anzeigen von Kontakten. Eine
+Editierfunktion bestehender Kontakte oder die Neuanlage von Kontakten ist nicht möglich.\\
+
+Die in Abbildung \ref{fig:tablesContacts} gezeigten Tabellen werden im Konstruktor des Plug-Ins erzeugt bzw. wird
+überprüft, ob sie vorhanden sind. Wird das Plug-In geöffnet und es sind keine Kontaktdaten vorhanden, wird angenommen,
+dass das Plug-In zum ersten Mal geöffnet wird und es wird automatisch ein Versuch unternommen, Kontaktinformationen von
+CareNet zu laden. Sind bereits Daten vorhanden, werden diese lediglich angezeigt. Über einen Button in der
+Navigationsleiste kann der Nutzer auch manuell einen Aktualisierungsvorgang anstoßen. Ist dieser abgeschlossen, werden
+die verfügbaren Views angezeigt.\\
+Da Sichten, Kontakte und das Mapping in verschiedenen Tabellen abgespeichert werden, muss sichergestellt werden, dass
+alle Daten vollständig geladen wurden, bevor dem Nutzer die Möglichkeit gegeben wird, Sichten auszuwählen. Sind die
+Kontakte zu einer Sicht noch nicht vollständig geladen und der Nutzer möchte einen dieser Kontakte anzeigen lassen,
+kommt es zu einem Fehler, versucht wird, auf einen leeren Datensatz zuzugreifen. Das Laden der Daten von CareNet erfolgt
+über \acs{rest}-basierte \acs{ajax}-Aufrufe. \acs{ajax} steht für \acl{ajax}. Wie der Name schon sagt, handelt es sich
+hierbei um \textit{asynchrone} Webservice-Aufrufe, was bedeutet, dass der Aufruf getätigt wird, ohne dass bekannt ist,
+wann das Ergebnis zurück kommt. Da die Ausführung des übrigen JavaScript-Codes nicht automatisch auf das Ergebnis
+wartet, auch wenn dieses benötigt wird, muss manuell ein "Warte-Verfahren" implementiert werden. Hierzu wird das
+Entwurfsmuster \textit{Command} (Kommando) verwendet. Die Idee ist, dass ausführbarer Code bzw. im Falle von JavaScript
+eine ganze Methode in ein Objekt gekapselt wird, welche der asynchronen Methode als Parameter übergeben wird. Ist die
+Ausführung der asynchronen Methode beendet, kann diese den übergebenen Code ausführen, der in der Regel Logik zum
+Verarbeiten der angefragten Daten enthält. Die als Parameter übergebene Methode wird auch \textit{Callback}-Methode
+(Rückruf-Methode) genannt.\\
+Vor dem Abfragen der Views und der Kontaktdaten wird für beide Datensätze ein True-False-Marker angelegt, der besagt,
+ob bereits alle Daten übertragen und in die Datenbank eingepflegt wurden. Initial enthält der Marker den Wert
+\textit{false}. Wird die Callback-Methode aufgerufen, wird der entsprechende Marker auf \textit{true} gesetzt und
+anschließend überprüft, ob alle asynchronen Methoden zum Abrufen der Kontaktdaten beendet sind. Stehen alle Marker auf
+\textit{true}, wird die Anzeige der Daten angestoßen.\\
+Da Aufrufe an die lokale Datenbank ebenfalls asynchron verlaufen, findet hier ebenfalls das Command-Muster Anwendung. 
+
+
+\section{Das Plug-In \textit{Touren}}
+
+Das Plug-In "Touren" bildet den funktionellen Kern von \app. Hier werden alle Informationen und Funktionen, die zur
+Dokumentation der übertragenen ärztlichen Tätigkeiten notwendig sind, gekapselt zur Verfügung gestellt. Touren bzw.
+Tagesstrukturen müssen hier übersichtlich dargestellt werden, auszuführende Leistungen pro Klient müssen abrufbar sein
+und Zusatzinformationen zum Patienten müssen verfügbar sein, ohne das Plug-In verlassen zu müssen. Die gesamte
+Funktionalität basiert also auf dem Vorhandensein von Daten, die von CareNet bereitgestellt werden. Das Plug-In "Touren"
+bietet keinerlei Funktionen an, die auch ohne Touren- oder Patientendaten verwendbar sind. Um aber auch ohne eine
+Internetverbindung mit dem Plug-In arbeiten zu können (vgl. Anforderungen in Kapitel \ref{sec:analyse}), bilden eine
+Reihe von Tabellen in der lokalen Sqlite-Datenbank das Rückgrat des Plug-Ins.\\
+Das Datenmodell in CareNet ist so aufgebaut, dass alle Elemente wie Touren, Stationen oder auch Pflegeleistungen eigene
+Datenobjekte sind. Eine Verbindung zwischen zwei Datenobjekten wird in einem \textit{Dossier}, das jeweils einem
+bestimmten Datenobjekt zugeordnet wird, festgehalten. Es besteht aus einer Auflistung von Objektpaaren, von denen immer
+ein Objekt das dem Dossier zugeordnete ist. Zu jedem Objekt ist die entsprechende \acs{id}, der Objekttyp (z.B. TOUR))
+und die Art der Verbindung zum Partnerobjekt angegeben. Art der Verbindung kann beispielsweise "BIDIRECTIONAL" sein, was
+bedeutet, dass beide Objekte mit einer ungerichteten Kante verbunden sind, d.h. beide wissen von der Verbindung mit dem
+jeweils anderen Objekt. Alternativ könnte es auch eine gerichtete Kante sein, bei der nur ein Datenobjekt von der
+Verbindung weiß.
+
+Zur Darstellung einer Tagesstruktur in \app wird eine Tour, eine Menge von Stationen und für jede Station eine Menge von
+Pflegeleistungen benötigt. Stationen werden in CareNet als Termine (\textit{APPOINTMENT}) angesehen, da es sich im
+Prinzip um ein Treffen mit dem Klienten zu einem bestimmten Zeitpunkt handelt. Diese Konstellation von Datenobjekten
+erfordert drei Tabellen in der lokalen Datenbank. Eine zur Speicherung des Datenobjektes \textit{TOUR}, eine für die
+zugeordneten Termine und eine Dritte für die Menge der zu erbringenden Leistungen (\textit{SERVICES}). Die Tabellen
+werden im Konstruktor des Plug-Ins angelegt bzw. wird hier die Verbindung zu eventuell bereits vorhandenen Tabellen
+hergestellt. Die Verbindung zwischen den Datenobjekten, welche in CareNet in den genannten Dossiers beschrieben wird,
+wird in \app über Fremdschlüssel aufgelöst. Bei Fremdschlüsselbeziehungen wird die \acs{id} eines in einer anderen
+Tabelle liegenden Datenobjektes gespeichert, um dort das richtige Objekt identifizieren zu können. Da Pflegeleistungen
+eine Verfeinerung einer Station/eines Termins darstellen und Stationen einer Tour untergeordnet sind, besteht absteigend
+jeweils eine 1:n-Beziehung zwischen den Datenobjekten. Aus diesem Grund wird jeweils dem Datenobjekt, welches nur
+\textit{einem} anderen Objekt zugeordnet wird, der Fremdschlüssel gegeben. Beispielsweise weiß ein Datenobjekt
+"Pflegeleistung" so, welcher Station es zugeordnet ist, während von der lokal gespeicherten Station nicht auf die
+zugeordneten Datenobjekte geschlossen werden kann. Dieses Vorgehen macht den Aufbau der Tabellen einfacher, da so jedem
+Attribut in einer Tabelle nur ein Wert zugeordnet werden muss, während bei einer bidirektionalen Verbindung
+beispielsweise eine Station eine Menge von Attributen aller ihr zugeordneten Leistungen halten müsste. Dies würde
+entweder eine weitere Tabelle erfordern (ähnlich wie die in Abbildung \ref{fig:tablesContacts} gezeigten Tabellen), oder
+es müssten die \acs{id}s als Zeichenkette konkateniert werden, was einen erhöhten Aufwand beim Lesen der \acs{id}s
+bedeuten würde.\\
+
+Die \acs{rest}-Schnittstelle von CareNet bietet nur das Laden von allen oder einzelnen Objekten eines Typs an. Eine
+Differenzierung einer Menge von Objekten nach zeitlichen Kriterien ist nicht möglich. Soll nun also eine Tour eines
+bestimmten Tages vom Server geladen werden, müssen die Daten aller Touren abgefragt werden, damit auf dem Tablet-PC eine
+Filterung der Daten erfolgen kann. Ein Problem mit diesem Vorgehen kann entstehen, wenn nur ein Internetzugang mit
+begrenztem Datenvolumen zur Verfügung steht und dieses durch das Laden von Daten aufgebraucht wird, die eigentlich nicht
+benötigt werden. Die Folge wären entstehende Mehrkosten oder eine eingeschränkte Nutzbarkeit der Internetverbindung,
+wenn die Übertragungsgeschwindigkeit gedrosselt wird. Da \app auch bei ambulanten Diensten eingesetzt werden soll, die
+während eines Besuchs bei einem Klienten in der Regel nur auf Internetverbindungen über Mobilfunkanbieter zurückgreifen
+können, kann dies ein Problem darstellen. Eine Reduzierung des Problems auf Einzelfälle kann dadurch erreicht werden,
+dass die benötigten Daten zu Beginn der Schicht über eine unbegrenzte \acs{wlan}-Verbindung geladen werden und nur noch
+gezielte Aktualisierungen über das mobile Netzwerk werden. Eine weitere Möglichkeit wäre die Anpassung der
+\acs{rest}-Schnittstelle, sodass kontextsensitive Daten abgefragt werden können, jedoch bedeutet dies umfangreiche
+Anpassungen am zentralen System, von denen zum momentanen Zeitpunkt abgesehen wird. Zwar ist es jetzt schon möglich,
+statt des gesamten Datensatzes nur eine Liste von Quasi-Signaturen bestehend aus einem Bezeichner, der \acs{id} und der
+\acs{uri} zum Dossier herunterzuladen, jedoch enthält diese nicht die Informationen über die zeitliche Einordnung des
+Datenobjektes. Hiermit kann folglich keine Reduzierung erreicht werden.
+
+
+
+\begin{itemize}
+  \item \textbf{Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)}
+	  \begin{itemize}
+	    \item Ziel: Anzeige und Dokumentation von Touren
+	    \item Tour für einen bestimmten Tag
+	    \item Auflistung aller Stationen/Klienten eines Tages
+	    \item Geben übersichtlicher Kunzinfos
+	    \item Zeigen einer Schlüsselnummer/Zimmernummer
+	    \item Liste von zu erbringenden Services
+	    \item Abhaken von Tätigkeiten
+	    \item Dokumentation von Blutdruck und Puls [IMPL]
+	    \item Wunddokumentation mit Bildern (interne Kamera) [IMPL]
+	    \item Aktualisieren von Tourdaten [BUG]
+	    \item Senden der dokumentierten Ergebnisse an CareNet [IMPL] 
+	    \item Patientenakte + Statistiken [IMPL]
+	  \end{itemize}
+  \item  \textbf{Aufbau/Navigationsstruktur}
+	  \begin{itemize}
+	    \item Startseite: Aufgaben des Tages
+	    \item Services nur mit Stichwort und Status zum Aufklappen
+	    \item nur von Übersicht Tagestour kann auf Startseite der App navigiert werden
+	    \item sonst immer noch zurückkehren zum letzten Schritt
+	    \item Atomare Transaktionen: Rückabwicklung, wenn während des Datenabrufs ein Fehler auftritt
+	  \end{itemize}
+  \item \textbf{Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
+  Anforderung hervor?}
+	  \begin{itemize}
+	    \item 
+	  \end{itemize}
+\end{itemize}

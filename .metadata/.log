@@ -1017,3 +1017,12 @@ java.util.ConcurrentModificationException
 	at net.sourceforge.texlipse.editor.TeXSpellingReconcileStrategy.initialReconcile(TeXSpellingReconcileStrategy.java:205)
 	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
+!SESSION 2013-03-20 10:14:09.996 -----------------------------------------------
+eclipse.buildId=I20120608-1200
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-03-20 10:14:18.203
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
