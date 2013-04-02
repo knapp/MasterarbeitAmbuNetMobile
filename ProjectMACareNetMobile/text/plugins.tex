@@ -170,7 +170,9 @@ Kommunikation findet also nur beim Aufbau der Verbindung statt \cite[S. 152]{sic
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.7]{figures/PluginStrukturAmbuNetMobile.png}
+	\fbox{
+		\includegraphics[scale=0.7]{figures/PluginStrukturAmbuNetMobile.png}
+	}
 	\caption{Struktur eines Plug-Ins in \app}
 	\label{fig:plugin}
 \end{figure}
@@ -224,7 +226,9 @@ Konfigurationsdatei angegeben werden. So wird der benötigte Speicherplatz der An
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.5]{figures/Startseite.png}
+	\fbox{
+		\includegraphics[width=\textwidth]{figures/Startseite.jpg}
+		}		
 	\caption{Übersicht der verwendbaren der Plug-Ins}
 	\label{fig:pluginView}
 \end{figure}
@@ -381,29 +385,30 @@ eine ganze Methode in ein Objekt gekapselt wird, welche der asynchronen Methode 
 Ausführung der asynchronen Methode beendet, kann diese den übergebenen Code ausführen, der in der Regel Logik zum
 Verarbeiten der angefragten Daten enthält. Die als Parameter übergebene Methode wird auch \textit{Callback}-Methode
 (Rückruf-Methode) genannt.\\
-Vor dem Abfragen der Views und der Kontaktdaten wird für beide Datensätze ein True-False-Marker angelegt, der besagt,
-ob bereits alle Daten übertragen und in die Datenbank eingepflegt wurden. Initial enthält der Marker den Wert
-\textit{false}. Wird die Callback-Methode aufgerufen, wird der entsprechende Marker auf \textit{true} gesetzt und
-anschließend überprüft, ob alle asynchronen Methoden zum Abrufen der Kontaktdaten beendet sind. Stehen alle Marker auf
-\textit{true}, wird die Anzeige der Daten angestoßen.\\
-Da Aufrufe an die lokale Datenbank ebenfalls asynchron verlaufen, findet hier auch das Command-Muster Anwendung. 
+Vor dem Abfragen der Views und der Kontaktdaten wird für beide Datensätze ein True-False-Marker (Wahr-Falsch-Marker)
+angelegt, der besagt, ob bereits alle Daten übertragen und in die Datenbank eingepflegt wurden. Initial enthält der
+Marker den Wert \textit{false} (falsch). Wird die Callback-Methode aufgerufen, wird der entsprechende Marker auf
+\textit{true} gesetzt, um anzuzeigen, dass der asynchrone Methodenaufruf beendet wurde und anschließend überprüft, ob
+dies für alle Methoden zum Abrufen der Kontaktdaten gilt. Stehen alle Marker auf \textit{true}, wird die
+Anzeige der Daten angestoßen.\\
+Da Aufrufe an die lokale Sqlite-Datenbank ebenfalls asynchron verlaufen, findet hier auch das Command-Muster Anwendung.
 
 
 \section{Das Plug-In \textit{Touren}}
 
 Das Plug-In \textit{Touren} bildet den funktionellen Kern von \app. Hier werden alle Informationen und Funktionen, die
-zur Dokumentation der übertragenen ärztlichen Tätigkeiten notwendig sind, gekapselt zur Verfügung gestellt. Touren bzw.
-Tagesstrukturen müssen hier übersichtlich dargestellt werden, auszuführende Leistungen pro Klient müssen abrufbar sein
-und Zusatzinformationen zum Patienten müssen verfügbar sein, ohne das Plug-In verlassen zu müssen. Die gesamte
+zur Dokumentation der übertragenen ärztlichen Tätigkeiten notwendig sind, gekapselt zur Verfügung gestellt. Touren
+müssen hier übersichtlich dargestellt werden, auszuführende Leistungen pro Klient müssen abrufbar sein und
+Zusatzinformationen zum Patienten müssen verfügbar sein, ohne das Plug-In verlassen zu müssen. Die gesamte
 Funktionalität basiert also auf dem Vorhandensein von Daten, die von CareNet bereitgestellt werden. Das Plug-In
-\textit{Touren} bietet keinerlei Funktionen an, die auch ohne Touren- oder Patientendaten verwendbar sind. Um aber auch
-ohne eine Internetverbindung mit dem Plug-In arbeiten zu können (vgl. Anforderungen in Kapitel \ref{sec:analyse}),
-bilden eine Reihe von Tabellen in der lokalen Sqlite-Datenbank das Rückgrat des Plug-Ins.\\
+\textit{Touren} bietet keinerlei Funktionen an, die ohne Touren- oder Patientendaten verwendbar sind. Um aber auch ohne
+eine Internetverbindung mit dem Plug-In arbeiten zu können (vgl. Anforderungen in Kapitel \ref{sec:analyse}), bilden
+eine Reihe von Tabellen in der lokalen Sqlite-Datenbank das Rückgrat des Plug-Ins.\\
 Das Datenmodell in CareNet ist so aufgebaut, dass alle Elemente wie Touren, Stationen oder auch Pflegeleistungen eigene
 Datenobjekte sind. Eine Verbindung zwischen zwei Datenobjekten wird in einem \textit{Dossier}, das jeweils einem
-bestimmten Datenobjekt zugeordnet wird, festgehalten. Es besteht aus einer Auflistung von Objektpaaren, von denen immer
-ein Objekt das dem Dossier zugeordnete ist. Zu jedem Objekt ist die entsprechende \acs{id}, der Objekttyp (z.B. TOUR))
-und die Art der Verbindung zum Partnerobjekt angegeben. Art der Verbindung kann beispielsweise "BIDIRECTIONAL" sein, was
+bestimmten Datenobjekt zugeordnet wird, festgehalten. Es besteht aus einer Auflistung von Objektpaaren, welche eine
+Verbindung haben, von denen immer ein Objekt das dem Dossier zugeordnete ist. Zu jedem Objekt ist die entsprechende
+\acs{id}, der Objekttyp (z.B. TOUR)) und die Art der Verbindung zum Partnerobjekt angegeben. Art der Verbindung kann beispielsweise "BIDIRECTIONAL" sein, was
 bedeutet, dass beide Objekte mit einer ungerichteten Kante verbunden sind, d.h. beide wissen von der Verbindung mit dem
 jeweils anderen Objekt. Alternativ könnte es auch eine gerichtete Kante sein, bei der nur ein Datenobjekt von der
 Verbindung weiß.
@@ -415,7 +420,7 @@ Verbindung weiß.
 	\label{fig:datenmodellTouren}
 \end{figure}
 
-Zur Darstellung einer Tagesstruktur in \app wird eine Tour, eine Menge von Stationen und für jede Station eine Menge von
+Zur Darstellung einer Tour in \app  wird eine Tour, eine Menge von Stationen und für jede Station eine Menge von
 Pflegeleistungen benötigt. Stationen werden in CareNet als Termine (\textit{APPOINTMENT}) angesehen, da es sich im
 Prinzip um ein Treffen mit dem Klienten zu einem bestimmten Zeitpunkt handelt. Abbildung \ref{fig:datenmodellTouren}
 zeigt im oberen Teil den Zusammenhang zwischen den benötigten Datenobjekten Tour, Appointment und Service in Baumform.
@@ -428,15 +433,15 @@ wurden. Die Verbindung zwischen den Datenobjekten, welche in CareNet in den gena
 \app über Fremdschlüssel aufgelöst. Bei Fremdschlüsselbeziehungen wird die \acs{id} eines in einer anderen Tabelle
 liegenden Datenobjektes gespeichert, um dort das richtige Objekt identifizieren zu können. Da Pflegeleistungen eine
 Verfeinerung einer Station/eines Termins darstellen und Stationen einer Tour untergeordnet sind, besteht absteigend
-jeweils eine 1:n-Beziehung zwischen den Datenobjekten. Aus diesem Grund wird jeweils dem Datenobjekt, welches nur
+eine 1:n-Beziehung zwischen den Datenobjekten. Aus diesem Grund wird jeweils dem Datenobjekt, welches nur
 \textit{einem} anderen Objekt zugeordnet wird, der Fremdschlüssel gegeben. Beispielsweise kann dem Tabelleneintrag des
 Service mit der \acs{id} \textit{S1} in der rechten Tabelle in Abbildung \ref{fig:datenmodellTouren} entnommen werden,
 dass er dem Termin/der Station mit der \acs{id} \textit{A1} zugeordnet ist, während von der Station nicht auf die
 zugeordneten Services geschlossen werden kann. Die bidirektionale Verbindung aus dem Datenmodell von CareNet wurde für
-die lokale Datenbank nicht übernommen, da eine Verlinkung der Daten mit Fremdschlüsseln einfacher zu realisieren ist, da
-ohnehin nur eine 1:n-Beziehung abgebildet werden muss. Würde gefordert, von einem Appointment direkt auf die Menge der
-zugewiesenen Services schließen zu können, müsste hierzu entweder eine weitere Tabelle ähnlich der in Abbildung
-\ref{fig:tablesContacts} gezeigten angelegt werden, oder es müssten die \acs{id}s der Services als Zeichenkette
+die lokale Datenbank nicht übernommen, da eine Verbindung der Daten mit Fremdschlüsseln einfacher zu realisieren ist,
+da ohnehin nur eine 1:n-Beziehung abgebildet werden muss. Würde gefordert, von einem Appointment direkt auf die Menge der
+zugewiesenen Services schließen zu können, müsste hierzu entweder eine weitere Tabelle, ähnlich der in Abbildung
+\ref{fig:tablesContacts} gezeigten, angelegt werden, oder es müssten die \acs{id}s der Services als Zeichenkette
 konkateniert im Appointment-Datenobjekt abgelegt werden, was einen erhöhten Aufwand beim Lesen der \acs{id}s bedeuten
 würde.\\
 
@@ -444,82 +449,139 @@ Die \acs{rest}-Schnittstelle von CareNet bietet nur das Laden von allen oder ein
 angemeldeten Person freigegeben sind. Eine \acs{mfp} bekommt beispielsweise nur Informationen angezeigt, die sie für die
 Ausführung Ihrer Arbeit benötigt oder die explizit für sie freigegeben wurden. Eine Differenzierung einer Menge von
 Datenobjekten nach zeitlichen Kriterien in der Abfrage ist nicht möglich. Soll nun also eine Tour eines bestimmten Tages
-vom Server geladen werden, müssen die Daten aller Touren abgefragt werden, damit auf dem Tablet-PC eine Filterung der Daten
-erfolgen kann. Ein Problem mit diesem Vorgehen kann entstehen, wenn nur ein Internetzugang mit begrenztem Datenvolumen
-zur Verfügung steht und dieses durch das Laden von Daten aufgebraucht wird, die eigentlich nicht benötigt werden. Die
-Folge wären entstehende Mehrkosten oder eine eingeschränkte Nutzbarkeit der Internetverbindung, wenn die
-Übertragungsgeschwindigkeit gedrosselt wird. Da \app auch bei ambulanten Diensten eingesetzt werden soll, die während
-eines Besuchs bei einem Klienten in der Regel nur auf Internetverbindungen über Mobilfunkanbieter zurückgreifen können,
-kann dies ein Problem darstellen. Eine Reduzierung des Problems auf Einzelfälle kann dadurch erreicht werden, dass die
-benötigten Daten zu Beginn der Schicht über eine \acs{wlan}-Verbindung mit unbegrenztem Datenvolumen geladen werden und
-nur noch gezielte Aktualisierungen über das mobile Netzwerk durchgeführt werden. Eine weitere Möglichkeit wäre die
-Anpassung der \acs{rest}-Schnittstelle, sodass kontextsensitive Daten abgefragt werden können, jedoch bedeutet dies umfangreiche
-Veränderungen am zentralen System, von denen zum momentanen Zeitpunkt abgesehen wird. Zwar ist es jetzt schon möglich,
-statt des gesamten Datensatzes nur eine Liste von Quasi-Signaturen bestehend aus einem Bezeichner, der \acs{id} und der
-\acs{uri} zum Dossier herunterzuladen, jedoch enthält diese nicht die Informationen über die zeitliche Einordnung des
-Datenobjektes. Hiermit kann folglich keine Reduzierung durch Differenzierung nach Zeitstempel erreicht werden.\\
+vom Server geladen werden, müssen die Daten aller Touren abgefragt werden, damit auf dem Tablet-PC eine Filterung der
+Daten erfolgen kann. Ein Problem mit diesem Vorgehen kann entstehen, wenn nur ein Internetzugang mit begrenztem
+Datenvolumen zur Verfügung steht und dieses durch das Laden von Daten aufgebraucht wird, die eigentlich nicht benötigt
+werden. Die Folge wären entstehende Mehrkosten oder eine eingeschränkte Nutzbarkeit der Internetverbindung, wenn die
+Übertragungsgeschwindigkeit wegen Überschreitung des Datenvolumens vom Anbieter gedrosselt wird. Da \app auch bei
+ambulanten Diensten eingesetzt werden soll, die während eines Besuchs bei einem Klienten in der Regel nur auf
+Internetverbindungen über Mobilfunkanbieter zurückgreifen können, kann dies ein Problem darstellen. Eine Reduzierung des
+Problems auf Einzelfälle kann dadurch erreicht werden, dass die benötigten Daten zu Beginn der Schicht über eine
+\acs{wlan}-Verbindung mit unbegrenztem Datenvolumen geladen werden und nur noch gezielte Aktualisierungen über das
+mobile Netzwerk durchgeführt werden. Eine weitere Möglichkeit wäre die Anpassung der \acs{rest}-Schnittstelle, sodass
+kontextsensitive Daten abgefragt werden können, jedoch bedeutet dies umfangreiche Veränderungen am zentralen System, von
+denen zum momentanen Zeitpunkt abgesehen wird. Zwar ist es jetzt schon möglich, statt des gesamten Datensatzes nur eine
+Liste von Quasi-Signaturen bestehend aus einem Bezeichner, der \acs{id} und der \acs{uri} zum Dossier herunterzuladen,
+jedoch enthält diese nicht die Informationen über die zeitliche Einordnung des Datenobjektes. Hiermit kann folglich
+keine Reduzierung durch Differenzierung nach Zeitstempel erreicht werden.\\
 In Abbildung \ref{fig:datenmodellTouren} ist eine Verbindung zwischen den Terminen und dem Plug-In \textit{Kontakte}
 vermerkt. Diese Verbindung existiert, da jeder Termin einem bestimmten Klienten zugeordnet ist, von dem im Datenobjekt
 \textit{Appointment} aber nur die \acs{id} bekannt ist. Um Redundanzen zu vermeiden, lädt nicht das Touren-Plug-In
 selbst die Daten des Nutzer von CareNet, sondern es wird eine Schnittstelle des Plug-Ins \textit{Kontakte} genutzt, um
-an die Nutzerdaten zu kommen, da diese hier bereits alle vorhanden sind. Damit es hier zu keinem Bruch in der
+an die Nutzerdaten zu kommen, da diese hier bereits alle vorhanden sind. Damit es zu keinem Bruch in der
 Verarbeitung kommt, muss die Abhängigkeit vom Touren-Plug-In zum Kontakte-Plug-In inklusive benötigter Version in der
 Konfigurationsdatei des Plug-Ins \textit{Touren} vermerkt werden.
 
 Wird das Plug-In geöffnet, wird zunächst überprüft, ob Daten in den Tabellen vorhanden sind. Sind keine Daten vorhanden,
 wird angenommen, dass das Plug-In zum ersten Mal nach der Installation der Anwendung oder der Löschung der Daten
 geöffnet wurde und der Vorgang zum Laden der Daten vom Server wird automatisch angestoßen. Sind Daten vorhanden, kann
-aber keine Tour/Tagesstruktur für das aktuelle Datum gefunden werden, wird der Nutzer gefragt, ob er nach aktuellen
-Informationen suchen lassen möchte.\\
+aber keine Tour für das aktuelle Datum gefunden werden, wird der Nutzer gefragt, ob er nach aktuellen
+Informationen suchen lassen möchte. Momentan ist noch keine Funktionalität für die Auswahl einer Tour an einem
+bestimmten Datum vorgesehen, da in der Regel nur die Daten für die aktuelle Schicht relevant sind.\\
 Das Laden der Daten erfolgt sequentiell. Zuerst werden alle vorhandenen Services geladen und in die lokale Datenbank
 eingepflegt. Das Feld für die \acs{id} der zugehörigen Station, der Fremdschlüssel, wird zunächst leer gelassen.
 Anschließend werden alle Touren abgefragt und lokal gespeichert. Hier können alle Felder gefüllt werden, da keine
 Abhängigkeiten gesetzt werden. Als letztes werden die vorhandenen Termine/Stationen geladen. Diese werden in die lokale
-Datenbank geschrieben, der Schlüssel zur zugehörigen Tour aber zunächst leer gelassen. Da ein Termin zwischen Tour und
-Services steht, enthält dessen Dossier wegen der bidirektionalen Verbindungen der Datenobjekte alle notwendigen
-Informationen, um die Fremdschlüsselbeziehungen in den lokalen Tabellen aufzulösen. Folglich wird jedes Objektpaar im
-Dossier eines Termins angeschaut und überprüft, ob es entweder die Verbindung zu einer Tour, einem Service oder einem
-Klienten beschreibt. Alle anderen Dossiereinträge sind irrelevant. Wird beispielsweise eine Verbindung zu einem Service
-gefunden, wird dieser in der lokalen Datenbank gesucht und der Fremdschlüssel zum Termin gesetzt. Wurden das gesamte
-Dossier gelesen, sollten, unter der Annahme, dass es von CareNet korrekt aufgebaut wurde, alle
+Datenbank geschrieben, das Feld für den Schlüssel zur zugehörigen Tour bleibt auch hier zunächst frei. Da ein Termin
+zwischen Tour und Services steht, enthält dessen Dossier wegen der bidirektionalen Verbindungen der Datenobjekte alle
+notwendigen Informationen, um die Fremdschlüsselbeziehungen in den lokalen Tabellen aufzulösen. Folglich wird jedes
+Objektpaar im Dossier eines Termins angeschaut und überprüft, ob es entweder die Verbindung zu einer Tour, einem Service
+oder einem Klienten beschreibt. Alle anderen Dossiereinträge sind irrelevant. Wird beispielsweise eine Verbindung zu
+einem Service gefunden, wird dieser in der lokalen Datenbank gesucht und der Fremdschlüssel zum Termin gesetzt. Wurde
+das gesamte Dossier gelesen, sollten, unter der Annahme, dass es von CareNet korrekt aufgebaut wurde, alle
 Fremdschlüsselverbindungen in der lokalen Datenbank gesetzt sein und der vollständige Datenbaum somit lokal verfügbar
 sein.\\
 Das Vorgehen, zuerst die Services und Touren vollständig zu laden, bevor die Termine abgefragt werden und die
-entsprechenden Verbindungen gesetzt werden stellt sicher, dass nicht versucht wird, auf ein lokales Datenobjekt
-zuzugreifen, welches noch nicht vorhanden ist. Da sowohl die Serverzugriffe als auch die Zugriffe auf die lokale
-Datenbank asynchron ablaufen, könnten Fehlzugriffe theoretisch vorkommen, allerdings wird hier zur Vermeidung eines
-solchen Fehlers, wie im Plug-In \textit{Kontake} auch (vgl. Abschnitt \ref{sec:plugKontakte}), das Kommand-Muster
-verwendet.
+entsprechenden Verbindungen gesetzt werden, stellt sicher, dass nicht versucht wird, auf ein lokales Datenobjekt
+zuzugreifen, welches noch nicht vollständig geladen wurde. Da sowohl die Serverzugriffe als auch die Zugriffe auf
+die lokale Datenbank asynchron ablaufen, könnten Fehlzugriffe theoretisch vorkommen. Zur Vermeidung eines solchen
+Fehlers wird, wie auch im Plug-In \textit{Kontake} (vgl. Abschnitt \ref{sec:plugKontakte}), das Kommand-Muster
+verwendet, um feststellen zu können, wann alle Daten vollständig geladen wurden.
+
+\begin{figure}[ht]
+	\centering
+	\fbox{
+		\includegraphics[scale=0.42]{figures/uebersichtStationen.jpg}
+		}		
+	\caption{Übersicht der abzuarbeitenden Stationen einer Tour}
+	\label{fig:uebersichtStationen}
+\end{figure}
+
+Wurde keine Tour für das aktuelle Datum gefunden und der Nutzer entscheidet sich gegen eine Aktualisierung oder ist
+diese ist aufgrund einer fehlenden Internetverbindung nicht möglich, so erscheint ein Hinweis, dass keine Stationen
+angezeigt werden können. Der Nutzer kann in diesem Fall das Touren-Plug-In nicht verwenden.\\
+Wurde eine Tour gefunden, werden alle abzuarbeitenden Stationen dieser Schicht aufgelistet. Abbildung
+\ref{fig:uebersichtStationen} zeigt die Darstellung in der Anwendung. Da jede Station unmittelbar einer Person
+zugeordnet werden kann, werden Anrede, Vor- und Nachname sowie der Ort des Besuchs angezeigt. Neben den Stammdaten
+befindet sich ein Schlüsselsymbol jeweils in Verbindung mit einer Zahl. Da die Klienten häufig immobil sind und nicht
+mehr selbst die Tür öffnen können, besitzt der Pflege- oder Krankendienst in der Regel Schlüssel, um sich ohne Hilfe
+Dritter Zutritt zu den Aufenthaltsräumen des Klienten verschaffen können. Die Schlüssel werden häufig an einem Bund
+zusammengefasst und nummeriert. Um mit der Suche nach dem richtigen Schlüssel keine Zeit zu verlieren, wird die Nummer
+des einem Klienten zugeordneten Schlüssels direkt in der Übersicht der Stationen angezeigt. Handelt es sich nicht um
+einen ambulanten Dienst, sondern um eine stationäre Behandlung, kann an dieser Stelle die Nummer des Zimmers angezeigt
+werden. Für jede Station wird außerdem der aktuelle Status der Arbeit angezeigt. So kann festgestellt werden, ob alle
+Leistungen an einer Station erbracht wurden, ohne die Leistungen im Einzelnen zu betrachten. In Abbildung
+\ref{fig:uebersichtStationen} zeigt das rote Kreuz und die Bezeichnung "Offen" an, dass noch abzuarbeitende Tätigkeiten
+vorhanden sind.\\
+Die Navigationsleiste enthält in dieser Ansicht zwei Buttons. Der linke dient dazu, den Aktualisierungsvorgang der
+Tourendaten manuell anzustoßen und der rechte Button navigiert zurück auf die Startseite (vgl. Abbildung
+\ref{fig:pluginView}).
+
+\begin{figure}[ht]
+	\centering
+	\fbox{
+		\includegraphics[scale=0.42]{figures/uebersichtServices.jpg}
+		}		
+	\caption{Übersicht der zu erbringenden Dienste einer Station}
+	\label{fig:uebersichtServices}
+\end{figure}
+
+Wählt ein Nutzer durch Berührung der Nummerierung im blauen Kreis eine Station aus, werden die zu erbringenden
+Leistungen der entsprechenden Station aufgelistet. Abbildung \ref{fig:uebersichtServices} zeigt für einen Klienten drei
+zu erbringende Leistungen, von denen jede durch ein Stichwort und ein Statussymbol gekennzeichnet wird. Damit eine
+\acs{mfp} immer weiß, für welchen Klienten sie gerade die Dokumentation durchführt, wird auf der linken Seite im
+Informationsteil der Name des Klienten angezeigt. Falls den Stammdaten des Klienten ein Bild hinzugefügt wurde, ist
+denkbar, dass dieses zusätzlich zum Namen angezeigt wird. Jede aufgelistete Leistung ist als ein aufklappbares Element
+realisiert. Durch Antippen des Listenelements klappt ein Bereich aus, in dem spezifische Informationen und Schaltflächen
+zur Bearbeitung des Status vorhanden sind. Zur Umsetzung der Anforderungen der Dokumentation ärztlich übertragener
+Leistungen wurden im Wesentlichen drei Arten von Leistungen identifiziert, bei denen unterschiedliche Schaltflächen
+benötigt werden:
+
+\begin{description}
+	\item[Standardleistung] Dieser Leistungstyp deckt alle Tätigkeiten ab, bei denen keine speziellen Daten dokumentiert
+	werden müssen, sondern nur bestätigt werden muss, ob diese erbracht wurde oder nicht.
+	\item[Wunddokumentation] Im Falle der Wunddokumentation müssen Bilder von Wunden aufgenommen werden. Hierzu sind
+	Schaltflächen zum Starten der geräteinternen Kamera notwendig, außerdem muss der Leistung bzw. dem Klienten eine
+	Bilddatei zugeordnet werden, was zusätzliche Hintergrundfunktionalität erfordert.
+	\item[Vitalwertmessug] Bei der Vitaldatenerfassung müssen zwei Werte für den Blutdruck (systolisch, oberer Wert, und
+	diastolisch, unterer Wert) und ein Wert für den Puls dokumentierbar sein. Dies erfordert drei Schaltflächen für
+	die Eingabe der Werte und eine weitere, um den Speichervorgang anzustoßen.
+\end{description}
+
+\begin{figure}[ht]
+	\centering
+	\fbox{
+		\includegraphics[scale=0.42]{figures/standardleistung.jpg}
+		}		
+	\caption{Darstellung einer Standardleistung}
+	\label{fig:standardleistung}
+\end{figure}
+
+In Kapitel \ref{sec:analyse} wurde gefordert, dass es bei jeder zu erbringenden Leistung die Möglichkeit bestehen muss,
+diese mit Begründung als nicht durchgeführt zu markieren. Abbildung \ref{fig:standardleistung} zeigt die Umsetzung
+dieser Anforderung. Dargestellt ist eine Standardleistung, der neben einer Beschreibung der Tätigkeit ein Ankreuzfeld
+"Nicht durchgeführt" und der Button "Erledigt" zur Verfügung stehen. In der Abbildung wurde ein Haken im Ankreuzfeld
+gesetzt, sodass die Leistung nun als nicht erbracht gilt. Der Button "Erledigt" wird in diesem Fall ausgeblendet. Er
+wird erst dann wieder Aktiviert, wenn der Haken im Ankreuzfeld entfernt wird. Darunter befindet sich ein Textfeld, in
+dem eine Begründung eingetragen werden kann, wieso die Leistung nicht erbracht wurde. Es kann im Quellcode konfiguriert
+werden, wie viele Zeichen eine Begründung mindestens lang sein muss, um als ausreichend angesehen zu werden. Im Beispiel
+in Abbildung \ref{fig:standardleistung} wurde die Mindestlänge auf 10 Zeichen gesetzt, welche der Satz "Der Patient war
+nicht anzutreffen", erfüllt. Der Status der Leistung ist dann weder erfüllt, noch offen, da diese grundsätzlich
+bearbeitet wurde, jedoch nicht das gewünschte Ergebnis erreicht werden konnte. Aus diesem Grund wurde ein dritter
+Status "eingeschränkt erfüllt" eingeführt, der diesen Zustand beschreibt und durch eine orangefarbene Tilde
+repräsentiert wird (siehe rechte Seite des grauen Balkens). Das gleiche Symbol wird verwendet, wenn eine gesamte Station
+als eingeschränkt erfüllt markiert wird. Für den Zustand gibt es keine eigene Repräsentation in der lokalen Datenbank,
+sondern er wird aus der Attributkombination \textit{Erledigt = falsch} und \textit{Begründung > Mindestlänge}
+abgeleitet.
 
 
-
-\begin{itemize}
-  \item \textbf{Begründung für Plug-In (aus welchen Anforderungen geht Plug-In hervor)}
-	  \begin{itemize}
-	    \item Ziel: Anzeige und Dokumentation von Touren
-	    \item Tour für einen bestimmten Tag
-	    \item Auflistung aller Stationen/Klienten eines Tages
-	    \item Geben übersichtlicher Kunzinfos
-	    \item Zeigen einer Schlüsselnummer/Zimmernummer
-	    \item Liste von zu erbringenden Services
-	    \item Abhaken von Tätigkeiten
-	    \item Dokumentation von Blutdruck und Puls [IMPL]
-	    \item Wunddokumentation mit Bildern (interne Kamera) [IMPL]
-	    \item Aktualisieren von Tourdaten [BUG]
-	    \item Senden der dokumentierten Ergebnisse an CareNet [IMPL] 
-	    \item Patientenakte + Statistiken [IMPL]
-	  \end{itemize}
-  \item  \textbf{Aufbau/Navigationsstruktur}
-	  \begin{itemize}
-	    \item Startseite: Aufgaben des Tages
-	    \item Services nur mit Stichwort und Status zum Aufklappen
-	    \item nur von Übersicht Tagestour kann auf Startseite der App navigiert werden
-	    \item sonst immer noch zurückkehren zum letzten Schritt
-	    \item Atomare Transaktionen: Rückabwicklung, wenn während des Datenabrufs ein Fehler auftritt
-	  \end{itemize}
-  \item \textbf{Zentrale Frage, die beantwortet werden muss: Welche Funktionalität geht aus welcher
-  Anforderung hervor?}
-	  \begin{itemize}
-	    \item 
-	  \end{itemize}
-\end{itemize}
