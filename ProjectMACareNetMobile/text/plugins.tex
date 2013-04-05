@@ -582,6 +582,85 @@ Status "eingeschränkt erfüllt" eingeführt, der diesen Zustand beschreibt und dur
 repräsentiert wird (siehe rechte Seite des grauen Balkens). Das gleiche Symbol wird verwendet, wenn eine gesamte Station
 als eingeschränkt erfüllt markiert wird. Für den Zustand gibt es keine eigene Repräsentation in der lokalen Datenbank,
 sondern er wird aus der Attributkombination \textit{Erledigt = falsch} und \textit{Begründung > Mindestlänge}
-abgeleitet.
+abgeleitet. Wird der Haken im Ankreuzfeld entfernt, wird auch das Textfeld für die Begründung ausgeblendet.
 
+\begin{figure}[ht]
+	\centering
+	\fbox{
+		\includegraphics[scale=0.42]{figures/wunddoku.jpg}
+		}		
+	\caption{Darstellung der Schaltflächen zur Wunddokumentation}
+	\label{fig:wunddoku}
+\end{figure}
+%
+%\begin{figure}[ht]
+%	\centering
+%	\fbox{
+%		\includegraphics[scale=0.35]{figures/anzeigeWundfoto.jpg}
+%		}		
+%	\caption{Anzeige eines beispielhaften Fotos nach der Wunddokumentation}
+%	\label{fig:wunddoku}
+%\end{figure}
 
+Die Schaltflächen zur Wunddokumentation sind in Abbildung \ref{fig:wunddoku} zu sehen. Sie unterscheiden sich von der
+Standardleistung dadurch, dass anstatt einem Button "Erledigt" ein Button "Foto aufnehmen" verfügbar ist, mit dem die
+geräteinterne Kamerafunktion aufgerufen wird. Wurde ein Foto erfolgreich aufgenommen, wird der "Foto aufnehmen"-Button
+ausgeblendet und die Buttons "Foto anzeigen" und "Neues Foto" eingeblendet. Ersterer öffnet ein Fenster, in dem das
+aufgenommene Foto noch einmal angesehen werden kann, letzterer ermöglicht es, ein neues Foto aufzunehmen, welches durch
+das alte Foto ersetzt wird. Möchte der Nutzer im Nachhinein das Foto löschen und die Tätigkeit als "Nicht durchgeführt"
+makieren, kann er analog zur Standardleistung den entsprechenden Haken setzen. Es öffnet sich ein Fenster, in welchem
+der Nutzer bestätigen muss, dass er das Bild tatsächlich löschen möchte, und wenn er dies bestätigt, wird auch hier ein
+Textfeld zum Eintragen einer Begründung eingeblendet. Ein separater Button zum Löschen des Bildes ist nicht vorgesehen,
+da dies zu dem Status "Offen" führen würde, welcher nach einer Bearbeitung nicht erwünscht ist. Eine \acs{mfp} ist
+angehalten, jede Leistung entweder durchzuführen oder zu begründen, warum sie Leistung nicht durchgeführt werden konnte.
+Wird ein Wundfoto mithilfe der nativen Kamerafunktion über eine in PhoneGap implementierte Funktion aufgenommen, wird es
+persistent im Speicher der Anwendung abgelegt und der Pfad zu der Datei zurückgeliefert. Um die Datei einer Leistung
+zuordnen zu können, wird der Pfad als Attribut dem entsprechenden Datenobjekt in der lokalen Sqlite-Datenbank
+abgespeichert.
+
+\begin{figure}[ht]
+	\centering
+	\fbox{
+		\includegraphics[scale=0.42]{figures/Vitaldaten.jpg}
+		}		
+	\caption{Darstellung der Schaltflächen zur Erfassung von Blutdruck und Puls}
+	\label{fig:vitaldaten}
+\end{figure}
+
+Die Umsetzung der Erfassung von Blutdruck und Puls (Vitaldaten) ist in Abbildung \ref{fig:vitaldaten} zu sehen. Für
+jeden einzugebenden Wert ist ein Schieberegler vorhanden, mit dem ein Wert aus einem Intervall möglicher Werte
+ausgewählt werden kann, sowie ein Textfeld, in dem der Wert dargestellt wird. Möchte ein Nutzer den Schieberegler nicht
+benutzen, ist es durch Berührung des Textfeldes möglich, über die virtuelle Tastatur einen Wert einzugeben. Das Setzen
+von Intervallen hat den Effekt, dass Werte, die naturgemäß nicht möglich sind, wie z.B. ein Puls von 500 Schlägen po
+Minute, von vorn herein ausgeschlossen werden. So wird eine einfache implizite Plausibilitätsprüfung implementiert, die
+ein Vertippen mit Werten außerhalb des möglichen Bereiches ausschließt. Falscheingaben innerhalb des zulässigen
+Wertebereiches können so jedoch nicht ausgeschlossen werden. Nach der Eingabe muss der Nutzer den Speichervorgang
+manuell über den Button "Speichern" anstoßen. In Abbildung \ref{fig:vitaldaten} wurde dies bereits getan und die
+Leistung gilt somit als erbracht (zu erkennen am grünen Haken). Eine automatische Erfassung mittels über Bluetooth
+angeschlossene Messgeräte, wie in Kapitel \ref{sec:analyse} angedacht, konnte aufgrund der begrenzten Zeit nicht
+implementiert werden, ist jedoch grundsätzlich technisch möglich.\\
+Ein Messwert (bestehend aus Blutdruck \textit{und} Puls) ist in CareNet als eigener Datentyp dargestellt, der einem
+Kontakt zugewiesen wird. Auch in \app wird diese Teilung übernommen und die Werte werden nicht direkt im Datenobjekt
+einer Leistung gespeichert. Stößt der Nutzer den Speichervorgang an, wird ein neues Messwert-Datenobjekt in einer
+separaten Tabelle angelegt. Als \acs{id} wird die \acs{id} der Leistung/des Service verwendet, der die Erfassung der
+Messwerte "in Auftrag" gegeben hat, da so eine Fremdschlüsselbeziehung zwischen Leistung und Messwert hergestellt werden
+kann. Da es sich hier um eine 1:1-Beziehung handelt, können trotz Wiederverwendung der \acs{id} keine Inkonsistenzen
+entstehen. Die Verbindung vo Messwert zum Klienten wird mit in das Messwert-Datenobjekt integriert, indem dessen
+\acs{id} als eigenes Attribut mitgespeichert wird.\\
+Der Vorteil einer lokalen separaten Liste von Messwerten ist die bessere Auswertbarkeit zu statistischen Zwecken. Soll
+beispielsweise für einen Patienten der Verlauf des Blutdrucks der letzten vier Wochen erstellt werden, ist dies mit
+einer Messwerttabelle mit enthaltenen Klienteninformationen durch eine Anfrage an alle Datensätze eingeschränkt auf
+einen bestimmten Klienten und ein Zeitfenster möglich. Wären die Messwerte in den Leistungen enthalten, die nur über die
+Station einem Klienten zugeordnet werden können, müsste zur Überprüfung, ob ein Service einen relevanten Messwert
+enthält, jedes Mal eine zusätzliche Anfrage an die Datenbank gemacht werden, um den Klienten zu prüfen. Dies kostet bei
+einer größeren Datenmenge Zeit und schränkt somit die Nutzbarkeit ein, die durch die Verwendung einer \textit{separaten}
+Tabelle eingespart werden kann.
+
+\begin{figure}[ht]
+	\centering
+	\fbox{
+		\includegraphics[scale=0.42]{figures/patientenAkte.jpg}
+		}		
+	\caption{Darstellung der Patientenakte im Plug-In \textit{Touren}}
+	\label{fig:patietenakte}
+\end{figure}
