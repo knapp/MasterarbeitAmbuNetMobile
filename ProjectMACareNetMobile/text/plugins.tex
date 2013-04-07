@@ -1,7 +1,12 @@
 \chapter{Basisanwendung und Plug-Ins zur Realisierung der identifizierten Anforderungen}
 \label{ch:pluginarchitektur}
 
-[Vorgeplänkel Kapitel]
+Im vorliegenden Kapitel wird die Implementierung der mobilen Anwendung \app beschrieben. Da es sich um eine Plug-In
+Architektur handelt, die sich in eine Basisanwendung und eine Menge von Plug-Ins gliedert, wurde die Aufteilung der
+Kapitel entsprechend den zu implementierenden Elementen angepasst. Abschnitt \ref{sec:basisanwendung} beschreibt die
+Struktur der Basisanwendung und Abschnitt \ref{sec:einbindenPlugins} erklärt Vorgang und Voraussetzungen, um Plug-Ins
+zur Anwendung hinzuzufügen. Die Abschnitte \ref{sec:plugKontakte} und \ref{sec:plugTouren} stellen die beiden zentralen
+Plug-Ins \textit{Kontakte} und \textit{Touren} vor.
 
 \section{Aufgaben und Struktur der Basisanwendung}
 \label{sec:basisanwendung}
@@ -167,6 +172,7 @@ Kommunikation findet also nur beim Aufbau der Verbindung statt \cite[S. 152]{sic
 
 
 \section{Einbinden von Plug-Ins in die Basisanwendung}
+\label{sec:einbindenPlugins}
 
 \begin{figure}
 	\centering
@@ -395,6 +401,7 @@ Da Aufrufe an die lokale Sqlite-Datenbank ebenfalls asynchron verlaufen, findet 
 
 
 \section{Das Plug-In \textit{Touren}}
+\label{sec:plugTouren}
 
 Das Plug-In \textit{Touren} bildet den funktionellen Kern von \app. Hier werden alle Informationen und Funktionen, die
 zur Dokumentation der übertragenen ärztlichen Tätigkeiten notwendig sind, gekapselt zur Verfügung gestellt. Touren
@@ -475,9 +482,9 @@ Konfigurationsdatei des Plug-Ins \textit{Touren} vermerkt werden.
 Wird das Plug-In geöffnet, wird zunächst überprüft, ob Daten in den Tabellen vorhanden sind. Sind keine Daten vorhanden,
 wird angenommen, dass das Plug-In zum ersten Mal nach der Installation der Anwendung oder der Löschung der Daten
 geöffnet wurde und der Vorgang zum Laden der Daten vom Server wird automatisch angestoßen. Sind Daten vorhanden, kann
-aber keine Tour für das aktuelle Datum gefunden werden, wird der Nutzer gefragt, ob er nach aktuellen
-Informationen suchen lassen möchte. Momentan ist noch keine Funktionalität für die Auswahl einer Tour an einem
-bestimmten Datum vorgesehen, da in der Regel nur die Daten für die aktuelle Schicht relevant sind.\\
+aber keine Tour für das aktuelle Datum gefunden werden, wird der Nutzer gefragt, ob er nach aktuellen Informationen
+suchen lassen möchte. Momentan ist noch keine Funktionalität für die Auswahl einer Tour an einem bestimmten Datum
+vorgesehen, da in der Regel nur die Daten für die aktuelle Schicht relevant sind.\\
 Das Laden der Daten erfolgt sequentiell. Zuerst werden alle vorhandenen Services geladen und in die lokale Datenbank
 eingepflegt. Das Feld für die \acs{id} der zugehörigen Station, der Fremdschlüssel, wird zunächst leer gelassen.
 Anschließend werden alle Touren abgefragt und lokal gespeichert. Hier können alle Felder gefüllt werden, da keine
@@ -486,17 +493,18 @@ Datenbank geschrieben, das Feld für den Schlüssel zur zugehörigen Tour bleibt au
 zwischen Tour und Services steht, enthält dessen Dossier wegen der bidirektionalen Verbindungen der Datenobjekte alle
 notwendigen Informationen, um die Fremdschlüsselbeziehungen in den lokalen Tabellen aufzulösen. Folglich wird jedes
 Objektpaar im Dossier eines Termins angeschaut und überprüft, ob es entweder die Verbindung zu einer Tour, einem Service
-oder einem Klienten beschreibt. Alle anderen Dossiereinträge sind irrelevant. Wird beispielsweise eine Verbindung zu
-einem Service gefunden, wird dieser in der lokalen Datenbank gesucht und der Fremdschlüssel zum Termin gesetzt. Wurde
-das gesamte Dossier gelesen, sollten, unter der Annahme, dass es von CareNet korrekt aufgebaut wurde, alle
+oder einem Klienten beschreibt. Alle anderen Dossiereinträge sind für das Füllen der in Abbildung
+\ref{fig:datenmodellTouren} gezeigten Tabellen irrelevant. Wird beispielsweise eine Verbindung zu einem Service
+gefunden, wird dieser in der lokalen Datenbank gesucht und der Fremdschlüssel zum Termin gesetzt. Wurde das gesamte
+Dossier gelesen, sollten, unter der Annahme, dass es von CareNet korrekt aufgebaut wurde, alle
 Fremdschlüsselverbindungen in der lokalen Datenbank gesetzt sein und der vollständige Datenbaum somit lokal verfügbar
 sein.\\
 Das Vorgehen, zuerst die Services und Touren vollständig zu laden, bevor die Termine abgefragt werden und die
 entsprechenden Verbindungen gesetzt werden, stellt sicher, dass nicht versucht wird, auf ein lokales Datenobjekt
-zuzugreifen, welches noch nicht vollständig geladen wurde. Da sowohl die Serverzugriffe als auch die Zugriffe auf
-die lokale Datenbank asynchron ablaufen, könnten Fehlzugriffe theoretisch vorkommen. Zur Vermeidung eines solchen
-Fehlers wird, wie auch im Plug-In \textit{Kontake} (vgl. Abschnitt \ref{sec:plugKontakte}), das Kommand-Muster
-verwendet, um feststellen zu können, wann alle Daten vollständig geladen wurden.
+zuzugreifen, welches noch nicht vollständig geladen wurde. Da sowohl die Serverzugriffe als auch die Zugriffe auf die
+lokale Datenbank asynchron ablaufen, könnten Fehlzugriffe theoretisch vorkommen. Zur Vermeidung eines solchen Fehlers
+wird, wie auch im Plug-In \textit{Kontake} (vgl. Abschnitt \ref{sec:plugKontakte}), das Kommand-Muster verwendet, um
+feststellen zu können, wann alle Daten vollständig geladen wurden.
 
 \begin{figure}[ht]
 	\centering
@@ -523,9 +531,9 @@ werden. Für jede Station wird außerdem der aktuelle Status der Arbeit angezeigt.
 Leistungen an einer Station erbracht wurden, ohne die Leistungen im Einzelnen zu betrachten. In Abbildung
 \ref{fig:uebersichtStationen} zeigt das rote Kreuz und die Bezeichnung "Offen" an, dass noch abzuarbeitende Tätigkeiten
 vorhanden sind.\\
-Die Navigationsleiste enthält in dieser Ansicht zwei Buttons. Der linke dient dazu, den Aktualisierungsvorgang der
-Tourendaten manuell anzustoßen und der rechte Button navigiert zurück auf die Startseite (vgl. Abbildung
-\ref{fig:pluginView}).
+Die Navigationsleiste enthält in dieser Ansicht drei Buttons. Auf der linken Seite befindet sich ein Button zum Senden
+der dokumentierten Leistungen an CareNet sowie ein Button zum Abfragen aktueller Toureninformationen. Der rechte Button
+navigiert zurück auf die Startseite (vgl. Abbildung \ref{fig:pluginView}).
 
 \begin{figure}[ht]
 	\centering
@@ -558,6 +566,10 @@ benötigt werden:
 	die Eingabe der Werte und eine weitere, um den Speichervorgang anzustoßen.
 \end{description}
 
+In CareNet muss derjenige, der eine Tour für eine \acs{mfp} zusammenstellt, jeder Leistung einen der genannten Typen
+über ein Drop-Down-Menü zuweisen, damit diese in \app identifiziert werden kann und die grafische Oberfläche und die
+damit verbundene Funktionalität entsprechend angepasst werden kann.
+
 \begin{figure}[ht]
 	\centering
 	\fbox{
@@ -572,17 +584,19 @@ diese mit Begründung als nicht durchgeführt zu markieren. Abbildung \ref{fig:sta
 dieser Anforderung. Dargestellt ist eine Standardleistung, der neben einer Beschreibung der Tätigkeit ein Ankreuzfeld
 "Nicht durchgeführt" und der Button "Erledigt" zur Verfügung stehen. In der Abbildung wurde ein Haken im Ankreuzfeld
 gesetzt, sodass die Leistung nun als nicht erbracht gilt. Der Button "Erledigt" wird in diesem Fall ausgeblendet. Er
-wird erst dann wieder Aktiviert, wenn der Haken im Ankreuzfeld entfernt wird. Darunter befindet sich ein Textfeld, in
+wird erst dann wieder aktiviert, wenn der Haken im Ankreuzfeld entfernt wird. Darunter befindet sich ein Textfeld, in
 dem eine Begründung eingetragen werden kann, wieso die Leistung nicht erbracht wurde. Es kann im Quellcode konfiguriert
 werden, wie viele Zeichen eine Begründung mindestens lang sein muss, um als ausreichend angesehen zu werden. Im Beispiel
 in Abbildung \ref{fig:standardleistung} wurde die Mindestlänge auf 10 Zeichen gesetzt, welche der Satz "Der Patient war
 nicht anzutreffen", erfüllt. Der Status der Leistung ist dann weder erfüllt, noch offen, da diese grundsätzlich
-bearbeitet wurde, jedoch nicht das gewünschte Ergebnis erreicht werden konnte. Aus diesem Grund wurde ein dritter
-Status "eingeschränkt erfüllt" eingeführt, der diesen Zustand beschreibt und durch eine orangefarbene Tilde
-repräsentiert wird (siehe rechte Seite des grauen Balkens). Das gleiche Symbol wird verwendet, wenn eine gesamte Station
-als eingeschränkt erfüllt markiert wird. Für den Zustand gibt es keine eigene Repräsentation in der lokalen Datenbank,
-sondern er wird aus der Attributkombination \textit{Erledigt = falsch} und \textit{Begründung > Mindestlänge}
-abgeleitet. Wird der Haken im Ankreuzfeld entfernt, wird auch das Textfeld für die Begründung ausgeblendet.
+bearbeitet wurde, jedoch nicht das gewünschte Ergebnis erreicht werden konnte. Aus diesem Grund wurde ein dritter Status
+"eingeschränkt erfüllt" eingeführt, der diesen Zustand beschreibt und durch eine orangefarbene Tilde repräsentiert wird
+(siehe rechte Seite des grauen Balkens). Eine gesamte Station gilt als "eingeschränkt erfüllt", wenn alle Leistungen
+entweder den genannten Zwischenzustand haben oder vollständig erbracht wurden. In diesem Fall wird für eine gesamte
+Station das gleiche Symbol wie bei einer Leistung verwendet. Für den Zustand "eingeschränkt erfüllt" gibt es keine
+eigene Repräsentation in der lokalen Datenbank, sondern er wird aus der Attributkombination \textit{Erledigt = falsch}
+und \textit{Länge Begründung > Mindestlänge} abgeleitet. Wird der Haken im Ankreuzfeld entfernt, wird auch das Textfeld
+für die Begründung ausgeblendet.
 
 \begin{figure}[ht]
 	\centering
@@ -645,11 +659,11 @@ einer Leistung gespeichert. Stößt der Nutzer den Speichervorgang an, wird ein ne
 separaten Tabelle angelegt. Als \acs{id} wird die \acs{id} der Leistung/des Service verwendet, der die Erfassung der
 Messwerte "in Auftrag" gegeben hat, da so eine Fremdschlüsselbeziehung zwischen Leistung und Messwert hergestellt werden
 kann. Da es sich hier um eine 1:1-Beziehung handelt, können trotz Wiederverwendung der \acs{id} keine Inkonsistenzen
-entstehen. Die Verbindung vo Messwert zum Klienten wird mit in das Messwert-Datenobjekt integriert, indem dessen
+entstehen. Die Verbindung vom Messwert zum Klienten wird mit in das Messwert-Datenobjekt integriert, indem dessen
 \acs{id} als eigenes Attribut mitgespeichert wird.\\
 Der Vorteil einer lokalen separaten Liste von Messwerten ist die bessere Auswertbarkeit zu statistischen Zwecken. Soll
 beispielsweise für einen Patienten der Verlauf des Blutdrucks der letzten vier Wochen erstellt werden, ist dies mit
-einer Messwerttabelle mit enthaltenen Klienteninformationen durch eine Anfrage an alle Datensätze eingeschränkt auf
+einer Messwerttabelle mit enthaltener Klienten-\acs{id} durch \textit{eine} Anfrage an alle Datensätze eingeschränkt auf
 einen bestimmten Klienten und ein Zeitfenster möglich. Wären die Messwerte in den Leistungen enthalten, die nur über die
 Station einem Klienten zugeordnet werden können, müsste zur Überprüfung, ob ein Service einen relevanten Messwert
 enthält, jedes Mal eine zusätzliche Anfrage an die Datenbank gemacht werden, um den Klienten zu prüfen. Dies kostet bei
@@ -659,8 +673,70 @@ Tabelle eingespart werden kann.
 \begin{figure}[ht]
 	\centering
 	\fbox{
-		\includegraphics[scale=0.42]{figures/patientenAkte.jpg}
+		\includegraphics[scale=0.42]{figures/klientenakte.jpg}
 		}		
-	\caption{Darstellung der Patientenakte im Plug-In \textit{Touren}}
-	\label{fig:patietenakte}
+	\caption{Darstellung der Klientenenakte im Plug-In \textit{Touren}}
+	\label{fig:klientenakte}
 \end{figure}
+
+Befindet sich eine \acs{mfp} bei der Dokumentation von Leistungen, kann es nötig sein, auf die Daten eines Klienten
+zuzugreifen, um Zusatzinformationen zu einer Behandlung zu bekommen. Um dies möglichst komfortabel und zeitsparend zu
+gestalten, wurde eine direkte Schnittstelle zum Plug-In \textit{Kontakte} implementiert, die es ermöglicht, aus einem
+anderen Plug-In heraus Informationen zu einem Kontakt nachzufragen, ohne diesen redundant zu speichern. Im Plug-In
+\textit{Touren} wird die Navigation zu der so genannten \textit{Klientenakte} als Reiter (auch \textit{Tab}) realisiert
+(vgl. Abbildung \ref{fig:klientenakte}). Durch Berühren des Reiters werden entweder die Schaltflächen zur Dokumentation
+der aktuellen Behandlung oder die Klientendaten angezeigt. Die Umsetzung der Navigation als Reiter soll dem Nutzer
+vermitteln, dass die beiden Elemente einem Kontext angehören. Außerdem ist diese Art der Seitenstruktur, bei der
+scheinbar mehrere Seiten übereinander liegen, mit einer hohen Wahrscheinlichkeit den meisten potenziellen Nutzern von
+\app bekannt, da sie häufig in Browsern zur Darstellung mehrerer Internetseiten verwendet wird. Das Ausnutzen eines
+bekannten Bedienkonzeptes soll die intuitive Bedienung der mobilen Anwendung fördern.\\
+Die in Abbildung \ref{fig:klientenakte} dargestellten Informationen haben nur beispielhaften Charakter. Welche Daten
+tatsächlich über einen Klienten verfügbar sein sollten, konnte zum Zeitpunkt der Implementierung nicht ermittelt werden.
+Außerdem ist zu vermuten, dass, abhängig vom jeweiligen Einsatzgebiet (z.B. ambulante oder stationäre Dienste), ohnehin
+eine individuelle Anpassung in Zusammenarbeit mit dem Endnutzer erfolgen müsste. Wichtig ist zu zeigen, dass
+Klienteninformationen grundsätzlich verfügbar gemacht werden können.\\
+Die orangefarbene Gruppe von Buttons unter den gezeigten Informationen steht für eine mögliche Navigation zu weiteren
+Funktionen wie der Anzeige von Vitaldatenstatistiken (Verlauf von Blutdruck und Puls), einer Auflistung zukünftiger, den
+Klienten betreffende Termine oder auch durchgeführte Tätigkeiten, die unter "Vorgänge" zusammengefasst werden. Momentan
+ist noch keine dieser Funktionen implementiert, jedoch sollte ein Eindruck dessen vermittelt werden, wie ein Zugriff auf
+über die Stammdaten hinausgehende Informationen ermöglicht werden könnte, ohne den Grundsatz der Übersichtlichkeit der
+Anwendung zu verletzen.
+
+Nachdem Leistungen auf dem mobilen Gerät dokumentiert wurden, müssen die Daten an CareNet übermittelt werden, damit der
+Arzt, der die Leistungen in Auftrag gegeben hat, deren Ausführung zeitnah kontrollieren und gegebenenfalls eingreifen
+kann. Da die dokumentierten Informationen ausschließlich in den Leistungen erfasst wurden und keinerlei Änderungen an
+den Datenobjekten \textit{Tour} oder \textit{Station} vorgenommen wurden, müssen lediglich die Leistungen wieder an
+CareNet übertragen werden. Um die Menge der übertragenen Daten gering zu halten, sollen nur die Leistungen übertragen
+werden, die auch verändert wurden. Hierzu wurde einem Datenobjekt \textit{Service} ein Attribut \textit{EDITED}
+hinzugefügt, welches einen Wahrheitswert (wahr oder falsch) enthält, um anzuzeigen, ob eine Leistung angepasst wurde
+oder nicht. Sollte der Zustand einer Leistung logisch hergeleitet werden, müsste ein Vergleich mit dem ursprünglichen
+Zustand aller Attribute erfolgen. Dies wäre entweder über eine lokale Kopie des "Originals" jeder Leistung möglich, oder
+aber es müssten alle Leistungen vor der Übertragung noch einmal von Server abgefragt werden, um diese vergleichen zu
+können. Die erste Variante sorgt jedoch für redundante Speicherbelegung und die zweite Variante erhöht die zu
+übertragene Datenmenge, was nicht wünschenswert ist.\\
+Wird also eine veränderte Leistung gefunden (\textit{EDITED = true}), muss außerdem überprüft werden, ob diese mit einem
+Messwert oder einem Wundfoto verbunden ist. Ist die Leistung mit einem Messwert verbunden, muss dieser vor der
+Aktualisierung der eigentlichen Leistung zu CareNet übertragen werden. War der Vorgang erfolgreich, muss das Datenobjekt
+in CareNet über ein Dossier sowohl mit der Leistung als auch mit dem entsprechenden Klienten verbunden werden. Das
+Setzen des Dossiers erfolgt über einen separaten REST-Aufruf, für den die von CareNet erzeugten \acs{id}s des Klienten,
+der Leistung und des Messwertes benötigt werden. Die \acs{id}s der ersten beiden Objekte wurden bereits beim Abfragen
+der Toureninformationen und der Klientendaten von CareNet übertragen, jedoch wird die \acs{id} für den lokal erzeugten
+Messwert erst dann von CareNet generiert, wenn der Wert auch übertragen wurde. Aus diesem Grund muss die \acs{id} des
+Messwertes aus der Antwort auf die Anfrage zur Übertragung zu CareNet extrahiert werden und ebenfalls lokal gespeichert
+werden. Da die lokale \acs{id} bisher die \acs{id} der zugehörigen Leistung war und ein ersetzen dieser zu einem Bruch
+der Fremdschlüsselbeziehung zur Leistung führen würde, wurde dem Datenobjekt \textit{Messwert} ein weiteres Attribut für
+die von CareNet erzeugte \acs{id} hinzugefügt. Die \acs{id} wird neben dem Setzen des Dossiers auch für eine eventuelle
+Löschanfrage benötigt, falls der Nutzer lokal einen bereits übertragenen Messwert löscht, der dann auch in CareNet
+gelöscht werden muss.\\
+Analog zur Behandlung eines Messwertes muss auch ein aufgenommenes Wundfoto zunächst übertragen werden und anschließend
+die entsprechenden Dossiers gesetzt werden. Da sich aber die REST-Methoden zur Übertragung unterscheiden, müssen beide
+Fälle gesondert behandelt werden.
+
+Ein Nutzer von \app hat die Möglichkeit, Informationen zu Touren manuell durch betätigen des Buttons "Aktualisiere
+Touren" (vgl. Abbildung \ref{fig:uebersichtStationen}) zu aktualisieren. Hierbei muss zunächst überprüft werden, ob
+bereits Dokumentation stattgefunden hat, die durch eine Aktualisierung überschrieben werden könnten. Werden veränderte
+Leistungen gefunden, die noch nicht übertragen wurden, wird der Nutzer gefragt, ob er die bereits dokumentierten
+Leistungen verwerfen möchte, oder ob die Daten vor der Aktualisierung zunächst übertragen werden sollen. Entscheidet er
+sich gegen die Übertragung, werden alle lokalen Datenbanken geleert und die aktuellen Toureninformationen neu geladen,
+abgespeichert und dargestellt. 
+
