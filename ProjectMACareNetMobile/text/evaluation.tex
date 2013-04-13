@@ -82,10 +82,23 @@ eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher 
 
 \normalsize
 \begin{description}
-	\item[Anpassbarkeit]
-	\item[Koexistenz]
-	\item[Installierbarkeit]
-	\item[Austauschbarkeit] 
+	\item[Anpassbarkeit] Die Anpassbarkeit bezieht sich bei \app vor allem auf die Möglichkeit, die Anwendung auf
+	verschiedenen Plattformen (Android, iOS, Windows Phone etc.) bereitzustellen. Durch die Verwendung von PhoneGap wurde
+	diese Art der Anpassbarkeit implizit mit in die Architektur aufgenommen. Dadurch, dass die Funktionalität der von \app
+	ausschließlich über JavaScript realisiert wurde, was zwischen den Plattformen portierbar ist, wurde nicht nur zum
+	Entwurfszeitpunkt, sondern auch während der Implementierung ein besonderes Augenmerk auf die Erhaltung der von PhoneGap
+	ermöglichten Anpassbarkeit an verschiedene Plattformen gelegt.
+	\item[Koexistenz] Da \app gekapselt als Anwendung für eine jeweilige Plattform bereitgestellt wird, ist es problemlos
+	mit anderen Anwendungen auf einem Endgerät kombinierbar. Auch könnten verschiedene Versionen der gleichen Anwendung auf
+	dem Endgerät installiert sein, wenn verschiedene Signaturen der Anwendungen verwendet werden.
+	\item[Installierbarkeit] Zur Installation werden die von der jeweiligen Plattform unterstützen Verfahren verwendet,
+	die in der Regel einfach und intuitiv sind, da sie für eine breite Masse von Nutzern verwendbar sein müssen. Da \app
+	aber nicht für Einsatz in der breiten Masse gedacht ist, sondern gezielt an Kunden weitergegeben wird, spielt die
+	Installierbarkeit eine untergeordnete Rolle.
+	\item[Austauschbarkeit] Ähnlich einfach wie die Installation einer Anwendung auf einer der gängigen Plattformen lässt
+	sich über einen vorhandenen Update-Mechanismus oder eine Deinstallation der alten Anwendung mit anschließender
+	Neuinstallation die Anwendung austauschen. Die Entwurfsentscheidung Tablet-PCs zu verwenden implizierte folglich eine
+	Sicherstellung einfach Installierbarkeit und Austauschbarkeit.
 \end{description}
 
 \Large 
@@ -93,8 +106,18 @@ eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher 
 
 \normalsize
 \begin{description}
-	\item[Zeitverhalten]
-	\item[Ressourcenverbrauch]
+	\item[Zeitverhalten] Bei \app handelt es sich nicht um eine Anwendung, bei der das Zeitverhalten ein entscheidender
+	Faktor ist. Zwar soll durch den Einsatz der Anwendung Zeit gespart werden, jedoch kommt es hier nicht auf
+	Millisekunden an. Die einzige zeitliche Limitierung ist die Geduld des Nutzers während der Bedienung, welche je nach
+	Individuum sehr unterschiedlich ausfallen kann. Solange keine sekundenlangen Verzögerungen beim Laden von Daten oder
+	Ansichten auftreten, welche bisher nicht festgestellt werden konnten, muss das Zeitverhalten nicht näher betrachtet
+	werden.
+	\item[Ressourcenverbrauch] Die bisher betrachteten Tablet-PCs, welche für den Einsatz von \app in Frage kommen, sind
+	in der Regel mit Ressourcen für die Nutzung von Multimediainhalten ausgestattet. Da zur Dokumentation von ärztlich
+	delegierten Leistungen lediglich einige Datenbankoperationen, die Anzeige von HTML-Inhalten und einige Animationen
+	benötigt werden, sollten die Ressourcen der Zielgeräte ausreichend sein. Da der Speicher der Geräte im
+	Gigabyte-Bereich (1 Gigabyte = 1024 Megabyte) liegt und die Anwendung zum Zeitpunkt der Abgabe weniger als 2 Megabyte
+	groß war, muss dem Ressourcenverbrauch keine besondere Aufmerksamkeit geschenkt werden.
 \end{description}
 
 \Large 
@@ -103,10 +126,18 @@ eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher 
 \normalsize
 \begin{description}
 	\item[Angemessenheit]
-	\item[Richtigkeit]
-	\item[Interoperatbilität]
-	\item[Sicherheit]
-	\item[Konformität] 
+	\item[Richtigkeit] Da noch einige Anforderungen offen sind, die für einen produktiven Einsatz der Software
+	notwendig sind, kann zum jetzigen Zeitpunkt die Richtigkeit der Anwendung nicht überprüft werden.
+	\item[Interoperatbilität] 
+	\item[Sicherheit] Die Sicherheit in \app muss vor allem für die verwendeten persönlichen Daten hergestellt werden. Dies
+	wird lokal auf dem Endgerät über einen Log-In-Mechanismus realisiert, mit dem sichergestellt wird, dass nur
+	autorisierte Personen Zugriff auf die Daten von Klienten und sonstigen Kontakten bekommen. Sobald die Anwendung
+	verlassen wird, sie aber trotzdem noch im Hintergrund läuft und wieder aufgerufen werden kann, werden die Nutzerdaten
+	aus dem lokale Speicher entfernt, um nicht einem Dritten, der das Endgerät in die Hände bekommt, einen Zugang über die
+	hinterlegten Daten zu ermöglichen. Dadurch, dass \app vom Betriebssystem einen eigenen Speicherbereich zugewiesen
+	bekommt, ist ein Zugriff von anderen Anwendungen aus nicht möglich. Die Übertragung der Daten zu CareNet wird über eine
+	\acs{https}-Verbindung gesichert.
+	\item[Konformität] ???
 \end{description}
 
 \Large 
