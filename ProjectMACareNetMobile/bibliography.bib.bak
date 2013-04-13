@@ -221,7 +221,7 @@
   timestamp = {2013.03.06}
 }
 
-@ARTICLE{refUtaut,
+@ARTICLE{utaut,
   author = {Venkatesh, Viswanath and Morris, Michael G. and Gordon B. Davis and
 	Davis, Fred D.},
   title = {{User Acceptance of Information Technology: Toward a Unified View}},
@@ -291,6 +291,16 @@
   timestamp = {2013.01.25}
 }
 
+@ELECTRONIC{jasmine,
+  month = {April},
+  year = {2013},
+  title = {{Jasmine - JavaScript Unit Test Framework}},
+  organization = {{Pivotal Labs}},
+  url = {http://pivotal.github.io/jasmine/},
+  owner = {Thomas},
+  timestamp = {2013.04.13}
+}
+
 @ELECTRONIC{jqmobile,
   year = {2013},
   title = {jQuery mobile Homepage},
@@ -338,6 +348,15 @@
   url = {http://www.php.net},
   owner = {Thomas},
   timestamp = {2013.01.25}
+}
+
+@ELECTRONIC{qunit,
+  month = {April},
+  year = {2013},
+  title = {{QUnit - A JavaScript Unit Test}},
+  url = {http://qunitjs.com/},
+  owner = {Thomas},
+  timestamp = {2013.04.13}
 }
 
 @ELECTRONIC{residenzBF,

@@ -6,6 +6,132 @@
 \label{ch:Evaluation}
 %% ==================
 
+
+\section{Evaluation der technischen Umsetzung der mobilen Anwendung}
+\label{sec:iso25k}
+
+Zur Evaluation der entwickelten Anwendung wird auf den von der \acl{iso} (\acs{iso}) und der \acl{iec} (\acs{iec})
+entwickelten Standard 25000 zurückgegriffen, der den Namen "Software product Quality Requirements and Evaluation
+(SQuaRE)" trägt \cite{iso25000}. Der Standard ersetzt die beiden älteren Standards ISO/IEC 14598 (Software Product
+Evaluation) und ISO/IEC 9126 (Software Product Quality), da diese ohnehin komplementäre Standards die gleichen
+normativen und funktionellen Wurzeln bildeten, jedoch Inkonsistenzen in den vorgeschlagenen Lebenszyklen auftraten. Der
+Standard ISO/IEC 25000 soll Entwicklern, Käufern und unabhängigen Gutachtern von Software-Produkten eine Menge von
+Kriterien zur Bewertung von Software in verschiedenen Entwicklungsphasen bieten. Von der Anforderungsanalyse über die
+Implementierung bis hin zum fertigen Software-Produkt werden Methoden vorgeschlagen, mit denen eine Koordination
+zwischen Messung und Evaluation von definierten Charakteristika vorgenommen werden kann. Definiert wird ein
+Software-Produkt Lebenszyklus, in welchem die Software-Produkqualität in drei Phasen erfasst wird. Diese sind die
+\textit{Qualität während der Benutzung} (Quality in Use), die \textit{externe Qualität} (external Quality) und die
+\textit{interne Qualität} (internal Quality). Erstere beschreibt die Anforderungen an die Software aus Sicht des
+Endnutzers beim finalen Endprodukt. Die externe Qualität wird aus den Endnutzeranforderungen abgeleitet und als Ziel für
+die technische  Verifikation und Validierung der Sofware genutzt. Die interne Qualität wird wiederum zum Teil aus den
+Anforderungen an die externe Qualität abgeleitet und definiert die Eigenschaften von Software-Zwischenprodukten auf dem
+Weg zum Endprodukt. Die internen Qualitätskriterien können auch auf Nebenprodukte der Entwicklung wie die Dokumentation
+oder Anleitungen angewandt werden. Die Evaluation von \app erfolgt nur auf Basis der internen und externen
+Qualitätskriterien, da es während der begrenzten Bearbeitungszeit nicht möglich war, eine marktreife Anwendung zu
+entwickeln, sondern lediglich einen Prototypen. Außerdem fehlen zu einer vollständigen Evaluation tatsächliche
+Endnutzer, die für die Beurteilung der Qualität während der Benutzung unerlässlich sind.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/iso25k.pdf}
+	\caption{Interne und externe Charakteristika von Software-Produktqualität}
+	\label{fig:iso25k}
+\end{figure}
+
+Abbildung \ref{fig:iso25k} zeigt die Charakteristika und Subcharakteristika für die Bewertung der internen und externen
+Qualität. Aufgrund der zeitlichen Rahmenbedingungen kann nicht in größtmöglicher Detailtiefe auf jedes Charakteristikum
+eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher Priorität es in der Implementierung von
+\app berücksichtigt wurde oder warum diese Gewichtung erfolgte.
+
+\Large 
+\textbf{Wartbarkeit}
+
+\normalsize
+
+\begin{description}
+	\item[Änderbarkeit] Die technischen Anforderungen an \app zielten vor allem auf eine leichte Erweiterbarkeit und
+	Änderbarkeit wegen veränderter Rahmenbedingungen ab. Gefordert wurde ein modularer Aufbau, der in einer
+	Plug-In-Architektur umgesetzt wurde. Eine leichte Änderbarkeit bzgl. Hinzufügen und Entfernen von Plug-Ins wurde
+	folglich adressiert, jedoch sind Veränderungen \textit{innerhalb} eines Plug-Ins oder der Basisanwendung schwieriger
+	umzusetzen, da durch die Verwendung von nur einer JavaScript-Datei pro Modul nur eine verhältnismäßig unübersichtliche
+	Quellcode-Basis zur Verfügung steht. Durch ausführliche Kommentierung des Quellcodes wurde versucht, die fehlende
+	Struktur durch Dateien auszugleichen.
+	\item[Analysierbarkeit] Die grundsätzliche Architektur ist aufgrund seines modularen Aufbaus gut analysierbar, da die
+	Zusammenhänge und Abhängigkeiten über die Konfigurationsdateien nachvollziehbar sind. Sollen allerdings Aufrufketten
+	von Funktionen verfolgt werden, muss dies in der Regel manuell gemacht werden, da hier keine Unterstützung durch
+	Software-Werkzeuge vergleichbar beispielsweise mit der Unterstützung, die Eclipse \cite{eclipse} bei der
+	Java-Entwicklung bietet, vorhanden ist. Eine Analyse ist zwar immer noch möglich, jedoch ist die Gefahr, dass hierbei
+	Fehler passieren, wegen der fehlenden Automatisierung größer.
+	\item[Stabilität] Die Stabilität der Anwendung stand bisher nicht im Fokus der Entwicklung. Zwar wurden Instabilitäten
+	behoben, wenn sie entdeckt wurden, jedoch konnte aufgrund des zeitlichen Rahmens keine ausführliche Analyse bezüglich
+	möglicher instabiler Abläufe durchgeführt werden.
+	\item[Prüfbarkeit] \app besteht aufgrund seines hybriden Charakters aus einer Menge verschiedener Technologien. Der
+	native Container besteht aus der jeweils zugrunde liegenden Programmiersprache, während die hauptsächliche
+	Funktionalität mit JavaScript implementiert wird, die Darstellung aber vollständig über HTML und CSS läuft. Außerdem bestehen
+	Abhängigkeiten zu Bibliotheken wie jQuery, jQuery mobile und PhoneGap. Theoretisch können in allen Elementen Fehler
+	auftreten, was eine komplette, im Idealfall automatisierte Überprüfung sehr schwierig macht. Zwar gibt es
+	JavaScript Test-Frameworks wie Jasmine \cite{jasmine} oder QUnit (für jQuery) \cite{qunit}, jedoch können hiermit
+	hauptsächlich Fehler im eigenen Quellcode entdeckt werden. Fehler in den extern entwickelten Bibliotheken sind so nur
+	schwer zu identifizieren. Bisher wurden aus Zeitgründen keine automatischen Tests implementiert. Die Überprüfung der
+	grafischen Oberfläche bestehend aus HTML und CSS, die einen signifikanten Anteil der Entwicklungszeit beansprucht hat,
+	kann ohnehin nur manuell durch Blickprüfung erfolgen. Die Prüfbarkeit von \app ist daher als schwierig einzustufen.
+\end{description}
+
+\Large 
+\textbf{Übertragbarkeit}
+
+\normalsize
+\begin{description}
+	\item[Anpassbarkeit]
+	\item[Koexistenz]
+	\item[Installierbarkeit]
+	\item[Austauschbarkeit] 
+\end{description}
+
+\Large 
+\textbf{Effizienz}
+
+\normalsize
+\begin{description}
+	\item[Zeitverhalten]
+	\item[Ressourcenverbrauch]
+\end{description}
+
+\Large 
+\textbf{Zuverlässigkeit}
+
+\normalsize
+\begin{description}
+	\item[Angemessenheit]
+	\item[Richtigkeit]
+	\item[Interoperatbilität]
+	\item[Sicherheit]
+	\item[Konformität] 
+\end{description}
+
+\Large 
+\textbf{Funktionalität}
+
+\normalsize
+\begin{description}
+	\item[Reife]
+	\item[Fehlertoleranz]
+	\item[Robustheit]
+	\item[Wiederherstellbarkeit] 
+\end{description}
+
+\Large 
+\textbf{Benutzbarkeit}
+
+\normalsize
+\begin{description}
+	\item[Verständlichkeit]
+	\item[Erlernbarkeit]
+	\item[Bedienbarkeit]
+	\item[Attraktivität] 
+\end{description}
+
+
 \section{Evaluation von Nutzbarkeit, Funktionsumfang und Akzeptanz anhand einer Zielgruppenschulung}
 \label{sec:evalEndnutzer}
 
@@ -377,14 +503,15 @@ gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und n
 		\par 
 		\endgroup
 		
-	\item \textit{Zeitlich nicht planbare und plötzlich zu erbringende Tätigkeiten wie der Hilfe beim Toilettengang
+	\item \textit{Zeitlich nicht planbare und plötzlich zu erbringende Tätigkeiten wie die Hilfe beim Toilettengang
   				  müssen der Tagesstruktur am Tablet-PC hinzufügbar sein.}
   		\par
   		\begingroup
   		\leftskip=1cm
   		\noindent Die Ergänzung von Dienstleistungen, die von der geplanten Tagesstruktur abweichen, wurde bereits im ersten
   		Anforderungskatalog aufgenommen, da angenommen wurde, dass die Arbeit mit Menschen immer unvorhergesehene
-  		Tätigkeiten nötig machen kann. \textcolor{red}{Die Funktionalität wurde bereits implementiert.}
+  		Tätigkeiten nötig machen kann. Aus Zeitgründen konnte diese wichtige Funktionalität allerdings nicht mehr im Rahmen
+  		dieser Arbeit implementiert werden.
   		\par
   		\endgroup	
   	
@@ -632,18 +759,4 @@ Basis zur Entwicklung einer Anwendung, die Chancen hat, bei einer Weiterentwickl
 akzeptiert zu werden und einen echten Mehrwert bei der Dokumentation ärztliche übertragener Tätigkeiten zu liefern.
 
 
-
-
 		   
-\section{Evaluation der technischen Umsetzung der mobilen Anwendung}
-
-Evaluation der Anforderungen dahingehend, welche umgesetzt werden konnten und in welcher
-		   Qualität (inkl. der, die noch in der Schulung dazukamen). Vergleich mit
-		   Software-Entwicklungs-Standards (ISO xxx), Architekturprinzipien.
-Evaluation in zwei Teilen:
-
-
-
-%\section{Fallstudie Pneunomie}
-
-%Überprüfung der Anwendbarkeit der mobilen Anwendung auf einen Ablauf in der Praxis.
