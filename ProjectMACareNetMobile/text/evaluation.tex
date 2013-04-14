@@ -1,11 +1,14 @@
-%% evaluation.tex
-%%
 
 %% ==================
 \chapter{Evaluation}
 \label{ch:Evaluation}
 %% ==================
 
+Im folgenden Kapitel wird die bisher entwickelte Anwendung zur Unterstützung der Dokumentation von delegierten
+ärztlichen Tätigkeiten evaluiert. In Abschnitt \ref{sec:iso25k} wird \app zunächst an Qualitätskriterien der
+\acs{iso}/\acs{iec} 25000 gemessen, die auf die Software-Produktqualität abzielt. In Abschnitt
+\ref{sec:evalEndnutzer} wird das Ergebnis einer Anforderungsevaluation im Rahmen einer Schulung von Angehörigen der
+Alten- und Krankenpflegeberufe vorgestellt.
 
 \section{Evaluation der technischen Umsetzung der mobilen Anwendung}
 \label{sec:iso25k}
@@ -13,7 +16,7 @@
 Zur Evaluation der entwickelten Anwendung wird auf den von der \acl{iso} (\acs{iso}) und der \acl{iec} (\acs{iec})
 entwickelten Standard 25000 zurückgegriffen, der den Namen "Software product Quality Requirements and Evaluation
 (SQuaRE)" trägt \cite{iso25000}. Der Standard ersetzt die beiden älteren Standards ISO/IEC 14598 (Software Product
-Evaluation) und ISO/IEC 9126 (Software Product Quality), da diese ohnehin komplementäre Standards die gleichen
+Evaluation) und ISO/IEC 9126 (Software Product Quality), da diese ohnehin komplementären Standards die gleichen
 normativen und funktionellen Wurzeln bildeten, jedoch Inkonsistenzen in den vorgeschlagenen Lebenszyklen auftraten. Der
 Standard ISO/IEC 25000 soll Entwicklern, Käufern und unabhängigen Gutachtern von Software-Produkten eine Menge von
 Kriterien zur Bewertung von Software in verschiedenen Entwicklungsphasen bieten. Von der Anforderungsanalyse über die
@@ -24,12 +27,12 @@ Software-Produkt Lebenszyklus, in welchem die Software-Produkqualität in drei Ph
 \textit{interne Qualität} (internal Quality). Erstere beschreibt die Anforderungen an die Software aus Sicht des
 Endnutzers beim finalen Endprodukt. Die externe Qualität wird aus den Endnutzeranforderungen abgeleitet und als Ziel für
 die technische  Verifikation und Validierung der Sofware genutzt. Die interne Qualität wird wiederum zum Teil aus den
-Anforderungen an die externe Qualität abgeleitet und definiert die Eigenschaften von Software-Zwischenprodukten auf dem
-Weg zum Endprodukt. Die internen Qualitätskriterien können auch auf Nebenprodukte der Entwicklung wie die Dokumentation
-oder Anleitungen angewandt werden. Die Evaluation von \app erfolgt nur auf Basis der internen und externen
-Qualitätskriterien, da es während der begrenzten Bearbeitungszeit nicht möglich war, eine marktreife Anwendung zu
-entwickeln, sondern lediglich einen Prototypen. Außerdem fehlen zu einer vollständigen Evaluation tatsächliche
-Endnutzer, die für die Beurteilung der Qualität während der Benutzung unerlässlich sind.
+Anforderungen an die externe Qualität abgeleitet, definiert werden aber auch die Eigenschaften von
+Software-Zwischenprodukten auf dem Weg zum Endprodukt. Die internen Qualitätskriterien können auch auf Nebenprodukte der
+Entwicklung wie die Dokumentation oder Anleitungen angewandt werden. Die Evaluation von \app erfolgt nur auf Basis der
+internen und externen Qualitätskriterien, da es während der begrenzten Bearbeitungszeit nicht möglich war, eine
+marktreife Anwendung zu entwickeln, sondern lediglich einen Prototypen. Außerdem fehlen zu einer vollständigen
+Evaluation tatsächliche Endnutzer, die für die Beurteilung der Qualität während der Benutzung unerlässlich sind.
 
 \begin{figure}[ht]
 	\centering
@@ -55,13 +58,13 @@ eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher 
 	folglich adressiert, jedoch sind Veränderungen \textit{innerhalb} eines Plug-Ins oder der Basisanwendung schwieriger
 	umzusetzen, da durch die Verwendung von nur einer JavaScript-Datei pro Modul nur eine verhältnismäßig unübersichtliche
 	Quellcode-Basis zur Verfügung steht. Durch ausführliche Kommentierung des Quellcodes wurde versucht, die fehlende
-	Struktur durch Dateien auszugleichen.
+	Struktur auszugleichen.
 	\item[Analysierbarkeit] Die grundsätzliche Architektur ist aufgrund seines modularen Aufbaus gut analysierbar, da die
 	Zusammenhänge und Abhängigkeiten über die Konfigurationsdateien nachvollziehbar sind. Sollen allerdings Aufrufketten
 	von Funktionen verfolgt werden, muss dies in der Regel manuell gemacht werden, da hier keine Unterstützung durch
 	Software-Werkzeuge vergleichbar beispielsweise mit der Unterstützung, die Eclipse \cite{eclipse} bei der
-	Java-Entwicklung bietet, vorhanden ist. Eine Analyse ist zwar immer noch möglich, jedoch ist die Gefahr, dass hierbei
-	Fehler passieren, wegen der fehlenden Automatisierung größer.
+	Java-Entwicklung bietet, vorhanden ist. Eine Analyse ist zwar immer noch möglich, jedoch ist die Gefahr größer, dass
+	hierbei wegen der fehlenden Automatisierung Fehler passieren.
 	\item[Stabilität] Die Stabilität der Anwendung stand bisher nicht im Fokus der Entwicklung. Zwar wurden Instabilitäten
 	behoben, wenn sie entdeckt wurden, jedoch konnte aufgrund des zeitlichen Rahmens keine ausführliche Analyse bezüglich
 	möglicher instabiler Abläufe durchgeführt werden.
@@ -84,7 +87,7 @@ eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher 
 \begin{description}
 	\item[Anpassbarkeit] Die Anpassbarkeit bezieht sich bei \app vor allem auf die Möglichkeit, die Anwendung auf
 	verschiedenen Plattformen (Android, iOS, Windows Phone etc.) bereitzustellen. Durch die Verwendung von PhoneGap wurde
-	diese Art der Anpassbarkeit implizit mit in die Architektur aufgenommen. Dadurch, dass die Funktionalität der von \app
+	diese Art der Anpassbarkeit implizit mit in die Architektur aufgenommen. Dadurch, dass die Funktionalität von \app
 	ausschließlich über JavaScript realisiert wurde, was zwischen den Plattformen portierbar ist, wurde nicht nur zum
 	Entwurfszeitpunkt, sondern auch während der Implementierung ein besonderes Augenmerk auf die Erhaltung der von PhoneGap
 	ermöglichten Anpassbarkeit an verschiedene Plattformen gelegt.
@@ -93,12 +96,13 @@ eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher 
 	dem Endgerät installiert sein, wenn verschiedene Signaturen der Anwendungen verwendet werden.
 	\item[Installierbarkeit] Zur Installation werden die von der jeweiligen Plattform unterstützen Verfahren verwendet,
 	die in der Regel einfach und intuitiv sind, da sie für eine breite Masse von Nutzern verwendbar sein müssen. Da \app
-	aber nicht für Einsatz in der breiten Masse gedacht ist, sondern gezielt an Kunden weitergegeben wird, spielt die
-	Installierbarkeit eine untergeordnete Rolle.
+	aber nicht für den Einsatz in der breiten Masse gedacht ist, sondern gezielt an Kunden weitergegeben wird und somit
+	nur eine verhältnismäßig geringe Anzahl an Installationen durchgeführt werden wird, spielt die Installierbarkeit nur
+	eine untergeordnete Rolle.
 	\item[Austauschbarkeit] Ähnlich einfach wie die Installation einer Anwendung auf einer der gängigen Plattformen lässt
-	sich über einen vorhandenen Update-Mechanismus oder eine Deinstallation der alten Anwendung mit anschließender
-	Neuinstallation die Anwendung austauschen. Die Entwurfsentscheidung Tablet-PCs zu verwenden implizierte folglich eine
-	Sicherstellung einfach Installierbarkeit und Austauschbarkeit.
+	sich über einen auf der Plattform vorhandenen Update-Mechanismus oder eine Deinstallation der alten Anwendung mit
+	anschließender Neuinstallation die Anwendung austauschen. Die Entwurfsentscheidung Tablet-PCs zu verwenden implizierte
+	folglich eine Sicherstellung einfacher Installierbarkeit und Austauschbarkeit.
 \end{description}
 
 \Large 
@@ -113,31 +117,11 @@ eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher 
 	Ansichten auftreten, welche bisher nicht festgestellt werden konnten, muss das Zeitverhalten nicht näher betrachtet
 	werden.
 	\item[Ressourcenverbrauch] Die bisher betrachteten Tablet-PCs, welche für den Einsatz von \app in Frage kommen, sind
-	in der Regel mit Ressourcen für die Nutzung von Multimediainhalten ausgestattet. Da zur Dokumentation von ärztlich
-	delegierten Leistungen lediglich einige Datenbankoperationen, die Anzeige von HTML-Inhalten und einige Animationen
-	benötigt werden, sollten die Ressourcen der Zielgeräte ausreichend sein. Da der Speicher der Geräte im
-	Gigabyte-Bereich (1 Gigabyte = 1024 Megabyte) liegt und die Anwendung zum Zeitpunkt der Abgabe weniger als 2 Megabyte
-	groß war, muss dem Ressourcenverbrauch keine besondere Aufmerksamkeit geschenkt werden.
-\end{description}
-
-\Large 
-\textbf{Zuverlässigkeit}
-
-\normalsize
-\begin{description}
-	\item[Angemessenheit]
-	\item[Richtigkeit] Da noch einige Anforderungen offen sind, die für einen produktiven Einsatz der Software
-	notwendig sind, kann zum jetzigen Zeitpunkt die Richtigkeit der Anwendung nicht überprüft werden.
-	\item[Interoperatbilität] 
-	\item[Sicherheit] Die Sicherheit in \app muss vor allem für die verwendeten persönlichen Daten hergestellt werden. Dies
-	wird lokal auf dem Endgerät über einen Log-In-Mechanismus realisiert, mit dem sichergestellt wird, dass nur
-	autorisierte Personen Zugriff auf die Daten von Klienten und sonstigen Kontakten bekommen. Sobald die Anwendung
-	verlassen wird, sie aber trotzdem noch im Hintergrund läuft und wieder aufgerufen werden kann, werden die Nutzerdaten
-	aus dem lokale Speicher entfernt, um nicht einem Dritten, der das Endgerät in die Hände bekommt, einen Zugang über die
-	hinterlegten Daten zu ermöglichen. Dadurch, dass \app vom Betriebssystem einen eigenen Speicherbereich zugewiesen
-	bekommt, ist ein Zugriff von anderen Anwendungen aus nicht möglich. Die Übertragung der Daten zu CareNet wird über eine
-	\acs{https}-Verbindung gesichert.
-	\item[Konformität] ???
+	in der Regel mit Ressourcen für die Nutzung von Multimediainhalten ausgestattet. Aufgrund dessen, dass zur
+	Dokumentation von delegierten ärztlichen Leistungen lediglich einige Datenbankoperationen, die Anzeige von
+	HTML-Inhalten und einige Animationen benötigt werden, sollten die Ressourcen der Zielgeräte ausreichend sein. Da der
+	Speicher der Geräte im Gigabyte-Bereich (1 Gigabyte = 1024 Megabyte) liegt und die Anwendung zum Zeitpunkt der Abgabe
+	weniger als 2 Megabyte groß war, muss dem Ressourcenverbrauch keine besondere Aufmerksamkeit geschenkt werden.
 \end{description}
 
 \Large 
@@ -145,10 +129,59 @@ eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher 
 
 \normalsize
 \begin{description}
-	\item[Reife]
-	\item[Fehlertoleranz]
-	\item[Robustheit]
-	\item[Wiederherstellbarkeit] 
+	\item[Angemessenheit] Im Vergleich mit den Anforderungen ist die bisher implementierte Funktionalität zwar eine gute
+	Basis, jedoch fehlen noch wichtige Funktionalitäten wie das Hinzufügen durchgeführter Tätigkeiten vor Ort beim Klienten
+	oder eine vollständige Klienteninformation. Aus diesem Grund ist die Funktionalität von \app noch nicht dem Einsatzziel
+	der Dokumentation ärztlich übertragener Tätigkeiten anzusehen.
+	\item[Richtigkeit] Da noch einige Anforderungen offen sind, die für einen produktiven Einsatz der Software
+	notwendig sind, kann zum jetzigen Zeitpunkt die Richtigkeit der Anwendung nicht überprüft werden.
+	\item[Interoperabilität] \app wurde dafür entwickelt, Daten von CareNet abzurufen, veränderbar zu machen und diese
+	zurückzusenden. Zwar wird eine allgemeine \acs{rest}-Schnittstelle verwendet, jedoch ist die Behandlung der
+	abgefragten Daten stark an das Datenmodell von CareNet angepasst. \app kann also nicht ohne Weiteres mit einem anders
+	aufgebauten Basissystem verwendet werden, sondern ist an CareNet gebunden. Allerdings ist es möglich, über eine
+	Konfigurationsdatei verschiedene Instanzen von CareNet anzusteuern (über die Änderung der URL zum Server). Es ist
+	allerdings eine Erweiterung auf andere Produkte der nubedian GmbH denkbar (vgl. \cite{nubedian}), da diese ein
+	ähnliches Datenmodell und die gleiche Schnittstelle verwenden. Eventuell würde hierzu die Entwicklung weiterer
+	Plug-Ins notwendig.
+	\item[Sicherheit] Die Sicherheit in \app muss vor allem für die verwendeten persönlichen Daten hergestellt werden. Dies
+	wird lokal auf dem Endgerät über einen Log-In-Mechanismus realisiert, mit dem sichergestellt wird, dass nur
+	autorisierte Personen Zugriff auf die Daten von Klienten und sonstigen Kontakten bekommen. Sobald die Anwendung
+	verlassen wird, sie aber trotzdem noch im Hintergrund läuft und wieder aufgerufen werden kann, werden die Nutzerdaten
+	aus dem lokalen Speicher entfernt, um nicht einem Dritten, der das Endgerät in die Hände bekommt, einen Zugang über die
+	hinterlegten Daten zu ermöglichen. Dadurch, dass \app vom Betriebssystem einen eigenen Speicherbereich zugewiesen
+	bekommt, ist ein Zugriff auf gespeicherte Inhalte von anderen Anwendungen aus nicht möglich. Die Übertragung der Daten
+	zu CareNet wird über eine \acs{https}-Verbindung gesichert.
+	\item[Konformität] ???
+\end{description}
+
+\Large 
+\textbf{Zuverlässigkeit}
+
+\normalsize
+\begin{description}
+	\item[Reife] Bis zum Ende der Bearbeitungszeit dieser Master-Arbeit konnte lediglich ein Prototyp einer mobilen
+	Anwendung zur Dokumentation ärztlicher Leistungen entwickelt werden. Aus diesem Grund ist die Anwendung noch einige
+	Entwicklungs- und Testschritte von einer marktreifen Anwendung entfernt. 
+	\item[Fehlertoleranz] Zur Implementierung einer Fehlertoleranz wurden in erster Linie die von den JavaScript-Frameworks
+	gegebenen Mechanismen benutzt. Beispielsweise werden Datenbankanfragen in Transaktionen gekapselt, damit eine direkte
+	Fehlerbehandlung erfolgen kann, wenn eine Anfrage fehlschlägt. Auch bei \acs{ajax}-Anfragen an CareNet wird jeweils
+	überprüft, ob die Anfrage erfolgreich war und wenn nicht, werden entsprechende Maßnahmen eingeleitet.\\
+	Um sicherzustellen, dass Daten an CareNet vollständig übermittelt werden, wird jedes Element (z.B. ein Messwert oder
+	ein Dossier) einzeln übertragen, um bei einem Fehler genau zu wissen, welche Operationen noch einmal ausgeführt werden
+	muss. Die Fehlertoleranz ist allerdings noch nicht für alle möglichen Anwendungsfälle implementiert. Es besteht also
+	noch Nachbesserungsbedarf.
+	\item[Robustheit] Zum Zeitpunkt der Abgabe der Arbeit wurden noch keine ausführlichen Tests bezüglich Robustheit der
+	Anwendung durchgeführt. Zwar kann durch die Einbettung der Anwendung in den Kontext der jeweiligen Plattform von einer
+	gewissen Robustheit ausgegangen werden, da hier Mechanismen zum Lebenszyklusmanagement implementiert sind und auch
+	PhoneGap als Basis ständig weiterentwickelt wird, jedoch ist mit Instabilitäten innerhalb der Anwendung aufgrund des
+	Prototypenstatus zu rechnen.
+	\item[Wiederherstellbarkeit] Stürzt die Anwendung oder das gesamte Endgerät ab, sind nicht gleich alle Daten verloren.
+	Eingaben wie die Bestätigung einer Standardleistung (vgl. Kapitel \ref{sec:plugTouren}) oder die Eintragung einer
+	Begründung, warum eine Leistung nicht erbracht werden konnte, werden direkt bei der Eingabe in der lokalen
+	Sqlite-Datenbank gespeichert. Für Wundfotos und Messwerte muss der Speichervorgang explizit angestoßen werden.
+	Da die lokale Datenbank persistent ist, können gespeicherte Daten auch nach einem Neustart des Tablet-PCs oder der
+	Anwendung wiederhergestellt werden. Wird die Anwendung oder der zugehörige Speicherbereich allerdings gelöscht, bevor
+	die Daten an CareNet übertragen wurden, sind sie nicht wiederherstellbar.
 \end{description}
 
 \Large 
@@ -156,10 +189,9 @@ eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher 
 
 \normalsize
 \begin{description}
-	\item[Verständlichkeit]
-	\item[Erlernbarkeit]
-	\item[Bedienbarkeit]
-	\item[Attraktivität] 
+	\item[Verständlichkeit, Erlernbarkeit, Bedienbarkeit, Attraktivität] Die Benutzbarkeit des Prototyps von \app wurde in
+	einer Schulung mit einigen möglichen Endnutzern evaluiert. Die Ergebnisse der Evaluation werden in Abschnitt
+	\ref{sec:evalEndnutzer} vorgestellt.
 \end{description}
 
 
@@ -176,8 +208,6 @@ Umgang mit Tablet-PCs erlernen und für die hiermit gegebenen technischen Möglich
 Teil zur Evaluation wurde der Fokus auf die Ermittlung der momentanen Abläufe bei der Dokumentation pflegerischer
 Leistungen gelegt, auftretende Probleme sollten identifiziert werden und daraus Anforderungen an die Dokumentation auf
 einem Tablet-PC abgeleitet werden.\\
-\textcolor{red}{[Erster Eindruck der Teilnehmer ergänzen? Pünktlichkeit, Aufgeschlossenheit, keine grundsätzliche
-Abneigung\ldots]}
 
 \subsection{Vorwissen der Teilnehmer und vorbereitende Maßnahmen}
 \label{subsec:vorwissen}

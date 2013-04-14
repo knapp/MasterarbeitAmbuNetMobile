@@ -1,0 +1,825 @@
+
+%% ==================
+\chapter{Evaluation}
+\label{ch:Evaluation}
+%% ==================
+
+Im folgenden Kapitel wird die bisher entwickelte Anwendung zur Unterstützung der Dokumentation von delegierten
+ärztlichen Tätigkeiten evaluiert. In Abschnitt \ref{sec:iso25k} wird \app zunächst an Qualitätskriterien der
+\acs{iso}/\acs{iec} 25000 gemessen, die auf die Software-Produktqualität abzielt. In Abschnitt
+\ref{sec:evalEndnutzer} wird das Ergebnis einer Anforderungsevaluation im Rahmen einer Schulung von Angehörigen der
+Alten- und Krankenpflegeberufe vorgestellt.
+
+\section{Evaluation der technischen Umsetzung der mobilen Anwendung}
+\label{sec:iso25k}
+
+Zur Evaluation der entwickelten Anwendung wird auf den von der \acl{iso} (\acs{iso}) und der \acl{iec} (\acs{iec})
+entwickelten Standard 25000 zurückgegriffen, der den Namen "Software product Quality Requirements and Evaluation
+(SQuaRE)" trägt \cite{iso25000}. Der Standard ersetzt die beiden älteren Standards ISO/IEC 14598 (Software Product
+Evaluation) und ISO/IEC 9126 (Software Product Quality), da diese ohnehin komplementären Standards die gleichen
+normativen und funktionellen Wurzeln bildeten, jedoch Inkonsistenzen in den vorgeschlagenen Lebenszyklen auftraten. Der
+Standard ISO/IEC 25000 soll Entwicklern, Käufern und unabhängigen Gutachtern von Software-Produkten eine Menge von
+Kriterien zur Bewertung von Software in verschiedenen Entwicklungsphasen bieten. Von der Anforderungsanalyse über die
+Implementierung bis hin zum fertigen Software-Produkt werden Methoden vorgeschlagen, mit denen eine Koordination
+zwischen Messung und Evaluation von definierten Charakteristika vorgenommen werden kann. Definiert wird ein
+Software-Produkt Lebenszyklus, in welchem die Software-Produkqualität in drei Phasen erfasst wird. Diese sind die
+\textit{Qualität während der Benutzung} (Quality in Use), die \textit{externe Qualität} (external Quality) und die
+\textit{interne Qualität} (internal Quality). Erstere beschreibt die Anforderungen an die Software aus Sicht des
+Endnutzers beim finalen Endprodukt. Die externe Qualität wird aus den Endnutzeranforderungen abgeleitet und als Ziel für
+die technische  Verifikation und Validierung der Sofware genutzt. Die interne Qualität wird wiederum zum Teil aus den
+Anforderungen an die externe Qualität abgeleitet, definiert werden aber auch die Eigenschaften von
+Software-Zwischenprodukten auf dem Weg zum Endprodukt. Die internen Qualitätskriterien können auch auf Nebenprodukte der
+Entwicklung wie die Dokumentation oder Anleitungen angewandt werden. Die Evaluation von \app erfolgt nur auf Basis der
+internen und externen Qualitätskriterien, da es während der begrenzten Bearbeitungszeit nicht möglich war, eine
+marktreife Anwendung zu entwickeln, sondern lediglich einen Prototypen. Außerdem fehlen zu einer vollständigen
+Evaluation tatsächliche Endnutzer, die für die Beurteilung der Qualität während der Benutzung unerlässlich sind.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/iso25k.pdf}
+	\caption{Interne und externe Charakteristika von Software-Produktqualität}
+	\label{fig:iso25k}
+\end{figure}
+
+Abbildung \ref{fig:iso25k} zeigt die Charakteristika und Subcharakteristika für die Bewertung der internen und externen
+Qualität. Aufgrund der zeitlichen Rahmenbedingungen kann nicht in größtmöglicher Detailtiefe auf jedes Charakteristikum
+eingegangen werden, jedoch wird jedes Element dahingehend bewertet, mit welcher Priorität es in der Implementierung von
+\app berücksichtigt wurde oder warum diese Gewichtung erfolgte.
+
+\Large 
+\textbf{Wartbarkeit}
+
+\normalsize
+
+\begin{description}
+	\item[Änderbarkeit] Die technischen Anforderungen an \app zielten vor allem auf eine leichte Erweiterbarkeit und
+	Änderbarkeit wegen veränderter Rahmenbedingungen ab. Gefordert wurde ein modularer Aufbau, der in einer
+	Plug-In-Architektur umgesetzt wurde. Eine leichte Änderbarkeit bzgl. Hinzufügen und Entfernen von Plug-Ins wurde
+	folglich adressiert, jedoch sind Veränderungen \textit{innerhalb} eines Plug-Ins oder der Basisanwendung schwieriger
+	umzusetzen, da durch die Verwendung von nur einer JavaScript-Datei pro Modul nur eine verhältnismäßig unübersichtliche
+	Quellcode-Basis zur Verfügung steht. Durch ausführliche Kommentierung des Quellcodes wurde versucht, die fehlende
+	Struktur auszugleichen.
+	\item[Analysierbarkeit] Die grundsätzliche Architektur ist aufgrund seines modularen Aufbaus gut analysierbar, da die
+	Zusammenhänge und Abhängigkeiten über die Konfigurationsdateien nachvollziehbar sind. Sollen allerdings Aufrufketten
+	von Funktionen verfolgt werden, muss dies in der Regel manuell gemacht werden, da hier keine Unterstützung durch
+	Software-Werkzeuge vergleichbar beispielsweise mit der Unterstützung, die Eclipse \cite{eclipse} bei der
+	Java-Entwicklung bietet, vorhanden ist. Eine Analyse ist zwar immer noch möglich, jedoch ist die Gefahr größer, dass
+	hierbei wegen der fehlenden Automatisierung Fehler passieren.
+	\item[Stabilität] Die Stabilität der Anwendung stand bisher nicht im Fokus der Entwicklung. Zwar wurden Instabilitäten
+	behoben, wenn sie entdeckt wurden, jedoch konnte aufgrund des zeitlichen Rahmens keine ausführliche Analyse bezüglich
+	möglicher instabiler Abläufe durchgeführt werden.
+	\item[Prüfbarkeit] \app besteht aufgrund seines hybriden Charakters aus einer Menge verschiedener Technologien. Der
+	native Container besteht aus der jeweils zugrunde liegenden Programmiersprache, während die hauptsächliche
+	Funktionalität mit JavaScript implementiert wird, die Darstellung aber vollständig über HTML und CSS läuft. Außerdem bestehen
+	Abhängigkeiten zu Bibliotheken wie jQuery, jQuery mobile und PhoneGap. Theoretisch können in allen Elementen Fehler
+	auftreten, was eine komplette, im Idealfall automatisierte Überprüfung sehr schwierig macht. Zwar gibt es
+	JavaScript Test-Frameworks wie Jasmine \cite{jasmine} oder QUnit (für jQuery) \cite{qunit}, jedoch können hiermit
+	hauptsächlich Fehler im eigenen Quellcode entdeckt werden. Fehler in den extern entwickelten Bibliotheken sind so nur
+	schwer zu identifizieren. Bisher wurden aus Zeitgründen keine automatischen Tests implementiert. Die Überprüfung der
+	grafischen Oberfläche bestehend aus HTML und CSS, die einen signifikanten Anteil der Entwicklungszeit beansprucht hat,
+	kann ohnehin nur manuell durch Blickprüfung erfolgen. Die Prüfbarkeit von \app ist daher als schwierig einzustufen.
+\end{description}
+
+\Large 
+\textbf{Übertragbarkeit}
+
+\normalsize
+\begin{description}
+	\item[Anpassbarkeit] Die Anpassbarkeit bezieht sich bei \app vor allem auf die Möglichkeit, die Anwendung auf
+	verschiedenen Plattformen (Android, iOS, Windows Phone etc.) bereitzustellen. Durch die Verwendung von PhoneGap wurde
+	diese Art der Anpassbarkeit implizit mit in die Architektur aufgenommen. Dadurch, dass die Funktionalität von \app
+	ausschließlich über JavaScript realisiert wurde, was zwischen den Plattformen portierbar ist, wurde nicht nur zum
+	Entwurfszeitpunkt, sondern auch während der Implementierung ein besonderes Augenmerk auf die Erhaltung der von PhoneGap
+	ermöglichten Anpassbarkeit an verschiedene Plattformen gelegt.
+	\item[Koexistenz] Da \app gekapselt als Anwendung für eine jeweilige Plattform bereitgestellt wird, ist es problemlos
+	mit anderen Anwendungen auf einem Endgerät kombinierbar. Auch könnten verschiedene Versionen der gleichen Anwendung auf
+	dem Endgerät installiert sein, wenn verschiedene Signaturen der Anwendungen verwendet werden.
+	\item[Installierbarkeit] Zur Installation werden die von der jeweiligen Plattform unterstützen Verfahren verwendet,
+	die in der Regel einfach und intuitiv sind, da sie für eine breite Masse von Nutzern verwendbar sein müssen. Da \app
+	aber nicht für den Einsatz in der breiten Masse gedacht ist, sondern gezielt an Kunden weitergegeben wird und somit
+	nur eine verhältnismäßig geringe Anzahl an Installationen durchgeführt werden wird, spielt die Installierbarkeit nur
+	eine untergeordnete Rolle.
+	\item[Austauschbarkeit] Ähnlich einfach wie die Installation einer Anwendung auf einer der gängigen Plattformen lässt
+	sich über einen auf der Plattform vorhandenen Update-Mechanismus oder eine Deinstallation der alten Anwendung mit
+	anschließender Neuinstallation die Anwendung austauschen. Die Entwurfsentscheidung Tablet-PCs zu verwenden implizierte
+	folglich eine Sicherstellung einfacher Installierbarkeit und Austauschbarkeit.
+\end{description}
+
+\Large 
+\textbf{Effizienz}
+
+\normalsize
+\begin{description}
+	\item[Zeitverhalten] Bei \app handelt es sich nicht um eine Anwendung, bei der das Zeitverhalten ein entscheidender
+	Faktor ist. Zwar soll durch den Einsatz der Anwendung Zeit gespart werden, jedoch kommt es hier nicht auf
+	Millisekunden an. Die einzige zeitliche Limitierung ist die Geduld des Nutzers während der Bedienung, welche je nach
+	Individuum sehr unterschiedlich ausfallen kann. Solange keine sekundenlangen Verzögerungen beim Laden von Daten oder
+	Ansichten auftreten, welche bisher nicht festgestellt werden konnten, muss das Zeitverhalten nicht näher betrachtet
+	werden.
+	\item[Ressourcenverbrauch] Die bisher betrachteten Tablet-PCs, welche für den Einsatz von \app in Frage kommen, sind
+	in der Regel mit Ressourcen für die Nutzung von Multimediainhalten ausgestattet. Aufgrund dessen, dass zur
+	Dokumentation von delegierten ärztlichen Leistungen lediglich einige Datenbankoperationen, die Anzeige von
+	HTML-Inhalten und einige Animationen benötigt werden, sollten die Ressourcen der Zielgeräte ausreichend sein. Da der
+	Speicher der Geräte im Gigabyte-Bereich (1 Gigabyte = 1024 Megabyte) liegt und die Anwendung zum Zeitpunkt der Abgabe
+	weniger als 2 Megabyte groß war, muss dem Ressourcenverbrauch keine besondere Aufmerksamkeit geschenkt werden.
+\end{description}
+
+\Large 
+\textbf{Funktionalität}
+
+\normalsize
+\begin{description}
+	\item[Angemessenheit] Im Vergleich mit den Anforderungen ist die bisher implementierte Funktionalität zwar eine gute
+	Basis, jedoch fehlen noch wichtige Funktionalitäten wie das Hinzufügen durchgeführter Tätigkeiten vor Ort beim Klienten
+	oder eine vollständige Klienteninformation. Aus diesem Grund ist die Funktionalität von \app noch nicht dem Einsatzziel
+	der Dokumentation ärztlich übertragener Tätigkeiten anzusehen.
+	\item[Richtigkeit] Da noch einige Anforderungen offen sind, die für einen produktiven Einsatz der Software
+	notwendig sind, kann zum jetzigen Zeitpunkt die Richtigkeit der Anwendung nicht überprüft werden.
+	\item[Interoperabilität] \app wurde dafür entwickelt, Daten von CareNet abzurufen, veränderbar zu machen und diese
+	zurückzusenden. Zwar wird eine allgemeine \acs{rest}-Schnittstelle verwendet, jedoch ist die Behandlung der
+	abgefragten Daten stark an das Datenmodell von CareNet angepasst. \app kann also nicht ohne Weiteres mit einem anders
+	aufgebauten Basissystem verwendet werden, sondern ist an CareNet gebunden. Allerdings ist es möglich, über eine
+	Konfigurationsdatei verschiedene Instanzen von CareNet anzusteuern (über die Änderung der URL zum Server). Es ist
+	allerdings eine Erweiterung auf andere Produkte der nubedian GmbH denkbar (vgl. \cite{nubedian}), da diese ein
+	ähnliches Datenmodell und die gleiche Schnittstelle verwenden. Eventuell würde hierzu die Entwicklung weiterer
+	Plug-Ins notwendig.
+	\item[Sicherheit] Die Sicherheit in \app muss vor allem für die verwendeten persönlichen Daten hergestellt werden. Dies
+	wird lokal auf dem Endgerät über einen Log-In-Mechanismus realisiert, mit dem sichergestellt wird, dass nur
+	autorisierte Personen Zugriff auf die Daten von Klienten und sonstigen Kontakten bekommen. Sobald die Anwendung
+	verlassen wird, sie aber trotzdem noch im Hintergrund läuft und wieder aufgerufen werden kann, werden die Nutzerdaten
+	aus dem lokale Speicher entfernt, um nicht einem Dritten, der das Endgerät in die Hände bekommt, einen Zugang über die
+	hinterlegten Daten zu ermöglichen. Dadurch, dass \app vom Betriebssystem einen eigenen Speicherbereich zugewiesen
+	bekommt, ist ein Zugriff auf gespeicherte Inhalte von anderen Anwendungen aus nicht möglich. Die Übertragung der Daten
+	zu CareNet wird über eine \acs{https}-Verbindung gesichert.
+	\item[Konformität] ???
+\end{description}
+
+\Large 
+\textbf{Zuverlässigkeit}
+
+\normalsize
+\begin{description}
+	\item[Reife] Bis zum Ende der Bearbeitungszeit dieser Master-Arbeit konnte lediglich ein Prototyp einer mobilen
+	Anwendung zur Dokumentation ärztlicher Leistungen entwickelt werden. Aus diesem Grund ist die Anwendung noch einige
+	Entwicklungs- und Testschritte von einer marktreifen Anwendung entfernt. 
+	\item[Fehlertoleranz] Zur Implementierung einer Fehlertoleranz wurden in erster Linie die von den JavaScript-Frameworks
+	gegebenen Mechanismen benutzt. Beispielsweise werden Datenbankanfragen in Transaktionen gekapselt, damit eine direkte
+	Fehlerbehandlung erfolgen kann, wenn eine Anfrage fehlschlägt. Auch bei \acs{ajax}-Anfragen an CareNet wird jeweils
+	überprüft, ob die Anfrage erfolgreich war und wenn nicht, werden entsprechende Maßnahmen eingeleitet.\\
+	Um sicherzustellen, dass auch schreibende Operationen mit CareNet vollständig ausgeführt werden, wird jedes Element
+	(z.B. ein Messwert oder ein Dossier) einzeln ausgeführt, um bei einem Fehler genau zu wissen, welche Operationen noch
+	einmal ausgeführt werden müssen. Die Fehlertoleranz ist allerdings noch nicht für alle möglichen Anwendungsfälle
+	implementiert. Es besteht also noch Nachbesserungsbedarf.
+	\item[Robustheit] Zum Zeitpunkt der Abgabe der Arbeit wurden noch keine ausführlichen Tests bezüglich Robustheit der
+	Anwendung durchgeführt. Zwar kann durch die Einbettung der Anwendung in den Kontext der jeweiligen Plattform von einer
+	gewissen Robustheit ausgegangen werden, da hier Mechanismen zum Lebenszyklusmanagement implementiert sind und auch
+	PhoneGap als Basis ständig weiterentwickelt wird, jedoch ist mit Instabilitäten innerhalb der Anwendung aufgrund des
+	Prototypenstatus zu rechnen.
+	\item[Wiederherstellbarkeit] Stürzt die Anwendung oder das gesamte Endgerät ab, sind nicht gleich alle Daten verloren.
+	Eingaben wie die Bestätigung einer Standardleistung (vgl. Kapitel \ref{sec:plugTouren}) oder die Eintragung einer
+	Begründung, warum eine Leistung nicht erbracht werden konnte, werden direkt bei der Eingabe in der lokalen
+	Sqlite-Datenbank gespeichert. Für Wundfotos und Messwerte muss der Speichervorgang explizit angestoßen werden.
+	Da die lokale Datenbank persistent ist, können gespeicherte Daten auch nach einem Neustart des Tablet-PCs oder der
+	Anwendung wiederhergestellt werden. Wird die Anwendung oder der zugehörige Speicherbereich allerdings gelöscht, bevor
+	die Daten an CareNet übertragen wurden, sind sie nicht wiederherstellbar.
+\end{description}
+
+\Large 
+\textbf{Benutzbarkeit}
+
+\normalsize
+\begin{description}
+	\item[Verständlichkeit, Erlernbarkeit, Bedienbarkeit, Attraktivität] Die Benutzbarkeit des Prototyps von \app wurde in
+	einer Schulung mit einigen möglichen Endnutzern evaluiert. Die Ergebnisse der Evaluation werden in Abschnitt
+	\ref{sec:evalEndnutzer} vorgestellt.
+\end{description}
+
+
+\section{Evaluation von Nutzbarkeit, Funktionsumfang und Akzeptanz anhand einer Zielgruppenschulung}
+\label{sec:evalEndnutzer}
+
+Am 19.01.2013, nach etwa drei Monaten Entwicklungszeit, fand eine ganztägige EDV-Anwenderschulung im Rahmen der
+Ausbildung zur Medizinischen Fachpflegekraft am Forschungszentrum Informatik (FZI) statt. Die sieben Teilnehmerinnen
+waren ausgebildete Alten- und Krankenpflegerinnen mit mehrjähriger Berufserfahrung. Der erste Teil des Tages wurde
+vorwiegend zu Schulungszwecken genutzt, während der zweite Teil des Tages der Evaluation der zu Beginn der Arbeit auf
+Basis von Literatur ermittelten Anforderungen an eine mobile Anwendung diente. Ziel des Schulungsteils der Veranstaltung
+war einerseits eine grundlegende Einführung in die Nutzung von CareNet, andererseits sollten die Teilnehmerinnen den
+Umgang mit Tablet-PCs erlernen und für die hiermit gegebenen technischen Möglichkeiten begeistert werden. Im zweiten
+Teil zur Evaluation wurde der Fokus auf die Ermittlung der momentanen Abläufe bei der Dokumentation pflegerischer
+Leistungen gelegt, auftretende Probleme sollten identifiziert werden und daraus Anforderungen an die Dokumentation auf
+einem Tablet-PC abgeleitet werden.\\
+\textcolor{red}{[Erster Eindruck der Teilnehmer ergänzen? Pünktlichkeit, Aufgeschlossenheit, keine grundsätzliche
+Abneigung\ldots]}
+
+\subsection{Vorwissen der Teilnehmer und vorbereitende Maßnahmen}
+\label{subsec:vorwissen}
+
+Zu Beginn der Schulung musste zunächst der EDV-Wissensstand ermittelt werden, um festzustellen, welche Kenntnisse
+vorausgesetzt werden können, ohne die Teilnehmer zu überfordern. Ziel war es, zu keinem Zeitpunkt wegen zu schneller
+Vorgehensweise Teilnehmer zu verlieren oder Langeweile durch zu langsames Vorgehen aufkommen zu lassen. Hierzu wurde im
+Gespräch mit der Gruppe ermittelt, ob Computer überhaupt Teil des täglichen beruflichen und privaten Lebens seien und,
+falls ja, welche Einstellung die Teilnehmer gegenüber Computern haben. Ein Stimmungsbild bezüglich der Einstellung ist
+als Grundlage einer Anwenderschulung besonders wichtig, da so frühzeitig generelle Kritikpunkte an sowie Widerstände
+gegen \acs{edv} identifiziert werden können und gezielt dagegen gearbeitet werden kann. Werden versteckte Widerstände
+nicht erkannt, kann dies den Erfolg einer Schulung gefährden.
+
+Die Teilnehmer gaben an, sowohl privat als auch beruflich mit Computern zu arbeiten. Hauptsächlich würden das Internet
+(verschiedene Browser) und Office-Anwendungen benutzt, sowie im Beruf die zur Dokumentation von Tätigkeiten verwendete
+Software. Neben stationären PCs wurde auch die Verwendung von Mobiltelefonen, Smartphones und Tablet-PCs abgefragt.
+Mobiltelefone benutzten alle Teilnehmer, ein Smartphone besaßen jedoch nur zwei Teilnehmerinnen und Tablet-PCs wurden
+lediglich einmal von zwei Teilnehmerinnen verwendet.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.6]{figures/CASResults.png}
+	\caption{Ergebnisse des Fragebogens zur Einstellung gegenüber Computern}
+	\label{fig:casResults}
+\end{figure}
+
+Zur Fundierung der in der Diskussion gewonnenen Eindrücke wurde von den Teilnehmern ein Fragebogen zur Ermittlung der
+Einstellung gegenüber elektronischer Datenverarbeitung auf Basis des \acl{cas} (\acs{cas}) \cite{casOriginal}
+ausgefüllt. Da der \acs{cas} im Jahre 1986 entwickelt wurde, als die Nutzung von Computer in Unternehmen und vereinzelt
+auch in Privathaushalten gerade erst begann, konnte nur ein Teil der Fragen verwendet werden. In der Master-Arbeit von
+Mathias Schmon \cite{masterMathias} wurden die Fragen bereits in einer ersten Version übersetzt und überarbeitet, was
+als Grundlage für den in dieser Arbeit verwendeten Fragebogen diente. Die letztendliche Auswahl der Fragen zielte vor
+allem darauf ab, wie sich die Teilnehmer bei der Arbeit mit Computern fühlen, ob sie sie beispielsweise als Bedrohung
+ansehen oder ob Computer eher als nützliches Hilfsmittel angesehen werden. Außerdem wurde gefragt, ob die Teilnehmer
+meinen, ein grundsätzliches Verständnis für die Arbeit mit Computern zu haben.
+
+Die Ergebnisse des Fragebogens sind in Abbildung \ref{fig:casResults} aufgelistet. Sechs von sieben Teilnehmern sagten
+aus, dass sie sich bei der Arbeit mit Computern weder unwohl fühlen (1), noch eingeschüchtert werden (2). Hieraus kann
+geschlossen werden, dass grundsätzlich keine Scheu gegenüber Computern besteht. Jedoch waren sich die Teilnehmer bei der
+Frage, ob Computer sie verunsichern, nicht einig (drei stimmten zu, vier nicht), was offenbart, dass trotz täglicher
+Nutzung immer noch gewisse Bedenken vorhanden sind. Dies steht in gewissem Widerspruch zu der Frage, ob Computer
+verunsichernd wirken (6), da Unsicherheit häufig zu Unwohlsein führt. Auch bei der Frage, ob ein übermäßiger Einsatz von
+Computern schädigende Wirkung haben könnte (3), herrschte keine Einigkeit. Obwohl vier von sieben Teilnehmern der These
+nicht zustimmten, kann aus der Diversität der Antworten geschlossen werden, dass eine flächendeckende Einführung von
+Computern kritisch gesehen wird. Die Fragen zum Nutzen von Computern bei der Ausführung der täglichen Arbeit fielen
+grundsätzlich positiv aus. Zwar stimmten jeweils ein bzw. zwei Teilnehmerinnen den Thesen nicht zu, dass Computer
+ermüdende Aufgaben übernehmen können (4), man mit ihnen schnell Informationen finden kann (5) und sie das Leben
+grundsätzlich vereinfachen (7), jedoch lässt sich daraus ablesen, dass Computer als Hilfsmittel und nicht als Hürde
+angesehen werden. Trotz dieser positiven Sicht auf die Verwendung gaben fünf von sieben Teilnehmern an,
+dass Computer an sich schwer zu verstehen sind und die Arbeit mit ihnen zu Frustration führen kann (8). Dies ist
+vermutlich auf die Tatsache zurückzuführen, dass Computer eine derartige Komplexität besitzen, dass ein Laie oft nicht
+in der Lage ist, auftretende Fehler zu beheben. Die Antwort auf die Frage passen zu Berichten der Teilnehmer, dass einer
+oder mehrere der zur Arbeit vorhandenen Computer häufig ausfällt oder zu sonstigen Problemen führt.\\
+Die Ergebnisse des Fragebogens sowie der in den Gesprächen gewonnene Eindruck deckten sich weitgehend. Für die Schulung
+wurde aus dem gewonnen Eindruck geschlossen, dass keine grundsätzlichen Widerstände gegen den Einsatz von Computern
+überwunden werden müssen, dass jedoch gerade im Hinblick auf die Einführung einer neuen Technologie Überzeugungsarbeit
+geleistet werden muss. Als Ziel der Schulung bzw. der Anforderungsermittlung sollte die Erleichterung der Arbeit
+kommuniziert werden, damit nicht der Eindruck entsteht, es sollte nur eine bessere Kontrolle der geleisteten Arbeit
+möglich werden. Denn wenn die Einführung elektronischer Dokumentation als Überwachung wahrgenommen wird, könnten sich
+hierdurch Widerstände formieren.\\
+
+Für die Schulungen in CareCM und dem Umgang mit Tablet-PCs wurden die Teilnehmer in Zweierteams aufgeteilt.
+Da es sich um eine ungerade Anzahl an Teilnehmern handelte, wurde ein Team mit einem Studenten des FZI ergänzt, der
+ohnehin aus Interesse an der Schulung teilnahm, jedoch nicht in die Evaluation mit einbezogen wurde. Durch die
+Teambildung sollte eine gegenseitige Unterstützung der Teilnehmer gefördert werden und eine kommunikativere
+Arbeitsumgebung geschaffen werden. Durch unterschiedliches Vorwissen konnten sich die Teilnehmer mit ihren Fähigkeiten
+im Team bei der Mitarbeit im Workshop gegenseitig ergänzen.\\
+Die Schulung für CareCM war vor allem dafür gedacht, den Teilnehmern einen Eindruck von einem möglichen zentralen
+Verwaltungssystem zu geben. Es wurden verschiedene Funktionalitäten wie das Anlegen von Kontakten und Terminen sowie
+deren Verknüpfung vermittelt, die Struktur der grafischen Oberfläche erklärt und das Einsatzgebiet von CareCM erläutert.
+Von den Teilnehmern wurden häufig Vergleiche zu ihren momentan verwendeten Verwaltungssystemen gezogen. Da diese nach
+Aussagen der Teilnehmer ähnlich aufgebaut sind, kamen die meisten schnell mit der Benutzung von CareCM zurecht.
+Trotz der Aufgaben (siehe Anhang \textcolor{red}{[REFERENZ]}) zur Festigung des gelernten, konnte in der Kürze der Zeit
+nur ein oberflächlicher Eindruck von CareCM vermittelt werden. Weil der Schulungsteil zu CareCM ohnehin in erster Linie
+zur Erfüllung der Schulungsrichtlinien zur Weiterbildung zur \acs{mfp} in das Programm eingefügt wurde, stand nicht mehr
+Zeit zur Schulung zu Verfügung. Da CareCM nur \textit{ähnlich} zu dem zentralen System CareNet ist, war den Teilnehmern
+schwer die Sinnhaftigkeit für den Schulungsteil zu vermitteln. Es ist zu vermuten, dass am Ende des Tages kaum noch ein
+Teilnehmer in der Lage gewesen wäre, die am Vormittag gestellten Aufgaben zu CareCM zu lösen, da der danach
+durchgeführte Teil der Schulung keinen Bezug hierzu hatte. Wahrscheinlich ist daher, dass dieser Teil der Schulung
+tatsächlich nur seinen Pflichtcharakter erfüllte.\\
+
+Zur Schulung im Umgang mit Tablet-PCs wurde jedem Zweierteam ein Tablet zur Verfügung gestellt (Samsung Galaxy Tab I
+oder II). Die Geräte lagen schon zu Beginn der Schulung aus und es konnte beobachtet werden, dass einige der Teilnehmer schon
+vor dem eigentlichen Schulungsteil die Geräte in Augenschein nahmen. Ziel dieses Teils sollte neben dem reinen Erlernen
+der Funktionalität sein, die Alten- und Pflegekräften für die neue Technologie zu begeistern und Neugier zu wecken.
+Hierfür wurden zunächst allgemeine Eigenschaften eines Tablet-PCs wie die Bedienung durch Berührung, vorhandene Hardware
+wie eine oder mehrere eingebaute Kameras, den Beschleunigungssensor oder den GPS-Sensor und die damit verbundenen
+Möglichkeiten erklärt. Es erfolgte eine generelle Abgrenzung von Tablet-PCs zu herkömmlichen Desktop- und Laptop-PCs
+sowie Erklärungen zu den verschiedenen Betriebssystemen wie Android und dem bekannten iOS von Apple. Das Interesse der
+Teilnehmer war spürbar, da die Erklärungen zur Hardware und Ausstattung der Geräte häufig durch Fragen zu Preisen,
+erhältlichen Varianten und Einsatzmöglichkeiten unterbrochen wurden.\\
+Nach einer grundlegenden Erklärung der Eigenschaften wurden verschiedene Anwendungen (Apps) vorgeführt. Die Teilnehmer
+waren aufgefordert, schon während der Erklärung selbst das Gesehene auszuprobieren. Vorgestellt wurde der Internet Browser,
+die Kamera-Funktion, Google Maps, die YouTube-Anwendung und der Google Playstore. Bei der Auswahl der vorgestellten
+Anwendungen wurde bewusst ein Fokus auf Unterhaltung und tägliche Anwendbarkeit gelegt, da nach Meinung des Autors nur
+auf diesem spielerischen Wege in der Kürze der Zeit eine Begeisterung für die Geräte hervorgerufen werden konnte. Eine
+direkte Vorstellung von Anwendungen zur Unterstützung der täglichen Arbeit hätte diese Wirkung nicht erzielen können.
+Dass das Ziel der Schaffung von Interesse und Begeisterung erreicht wurde, konnte am Verhalten der Teilnehmer
+abgelesen werden, da bei den anschließend gestellten Aufgaben erkennbar war, dass deutlich mehr mit dem Gerät
+ausprobiert wurde als gefordert. Die Interaktion im Team und zwischen den Teams sorgte für eine aufgeheiterte Stimmung
+im Schulungsraum.
+
+
+\subsection{Ermittlung des Status Quo - Ablauf und Schlussfolgerungen}
+
+Der zweite Teil der Anwenderschulung sollte in erster Linie dazu genutzt werden, um Wissen über den momentanen
+Arbeitslauf einer Pflegekraft zu gewinnen und daraus Anforderungen an eine mobile Anwendung zur Dokumentation von
+erbrachten Tätigkeiten abzuleiten. Der eigentliche Fokus der Master-Arbeit liegt zwar auf der Implementierung eines
+Systems zur Dokumentation \textit{ärztlich übertragener} Tätigkeiten, jedoch kann für diese Tätigkeiten kein Status Quo
+ermittelt werden, da die Teilnehmer der Schulung die ersten Alten- und Pflegekräfte sind, die zu einer \acl{mfp}
+ausgebildet werden. Es konnte jedoch on den Teilnehmerinnen in Erfahrung gebracht werden, dass einige übertragbare
+Tätigkeiten wie die Blutabnahme oder die Gabe von Medikamenten schon jetzt von examinierten Krankenschwestern im Rahmen
+der Pflege ausgeführt werden dürfen. Außerdem ähneln sich die zu erwartende Arbeitsstruktur einer \acs{mfp} und die
+einer Alten- und Krankenpflegerin dahingehend, dass in einem bestimmten Zeitraum (meist einer Arbeitsschicht), eine
+Reihe von Klienten mit bestimmten Dienstleistungen versorgt werden müssen.
+
+\begin{wrapfigure}{l}{9cm}
+   \includegraphics[width=8.5cm]{figures/eindruckSchulung.png} 
+   \caption{Entwicklung eines Diagramms zur Ermittlung des Tagesablaufs mit den Teilnehmern}
+   \label{fig:eindruckSchulung}
+\end{wrapfigure}
+
+Durch eine Analyse des momentanen Ablaufes in Zusammenarbeit mit den ausführenden Kräften sollten Stärken und Schwächen
+mit besonderem Augenmerk auf der Dokumentation identifiziert werden. Zunächst wurde hierzu der Tagesablauf der
+Pflegekräfte rekonstruiert und in einem Diagramm für bessere Übersichtlichkeit festgehalten. Ein Eindruck der Ermittlung
+des Status Quo kann in Abbildung \ref{fig:eindruckSchulung} gewonnen werden. Das erstellte Diagramm zeigt prinzipiell
+eine Sequenz von Tätigkeiten (blau), denen Probleme auf roten Karten zugeordnet wurden. Der genaue Ablauf des Tages ist
+nicht entscheidend und wird hier nicht reproduziert, sondern lediglich die dadurch gewonnen Erkenntnisse
+zusammengefasst. Ziel des Diagramms war es herauszufinden, an welchen Stellen in welchem Umfang dokumentiert werden
+muss, welche Fehlerquellen sich im momentanen Ablauf ergeben und welche Aspekte verbessert werden könnten, um den Ablauf
+im Bezug auf die Dokumentation zu vereinfachen.\\
+Schnell kristallisierte sich heraus, dass der wichtigste und kritischste Faktor während der Arbeit der Pflegekräfte
+\textit{Zeit} ist. In der Konsequenz bedeutet dies, dass jede Maßnahme, die mehr Zeit verschafft, positiv zu bewerten
+ist und jede Verzögerung des Ablaufs zu vermeiden ist.\\
+Eine wichtige Erkenntnis ist, dass es nicht eine Reihe von Tätigkeiten gibt, die während \textit{eines} Besuchs beim
+Patienten abgearbeitet werden, sondern dass während einer Schicht, zumindest im stationären Bereich, mehrere Besuche beim
+Patienten mit verschiedenen Aufgaben durchgeführt werden. Alle Tätigkeiten werden dem Personal in einer so genannten
+\textit{Tagesstruktur} mitgeteilt, die im Laufe der Schicht abgearbeitet werden müssen. Es lassen sich bestimmte
+Tätigkeitsblöcke identifizieren, die in einer bestimmten zeitlichen Reihenfolge liegen wie z.B. die Grundpflege vor dem
+Essen reichen, anschließend Transfer der Bewohner zu individuellen Beschäftigungsprogrammen. Daneben gibt es eine Reihe
+von Tätigkeiten, die nicht zu einem bestimmten Zeitpunkt erledigt werden müssen, sondern jeweils dann, wenn Bedarf
+besteht. Hierzu gehören beispielsweise die Lagerung der immobilen Bewohner sowie Toilettengänge. Dokumentiert werden
+muss alles, das entweder für die  spätere Abrechnung mit der Krankenkasse benötigt wird oder medizinisch relevant ist.
+Medizinische Relevanz haben z.B. Toilettengänge, da der Stuhlgang ständig kontrolliert werden muss. Konnte bei einem
+Patienten für eine gewisse Zeit kein Stuhlgang festgestellt werden, wird hieraus abgeleitet, dass dieser an einer
+Verstopfung leidet und es werden abführende Medikamente verabreicht.\\
+In einer Schicht sind für ca. 40 Bewohner drei bis vier Pflegekräfte sowie eine Schichtleitung zuständig. Die
+Pflegekräfte sind in der Regel nur für Pflegetätigkeiten zuständig, während die Schichtleitung, meist eine examinierte
+Krankenschwester, neben der Pflege der Bewohner außerdem eine Reihe organisatorischer Tätigkeiten sowie Arzt-
+und Angehörigenkommunikation erledigt. Um dieses Maß an Arbeit zu schaffen, ist jedoch die Anzahl zu pflegender
+Bewohner auf vier begrenzt, wobei die reinen Pflegekräfte etwa acht Bewohner versorgen.
+
+Nach Aussagen der Teilnehmer ist es wahrscheinlich, dass ausgebildete \acs{mfp}s nur noch ärztlich
+übertragene Tätigkeiten durchführen und keine Pflege mehr übernehmen. Dies bedeutet, dass die Durchführung und Dokumentation der
+übertragenen Tätigkeiten nicht zwischen den Pflegetätigkeiten erfolgt, sondern in einem gesonderten Tagesablauf. Nimmt
+man an, dass dieser Tagesablauf an den einer Schichtleitung angelehnt ist, wird auch hier jeder Klient mehrfach besucht,
+da beispielsweise die Gabe von Medikamenten mehrfach pro Schicht erfolgt.
+
+Die Dokumentation der Tätigkeiten wird direkt elektronisch durchgeführt, d.h. ohne die Ergebnisse auf Papier oder einem
+anderen Medium übergangsweise festzuhalten. Dokumentiert werden muss mit der dafür vorgesehenen Software, die über drei
+Computer verwendbar ist. Nur einer davon ist ein Laptop, die Dokumentation muss also in der Regel im Dienstzimmer an
+den Desktop-PCs erfolgen. Da es nur drei PCs sind, die von vier bis fünf Mitarbeitern inklusive Schichtleitung für die
+Dokumentation aller Belange von 40 Patienten genutzt werden müssen, kommt es hier zwangsläufig zu Engpässen. Wenn dann
+auch noch ein oder mehrere PCs defekt sind, verschärft sich die Situation. Die Folge sind unproduktive
+Wartezeiten, um die notwendige Dokumentation durchführen zu können, die von der Zeit, die für die Durchführung der Tätigkeiten
+gedacht war, abgeht.\\
+Jede Pflegekraft versorgt in der Regel Patienten, die in nah beieinander liegenden Räumen untergebracht sind. So sollen
+die Wege zwischen den Zimmern kurz gehalten werden und somit Zeit eingespart werden. Da alle Pflegekräfte von den ihnen
+zugewiesenen Zimmern häufig zur Dokumentation ins Dienstzimmer müssen, wäre es wünschenswert, dass auch hier die
+Wege kurz gehalten werden. Bei 40 Bewohnern auf einer Etage ist es jedoch nicht möglich, allen Mitarbeitern Zimmer
+direkt neben oder zumindest in unmittelbarer Nähe des Computers zur Dokumentation zuzuweisen. Einige Mitarbeiter müssen
+also jedes Mal relativ lange Wege auf sich nehmen. Eigentlich sind die Pflegekräfte angehalten, jede Tätigkeit
+unverzüglich zu dokumentieren, aber aufgrund der zurückzulegenden Wege werden meist mehrere Tätigkeiten durchgeführt,
+bevor die Dokumentation erfolgt, um die Wegezeit zu sparen. Zwischen Durchführung und dem Einpflegen des gemachten in
+das Computersystem werden alle Tätigkeiten also zunächst im Kopf "dokumentiert". Besonders morgens, bei der Durchführung
+der Grundpflege, die für acht Bewohner in etwa zwei Stunden Zeit in Anspruch nehmen darf, haben die Mitarbeiter keine
+Kapazitäten mehr frei, um die Dokumentation nach jedem Bewohner durchzuführen. Es kommen so enorm viele Informationen
+über Tätigkeiten zusammen, die sich eine Pflegekraft merken muss. Hier kann es leicht passieren, dass Tätigkeiten, die
+nicht routinemäßig durchgeführt werden oder sonstige Besonderheiten vergessen oder falsch dokumentiert werden. Dies kann
+einerseits wirtschaftliche Konsequenzen haben, wenn Fehler bei abzurechnenden Tätigkeiten gemacht werden, andererseits
+aber auch zu gesundheitlichen Schäden führen, wenn hier relevante Informationen vergessen werden.\\
+Neben dem reinen Zeitverlust durch die Wege zum Computer und zurück treten häufig "Störfaktoren" auf dem Weg aus, die zu
+weiterem Zeitverlust führen. Denn sobald eine Pflegekraft ein Zimmer verlässt, kommt es häufig vor, dass sie von anderen
+Bewohnern um etwas gebeten wird oder von Angehörigen in ein Gespräch verwickelt wird. Zwar sind dies Dinge, die neben
+der reinen Dienstleistung ein wichtiger Bestandteil des Alten- und Pflegeberufs ist, da dies die menschliche Ebene
+adressiert, jedoch bedeuten derartige Gespräche und Zusatzleistungen rein rational gesehen einen kritischen Zeitverlust.
+Müssten weniger Wege ins Dienstzimmer angetreten werden, könnte das Potential für Ablenkungen in Zusammenhang mit
+der Dokumentation gesenkt werden und somit effektiv Zeit eingespart werden.\\
+Neben den genannten Problemen ist die Dokumentation an sich nach Aussage der Schulungsteilnehmer relativ aufwendig, da
+häufig nicht nur eine Tätigkeit bestätigt werden muss, sondern zusätzlich Daten eingepflegt werden müssen. Eine
+effizientere Gestaltung wäre auch hier zur Einsparung der Dokumentationszeit wünschenswert.\\
+Im Zusammenhang mit Arztvisiten wurde als Problem genannt, dass ein Arzt die Pflegekraft häufig nach der aktuellen
+Medikation oder sonstigen den Bewohner betreffenden Informationen fragt. Da bei acht zu betreuenden Bewohnern nicht alle
+Informationen im Kopf behalten werden können und gerade bei Medikamenten exakte Informationen verfügbar sein sollten,
+muss auch hier ein Zusatzweg in das Dienstzimmer in Kauf genommen werden, um die Informationen am zentralen Computer
+abzurufen.\\
+
+Werden bei einer Arztvisite neue Medikamente verschrieben, Dosierungen geändert oder bestehende abgesetzt, wird dies
+häufig zunächst handschriftlich direkt beim Bewohner dokumentiert. Handschriftliche Dokumentation bei derartig wichtigen
+Werten wie Menge oder Name eines Medikaments kann schlimme Folgen haben, wenn die Anweisungen nicht gelesen werden
+können oder missverstanden werden. Wegen Zeitdrucks entstehen so vermeidbare Fehler. Eine andere Möglichkeit der
+Dokumentation, bei der Kommunikationsfehler durch unleserliche Schrift vermieden werden kann, ist hier sinnvoll.\\
+Zur Aufgabe der Pflegekräfte und auch der \acs{mfp}s gehört die Wunddokumentation. Momentan läuft es so ab, dass mit
+einer separat mitgeführten Kamera die Wunden fotografiert werden und die Bilder später am Computer der Akte des
+Patienten hinzugefügt werden. Zur Identifikation wird neben die Wunde ein Papierstreifen mit Name, Datum und der Größe
+der Wunde gelegt. So kann zumindest, wenn das Bild angeschaut wird, kein Zuordnungsfehler passieren. Um die Bilddatei
+der Patientenakte hinzufügen zu können, muss allerdings die Datei direkt ausgewählt werden. Hierzu muss sich der
+Mitarbeiter die Nummer des entsprechenden Bildes merken und diese korrekt auswählen. Klickt er beim Auswahlvorgang
+daneben oder wählt aus einem anderen Grund das falsche Bild aus, kommt es zu einem Durcheinander bei den Wundfotos. Laut
+Teilnehmern der Schulung kommt dies zwar selten vor, jedoch reicht die Möglichkeit der Verwechslung aus, um
+Verbesserungspotential zu bieten.\\
+Im Falle der Messung von Vitaldaten wie Blutdruck und Puls müssen genaue Werte festgehalten werden. Aus diesem Grund
+werden die Werte vor Ort beim Bewohner auf Papier festgehalten und anschließend am Computer übertragen. Auch hier kann
+es ein Problem mit unsleserlichen Werten geben oder es werden schlichtweg Werte durch Vertippen oder zu großer Hektik
+bei der Übertragung falsch in das System eingepflegt. Zur Verbesserung dieses Vorgangs müsste das Zwischenmedium
+abgeschafft werden oder sogar vollständig von der manuellen Dokumentation abgesehen werden.
+
+\begin{table}[htbp]
+	\begin{tabularx}{\textwidth}{|X|c|}
+		\hline
+		\textbf{Identifiziertes Problem} & \textbf{Kritischer Faktor}\\
+		\hline		
+		Häufiger Wechsel zwischen Patientenzimmer und Dienstzimmer zwecks Dokumentation & Zeit\\		
+		\hline		
+		Drei Computer zur Dokumentation bei 4 - 5 Mitarbeitern führen zu Engpässen und Wartezeiten & Zeit\\		
+		\hline			
+		Auf dem Weg von Dienstzimmer zum Patient und zurück treten häufig "Störfaktoren" auf (Gespräche mit Angehörigen,
+		Fragen durch Patienten, Telefon) & Zeit\\		
+		\hline		
+		Während der Arztvisite ist das Bereitstellen von Informationen zum Patienten wie die aktuelle Medikation meist mit
+		einem Gang ins Dienstzimmer verbunden, da die Pflegekräfte nicht alle Daten im Kopf haben können und die Daten auch
+		nicht vor Ort im Zimmer abgerufen werden können. & Zeit\\		
+		\hline		
+		Die Dokumentation dauert wegen fehlender Autovervollständigung oder vordefinierten Antworten relativ lange. & Zeit\\		
+		\hline		
+		Es werden nicht für jeden Bewohner direkt die durchgeführten Tätigkeiten dokumentiert, da dies zusätzliche Wege zum
+		Computer und eventuelle Wartezeiten bedeuten würde. Die Dokumentation erfolgt also nicht zeitnah und für mehrere
+		Bewohner auf einmal. Da die Informationen auch nicht übergangsweise auf Papier festgehalten werden (außer die
+		Viltaldaten-Messwerte), können hier bei der Dokumentation leicht Fehler durch vergessene oder falsche Informationen
+		auftreten. & Qualität\\		
+		\hline		
+		Wundfotos könnten zur Patientenakte falsch zugeordnet werden, da sie mit einer externen Kamera aufgenommen wurden und
+		erst später manuell der Akte hinzugefügt werden. & Qualität\\		
+		\hline		
+		Übertragungsfehler bei auf Papier zwischennotierten Messwerten & Qualität\\		
+		\hline		
+		Anordnungen des Arztes wie beispielsweise eine geänderte Medikation werden oft vor Ort beim Patienten von Hand
+		dokumentiert, um diese später in das Computersystem einzupflegen. Wegen Unleserlichkeit können hier Fehler mit
+		gesundheitsschädlichen oder sogar lebensbedrohlichen Folgen passieren. & Qualität\\		
+		\hline
+	\end{tabularx}
+	\caption{Liste der identifizierten Probleme bei der Dokumentation von Pflegeleistungen in der Residenz Bad
+	Friedrichshall}
+	\label{tab:docuProbs}
+\end{table}
+
+Der bisher beschriebene Status Quo der Dokumentation von Pflegeleistungen und vereinzelt auch ärztlich übertragbaren
+Tätigkeiten hat einige Punkte mit Verbesserungspotential offenbart. Die Befragung hat die Annahme bestätigt, dass eine
+Untersuchung sinnvoll ist, in wie fern eine stärkere Unterstützung durch IT den Dokumentationsvorgang effizienter
+und qualitativ hochwertiger machen kann. In Tabelle \ref{tab:docuProbs} werden die identifizierten Probleme noch einmal kurz
+zusammengefasst und die damit verbundenen kritischen Faktoren benannt. 
+
+\subsection{Anforderungen an CareNet\textit{mobile} aus Sicht der Zielnutzergruppe}
+\label{subsec:anforderungen}
+
+Im folgenden Abschnitt werden die in der Diskussion des Status Quo identifizierten Anforderungen an eine mobile Lösung
+zur Unterstützung der Dokumentation aufgelistet und bewertet. Die Bewertung erfolgt danach, ob eine Anforderung bereits
+vorher antizipiert wurde und falls ja, wie sie umgesetzt wurde. Falls es sich um eine neue Anforderung handelt, wird
+überprüft, ob sie überhaupt umsetzbar ist und ob die Umsetzung für den Erfolg der Arbeit notwendig ist. Bei der Erhebung
+der Anforderungen muss darauf hingewiesen werden, dass den Teilnehmern vorher die Rahmenbedingungen wie die Nutzung
+eines Tablet-PCs und die damit verbundenen Möglichkeiten genannt wurden. Aus diesem Grund wurden manche Anforderungen
+genannt, die nicht zwingend aus dem momentanen Tagesablauf hervorgehen, sondern mehr genannt wurden, weil es möglich
+gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und nicht umgekehrt.
+
+\begin{enumerate}
+  \item \textit{Die Anwendung muss übersichtlich strukturiert und intuitiv bedienbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Neben den fachlichen Anforderungen an die Anwendung wurde vor allem auf eine intuitive Bedienung und
+  		Übersichtlichkeit geachtet, da dies als kritischer Faktor für die Akzeptanz der Anwendung angesehen wird. Mit der
+  		in Abschnitt \ref{sec:basisanwendung} beschriebenen grafischen Oberfläche soll den meist wenig technik-affinen
+  		Nutzern das Erlernen der Bedienung erleichtert werden.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Tagesstruktur muss komplett pro Bewohner abrufbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Unter \textit{Tagesstruktur} verstanden die Teilnehmer der Schulung einen Plan, der alle zu versorgenden
+  		Patienten und die auszuführenden Tätigkeiten auflistet. Bisher wurde angenommen, dass die \acs{mfp}s eine Art
+  		Tourenplan bekommen, nachdem sie arbeiten. Es wurde also bisher vor allem von einer zumindest teilweisen ambulanten
+  		Erbringung von Dienstleistungen ausgegangen. Da die Konzepte einer Tagesstruktur und eines Tourenplans aber
+  		prinzipiell gleich sind, muss nur entsprechend dem Kontext (stationäre oder ambulante Dienste) die Namensgebung
+  		angepasst werden, um den Nutzern möglichst viele bekannte Elemente in der neuen Technologie zu bieten.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Dokumentation ausgeführter Tätigkeiten muss im Zimmer/vor Ort möglich sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Diese Anforderung wurde implizit dadurch erfüllt, dass in der Aufgabenstellung die Nutzung von Tablet-PCs
+  		gefordert war. Durch die mobile Verwendbarkeit ist eine Dokumentation im Zimmer möglich.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Patientenakte sollte auf dem Endgerät vollständig abrufbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Dass Informationen zum Patienten abrufbar sein müssen, wurde zu Beginn angenommen. Neben den
+  		Grundinformationen zum Finden des Patienten wie Name und Adresse sind auch Informationen zu Angehörigen, zuständigen
+  		Ärzten und aktueller Medikation gewünscht. Da CareNet diese Informationen bereits anbietet, wurde zumindest für die
+  		Stammdaten (Name, Adresse, Kontaktmöglichkeit) eine Repräsentation in den Plug-Ins "Kontakte" und Touren
+  		vorbereitet. Eine vollständige Implementierung aller möglichen Daten erfolgt im Rahmen dieser Arbeit nicht, da eine
+  		Vorbereitung zum Einfügen weiterer Daten das Ziel grundsätzlich erfüllt.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Patientenakte sollte vor Ort beim Patienten anpassbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Von den Teilnehmern wurde gewünscht, dass die Daten des Patienten auf dem Tablet-PC editierbar sein
+  		sollten. Da dies aber auch in CareNet möglich ist und anzunehmen ist, dass nicht bei jedem Besuch beim Patienten die
+  		Daten angepasst werden müssen, wurde entschieden, dass eine Implementierung dieser Anforderung zum jetzigen
+  		Zeitpunkt keinen Mehrwert bringt und deswegen nicht umgesetzt wird. Sollte die Anwendung später tatsächlich zum
+  		Einsatz kommen, ist die Umsetzung einer Editierfunktion aber sicherlich zu empfehlen, da sie den Nutzungskomfort
+  		steigert.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Die Patientenakte sollte Bilder vom Patienten enthalten, um Verwechslungen bei gleichem Namen
+  	 	          (z.B. bei einem Ehepaar) im gleichen Zimmer zu vermeiden.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Die Verwendung von Bildern in der Patientenakte und in der Tagesstruktur wurde zu Beginn der Arbeit
+  		bereits diskutiert. Die Anforderung wurde allerdings verworfen, da Bilder der Patienten zusätzliche
+  		Anforderungen an den Datenschutz in CareNet gestellt hätten, was in Anbetracht der Bearbeitungszeit der
+  		Master-Arbeit nicht zu realisieren gewesen wäre.
+  		\par
+  		\endgroup
+  	  		
+  	\item \textit{Möglichkeit bei jeder Tätigkeit anzugeben, dass diese nicht ausgeführt wurde und warum.}
+		\par 
+		\begingroup 
+		\leftskip=1cm 
+		\noindent Die Teilnehmer der Schulung gaben an, dass es immer wieder sein kann, dass aus irgend einem Grund eine
+		gefroderte Leistung nicht erbracht werden kann. Damit die Aufgaben des Tages trotzdem als erfüllt angesehen werden
+		können, muss eine Tätigkeit mi Begründung als "nicht erbracht" markiert werden können.  
+		\par 
+		\endgroup
+		
+	\item \textit{Zeitlich nicht planbare und plötzlich zu erbringende Tätigkeiten wie die Hilfe beim Toilettengang
+  				  müssen der Tagesstruktur am Tablet-PC hinzufügbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Die Ergänzung von Dienstleistungen, die von der geplanten Tagesstruktur abweichen, wurde bereits im ersten
+  		Anforderungskatalog aufgenommen, da angenommen wurde, dass die Arbeit mit Menschen immer unvorhergesehene
+  		Tätigkeiten nötig machen kann. Aus Zeitgründen konnte diese wichtige Funktionalität allerdings nicht mehr im Rahmen
+  		dieser Arbeit implementiert werden.
+  		\par
+  		\endgroup	
+  	
+  	\item \textit{Vitaldaten (Blutdruck, Puls, Schmerzmanagement, Gewicht) müssen am Tablet-PC erfassbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Die Anforderung der Erfassung von Vitaldaten musste bereits im VitaBit Projekt umgesetzt werden und wurde
+  		aus diesem Grund auch in den Anforderungskatalog von \app aufgenommen. Allerdings beschränken sich die erfassbaren
+  		Daten bisher auf Blutdruck und Puls. Eine Erfassung von Gewicht und ein Schmerzmanagement ist jedoch möglich, wird
+  		aber im Rahmen dieser Arbeit nicht mehr implementiert.
+  		\par
+  		\endgroup
+  	
+  	\item \textit{Statistiken über alle Vitaldaten wären hilfreich (Bsp: Verlauf des Gewichts seit Einlieferung).}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Eine genaue Zustandsänderung bei einer Person lässt sich meist nur mit Hilfe von Vergleichswerten
+  		vergangener Erhebungen identifizieren. Aus dieser Annahme wurde bei der initialen Anforderungsevaluation abgeleitet,
+  		dass es hilfreich sein könnte, vorangegangene Messungen von Vitalparametern in einer übersichtlichen Statistik
+  		abfragen zu können. Die Implementierung einer solchen Funktionalität war zunächst geplant, musste jedoch wegen der
+  		Kürze der Zeit aus der Agenda genommen werden. Für einen produktiven Einsatz von \app wird diese Funktionalität
+  		allerdings als notwendig angesehen, um einen klaren Vorteil gegenüber manueller Dokumentation und Auswertung der
+  		erhobenen Daten zu bieten.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Automatische Plausibilitätsprüfung von eingegebenen Messwerten (Z.B. Puls > 250 $\Rightarrow$
+  	Warnung).}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Automatische Plausibilitätsprüfungen sind eine zentrale Möglichkeit zur Steigerung der Qualität bei
+  		EDV-gestützter Dokumentation. Diese Art der Überprüfung wurde von Anfang an als wünschenswert angesehen, jedoch ist
+  		dies ein Merkmal, das erst implementiert werden kann, wenn grundsätzlich die Dokumentation funktioniert. Da
+  		die Umsetzung der gesamten Architektur und der Basisfunktionalitäten schon die gesamte Bearbeitungszeit in Anspruch
+  		genommen hat, wurde eine Plausibilitätsprüfung nur in den Anforderungen für den Fall einer Weiterführung des
+  		Projektes aufgenommen. Je nach Komplexität der Werte ist die Implementierung zwar sehr aufwendig, aber möglich.
+  		\par
+  		\endgroup
+  		
+	 \item \textit{Warnungen, wenn gemessene Werte kritisch sind oder wenn dokumentierte Tätigkeiten auf mögliche
+	 Gefahren für den Bewohner/Patienten hindeuten (beispielsweise, wenn für einen Patienten schon länger kein Stuhlgang
+	 mehr dokumentiert wurde).}
+		\par 
+		\begingroup 
+		\leftskip=1cm 
+		\noindent Diese Anforderung ist ähnlich zu bewerten wie die Plausibilitätsprüfung, da sie prinzipiell die gleichen
+		Voraussetzungen haben. Auch hier wird eine Logik über die grundlegende Dokumentation hinaus benötigt, welche erst zu
+		einem sehr "reifen" Zeitpunkt der Entwicklung implementiert werden kann. Dieser konnte während dieser Arbeit noch
+		nicht erreicht werden. Logik, die aus den dokumentierten Daten Schlüsse zieht, sollte unbedingtes Ziel der Entwicklung
+		sein.
+		\par 
+		\endgroup
+		
+	\item \textit{Wundfotos sollten mit der internen Kamera des Tablet-PCs aufnehmbar sein und direkt dem Patienten
+  		zugeordnet werden.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Diese Anforderung wurde nicht aktiv von den Schulungsteilnehmern geäußert, sondern als mögliche
+  		Funktionalität aufgrund der Eigenschaften eines Tablet-PCs vorgeschlagen. Der Vorschlag wurde positiv
+  		aufgenommen und als möglicherweise komfortabel und nützlich bewertet. Einerseits aus dem Grund, weil keine
+  		zusätzlich Kamera mehr mitgeführt werden muss, und andererseits weil der Arbeitsschritt der manuellen Zuordnung
+  		wegfällt und somit Zeit gespart wird. Daneben fällt auch die Fehlerquelle der manuellen Zuordnung der Bilder zur
+  		Patientenakte weg. Diese Funktion wurde in der aktuellen Version der Anwendung implementiert.
+  		\par
+  		\endgroup
+  	
+  	\item \textit{Die Pflegestandards des Hauses sollten auf dem Tablet-PC abrufbar sein.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Diese Anforderung hat rein informativen Charakter und soll als Hilfestellung dienen, wenn unklar ist, wie
+  		in einem bestimmten Fall vorgegangen werden soll. Da sich die Teilnehmer über die Notwendigkeit dieser Funktion
+  		nicht einig waren, da die meisten Pflegekräfte bereits über langjährige Erfahrung verfügen und die Vorgänge ohnehin
+  		kennen, wurde die Anforderung nicht aufgenommen. Außerdem liefert sie keinen Mehrwert zur Dokumentation, welche das
+  		Kernthema der Evaluation ist.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Spracherkennung zur Eingabe von Freitext.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Eine Spracherkennung zur Eingabe von Freitext wurde häufig gewünscht, da die Eingabe von Freitext über die
+  		virtuelle Tastatur als zu langwierig angesehen wurde. Zwar bieten die neueren Betriebssysteme von Android und iOS
+  		die Möglichkeit der Spracheingabe, jedoch ist hierzu eine Internetverbindung notwendig, was nicht immer
+  		gewährleisten werden kann. Der initiale Anforderungskatalog enthielt die Anforderung, dass \app auch ohne
+  		Internetverbindung funktionieren muss, was mit einer internetabhängigen Spracherkennung nicht zu vereinbaren ist.
+  		Die Anforderung wurde folglich nicht aufgenommen.
+  		\par
+  		\endgroup
+  		
+  	 \item \textit{Abrufen des Tropfenplans auf dem Tablet-PC.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Der Tropfenplan ist eine Auflistung aller benötigten flüssigen Medikamente einer Schicht. Er wird dazu
+  		verwendet, die Medikamente in einem Arbeitsschritt an der Medikamentenausgabe zusammenzustellen. Prinzipiell könnte
+  		diese Anforderung mit vertretbarem Aufwand implementiert werden, jedoch fehlt hierfür die Voraussetzung in CareNet,
+  		da die flüssigen Medikamente nicht gesondert in der Patientenakte verfügbar sind. Weil der Tropfenplan keine
+  		Relevanz für die Dokumentation hat, sondern nur für die Vorbereitung der Tätigkeiten benötigt wird, wird die
+  		Anforderung zwar in die möglicherweise später umzusetzenden Liste von Anforderungen aufgenommen, in dieser Arbeit
+  		aber nicht weiter beachtet.
+  		\par
+  		\endgroup
+  	
+	\item \textit{Notrufknopf zum Absetzen eines Telefonanrufs für die ambulante Dienste.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent In einem vorangegangenen Projekt wurde ein Notrufknopf zum schnellen Absetzen von Notrufen eingebaut. Auf
+  		die Frage, ob dies auch eine wünschenswerte Funktionalität für \app sei, sagten die Teilnehmer, dass dies eigentlich
+  		nur im ambulanten Bereich sinnvoll wäre, da in der Residenz ohnehin Telefone schnell verfügbar wären. Da der Fokus
+  		momentan auf einem Einsatz im stationären Bereich liegt, wird kein Notrufknopf implementiert. Außerdem setzt das
+  		voraus, dass der Tablet-PC Telefonanrufe absetzen kann. Das verteuert die Hardware und macht weitere wirtschaftliche
+  		Untersuchungen erforderlich.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{"Rote Liste" auf Tablet-PC abrufbar.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Die "Rote Liste" stellt eine Sammlung aller zugelassenen Medikamente dar, in der Wirkung und
+  		Wechselwirkungen mit anderen Medikamenten beschrieben werden. Einige Teilnehmer wünschten sich, dass diese Liste auf
+  		dem Tablet-PC abrufbar sei. Da es sich hierbei aber eigentlich um ein Buch eines Anbieters handelt, dürfen die
+  		Inhalte des Buchs nicht ohne Lizenzzahlungen in der Anwendung verwendet werden. Zudem ist unklar, ob die Verwendung
+  		überhaupt erlaubt würde, da die Implementierung einer App zum Zugriff auf die Inhalte eigentlich Aufgabe des
+  		Verlages wäre. Da diese Funktionalität auch keine Relevanz für die Dokumentation hat, wird sie nicht in den
+  		Anforderungskatalog aufgenommen.
+  		\par
+  		\endgroup
+  		
+  	\item \textit{Tablet-PCs mit Glasoberfläche, um diese leicht reinigen zu können.}
+  		\par
+  		\begingroup
+  		\leftskip=1cm
+  		\noindent Hygiene ist im medizinischen und pflegerischen Bereich ein wichtiger Aspekt. Da die Tablet-PCs mit in die
+  		Zimmer oder Wohnungen der Bewohner/Klienten genommen werden, müssen diese nach jedem Besuch desinfiziert werden. Die
+  		Oberfläche sollte deswegen aus Glas sein, da die Desinfektionsmittel eine Kunststoffoberfläche bei häufigem Kontakt
+  		möglicherweise schädigen. Die Anforderung war zu Beginn der Arbeit zwar nicht bekannt, wurde aber erfüllt, da die
+  		Implementierung testweise auf Samsung Galaxy Tabs I und II erfolgte, welche eine Glasoberfläche besitzen. Die
+  		Anforderung wurde in den Gesamtkatalog aufgenommen.
+  		\par
+  		\endgroup 	
+\end{enumerate}
+
+\subsection{Ergebnisse des Abschlussfragebogens}
+
+Nachdem die Anforderungen an \app mit den Teilnehmern evaluiert wurden, wurde der Stand der Entwicklung der Anwendung
+vorgestellt. Fertiggestellt war zu diesem Zeitpunkt die Einstiegsseite mit der Übersicht über die verfügbaren Plug-Ins,
+das Plug-In \textit{Kontakte} und im Plug-In \textit{Touren} konnte bereits eine einfache Tagestruktur abgerufen
+werden, sprich pro Bewohner Tätigkeiten, die nur Bestätigt werden müssen. Zudem konnte jede Tätigkeit mit
+Begründung als "nicht durchgeführt" markiert werden. Die Dokumentation von Wunden per Foto und die Erfassung von
+Vitaldaten war noch nicht möglich. Es konnte jedoch zu jedem Patienten eine erste Version der Patientenakte abgerufen
+werden.\\
+Nach der Vorführung, bei der jedes Team auf dem eigenen Tablet-PC die Anwendung ausprobieren konnte, wurde ein
+Fragebogen verteilt, mit dem die Benutzbarkeit, der Lernaufwand zur Nutzung der Anwendung und der erwartete Nutzen
+durch den Einsatz bei der täglichen Arbeit abgefragt wurde. Der verwendete Fragebogen ist im Anhang
+(\textcolor{red}{[REFERENZ]}) zu finden. Als Basis für die verwendeten Fragen wurde auf den bereits validierten
+Fragebogen des \acs{utaut}-Modells \cite{utaut} zurückgegriffen. \acs{utaut} steht für \textit{\acl{utaut}} und stellt eine
+Rahmenwerk zur Bewertung des Nutzens und der Akzeptanz durch den Endnutzer dar. Da die Fragen im Original auf englisch
+sind, mussten diese zunächst ins Deutsche überführt werden. \cite[S. 50 ff.]{masterMathias} hat dies zur Evaluation der
+Software CareCM der nubedian GmbH, auf der CareNet aufbaut, bereits getan. Die hier verwendeten Fragen sind an diese
+Übersetzung angelehnt und wurden an die Belange der Bewertung von \app angepasst.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/StatBenutzbarkeit.png}
+	\caption{Ergebnisse der Fragen zur Benutzbarkeit von \app.}
+	\label{fig:statBenutzbarkeit}
+\end{figure}
+
+Die Ergebnisse der Fragen zur Benutzbarkeit von \app sind in Abbildung \ref{fig:statBenutzbarkeit} aufgeführt.
+Den Fragen, ob die Anwendung leicht zu bedienen sein wird (5, 6 und 11), ist von allen Teilnehmern zugestimmt worden.
+Der Inhalt der drei Fragen überschneidet sich aus dem Grund, um festzustellen, ob die Teilnehmer nur zufällig angekreuzt
+haben.Da alle Fragen von allen Teilnehmern mit gleicher positiver Tendenz angekrauzt wurden, ist anzunehmen, dass die
+Fragen verstanden und konsistent beantwortet wurden. Auch der Frage, ob die Interaktion mit \app (3) verständlich ist,
+wurde zugestimmt. Dass "nur" fünf von sieben Teilnehmern zugestimmt und nicht voll zugestimmt, lässt darauf schließen,
+dass gewisse Anpassungen der grafischen Oberfläche notwendig sind, um eine volle Zufriedenheit zu erreichen. Die
+Gegenfrage, ob eine elektronische Dokumentation mit \app unnötig kompliziert sei, wurde konsequenter Weise im Vergleich
+zu den anderen Antworten verneint. Bei dieser Frage stimmte nur eine Teilnehmerin voll zu, was vermutlich auf den im
+ersten Fragebogen (vgl. Abbildung \ref{fig:casResults}) festgestellten Respekt gegenüber einer neuen Technologie
+zurückzuführen ist.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/StatLernaufwand.png}
+	\caption{Ergebnisse der Fragen zum benötigten Vorwissen und Lernaufwand zur Nutzung von \app.}
+	\label{fig:statLernaufwand}
+\end{figure}
+
+Abbildung \ref{fig:statLernaufwand} zeigt das Ergebnis der Fragen zum erwarteten Lernaufwand zur Nutzung von \app. Die
+Fragen, ob die Teilnehmer selbst den Umgang mit der Anwendung leicht lernen können (4) und wie sie dies bei anderen
+einschätzen (13), wurde positiv beantwortet. Die Angabe, das sechs von sieben Teilnehmern meinen, das grundsätzliche
+Wissen zu haben, um \app zu benutzen (7), spricht dafür, dass die Bedienung der Anwendung als ähnlich intuitiv angesehen
+wird wie die Bedienung sonstiger Anwendungen des Tablets, da bisher keine spezielle \app Schulung erfolgt ist. Bei der
+Frage nach zusätzlicher technischer Unterstützung (12) waren sich die Teilnehmer nicht einig. Ähnlich unentschieden
+fielen die Antworten bei der These aus, dass die Teilnehmer vor einem effektiven Einsatz noch viel zusätzlich lernen
+müssten (14). Es ist zu vermuten, dass eine Aussage, dass keine technische Unterstützung mehr nötig wäre, eher ein
+Ausdruck von technischem Selbstvertrauen ist als das tatsächlich vorhandene Wissen \app zu verwenden. Erwartet worden
+war hier, dass eine deutliche Mehrheit der Teilnehmer ausstehenden Schulungsbedarf sieht und Unterstützung für Notwendig
+hält. Dies wurde erwartet, da erstens keine echte Schulung statt gefunden hat und außerdem nur ein Teil der geforderten
+Funktionalität implementiert war.
+
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/StatAkzeptanz.png}
+	\caption{Ergebnisse der Fragen zu potentiellem Nutzen und Akzeptanz von \app.}
+	\label{fig:statAkzeptanz}
+\end{figure}
+
+Die Fragen zu Nutzen und Akzeptanz von \app sind sehr positiv ausgefallen. Alle Teilnehmerinnen sagten aus, dass die
+Anwendung grundsätzlich hilfreich sein könnte (1) und dass durch sie die Arbeit effizienter erledigt werden und somit
+Zeit eingespart werden könnte (2). Die Teilnehmerinnen sagten sogar durchweg aus, dass sie die Anwendung gerne
+regelmäßig nutzen würden, was ein sehr gutes Ergebnis des Schulungstages ist, da diese Aussage dafür spricht, dass
+eventuell vorhandene Widerstände und Vorbehalte, die zu Beginn identifiziert wurden (vgl. \ref{subsec:vorwissen}, erfolgreich
+überwunden wurden. Obwohl zunächst gewisse Ängste aufgrund der geringen Technikaffinität gegenüber der neuen Technologie
+bestanden, lehnte keine Teilnehmerin die Nutzung grundsätzlich ab.
+
+Lediglich die Frage nach der Freiwilligkeit der Verwendung von \app wurde aus der Bewertung des Fragebogens
+herausgenommen. Eigentlich war diese Frage dafür gedacht herauszufinden, ob die Alten- und Krankenpfleger durch
+Rückmeldung einen Einfluss auf die Art der Dokumentation haben, jedoch zeigen die widersprüchlichen Antworten, dass
+keine Einigkeit herrscht, obwohl die meisten Teilnehmer in der gleichen Einrichtung mit den gleichen Vorgesetzten
+arbeiten. Aus dem Ergebnis wurde geschlossen, dass die Frage missverständlich gestellt war und gegen die gängige
+Oganisationsstruktur in den Einrichtungen sprach, die meist hierarchisch geprägt ist. Aus diesem Grund wurde die Frage
+nicht berücksichtigt.
+
+Aufgrund der Ergebnisse des Abschlussfragebogens und des gewonnen Eindrucks kann die Schulung als grundsätzlich
+erfolgreich bewertet werden. Es konnte einerseits eine Reihe von Anforderungen gesammelt werden, andererseits konnte die
+Akzeptanz der bisher entwickelten Idee an einer ersten Endnutzergruppe getestet werden.  Das Ziel, bei den Teilnehmern
+eine gewisse Begeisterung für die Tablet-Technologie zu wecken und daraus mit einer positiven Stimmung in die
+Anforderungsevaluation zu starten ist gelungen. Es war sehr erfreulich zu erfahren, dass die initialen Ideen und
+Anforderungen nicht völlig in die falsche Richtung gingen, sondern im Grunde den Nerv und die Notwendigkeiten der
+Teilnehmer trafen. Die Evaluation der Anforderungen in Abschnitt \ref{subsec:anforderungen} hat gezeigt, dass nur wenige
+in der Schulung genannte Anforderungen neu waren und dass an bestehenden Anforderungen nur geringe Änderungen
+vorgenommen werden mussten. Da einige der neuen Anforderungen nichts mit dem eigentlichen Ziel der Dokumentation der
+erbrachten Leistungen zu tun hat, wie z.B. die Verfügbarkeit eines Tropfenplans oder eine Spracherkennung, wurden die
+meisten neuen Anforderungen verworfen oder für eine eventuelle Weiterentwicklung zurückgestellt. Die übrigen
+Anforderungen zusammen mit den technischen Voraussetzungen aus Kapitel \ref{ch:anforderungsanalyse} ergeben eine gute
+Basis zur Entwicklung einer Anwendung, die Chancen hat, bei einer Weiterentwicklung zur Marktreife vom zuständigen Personal
+akzeptiert zu werden und einen echten Mehrwert bei der Dokumentation ärztliche übertragener Tätigkeiten zu liefern.
+
+
+		   
