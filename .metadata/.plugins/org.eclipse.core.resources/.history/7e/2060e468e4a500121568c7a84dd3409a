@@ -1,0 +1,108 @@
+\chapter{Fazit}
+\label{ch:fazit}
+
+Zu Beginn dieser Master-Arbeit war das Ziel die Erstellung einer lauffähigen mobilen Anwendung, die Angehörige der
+alten- und Pflegeberufe darin unterstützen sollte, an sie delegierte ärztliche Tätigkeiten zu dokumentieren. Die Daten
+sollten an das zentrale System \textit{CareNet} übermittelt werden, sodass der Arzt, der die Tätigkeiten in Auftrag
+gegeben hat, eine zeitnahe Kontrolle durchführen konnte.\\
+Dieses Ziel konnte in der zur Verfügung stehenden Bearbeitungszeit nicht in vollem Umfang erreicht werden, jedoch
+konnten die wesentlichen Anforderungen umgesetzt werden. Eine Kernanforderung war, die Anwendung durch einen modularen
+Aufbau flexibel und an geänderte Rahmenbedingungen anpassbar zu gestalten. Technologisch war die einzige Vorgabe, dass
+moderne Tablet-PCs eingesetzt werden sollten. Dies erforderte einen zusätzlichen Evaluationsprozess der am besten
+geeigneten Technologie zur Erstellung einer mobilen Anwendung. Der Vergleich von nativ entwickelten Anwendungen, WebApps
+und hybriden Anwendungen ergab, dass der hybride Ansatz trotz eventueller die Performanz betreffender Nachteile die
+beste Basistechnologie sei. Das entscheidende Argument war die potenzielle Portierbarkeit der Anwendung auf verschiedene
+Plattformen (Android, iOS, Windows Phone), da die endgültig zu verwendende Hardware noch nicht fest stand.\\
+Zur Realisierung der Anpassbarkeit der Anwendung wurde eine Plug-In-Architektur gewählt, bei der jegliche für den
+Endnutzer zu verwendende Funktionalität in Plug-Ins gekapselt werden sollte. Die Architektur konnte auf Basis von
+JavaScript, HTML und CSS umgesetzt werden, jedoch nahm der Entwurf und die Implementierung mehr Zeit in Anspruch, als
+zunächst geschätzt wurde. Zwar konnten trotz dieser Verzögerung die wesentlichen Funktionen umgesetzt werden, jedoch
+mussten manche wünschenswerte Eigenschaften aus Zeitgründen zurückgestellt werden. Implementiert werden konnte ein Plug-In zum
+Abrufen von Kontaktdaten aus CareNet und ein Plug-In zur Darstellung einer Tour für eine \acl{mfp}, die die einzelnen
+Stationen (Klienten) sowie die zu erbringenden Leistungen enthielt. Bei den Leistungen wurden auf Basis der
+Anforderungsanalyse drei Leistungstypen identifiziert: Standardleistungen, die nur eine Bestätigung benötigen,
+eine Wunddokumentation, mit der eine Bilddatei verknüpft werden muss und eine Vitalwerterfassung, mit der Messwerte von
+Blutdruck und Puls verbunden werden müssen. Standardleistungen und Wunddokumentation konnte den Anforderungen
+entsprechend umgesetzt werden, jedoch sollte die Vitalwerterfassung durch den Anschluss von Messgeräten über Bluetooth
+automatisiert werden, was nicht mehr realisiert werden konnte. Die Erfassung von Vitalwerten ist momentan nur über
+manuelle Eingabe möglich. Eine weitere geplante Funktionalität, die aus Zeitgründen nicht mehr implementiert werden
+konnte, ist das Hinzufügen ungeplanter Leistungen wie Toilettengänge zu einer Station.\\
+Die bisher entwickelte mobile Anwendung bildet die notwendige Grundfunktionalität ab (bis auf die vorher genannten
+Punkte), um in CareNet zentral definierte Leistungen zu dokumentieren. Während der Anforderungsanalyse konnten
+allerdings noch einige Erweiterungsmöglichkeiten identifiziert werden, die \app attraktiver machen würden.
+Hierzu zählen
+
+\begin{itemize}
+  \item Navigation zum Klienten per GPS, entweder in die Anwendung integriert oder Nutzung externer Navigationsprogramme
+  \item Plausibilitätsprüfung von eingegebenen Werten
+  \item Warnungen bei eingegebenen kritischen Werten oder wenn Daten eines Klienten auf einen kritischen Zustand
+  schließen lassen (beispielsweise wenn eine bestimmte Zeit kein Toilettengang dokumentiert wurde)
+  \item Nutzung der per GPS ermittelten Position, um eine Behandlung auf dem Tablet-PC zu schließen, sobald sich die
+  behandelnde \acs{mfp} vom Einsatzort entfernt
+  \item Autovervollständigung und Drop-Down-Listen zur Beschleunigung der Dokumentation von Standardfällen
+  \item Integration einer Telefonfunktion für Notrufe und Rückfragen (Umsetzbarkeit hardwareabhängig)
+\end{itemize}
+
+Die Realisierung von \app auf Basis einer Plug-In-Architektur bietet eine Vielzahl von Erweiterungsmöglichkeiten. Neben
+einer Erweiterung der Funktionen zur Dokumentation könnten auch völlig andere Anwendungsfelder von CareNet oder
+verwandten Produkten der nubedian GmbH mobil verfügbar gemacht werden, da diese über die gleich \acs{rest}-Schnittstelle
+kommunizieren. Durch die Kapselung von Funktionalität innerhalb eines Plug-Ins könnten beispielsweise Vorgänge, Termine
+oder sonstige Daten mit einer individuellen grafischen Oberfläche dargestellt werden, ohne Implementierungen anderer
+Plug-Ins zu beeinflussen. Da die Plug-Ins über eine Konfigurationsdatei der Basisanwendung hinzugefügt werden, ist
+außerdem die Möglichkeit gegeben, einen Autorisierungsmechanismus zu implementieren, mit dem bestimmten Personen in
+Abhängigkeit von ihren Rechten bestimmte Plug-Ins angezeigt werden. Der Vorteil wäre, dass die mobile Anwendung zur
+Laufzeit konfiguriert werden könnte, ohne diese neu kompilieren zu müssen, da die Informationen zur Autorisierung über
+die REST-Schnittstelle bezogen werden könnten. Da alle verwendeten Nachrichten und Beschriftungen zentral in variablen
+festgehalten sind und nicht direkt in die einzelnen Elemente geschrieben sind, wäre sogar ein Modell zur
+Sprachkonfiguration denkbar, indem alle Beschriftungs- und Nachrichtenvariablen beim Laden der Anwendung mit Daten aus
+einer Datei, die in der Anwendung hinterlegt werden kann, gefüllt werden.
+
+Die Plattformunabhängigkeit von \app und die damit verbundene Notwendigkeit, jegliche Funktionalität in JavaScript zu
+implementieren, bringt allerdings auch umfangreiche Nachteile mit sich. In Kapitel \ref{sec:basisanwendung} wurde
+bereits das Problem erläutert, dass nahezu alles in JavaScript global verfügbar ist und damit keine Kapselung von
+Codebereichen wie in einer objektorientierten Sprache möglich ist. Für die Entwicklung bedeutet dies eine Reihe von
+Fehlerquellen aufgrund von doppelten Methoden- oder Variablennamen, die nicht automatisch gefunden werden können und
+damit die Suche nach der sprichwörtlichen Nadel im Heuhaufen verursachen können. Die an die Entwickler gestellten
+Anforderungen bzgl. Disziplin bei der Einhaltung von Konventionen sind deutlich höher als bei einer stark
+werkzeuggestützten Entwicklung. Auch die Fehlerfindung ist auf Grund geeigneter Standardwerkzeuge vor allem manueller
+Natur. Zwar gibt es verschiedene Ansätze, die Fehlerfindung in JavaScript zu automatisieren, jedoch hat sich noch kein
+Standard-Werkzeug etabliert. Soll beispielsweise die für PhoneGap entwickelte Anwendung in einem WebKit-basierten
+Browser wie Google Chrome mit den dort vorhandenen Werkzeugen überprüft werden, müssen alle Anfragen an die Plattform,
+wie z.B. der Aufruf der Kamera, von einer zusätzlichen JavaScript-Bibliothek emuliert werden. Diese Emulatoren sind
+allerdings auch nicht fehlerfrei und deswegen können dort wieder externe Fehler auftreten, die nicht der eigentlich zu
+testenden Anwendung zuzuschreiben sind. Eine weitere Möglichkeit ist die Nutzung des "WEb INspector REmote" (Weinre)
+\cite{weinre}, der den Quellcode einer PhoneGap-Anwendung im Browser mit einem Schlüsselwort untersuchbar macht. Der
+Nachteil ist allerdings, dass bei Nutzung des Anbieterservers der gesamte Quellcode dem Anbieter zur Verfügung gestellt
+wird, was signifikante Sicherheitslücken verursachen kann. Es ist zwar möglich, einen eigenen Server mit der
+entsprechenden Software aufzusetzen, jedoch sorgt dies für deutlichen Zusatzaufwand. 
+
+
+
+
+Ausblick auf mögliche Erweiterungen:
+
+\begin{itemize}
+  \item Erweiterbarkeit des Ansatzes ausgrund von Plug-In-Struktur herausstellen
+  \item Weitere Funktionen, um Komfort zu steigern (Prio C Anforderungen)
+  	\begin{itemize}
+  	  \item Schließen eines Falles beim Entfernen vom Einsatzort (damit keine überlangen
+  	  Verweildauern gespeichert werden)
+  	  \item Login zu verschiedenen Instanzen von CareNet (Auswahl beim Login)
+  	  \item Unterschiedliche Verfügbarkeit von Plug-ins in Abhängigkeit des Rechten desjenigen, der
+  	  sich anmeldet
+  	\end{itemize}
+  \item Erweiterung um Sprachpakete durch zentrale Definition von Nachrichten
+  \item Optimierung der REST-Schnittstelle und damit Reduzierung der übertragenen Daten für eine noch leichtgewichtegere
+  Anwendung
+\end{itemize}
+
+\begin{enumerate}
+  \item Kurzer Vergleich der nativen Entwicklung unter Android mit der hybriden Entwicklung (Wie hat sich die Entwicklung gestaltet?)
+  \begin{enumerate}
+    \item Typsicherheit
+    \item Namensräume (z.B. Gefahr von Überschneidung von Variablennamen und Methodennamen)
+    \item Unterstützung durch native Java-Bibliotheken vs. JavaScript-Bibliotheken
+    \item Einfachheit der Implementierung mit HTML/JavaScript
+    \item Vorteil der Potierbarkeit (Test wäre hier praktisch)
+  \end{enumerate}
+\end{enumerate}

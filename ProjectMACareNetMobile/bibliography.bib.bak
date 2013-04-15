@@ -354,6 +354,7 @@
   month = {April},
   year = {2013},
   title = {{QUnit - A JavaScript Unit Test}},
+  organization = {{jQuery Foundation}},
   url = {http://qunitjs.com/},
   owner = {Thomas},
   timestamp = {2013.04.13}

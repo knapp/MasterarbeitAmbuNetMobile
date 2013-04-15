@@ -1,0 +1,56 @@
+\chapter{Fazit}
+\label{ch:fazit}
+
+Zu Beginn dieser Master-Arbeit war das Ziel die Erstellung einer lauffähigen mobilen Anwendung, die Angehörige der
+alten- und Pflegeberufe darin unterstützen sollte, an sie delegierte ärztliche Tätigkeiten zu dokumentieren. Die Daten
+sollten an das zentrale System \textit{CareNet} übermittelt werden, sodass der Arzt, der die Tätigkeiten in Auftrag
+gegeben hat, eine zeitnahe Kontrolle durchführen konnte.\\
+Dieses Ziel konnte in der zur Verfügung stehenden Bearbeitungszeit nicht in vollem Umfang erreicht werden, jedoch
+konnten die wesentlichen Anforderungen umgesetzt werden. Eine Kernanforderung war, die Anwendung durch einen modularen
+Aufbau flexibel und an geänderte Rahmenbedingungen anpassbar zu gestalten. Technologisch war die einzige Vorgabe, dass
+moderne Tablet-PCs eingesetzt werden sollten. Dies erforderte einen zusätzlichen Evaluationsprozess der am besten
+geeigneten Technologie zur Erstellung einer mobilen Anwendung. Der Vergleich von nativ entwickelten Anwendungen, WebApps
+und hybriden Anwendungen ergab, dass der hybride Ansatz trotz eventueller die Performanz betreffender Nachteile die
+beste Basistechnologie sei. Das entscheidende Argument war die potenzielle Portierbarkeit der Anwendung auf verschiedene
+Plattformen (Android, iOS, Windows Phone), da die endgültig zu verwendende Hardware noch nicht fest stand.\\
+Zur Realisierung der Anpassbarkeit der Anwendung wurde eine Plug-In-Architektur gewählt, bei der jegliche für den
+Endnutzer zu verwendende Funktionalität in Plug-Ins gekapselt werden sollte. Die Architektur konnte auf Basis von
+JavaScript, HTML und CSS umgesetzt werden, jedoch nahm der Entwurf und die Implementierung mehr Zeit in Anspruch, als
+zunächst geschätzt wurde. Zwar konnten trotz dieser Verzögerung die wesentlichen Funktionen umgesetzt werden, jedoch
+mussten manche wünschenswerte Eigenschaften aus Zeitgründen zurückgestellt werden. Implementiert werden konnte ein Plug-In zum
+Abrufen von Kontaktdaten aus CareNet und ein Plug-In zur Darstellung einer Tour für eine \acl{mfp}, die die einzelnen
+Stationen (Klienten) sowie die zu erbringenden Leistungen enthielt. Bei den Leistungen wurden auf Basis der
+Anforderungsanalyse drei Leistungstypen identifiziert: Standardleistungen, die nur eine Bestätigung benötigen,
+eine Wunddokumentation, mit der eine Bilddatei verknüpft werden muss und eine Vitalwerterfassung, mit der Messwerte von
+Blutdruck und Puls verbunden werden müssen. Standardleistungen und Wunddokumentation konnte den Anforderungen
+entsprechend umgesetzt werden, jedoch sollte die Vitalwerterfassung durch den Anschluss von Messgeräten über Bluetooth
+automatisiert werden, 
+
+
+Ausblick auf mögliche Erweiterungen:
+
+\begin{itemize}
+  \item Erweiterbarkeit des Ansatzes ausgrund von Plug-In-Struktur herausstellen
+  \item Weitere Funktionen, um Komfort zu steigern (Prio C Anforderungen)
+  	\begin{itemize}
+  	  \item Schließen eines Falles beim Entfernen vom Einsatzort (damit keine überlangen
+  	  Verweildauern gespeichert werden)
+  	  \item Login zu verschiedenen Instanzen von CareNet (Auswahl beim Login)
+  	  \item Unterschiedliche Verfügbarkeit von Plug-ins in Abhängigkeit des Rechten desjenigen, der
+  	  sich anmeldet
+  	\end{itemize}
+  \item Erweiterung um Sprachpakete durch zentrale Definition von Nachrichten
+  \item Optimierung der REST-Schnittstelle und damit Reduzierung der übertragenen Daten für eine noch leichtgewichtegere
+  Anwendung
+\end{itemize}
+
+\begin{enumerate}
+  \item Kurzer Vergleich der nativen Entwicklung unter Android mit der hybriden Entwicklung (Wie hat sich die Entwicklung gestaltet?)
+  \begin{enumerate}
+    \item Typsicherheit
+    \item Namensräume (z.B. Gefahr von Überschneidung von Variablennamen und Methodennamen)
+    \item Unterstützung durch native Java-Bibliotheken vs. JavaScript-Bibliotheken
+    \item Einfachheit der Implementierung mit HTML/JavaScript
+    \item Vorteil der Potierbarkeit (Test wäre hier praktisch)
+  \end{enumerate}
+\end{enumerate}
