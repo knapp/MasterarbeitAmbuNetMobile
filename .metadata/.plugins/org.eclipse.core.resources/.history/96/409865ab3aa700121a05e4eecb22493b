@@ -1,0 +1,61 @@
+\chapter{Ziele der Arbeit}
+\label{ch:ziele}
+
+Ziel dieser Master-Arbeit ist es, ein elektronisches System zur Unterstützung der Zusammenarbeit von Ärzten und
+Berufsangehörigen der Alten- und Pflegeberufe, die eine Zusatzqualifikation zur Ausübung ärztlicher Tätigkeiten haben,
+zu entwerfen, zu implementieren und zu evaluieren. Einerseits soll eine Übertragung von Aufgaben möglich sein,
+andererseits sollen die ausgeführten Tätigkeiten elektronisch dokumentiert werden können. Da die ärztlichen Tätigkeiten,
+die übertragen werden sollen, vornehmlich vor Ort beim Klienten durchgeführt werden, lassen sich im Kern zwei notwendige
+Komponenten identifizieren: ein zentrales Verwaltungssystem und eine mobile Anwendung. 
+
+\begin{figure}[ht]
+	\includegraphics{figures/ZielederArbeitGrafischFinal.pdf}
+	\caption{Zielkomponenten der Arbeit}
+	\label{fig:zielederarbeit}
+\end{figure}
+
+Abbildung \ref{fig:zielederarbeit} zeigt eine stilistische Darstellung der Komponenten der Arbeit. Die Basis bildet ein
+zentrales System, in welchem die Daten zu Klienten, auszuführenden und ausgeführten Tätigkeiten verwaltet werden.
+Daneben gibt es eine Software auf einem mobilen Endgerät, die es ermöglicht, Informationen über auszuführende
+Tätigkeiten abzurufen und nach der Ausführung die Ergebnisse zu dokumentieren. Verbunden werden beide Systeme über eine
+Middleware, die Anfragen an das Verwaltungssystem über verschiedene Schnittstellen ermöglichen soll. Da die
+Kommunikation zwischen der mobilen Anwendung und dem Verwaltungssystem in dieser Arbeit aber lediglich über einen
+Schnittstellentyp läuft, dient die Middleware vor allem als Platzhalter, um zu einem späteren Zeitpunkt weitere
+Schnittstellen implementieren zu können. Die Implementierung weiterer Schnittstellen ist nicht Teil dieser Arbeit.\\
+Idee der direkten elektronischen Dokumentation beim Klienten ist die Vermeidung von Medienbrüchen. Anstatt zunächst auf
+Papier zu dokumentieren und diese Informationen zu einem späteren Zeitpunkt zu übertragen, sollen die Informationen über
+eine internetgestützte Schnittstelle direkt an das Verwaltungssystem übertragen werden. Ziel ist eine Einsparung der
+Zeit, die dafür benötigt wird, die schon dokumentierten Informationen noch einmal manuell zu übertragen. Außerdem wird
+eine Reduzierung möglicher Fehlerquellen angestrebt, um die Qualität der Dokumentation zu erhöhen.\\
+Die Entwicklung der mobilen Anwendung ist Kern der Arbeit. Vorgabe ist, Tablet-PCs zur Dokumentation einzusetzen, da sie
+den momentan neuesten Stand der Technik darstellen, sowie übersichtlich und intuitiv bedienbar sind. Welche Plattform
+(z.B. Android oder iOS) und welche Hardware genau eingesetzt wird, ist offen und wird sich aus den zu ermittelnden
+Anforderungen ableiten.\\
+Der Entwicklungsprozess gliedert sich in eine Anforderungsanalyse, die Implementierung und eine Evaluation der
+entstandenen Software und folgt somit vornehmlich einem iterativen Entwicklungsmodell. Es findet vorerst eine auf
+Literatur basierende Anforderungsanalyse sowie eine Priorisierung nach fachlichen, technischen und zeitlichen Kriterien
+statt. Die Implementierung konzentriert sich zunächst auf die Umsetzung der wichtigsten Anforderungen, um einen
+ausreichend reifen Stand der Software zu erreichen.\\
+Die Evaluation gliedert sich in zwei Teile. Nach etwa der halben Bearbeitungszeit soll ein erster Prototyp der Software
+(auf Basis der in der Literatur gefundenen Anforderungen entwickelt) im Rahmen einer Schulung zur Medizinischen
+Fachpflegekraft (MFP) den Teilnehmern vorgestellt werden. Hier sollen Akzeptanz, Benutzbarkeit sowie erwarteter Nutzen
+der Software evaluiert werden. Die gesammelte Resonanz wird in die weitere Entwicklung einfließen.\\
+Neben den fachlichen Anforderungen soll die technische Umsetzung der Software evaluiert werden. Hierzu wird die
+verwendete Architektur nach Kriterien der \acs{iso}/\acs{iec} 25000 (Software Engineering) \cite{iso25000} überprüft,
+soweit es der Stand der Entwicklung zulässt.\\
+
+Das zentrale Verwaltungssystem wird in dieser Arbeit nicht von Grund auf entwickelt, sondern basiert auf einer im
+Projekt VitaBit (\cite{vitaBitAerzteblatt} und \cite{vitaBithaeuslich}) entwickelten Software-Lösung zur Dokumentation
+von Pflegeleistungen. Bereitgestellt wird es von der nubedian GmbH \cite{nubedian}, die außerdem Unterstützung bei der
+Anpassung des Systems an die Anforderungen der Dokumentation ärztlicher Leistungen bietet, da das System momentan
+lediglich zur Dokumentation von Pflegeleistungen gedacht ist. Im Laufe der Entwicklung der mobilen Anwendung sollen
+notwendige Anpassungen des zentralen Verwaltungssystem identifiziert, dokumentiert und, wenn notwendig, umgesetzt
+werden.\\
+
+Neben der nubedian GmbH wird der Entwicklungsprozess dieser Arbeit von Mitarbeitern der \acs{drk} Residenz Bad
+Friedrichshall \cite{residenzBF} unterstützt. Hier werden Pflegekräfte mit einem an \acs{verah} angelehnten
+Fortbildungsprogramm zu Medizinischen Fachpflegekräften (MFP) ausgebildet. Um die Terminologie in dieser Arbeit zu
+vereinfachen, wird künftig anstatt von "Angehörigen der Alten- und Krankenpflege" oder "Medizinischen Fachpflegekraft"
+stellvertretend für alle Fortbildungsmöglichkeiten zur Erfüllung der Richtlinie nach § 63 Abs. 3c SGB V lediglich die
+Bezeichnung \acl{mfp} bzw. \acs{mfp} verwendet.
+

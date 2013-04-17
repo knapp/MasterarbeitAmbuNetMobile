@@ -1,9 +1,9 @@
 \chapter{Erhebung der Anforderungen und daraus abgeleitete Entwurfsentscheidungen}
 \label{ch:anforderungsanalyse}
 
-In diesem Kapitel werden die aus Literatur und vorangegangenen Projekten hervorgegangenen Anforderungen an eine mobile
-Anwendung zur Dokumentation von ärztlich übertragenen Tätigkeiten vorgestellt. In Abschnitt \ref{sec:analyse} werden
-funktionelle Anforderungen beschrieben und technische Anforderungen daraus abgeleitet. Abschnitt
+In diesem Kapitel werden die aus Literatur und vorangegangenen Projekten identifizierten Anforderungen an eine mobile
+Anwendung zur Dokumentation von übertragenen ärztlichen Tätigkeiten vorgestellt. In Abschnitt \ref{sec:analyse} werden
+funktionelle Anforderungen beschrieben und daraus technische Anforderungen abgeleitet. Abschnitt
 \ref{sec:entwurfsentscheidungen} stellt Entwurfsentscheidungen vor, die zur Realisierung der Anwendung getroffen wurden.
 
 \section{Analyse der Anforderungen}
@@ -16,18 +16,18 @@ sachkundigen Mitarbeitern von Kranken- und Pflegeeinrichtungen durchgeführt werd
 Möglichkeit, ärztliche Tätigkeiten an speziell geschulte Pflegekräfte zu übertragen, die Richtlinie des Gemeinsamen
 Bundesausschusses basierend auf § 63 Abs. 3c SGB V ist, kann die Dokumentation der hier aufgelisteten übertragbaren
 Leistungen als Basisanforderung gesehen werden. Ein Problem ist aber, dass aus der Auflistung der Tätigkeiten nicht die
-zu dokumentierenden Daten hervorgehen. Diese konnten in der Literatur jedoch nicht im Detail ermittelt werden, da
-einige Leistungen medizinisches Fachwissen über deren Erbringung erfordern. Deswegen wurde zunächst
-angenommen, dass in der Regel eine Bestätigung, ob eine Leistung erbracht wurde, ausreicht, und sonnst nur die
-Dokumentation von Blutdruck und Puls als wertbasierte Leistungen notwendig ist, sowie das Fotografieren von Wunden.
-Weitere zu dokumentierende Werte konnten erst bei einem Treffen mit den Endnutzern ermittelt werden. Die Ergebnisse
-werden in Kapitel \ref{sec:evalEndnutzer} vorgestellt.
+zu dokumentierenden Daten hervorgehen. Diese konnten auch nicht in der Literatur im Detail ermittelt werden, da einige
+Leistungen medizinisches Fachwissen über deren Erbringung erfordern. Deswegen wurde zunächst angenommen, dass in der
+Regel eine Bestätigung, ob eine Leistung erbracht wurde, ausreicht, und sonst nur die Dokumentation von Blutdruck und
+Puls als wertbasierte Leistungen notwendig ist, sowie das Fotografieren von Wunden. Weitere zu dokumentierende Werte
+konnten erst bei einem Treffen mit den Endnutzern ermittelt werden. Die Ergebnisse werden in Kapitel
+\ref{sec:evalEndnutzer} vorgestellt.
 
 Das Ausbildungsprogramm zu einer \ac{mfp} nimmt keine Einschränkung des Arbeitsgebietes vor. Eine Pflegekraft kann
-somit sowohl stationär in einer Pflegeeinrichtung arbeiten, als auch im ambulanten Dienst tätig sein, bei der die
+sowohl stationär in einer Pflegeeinrichtung arbeiten, als auch im ambulanten Dienst tätig sein, bei der die
 jeweiligen Klienten besucht werden. Die mobile Anwendung ist folglich so zu gestalten, dass beide Einsatzbereiche
 abgedeckt werden können. Es ist zu erwarten, dass die zu erbringenden Leistungen im stationären und im ambulanten
-Bereich die gleichen sein werden, jedoch können sich Unterschiede bei den technischen Anforderungen oder der
+Bereich die gleichen sein werden, jedoch können sich Unterschiede bei den technischen Anforderungen und der
 Terminologie ergeben. Wird im Folgenden keine explizite Unterscheidung zwischen ambulanten und stationären Anforderungen
 genannt, so gilt eine Anforderung für beide Bereiche.
 
@@ -39,12 +39,13 @@ persönlicher Daten ergibt sich die Anforderung, diese Daten ausreichend zu schüt
 Pflegepersonal zur Verfügung zu stellen. Folglich muss eine Authentifizierungsfunktion in Form einer Anmeldung mit
 Benutzername und Passwort (Log-In) implementiert werden. Ein Log-In ermöglicht es außerdem, der angemeldeten Pflegekraft
 nur die Informationen anzuzeigen, die sie für die Ausführung ihrer Tätigkeit benötigt (Autorisierungsfunktion). So kann
-ausgeschlossen werden, dass Informationen über Klienten verfügbar sind, die gerade nicht behandelt werden.\\
+ausgeschlossen werden, dass Informationen über Personen verfügbar sind, die nichts mit der aktuellen Behandlung zu
+tun haben.\\
 Es wird angenommen, dass Pflegekräfte in der stationären Pflege in Schichten und im ambulanten Dienst in Touren
 arbeiten, die den gesamten Tag (24 Stunden) abdecken, da eine Versorgung von Klienten Tag und Nacht gewährleistet sein
 muss. Zur Vereinfachung der Terminologie wird im Folgenden nur noch die Bezeichnung "Tour" verwendet. Weiter wird
 angenommen, dass jede Pflegekraft während einer Tour für eine bestimmte Anzahl von Klienten zuständig ist, für die eine
-Menge vordefinierter Leistungen erbracht werden muss. Zu Beginn jeder Schicht bekommt eine Pflegekraft einen Plan
+Menge vordefinierter Leistungen erbracht werden muss. Zu Beginn jeder Tour bekommt eine Pflegekraft einen Plan
 ausgehändigt, in welchem die abzuarbeitenden Stationen bzw. die zu versorgenden Klienten mit den entsprechenden
 Leistungen aufgelistet sind. In diesem Plan muss jede Leistung dokumentiert werden (vgl. \cite[S. 18
 ff.]{diplChristina}). Eine Leistung wird entweder durch das Setzen eines Hakens dokumentiert (Bestätigung) oder durch
@@ -60,7 +61,7 @@ Neben einer Markierung der Leistung muss ein Feld für eine Begründung (Freitext 
 Nichterbringung der Leistung verfügbar sein. In der Übersicht über die Stationen einer Schicht sollte neben den
 Zuständen "`Erledigt"' und "`Offen"' außerdem der Zustand "Unvollständig abgeschlossen" ersichtlich sein, um zu zeigen,
 dass zwar alle Leistungen bearbeitet wurden, jedoch nicht alle erbracht werden konnten.\\
-Bei der manuellen Dokumentation kann es immer wieder zu Fehlern kommen. Beispielsweise wenn Werte falsch eingetragen
+Bei der manuellen Dokumentation kann es immer wieder zu Fehlern kommen. Beispielsweise, wenn Werte falsch eingetragen
 oder Leistungen bestätigt werden, die eigentlich noch nicht vollständig erfüllt sind. Da diese Fehler auch mit einer
 elektronischen Dokumentation nicht ausgeschlossen werden können, müssen einmal dokumentierte Leistungen stornierbar und
 korrigierbar sein, ohne dass im zentralen System eingegriffen werden muss. Um einer Verfälschung von
@@ -78,11 +79,11 @@ durchgeführt werden. Notwendig ist deshalb, den Plan für eine oder mehrere Schic
 zu Personen (Klienten, Angehörigen, Ärzten) vor dem Beginn einer Schicht lokal auf dem mobilen Endgerät zu speichern und
 somit auch ohne Internet verfügbar zu haben. Lediglich Aktualisierungen müssten so während einer Schicht nachgeladen
 werden. Wird das initiale Laden von Informationen über ein lokales Netzwerk durchgeführt, spart dies außerdem
-Datenvolumen ein, welches bei Verträgen mit Internet über das Mobilfunknetz meist sehr begrenzt ist.\\
+Datenvolumen ein, welches bei Verträgen mit Internet über das Mobilfunknetz meist sehr begrenzt ist.
 
 Wichtig bei der Dokumentation von Wunden ist neben einer textuellen Beschreibung eine bildliche Erfassung. Dies könnte
 mit einer mitgeführten Digitalkamera erfolgen, jedoch besteht dann das Problem, dass die aufgenommenen Bilder nach
-vollendeter Schicht manuell an das zentrale System übertragen werden müssen und den richtigen Patienten zugeordnet. Dies
+vollendeter Schicht manuell an das zentrale System übertragen und den richtigen Patienten zugeordnet werden müssen. Dies
 kostet verhältnismäßig viel Zeit und kann zu Fehlern bei der Zuordnung führen. Wünschenswert ist deswegen eine Funktion
 in der mobilen Anwendung, die es ermöglicht, direkt über eine interne Kamera Wundfotos aufzunehmen und diese an das
 zentrale System zu übertragen.\\
@@ -90,18 +91,17 @@ Eine ähnliche Anforderung wurde bei der Erfassung der Vitalwerte wie Puls und Bl
 manuellen Messung und Eintragung der ermittelten Werte gäbe es die Möglichkeit, ein automatisches Messgerät via
 Bluetooth an das mobile Endgerät anzuschließen und damit die Messung und Eintragung vollständig zu automatisieren. Dass
 dies grundsätzlich möglich ist, wurde im Projekt \textit{Stroke Manager} des \ac{fzi} gezeigt \cite{bluetoothPuls}. Die
-automatische Erfassung würde Fehler bei der manuellen Eintragung von Messwerten würden somit ausgeschlossen.
+automatische Erfassung würde Fehler, die bei der manuellen Eintragung von Messwerten auftreten können, ausschließen.
 Da die Möglichkeit besteht, dass das automatische Messgerät ausfällt, muss eine manuelle Eintragung jedoch trotzdem
 möglich sein.\\
 Das Projekt VitaBit befasste sich, ähnlich wie diese Arbeit, mit der Dokumentation von Pflegeleistungen ambulanter
-Dienste. Auch hier musste einer Pflegekraft ein Tages-/Tourenplan angezeigt werden. Da die Leistungen ambulanter Dienste
+Dienste. Auch hier musste einer Pflegekraft ein Tourenplan angezeigt werden. Da die Leistungen ambulanter Dienste
 ausschließlich vor Ort beim Klienten erbracht werden, die häufig allein leben und nur noch eingeschränkt mobil sind, hat
 die Pflegekraft in der Regel einen Schlüssel zu den Wohnräumen des Klienten. Die Schlüssel aller Klienten werden meist
-an einem Bund zusammengefasst und mit Nummern zur Zuordnung versehen. Damit die Pflegekraft nicht erst lang nach dem
+an einem Bund zusammengefasst und mit Nummern zur Zuordnung versehen. Damit die Pflegekraft nicht erst lange nach dem
 passenden Schlüssel suchen muss, war eine Anforderung, dass die Schlüsselnummer direkt in der Übersicht der Stationen
-auftaucht. Da die in dieser Arbeit entwickelte Arbeit ebenfalls für den ambulanten Pflegedienst gedacht ist, wird diese
-Anforderung auch hier übernommen. Im Falle der stationären Betreuung von Klienten soll anstatt einer Schlüsselnummer die
-Zimmernummer in der Einrichtung angezeigt werden.\\
+angezeigt wird. Im Falle der stationären Betreuung von Klienten soll anstatt einer Schlüsselnummer die Zimmernummer in
+der Einrichtung angezeigt werden.\\
 Die Zielgruppe, für die die mobile Anwendung entwickelt wird, sind Angehörige der Alten- und Pflegeberufe. Da es sich
 bei dieser Gruppe in der Regel um wenig IT-affine Personen handelt, muss die Anwendung übersichtlich strukturiert werden
 und intuitiv bedienbar sein, damit die Hürden der Benutzung durch die Bedienbarkeit möglichst gering sind. Ziel ist es,
@@ -110,15 +110,15 @@ Leistungen ausreicht, um die mobile Anwendung zu verwenden. Der Aufwand für Schu
 Konzeptionell soll eine Orientierung an den graphischen Benutzerschnittstellen von iOS und Android stattfinden, den
 Betriebssystemen für mobile Geräte von Apple und Google.\\
 Eine Funktionalität, die in erster Linie für ambulante Pflegedienste interessant ist, ist die Möglichkeit die Adresse
-eines Klienten auf einer Karte anzeigen zu lassen. Alternativ könnte \ac{gps} könnte auch die aktuelle Position relativ
-zur Adresse des Klienten angezeigt werden, um eine Routenplanung durchzuführen und somit Fahrzeiten besser abschätzen zu
-können. Hierzu ist allerdings eine aktive Internetverbindung notwendig. Eine vollständige Navigation ist nicht
-geplant.\\
+eines Klienten auf einer Karte anzeigen zu lassen. Alternativ könnte mit Hilfe des \acl{gps} (\acs{gps}) auch die
+aktuelle Position relativ zur Adresse des Klienten angezeigt werden, um eine Routenplanung durchzuführen und somit
+Fahrzeiten besser abschätzen zu können. Hierzu ist allerdings eine aktive Internetverbindung notwendig. Eine
+vollständige Navigation ist nicht geplant.\\
 Um eine Reduzierung der elektronischen Geräte zu erreichen, die eine Pflegekraft mitführen muss, ist eine Funktion zum
 Führen von Telefongesprächen hilfreich. Einerseits könnten normale Telefongespräche beispielsweise mit der Zentrale,
 Angehörigen oder Ärzten geführt werden, andererseits wäre es aber auch möglich, einen Notruf-Knopf in die Anwendung zu
 integrieren, um in Notsituationen direkt Hilfe anfordern zu können. Beschränkt wird die Funktionalität zwar durch die
-Notwendigkeit der Verfügbarkeit eines Mobilfunknetzes, jedoch kann diese Einschränkung ebenso beim Mitführen eines
+Notwendigkeit der Verfügbarkeit eines Mobilfunknetzes, jedoch gilt diese Einschränkung ebenso beim Mitführen eines
 separaten Mobiltelefons.\\
 
 Von der bisher beschriebenen Menge an Funktionen ist lediglich die automatische Erfassung von Blutdruck und Puls mittels
@@ -162,14 +162,14 @@ Sitzungen (Sessions), die von Servern während der Interaktion mit einem Benutzer
 werden bei dem REST-Prinzip vorberechnete Ressourcen, beispielsweise eine Webseite, über eine \acs{uri} (\acl{uri})
 referenziert und geladen. Alle Informationen über den Kontext einer Anfrage sind in der Anfrage selbst enthalten und es
 werden keine weiteren lokal beim Nutzer oder auf dem Server gespeicherten Informationen benötigt. Eine Kommunikation via
-\acs{rest} bedeutet eine lose Verkoppelung von vordefinierten Ressourcen, durch die ein Nutzer anhand gegebener
+\acs{rest} bedeutet eine lose Kopplung von vordefinierten Ressourcen, durch die ein Nutzer anhand gegebener
 \acs{uri}s navigieren kann. Es werden lediglich die grundlegenden \acs{http}-Methoden PUT, POST, GET und DELETE
 verwendet, um Anfragen zu formulieren. Übertragen werden Ressourcen bzw. Datenobjekte in der Regel in Form einer
 \acs{xml}- oder \acs{json}-Datei \cite[S. 19]{zurMuehlen20059}.
 
 Die in dieser Arbeit zu entwickelnde mobile Anwendung stellt im Wesentlichen eine mobile Erweiterung von CareNet dar,
 aufgrund dessen der Name \app gewählt wurde. Es wurde eine Neuentwicklung einer Lösung zur mobilen Dokumentation
-angestoßen, da in den vorangegangenen Projekten Probleme mit der verwendeten Hardware identifiziert werden konnten. Im
+angestoßen, da in den vorangegangenen Projekten Probleme mit der verwendeten Hardware identifiziert wurden. Im
 Projekt VitaBIT wurden zur Dokumentation Smartphones der ersten Generation eingesetzt und in \cite{diplChristina} wurde
 ein Panasonic CF-H1 eingesetzt, ein Vorläufer heutiger Tablet-PCs. Dieses Gerät hatte zwar bereits einen
 berührungsempfindlichen Bildschirm und eine Kamera, jedoch war die Leistungsfähigkeit nicht ausreichend, was zu
@@ -184,7 +184,7 @@ Java, iOS auf Objective-C und Windows Phone auf C\#. Anwendungen für die Betrieb
 Sprachen entwickelt werden. Eine so entwickelte Anwendung wird als \textit{nativ} bezeichnet. Dieser Umstand impliziert,
 dass bei der Entwicklung neuer Anwendungen vorher die Entscheidung getroffen werden muss, auf welcher Plattform diese
 bereitgestellt werden soll. Sollen mehrere Plattformen bedient werden, müssen mehrere Anwendungen mit der gleichen
-Funktionalität, aber anderer Quellcodebasis erstellt werden. Dies führt zu hohem zeitlichen Aufwand und ist
+Funktionalität, aber anderer Quellcodebasis erstellt werden. Dies bedeutet hohen zeitlichen Aufwand und ist
 kostenintensiv.\\
 Eine Alternative ist die Erstellung von \textit{WebApps}. Prinzipiell handelt es sich hierbei um Webseiten, jedoch sind
 diese für Touch-Oberflächen optimiert und sie sollen optisch an native Anwendungen erinnern. Da WebApps aber in einem
@@ -203,23 +203,24 @@ wird, ist eine Implementierung von \app als WebApp nicht möglich.\\
 \end{figure}
 
 Ein Ansatz zur Lösung dieses Problems bietet das Projekt PhoneGap \cite{phonegap}. Die Idee ist, in dem Gerüst einer
-nativen Anwendung, einem nativen Container, einen Browser zu platzieren, der Implementierungen in Webtechnologien wie
-HTML5, CSS3 und JavaScript interpretieren kann. Abbildung \ref{fig:phoneGap} zeigt den Zusammenhang der verschiedenen
-Technologien. Um den Zugriff auf endgerätgspezifische Funktionen zu ermöglichen, bietet PhoneGap zur Kommunikation mit
-allen wichtigen Hardware-Funktionen JavaScript-Methoden an, die auf die jeweiligen Befehle in der nativen
-Programmiersprache abgebildet werden. Anstatt beispielsweise die Kamera unter Android direkt über Java anzusprechen,
-erfolgt der Aufruf in JavaScript, welcher von einer Java-Klasse verarbeitet und an das Betriebssystem weitergereicht
-wird. PhoneGap verfolgt somit einen hybriden Ansatz aus nativer Entwicklung und der Nutzung von Webtechnologien.\\
+nativen Anwendung, einem nativen Container, einen Interpreter von Webtechnologien, WebView genannt, zu platzieren, der
+Implementierungen in Webtechnologien wie HTML5, CSS3 und JavaScript interpretieren kann. Abbildung \ref{fig:phoneGap}
+zeigt den Zusammenhang der verschiedenen Technologien. Um den Zugriff auf endgerätgspezifische Funktionen zu
+ermöglichen, bietet PhoneGap zur Kommunikation mit allen wichtigen Hardware-Funktionen JavaScript-Methoden an, die auf
+die jeweiligen Befehle in der nativen Programmiersprache abgebildet werden. Anstatt beispielsweise die Kamera unter
+Android direkt über Java anzusprechen, erfolgt der Aufruf in JavaScript, welcher von einer Java-Klasse verarbeitet und
+an das Betriebssystem weitergereicht wird. PhoneGap verfolgt somit einen hybriden Ansatz aus nativer Entwicklung und der
+Nutzung von Webtechnologien.\\
 Die reine Nutzung von Webtechnologien und die Bereitstellung verschiedener nativer Container durch PhoneGap für die
 jeweils gewünschte Plattform ermöglicht eine Portabilität der Anwendung. Einmal entwickelt kann diese beispielsweise
-sowohl auf Android, als auch auf PhoneGap oder Windows Phone bereitgestellt werden. Diese Möglichkeit bringt Vorteile in
+sowohl auf Android, als auch auf iOS oder Windows Phone bereitgestellt werden. Diese Möglichkeit bringt Vorteile in
 Bezug auf Kosten und Zeit gegenüber der Entwicklung individueller nativer Anwendungen.\\
 Eine Grundanforderung ist, dass über die mobile Anwendung Daten von einem Server abrufbar sein müssen. Würde nun
 PhoneGap als Basis für die Anwendung gewählt, müsste die gesamte Funktionalität inklusive der Server-Kommunikation
-mittels JavaScript implementiert werden. Ein Problem, welches hier auftreten könnte, ist ein Konflikt mit der von
-vielen Browsern befolgten \textit{Same Origin Policy} (\cite{mozillaSop} und \cite{w3cSop}). Diese besagt, dass auf Seiten des
-Internetnutzers ausgeführter Quellcode nur Aufrufe an die Adresse bzw. an den Server tätigen darf, von der die
-Dateien geladen wurden, die den auszuführenden Quellcode (die Webseite) enthalten. Im Falle von PhoneGap werden die HTML- und
+mittels JavaScript implementiert werden. Ein Problem, welches hier auftreten könnte, ist ein Konflikt mit der von vielen
+Browsern befolgten \textit{Same Origin Policy} (\cite{mozillaSop} und \cite{w3cSop}). Diese besagt, dass auf Seiten des
+Internetnutzers ausgeführter Quellcode nur Aufrufe an die Adresse bzw. an den Server tätigen darf, von der die Dateien
+geladen wurden, die den auszuführenden Quellcode (die Webseite) enthalten. Im Falle von PhoneGap werden die HTML- und
 JavaScript-Dateien, die ausgeführt werden, von keinem Server geladen, sondern sie sind mit in die Anwendung eingebunden.
 Nach der Same Origin Policy dürfte also nur an die Anwendung ein Aufruf mittels JavaScript erfolgen. Es wären also keine
 Aufrufe an einen externen Server möglich und damit PhoneGap zur Kommunikation mit CareNet nicht in der Lage. Der
@@ -232,7 +233,7 @@ auszuschließen, dass in Zukunft auch die Nutzbarkeit auf iOS- oder Windows-Gerät
 Verwendung von PhoneGap möglich ist, diese Option mit geringem Aufwand offen zu halten, wurde entschieden, \app als
 hybride Anwendung auf Basis von PhoneGap zu entwickeln.\\
 Zusammen mit PhoneGap bietet sich die Verwendung bereits existierender JavaScript-Bibliotheken an, die zum Entwurf
-touch-optimierter Benutzeroberflächen entwickelt wurden. Zwei verbreite Bibliotheken sind jQuery mobile .\cite{jqmobile}
+touch-optimierter Benutzeroberflächen entwickelt wurden. Zwei verbreite Bibliotheken sind jQuery mobile \cite{jqmobile}
 und Sencha Touch \cite{sencha}. Im Kontext dieser Arbeit wurde jQuery mobile aufgrund der Einfachheit in der Entwicklung
 und der Mächtigkeit der gebotenen Funktionalität gewählt.\\
 
