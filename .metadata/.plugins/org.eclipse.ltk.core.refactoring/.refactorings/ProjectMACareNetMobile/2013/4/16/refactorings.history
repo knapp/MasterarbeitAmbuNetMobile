@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ProjectMACareNetMobile/figures/Aufgaben.pdf&apos; to &apos;Aufgaben6.pdf&apos;" description="Rename resource &apos;Aufgaben.pdf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="figures/Aufgaben.pdf" name="Aufgaben6.pdf" stamp="1366296541653" updateReferences="true"/>
+</session>

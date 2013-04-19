@@ -1,0 +1,26 @@
+%% appendix.tex
+%%
+
+%% ==============================
+%\chapter{Appendix}
+%\label{ch:Appendix}
+%% ==============================
+
+\appendix
+
+\addchap{Anhang}
+
+\section{Fragebogen zur Feststellung der Vorkenntnisse der Teilnehmer der Anwenderschulung}
+\label{app:fragebogenCAS}
+
+\centerline{\includegraphics[scale=0.9]{figures/FragebogenCAS.pdf}}
+
+\newpage
+\section{Abschlussfragebogen der Anwenderschulung}
+\label{app:abschlussfragebogen}
+
+\centerline{\includegraphics[scale=0.9]{figures/AbschlussfragebogenP1.pdf}}
+\centerline{\includegraphics[scale=0.9]{figures/AbschlussfragebogenP2.pdf}}
+
+%\includegraphics{figures/AbschlussfragebogenP1.png}
+%\includegraphics{figures/AbschlussfragebogenP2.png}

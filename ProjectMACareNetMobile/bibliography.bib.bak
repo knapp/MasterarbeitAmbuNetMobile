@@ -130,6 +130,30 @@
   url = {http://swbplus.bsz-bw.de/bsz26744186xcov.htm ; http://www.gbv.de/dms/ilmenau/toc/527923656.PDF}
 }
 
+@ELECTRONIC{base64,
+  author = {S. Josefsson},
+  month = {Oktober},
+  year = {2006},
+  title = {{The Base16, Base32, and Base64 Data Encodings}},
+  language = {en},
+  url = {http://tools.ietf.org/pdf/rfc4648.pdf},
+  file = {:C\:\\Users\\Thomas\\Dropbox\\Masterarbeit\\Literatur\\rfc4648.pdf:PDF},
+  owner = {Thomas},
+  timestamp = {2013.04.18}
+}
+
+@MISC{networkSecurity,
+  author = {Kizza, Joseph Migga},
+  title = {Guide to Computer Network Security},
+  year = {2013},
+  address = {London},
+  edition = {2nd ed. 2013},
+  isbn = {978-1-447-14543-1},
+  publisher = {Springer},
+  series = {Computer Communications and NetworksSpringerLink : Bücher},
+  size = {Online-Ressource (XXIV, 521 p. 106 illus, digital)}
+}
+
 @ARTICLE{vitaBithaeuslich,
   author = {Darren Klingbeil},
   title = {{Mehr Zeit für die Pflege der Kunden}},
@@ -292,7 +316,7 @@
   url = {http://www.jstor.org/stable/30036540}
 }
 
-@BOOK{SWB-308066812,
+@BOOK{balzert,
   title = {Lehrbuch der Softwaretechnik},
   publisher = {Spektrum Akad. Verl.},
   year = {2009},

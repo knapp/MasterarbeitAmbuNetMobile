@@ -1165,3 +1165,15 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.core.resources 2 10035 2013-04-14 09:04:14.640
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2013-04-18 09:21:44.798 -----------------------------------------------
+eclipse.buildId=I20120608-1200
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY net.sourceforge.texlipse 4 4 2013-04-18 15:46:25.788
+!MESSAGE Error while parsing the LaTeX output. Please consult the console output
+
+!ENTRY net.sourceforge.texlipse 4 4 2013-04-18 15:46:49.600
+!MESSAGE Error while parsing the LaTeX output. Please consult the console output

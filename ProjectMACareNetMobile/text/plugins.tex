@@ -20,7 +20,7 @@ Platzieren von Buttons zur Navigation eingefügt. Hier sollen Schaltflächen zur N
 Plug-Ins platziert werden (z.B. ein "Home"-Button) und auch zur Navigation zwischen verschiedenen Sichten innerhalb
 eines Plug-Ins. Der größte Bereich ist zur Darstellung und Bearbeitung des eigentlichen Inhalts gedacht.\\
 Die gesamte Anwendung basiert lediglich auf zwei HTML-Dateien und einer Menge von JavaScript-Dateien. Eine HTML-Datei
-wird für einen Login-Dialog verwendet, die zweite um den kompletten Inhalt darzustellen. Alle Strukturelemente und
+wird für einen Login-Dialog verwendet, die zweite um den kompletten Inhalt darzustellen. Alle Strukturelemente und die
 Funktionalität wird über JavaScript hinzugefügt. Zur Manipulation der HTML-Elemente wird jQuery und jQuery mobile
 verwendet.
 
@@ -32,16 +32,17 @@ verwendet.
 \end{figure}
 
 Die Strukturierung und Gestaltung der grafischen Oberfläche erfolgt mittels HTML5 und CSS3, die Funktionalität wird mit
-JavaScript entwickelt. Gegenüber der Entwicklung einer nativen Anwendung für Android ergeben sich bei der Entwicklung
-mit JavaScript gewisse Schwierigkeiten. Während Java eine objektorientierte Sprache ist, bei der Typsicherheit und
-Kapselung von Funktionalität in Klassen zu den Eigenschaften gehören, ist JavaScript eine Scriptsprache, die keinerlei
-Typsicherheit und nur bedingte Kapselungsmöglichkeiten bietet. Ein wichtiger Unterschied ist, dass Java vor der
-Ausführung zunächst kompiliert, d.h. in eine maschinenverständliche Zwischensprache übersetzt werden muss, während
-JavaScript direkt vom Browser interpretiert werden kann. Dies impliziert, dass JavaScript-Code, selbst wenn er bereits
-auf einer Webseite ausgeführt wird, dem Nutzer im Klartext zur Verfügung steht, während der Java-Code nur bedingt und
-durch aufwendige Verfahren wieder dekompiliert und somit im Klartext verfügbar gemacht werden kann. Dieser Eigenschaft
-muss sich ein Entwickler besonders im Bezug auf im Quellcode vermerkte sicherheitsrelevante Informationen bewusst
-sein.\\
+JavaScript entwickelt. Gegenüber der Entwicklung einer nativen Anwendung auf Basis einer objektorientierten
+Programmiersprache wie Java (Android), Objective-C (iOS) oder C\#/C++ (Windows Phone) ergeben sich bei der Entwicklung
+mit JavaScript gewisse Schwierigkeiten. Während bei einer objektorientierten Sprache Typsicherheit und Kapselung von
+Funktionalität in Klassen zu den Eigenschaften gehören, ist JavaScript eine Scriptsprache, die keinerlei Typsicherheit
+und nur bedingte Kapselungsmöglichkeiten bietet. Im Folgenden wird JavaScript stellvertretend für andere
+objektorientierte Sprachen mit Java verglichen. Ein wichtiger Unterschied ist, dass Java vor der Ausführung zunächst
+kompiliert, d.h. in eine maschinenverständliche Zwischensprache übersetzt werden muss, während JavaScript direkt vom
+Browser interpretiert werden kann. Dies impliziert, dass JavaScript-Code, selbst wenn er bereits auf einer Webseite
+ausgeführt wird, dem Nutzer im Klartext zur Verfügung steht, während der Java-Code nur bedingt und durch aufwendige
+Verfahren wieder dekompiliert und somit im Klartext verfügbar gemacht werden kann. Dieser Eigenschaft muss sich ein
+Entwickler besonders im Bezug auf im Quellcode vermerkte sicherheitsrelevante Informationen bewusst sein.\\
 Während der Entwicklung kann vor allem die fehlende Möglichkeit der Kapselung problematisch werden. Abbildung
 \ref{fig:vergleichJavaJS} zeigt Beispielimplementierungen in Java und JavaScript. Links wurde eine Klasse erstellt, die
 Methoden und Variablen kapselt. Wird eine Variable außerhalb einer Methode definiert (Abbildung
@@ -95,13 +96,6 @@ sondern lediglich \textit{einmal} in der zentralen Datei. Die Wahrscheinlichkeit
 umgesetzte Anpassungen kann so verringert werden. Dieses Vorgehen ist angelehnt an die zentrale Verwaltung von
 \textit{String Ressources} bei der Entwicklung nativer Android-Anwendungen \cite{androidStringRessources}.\\
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{figures/AuthentifizierungCareCMviaREST.pdf}
-	\caption{Überprüfung der Benutzerdaten in \app }
-	\label{fig:login}
-\end{figure}
-
 Eine Grundfunktion, welche die Basisanwendung zur Verfügung stellt, ist ein Log-In zur Sicherung der persönlichen Daten
 und einer Identifizierung des Nutzers. Da \app eine mobile Erweiterung von CareNet darstellt, werden keine gesonderten
 Konten für die Nutzung der mobilen Anwendung angelegt, sondern es werden die schon existierenden Konten in CareNet
@@ -112,7 +106,15 @@ In Kapitel \ref{sec:entwurfsentscheidungen} wurde die Kommunikation von \app mit
 dieser Kommunikation resultiert eine Besonderheit bei der Authentifizierung eines Nutzers mit einem zentralen System.
 Abbildung \ref{fig:login} zeigt die notwendigen Schritte zur Authentifizierung eines Nutzers und dem anschließenden
 Senden einer Anfrage. Da keine Sitzung aufgebaut werden kann, in der ein Nutzer dauerhaft angemeldet wird, müssen
-die kompletten Nutzerdaten bei jeder Anfrage mitgesendet werden.\\
+die kompletten Nutzerdaten bei jeder Anfrage mitgesendet werden.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/AuthentifizierungCareCMviaREST.pdf}
+	\caption{Überprüfung der Benutzerdaten in \app }
+	\label{fig:login}
+\end{figure}
+
 Meldet sich ein Nutzer in \app an, so werden zunächst nur die eingegebenen Daten an CareNet gesendet. Als Antwort kommt
 entweder der HTML-Code 200 (\textit{OK}) oder 401 (\textit{Unauthorized}). Sind die Daten korrekt (Code = 200), werden
 sie im lokalen Speicher der Anwendung abgelegt, um sie für spätere Anfragen an CareNet nicht noch einmal eingeben zu
@@ -140,21 +142,22 @@ Anwendung geschlossen wird. Wird diese wieder geöffnet, muss der Nutzer sich neu
 zu Einbußen bei der Benutzbarkeit der Anwendung, da immer wieder neu Nutzername und Passwort eingegeben werden muss,
 auch wenn nur aus Versehen der Home-Button betätigt wurde, jedoch ist dies für den Schutz der sensiblen Daten
 unabdinglich. Zur Reduzierung der Wahrscheinlichkeit, dass \app unabsichtlich geschlossen wird, wurde der
-Zurück-Button deaktiviert, da dieser bei nur zwei verwendeten HTML-Seiten zu einem Verlassen der Anwendung führt.\\
+Zurück-Button deaktiviert, da dieser bei nur zwei verwendeten HTML-Seiten zu einem Verlassen der Anwendung führt.
 
 In Abbildung \ref{fig:login} wird die Rolle der Middleware vernachlässigt, da diese nicht für das grundsätzliche
 Kommunikationsprinzip relevant ist. Tatsächlich übernimmt die Middleware aber einen Arbeitsschritt bei der
-Kommunikation. Die Nutzerdaten werden als Zeichenkette \textit{Mandant/Benutzername:Passwort} an die Middleware
-übertragen. CareNet benötigt die Daten zur Authentifizierung jedoch in Form einer nach der Base Access Authentication
-verschlüsselten Zeichenkette. Base Access Authentication ist \textcolor{red}{[Erlärung Base64 nach Network security:
-private communication in a public world, second edition]}. Da PHP standardisierte Methoden zur Erstellung dieser
-Verschlüsselung anbietet, wurde entschieden, die Verschlüsselung in die Middleware zu verlagern.\\
-Auch wenn es sich bei der Base Access Authentication namentlich um eine Verschlüsselung handelt, ist diese jedoch kein
-Schutz gegen einen Zugriff auf die Daten Dritter, da das Verfahren öffentlich bekannt ist und leicht entschlüsselt
-werden kann. Im Prinzip werden die Benutzerdaten also im Klartext von \app zu CareNet übertragen. Hört ein Dritter die
-Kommunikation ab, kann er die Nutzerdaten auslesen und zweckentfremden. Aus diesem Grund muss die Verbindung an sich
-verschlüsselt werden. Hierzu wird eine \acs{https}-Verbindung sowohl von \app zur Middleware als auch von der Middleware
-zu CareNet verwendet.\\
+Kommunikation. Zur Authentifizierung eines Nutzers wird Benutzername und Passwort als Zeichenkette der Form
+\begin{center}\textit{Mandant/Benutzername:Passwort}\end{center}
+an die Middleware übertragen. Die Verwendung von Benutzername und Passwort, welche auf Seiten des Servers auf
+Richtigkeit überprüft werden, ist ein weit verbreiteter Authentifizierungsmechanismus, der auch \textit{Basic
+authentication} genannt wird \cite[S. 204]{networkSecurity}. Um sicherzustellen, dass die
+Authentifizierungsinformationen für CareNet lesbar sind, muss die Zeichenkette nach Base64 \cite{base64} kodiert werden.
+Da PHP standardisierte Methoden zur Erstellung dieser Verschlüsselung anbietet, wurde entschieden, die Kodierung in die
+Middleware zu verlagern.\\
+Da eine Kodierung nach Base64 ein bekanntes Verfahren ist, wird hierdurch kein Schutzmechanismus für Benutzerdaten
+implementiert. Diese werden praktisch im Klartext übertragen, da theoretisch jeder, der die Kommunikation abhört, die
+Zeichenkette entschlüsseln kann. Aus diesem Grund muss die Verbindung an sich verschlüsselt werden. Hierzu wird eine
+\acs{https}-Verbindung sowohl von \app zur Middleware als auch von der Middleware zu CareNet verwendet.\\
 \acs{https} steht für \textit{\acl{https}} und stellt eine Kombination aus einem symmetrischen und einem asymmetrischen
 Verschlüsselungsverfahren dar, um Internetverbindungen abhörsicher zu machen. Bei einem symmetrischen Verfahren benutzen
 Sender und Empfänger beide den gleichen Schlüssel, um Nachrichten zu ver- und entschlüsseln. Bei einem asymmetrischen
@@ -162,10 +165,10 @@ Verfahren wird eine Nachricht mit einem öffentlichen Schlüssel verschlüsselt und
 der Empfänger kennt, wieder entschlüsselt. Die symmetrische Verschlüsselung ist zwar deutlich schneller, jedoch auch
 unsicherer, da der Schlüssel zunächst über eine unverschlüsselte Verbindung übertragen werden muss und so eventuell
 abgehört werden könnte. Beim \acs{https}-Verfahren wird zum Aufbau einer sicheren Verbindung der öffentliche Schlüssel
-an den Empfänger übertragen.
-Dieser nutzt den Schlüssel, um eine Nachricht mit einem symmetrischen Schlüssel an den Server zu schicken. Diesen
-symmetrischen Schlüssel können in der folgenden Kommunikation beide Seiten verwenden. Eine langsame asymmetrische
-Kommunikation findet also nur beim Aufbau der Verbindung statt \cite[S. 152]{sicherheitInternet}.
+an den Empfänger übertragen. Dieser nutzt den Schlüssel, um eine Nachricht mit einem symmetrischen Schlüssel an den
+Server zu schicken. Diesen symmetrischen Schlüssel können in der folgenden Kommunikation beide Seiten verwenden. Eine
+langsamere asymmetrische Kommunikation findet also nur beim Aufbau der Verbindung statt \cite[S.
+152]{sicherheitInternet}.
 
 
 
@@ -271,7 +274,7 @@ hindert, da diese Datei mehrere tausend Zeilen Code enthalten kann.\\
 \end{figure}
 
 Die Benutzung von \app soll auch ohne eine Internetverbindung möglich sein, wenn vorher alle relevanten Daten auf den
-Tablet-PC geladen wurden. Hierzu wird eine lokale Datenbank von der Basisanwendung bereitgestellt. Die Einzelnen
+Tablet-PC geladen wurden. Hierzu wird eine lokale Sqlite-Datenbank von der Basisanwendung bereitgestellt. Die Einzelnen
 Plug-Ins können über vordefinierte Methoden eigene Tabellen anlegen, um Plug-In spezifische Informationen abzuspeichern.
 Damit es beim ersten Öffnen eines Plug-Ins zu keiner größeren Verzögerung wegen des Anlegens benötigter Tabellen kommt,
 ist eine Funktion wünschenswert, mit der Plug-Ins Vorgänge anstoßen können, die schon vor dem ersten Öffnen ausgeführt
@@ -332,17 +335,18 @@ einen Klienten geben.
 Da auch die Kontaktinformationen offline verfügbar sein sollen, müssen entsprechende Tabellen zur lokalen Speicherung
 vorhanden sein. Als Speicher wird eine von HTML5 angebotene Sqlite-Datenbank verwendet. Diese speichert Daten
 persistent, d.h. auch wenn die Anwendung auf dem Tablet-PC geschlossen wird oder der Tablet-PC heruntergefahren wird,
-werden die Daten nicht gelöscht. Beim Start von \app wird eine Datenbank angelegt bzw. überprüft, ob bereits eine
-Datenbank mit entsprechendem Namen vorhanden ist. Da die Datenbank innerhalb des von PhoneGap angebotenen Browsers/Web
-Views angelegt wird, kann von außen bzw. anderen auf dem Tablet-PC installierten Anwendungen nicht darauf zugegriffen
-werden. So entsteht kein Sicherheitsproblem durch die Speicherung sensibler Daten auf dem Tablet-PC. Alle Daten werden
-in Tabellen gespeichert, die in unbegrenzter Zahl erstellt werden können. Abbildung \ref{fig:tablesContacts} zeigt die
-notwendige Tabellenstruktur, um Sichten und Kontakte lokal abspeichern zu können. Die linke Tabelle enthält die
-\acs{id}s und Namen aller Sichten, die aus CareNet geladen wurden. In der rechten Tabelle sind alle Kontakte mit
-\acs{id}s und einer Reihe von Attributen enthalten. Die mittlere Tabelle verbindet beide Tabellen, indem sie durch
-Gegenüberstellung der \acs{id}s der Sichten und der Kontakte eine Abbildung schafft, welcher Kontakt in welcher Sicht
-enthalten ist. Beispielsweise ist in Abbildung \ref{fig:tablesContacts} der Kontakt mit der \acs{id} C2 in den
-Sichten mit den \acs{id}s V1 und V2 enthalten, während die anderen Kontakte jeweils nur in einer Sicht enthalten sind.
+bleiben die Daten verfügbar. Beim Start von \app wird eine Datenbank angelegt bzw. überprüft, ob bereits eine Datenbank
+mit entsprechendem Namen vorhanden ist. Da die Datenbank innerhalb des WebViews angelegt wird und jede
+PhoneGap-Anwendung einen eigenen anwendungsinternen WebView nutzt, kann nicht von anderen PhoneGap-Anwendung auf den
+Speicher zugegriffen werden. So entsteht kein Sicherheitsproblem durch die Speicherung sensibler Daten auf dem
+Tablet-PC. Alle Daten werden in Tabellen gespeichert, die in unbegrenzter Zahl erstellt werden können. Abbildung
+\ref{fig:tablesContacts} zeigt die notwendige Tabellenstruktur, um Sichten und Kontakte lokal abspeichern zu können. Die
+linke Tabelle enthält die \acs{id}s und Namen aller Sichten, die aus CareNet geladen wurden. In der rechten Tabelle sind
+alle Kontakte mit \acs{id}s und einer Reihe von Attributen enthalten. Die mittlere Tabelle verbindet beide Tabellen,
+indem sie durch Gegenüberstellung der \acs{id}s der Sichten und der Kontakte eine Abbildung schafft, welcher Kontakt in
+welcher Sicht enthalten ist. Beispielsweise ist in Abbildung \ref{fig:tablesContacts} der Kontakt mit der \acs{id} C2 in
+den Sichten mit den \acs{id}s V1 und V2 enthalten, während die anderen Kontakte jeweils nur in einer Sicht enthalten
+sind.
 Wählt ein Nutzer eine Sicht aus, wird in der Tabelle \textit{Mapping} nach allen Kontakt-\acs{id}s gesucht, die der
 \acs{id} der Sicht zugeordnet sind. Mit Hilfe der gesammelten \acs{id}s werden die eigentlichen Kontaktinformationen aus
 der Tabelle \textit{Contacts} abgefragt, welche nun dargestellt werden können.
@@ -360,7 +364,7 @@ Sicht werden als Kacheln bzw. als Galerie (\cite[S. 17]{mobileDesignPatterns}) d
 \ref{fig:presentationContacts} zeigt einen Ausschnitt aus der Darstellung der Kontakte in \app. In dem orangefarbenen
 Balken ist vermerkt, ob es sich um eine Person oder eine Organisation handelt, im grauen Kasten darunter werden Vorname
 und Name sowie Wohnort aufgeführt. Es könnten beispielsweise auch die Telefonnummer, die E-Mail-Adresse oder ein Foto
-einer Person angezeigt werden, jedoch wurden aus Gründen er Übersichtlichkeit diese Informationen gewählt.\\
+einer Person angezeigt werden, jedoch wurden aus Gründen der Übersichtlichkeit diese Informationen gewählt.\\
 Jedes Element in der Tabelle der Sichten weist nach oben und unten einen gewissen Abstand vom Text zum Rand auf, um
 genug Fläche für eine Auswahl mit dem Finger zu bieten und somit die Wahrscheinlichkeit neben die gewollte Schaltfläche zu
 tippen zu verringern. Das gleiche gilt für die Kacheln zur Auflistung der Kontakte. Neben der Informationsfunktion soll
@@ -369,7 +373,8 @@ Wählt ein Nutzer einen Kontakt aus, werden alle relevanten Informationen in eine
 Momentan findet lediglich eine Unterscheidung bei der Darstellung von Personen und Organisationen statt, jedoch ist eine
 Differenzierung nach Adressarten geplant.\\
 Zum Zeitpunkt der Fertigstellung dieser Arbeit hatte das Plug-In nur eine Funktion zum Anzeigen von Kontakten. Eine
-Editierfunktion bestehender Kontakte oder die Neuanlage von Kontakten ist nicht möglich.\\
+Editierfunktion bestehender Kontakte oder die Neuanlage von Kontakten wurde nicht implementiert, da die Anforderung
+nur die Anzeige von Kontaktinformationen vorsahen. Grundsätzlich ist eine Editierfunktion jedoch möglich.\\
 
 Die in Abbildung \ref{fig:tablesContacts} gezeigten Tabellen werden im Konstruktor des Plug-Ins erzeugt bzw. wird
 überprüft, ob sie vorhanden sind. Wird das Plug-In geöffnet und es sind keine Kontaktdaten vorhanden, wird angenommen,
