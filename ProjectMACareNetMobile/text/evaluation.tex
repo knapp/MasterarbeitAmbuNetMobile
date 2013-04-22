@@ -100,10 +100,11 @@ adressiert wurde. In kursiver Schrift ist jeweils die Definition des Subcharakte
 	auftreten, was eine komplette, im Idealfall automatisierte Überprüfung sehr schwierig macht. Zwar gibt es
 	JavaScript Test-Frameworks wie Jasmine \cite{jasmine} oder QUnit (für jQuery) \cite{qunit}, jedoch können hiermit
 	hauptsächlich Fehler im eigenen Quellcode entdeckt werden. Fehler in den extern entwickelten Bibliotheken sind so nur
-	schwer zu identifizieren. Bisher wurden aus Zeitgründen keine automatischen Tests implementiert. Die Überprüfung der
-	grafischen Oberfläche bestehend aus HTML und CSS, die einen signifikanten Anteil der Entwicklungszeit beansprucht hat,
-	kann ohnehin nur manuell durch Blickprüfung erfolgen. Die Prüfbarkeit von \app ist daher als schwierig einzustufen.
+	schwer zu identifizieren. Bisher wurden aus Zeitgründen keine automatischen Tests implementiert. Die Testbarkeit von
+	\app ist daher als schwierig einzustufen.
 \end{description}
+\vspace{0.6cm}
+
 
 \Large 
 \textbf{Portabilität}
@@ -194,7 +195,7 @@ adressiert wurde. In kursiver Schrift ist jeweils die Definition des Subcharakte
 	\vspace{0.2cm}
 	
 	Im Vergleich mit den Anforderungen ist die bisher implementierte Funktionalität zwar eine gute Basis, jedoch
-	fehlen noch wichtige Funktionalitäten wie das Hinzufügen durchgeführter Tätigkeiten vor Ort beim Klienten oder eine
+	fehlen noch wichtige Funktionalitäten, wie das Hinzufügen durchgeführter Tätigkeiten vor Ort beim Klienten oder eine
 	vollständige Klienteninformation. Aus diesem Grund ist die Funktionalität von \app noch nicht als angemessen anzusehen.	
 	
 	\item[Genauigkeit]
@@ -263,7 +264,7 @@ adressiert wurde. In kursiver Schrift ist jeweils die Definition des Subcharakte
 	überprüft, ob die Anfrage erfolgreich war und wenn nicht, werden entsprechende Maßnahmen eingeleitet.\\
 	Um sicherzustellen, dass Daten an CareNet vollständig übermittelt werden, wird jedes Element (z.B. ein Messwert oder
 	ein Dossier) einzeln übertragen, um bei einem Fehler genau zu wissen, welche Operationen noch einmal ausgeführt werden
-	muss. Die Fehlertoleranz ist allerdings noch nicht für alle möglichen Anwendungsfälle implementiert. Es besteht also
+	müssen. Die Fehlertoleranz ist allerdings noch nicht für alle möglichen Anwendungsfälle implementiert. Es besteht also
 	noch Nachbesserungsbedarf.
 	
 	\item[Wiederherstellbarkeit] 
@@ -295,7 +296,7 @@ adressiert wurde. In kursiver Schrift ist jeweils die Definition des Subcharakte
 \label{sec:evalEndnutzer}
 
 Am 19.01.2013, nach etwa drei Monaten Entwicklungszeit, fand eine ganztägige EDV-Anwenderschulung im Rahmen der
-Ausbildung zur Medizinischen Fachpflegekraft am Forschungszentrum Informatik (FZI) statt. Die sieben Teilnehmerinnen
+Ausbildung zur Medizinischen Fachpflegekraft am FZI Forschungszentrum Informatik statt. Die sieben Teilnehmerinnen
 waren ausgebildete Alten- und Krankenpflegerinnen mit mehrjähriger Berufserfahrung. Der erste Teil des Tages wurde
 vorwiegend zu Schulungszwecken genutzt, während der zweite Teil des Tages der Evaluation der zu Beginn der Arbeit auf
 Basis von Literatur ermittelten Anforderungen an eine mobile Anwendung diente. Ziel des Schulungsteils der Veranstaltung
@@ -354,7 +355,7 @@ Computern kritisch gesehen wird. Die Fragen zum Nutzen von Computern bei der Aus
 grundsätzlich positiv aus. Zwar stimmten jeweils ein bzw. zwei Teilnehmerinnen den Thesen nicht zu, dass Computer
 ermüdende Aufgaben übernehmen können (4), man mit ihnen schnell Informationen finden kann (5) und sie das Leben
 grundsätzlich vereinfachen (7), jedoch lässt sich daraus ablesen, dass Computer als Hilfsmittel und nicht als Hürde
-angesehen werden. Trotz dieser positiven Sicht auf die Verwendung gaben fünf von sieben Teilnehmern an,
+angesehen werden. Trotz dieser positiven Sicht auf die Verwendung von Computern gaben fünf von sieben Teilnehmern an,
 dass Computer an sich schwer zu verstehen sind und die Arbeit mit ihnen zu Frustration führen kann (8). Dies ist
 vermutlich auf die Tatsache zurückzuführen, dass Computer eine derartige Komplexität besitzen, dass ein Laie oft nicht
 in der Lage ist, auftretende Fehler zu beheben. Die Antwort auf die Frage passen zu Berichten der Teilnehmer, dass einer
@@ -412,15 +413,25 @@ im Schulungsraum.
 \subsection{Ermittlung des Status Quo - Ablauf und Schlussfolgerungen}
 
 Der zweite Teil der Anwenderschulung sollte in erster Linie dazu genutzt werden, um Wissen über den momentanen
-Arbeitslauf einer Pflegekraft zu gewinnen und daraus Anforderungen an eine mobile Anwendung zur Dokumentation von
+Arbeitsablauf einer Pflegekraft zu gewinnen und daraus Anforderungen an eine mobile Anwendung zur Dokumentation von
 erbrachten Tätigkeiten abzuleiten. Der eigentliche Fokus der Master-Arbeit liegt zwar auf der Implementierung eines
 Systems zur Dokumentation \textit{ärztlich übertragener} Tätigkeiten, jedoch kann für diese Tätigkeiten kein Status Quo
-ermittelt werden, da die Teilnehmer der Schulung die ersten Alten- und Pflegekräfte sind, die zu einer \acl{mfp}
-ausgebildet werden. Es konnte jedoch on den Teilnehmerinnen in Erfahrung gebracht werden, dass einige übertragbare
-Tätigkeiten wie die Blutabnahme oder die Gabe von Medikamenten schon jetzt von examinierten Krankenschwestern im Rahmen
+ermittelt werden, da die Teilnehmer der Schulung die ersten Alten- und Pflegekräfte sind, die zu einer Medizinischen
+Fachpflegekraft ausgebildet werden. Es konnte jedoch on den Teilnehmerinnen in Erfahrung gebracht werden, dass einige
+übertragbare Tätigkeiten wie die Blutabnahme oder die Gabe von Medikamenten schon jetzt von examinierten Krankenschwestern im Rahmen
 der Pflege ausgeführt werden dürfen. Außerdem ähneln sich die zu erwartende Arbeitsstruktur einer \acs{mfp} und die
 einer Alten- und Krankenpflegerin dahingehend, dass in einem bestimmten Zeitraum (meist einer Arbeitsschicht), eine
 Reihe von Klienten mit bestimmten Dienstleistungen versorgt werden müssen.
+
+Durch eine Analyse des momentanen Ablaufes in Zusammenarbeit mit den ausführenden Kräften sollten Stärken und Schwächen
+mit besonderem Augenmerk auf der Dokumentation identifiziert werden. Zunächst wurde hierzu der Tagesablauf der
+Pflegekräfte rekonstruiert und in einem Diagramm für bessere Übersichtlichkeit festgehalten. Ein Eindruck der Ermittlung
+des Status Quo kann in Abbildung \ref{fig:eindruckSchulung} gewonnen werden. Das erstellte Diagramm zeigt prinzipiell
+eine Sequenz von Tätigkeiten (blau), denen Probleme auf roten Karten zugeordnet wurden. Der genaue Ablauf des Tages ist
+nicht entscheidend und wird hier nicht reproduziert, sondern lediglich die dadurch gewonnenen Erkenntnisse
+zusammengefasst. Ziel des Diagramms war es herauszufinden, an welchen Stellen in welchem Umfang dokumentiert werden
+muss, welche Fehlerquellen sich im momentanen Ablauf ergeben und welche Aspekte verbessert werden könnten, um den Ablauf
+im Bezug auf die Dokumentation zu vereinfachen.
 
 \begin{wrapfigure}{l}{9cm}
    \includegraphics[width=8.5cm]{figures/eindruckSchulung.png} 
@@ -428,15 +439,6 @@ Reihe von Klienten mit bestimmten Dienstleistungen versorgt werden müssen.
    \label{fig:eindruckSchulung}
 \end{wrapfigure}
 
-Durch eine Analyse des momentanen Ablaufes in Zusammenarbeit mit den ausführenden Kräften sollten Stärken und Schwächen
-mit besonderem Augenmerk auf der Dokumentation identifiziert werden. Zunächst wurde hierzu der Tagesablauf der
-Pflegekräfte rekonstruiert und in einem Diagramm für bessere Übersichtlichkeit festgehalten. Ein Eindruck der Ermittlung
-des Status Quo kann in Abbildung \ref{fig:eindruckSchulung} gewonnen werden. Das erstellte Diagramm zeigt prinzipiell
-eine Sequenz von Tätigkeiten (blau), denen Probleme auf roten Karten zugeordnet wurden. Der genaue Ablauf des Tages ist
-nicht entscheidend und wird hier nicht reproduziert, sondern lediglich die dadurch gewonnen Erkenntnisse
-zusammengefasst. Ziel des Diagramms war es herauszufinden, an welchen Stellen in welchem Umfang dokumentiert werden
-muss, welche Fehlerquellen sich im momentanen Ablauf ergeben und welche Aspekte verbessert werden könnten, um den Ablauf
-im Bezug auf die Dokumentation zu vereinfachen.\\
 Schnell kristallisierte sich heraus, dass der wichtigste und kritischste Faktor während der Arbeit der Pflegekräfte
 \textit{Zeit} ist. In der Konsequenz bedeutet dies, dass jede Maßnahme, die mehr Zeit verschafft, positiv zu bewerten
 ist und jede Verzögerung des Ablaufs zu vermeiden ist.\\
@@ -444,8 +446,8 @@ Eine wichtige Erkenntnis ist, dass es nicht eine Reihe von Tätigkeiten gibt, die
 Patienten abgearbeitet werden, sondern dass während einer Schicht, zumindest im stationären Bereich, mehrere Besuche beim
 Patienten mit verschiedenen Aufgaben durchgeführt werden. Alle Tätigkeiten werden dem Personal in einer so genannten
 \textit{Tagesstruktur} mitgeteilt, die im Laufe der Schicht abgearbeitet werden müssen. Es lassen sich bestimmte
-Tätigkeitsblöcke identifizieren, die in einer bestimmten zeitlichen Reihenfolge liegen wie z.B. die Grundpflege vor dem
-Essen reichen, anschließend Transfer der Bewohner zu individuellen Beschäftigungsprogrammen. Daneben gibt es eine Reihe
+Tätigkeitsblöcke identifizieren, die in einer bestimmten zeitlichen Reihenfolge liegen, wie z.B. die Grundpflege vor dem
+Essenreichen, anschließend Transfer der Bewohner zu individuellen Beschäftigungsprogrammen. Daneben gibt es eine Reihe
 von Tätigkeiten, die nicht zu einem bestimmten Zeitpunkt erledigt werden müssen, sondern jeweils dann, wenn Bedarf
 besteht. Hierzu gehören beispielsweise die Lagerung der immobilen Bewohner sowie Toilettengänge. Dokumentiert werden
 muss alles, das entweder für die  spätere Abrechnung mit der Krankenkasse benötigt wird oder medizinisch relevant ist.
@@ -479,7 +481,7 @@ Wege kurz gehalten werden. Bei 40 Bewohnern auf einer Etage ist es jedoch nicht 
 direkt neben oder zumindest in unmittelbarer Nähe des Computers zur Dokumentation zuzuweisen. Einige Mitarbeiter müssen
 also jedes Mal relativ lange Wege auf sich nehmen. Eigentlich sind die Pflegekräfte angehalten, jede Tätigkeit
 unverzüglich zu dokumentieren, aber aufgrund der zurückzulegenden Wege werden meist mehrere Tätigkeiten durchgeführt,
-bevor die Dokumentation erfolgt, um die Wegezeit zu sparen. Zwischen Durchführung und dem Einpflegen des gemachten in
+bevor die Dokumentation erfolgt, um die Wegezeit zu sparen. Zwischen Durchführung und dem Einpflegen des Gemachten in
 das Computersystem werden alle Tätigkeiten also zunächst im Kopf "dokumentiert". Besonders morgens, bei der Durchführung
 der Grundpflege, die für acht Bewohner in etwa zwei Stunden Zeit in Anspruch nehmen darf, haben die Mitarbeiter keine
 Kapazitäten mehr frei, um die Dokumentation nach jedem Bewohner durchzuführen. Es kommen so enorm viele Informationen
@@ -490,7 +492,7 @@ aber auch zu gesundheitlichen Schäden führen, wenn hier relevante Informationen 
 Neben dem reinen Zeitverlust durch die Wege zum Computer und zurück treten häufig "Störfaktoren" auf dem Weg aus, die zu
 weiterem Zeitverlust führen. Denn sobald eine Pflegekraft ein Zimmer verlässt, kommt es häufig vor, dass sie von anderen
 Bewohnern um etwas gebeten wird oder von Angehörigen in ein Gespräch verwickelt wird. Zwar sind dies Dinge, die neben
-der reinen Dienstleistung ein wichtiger Bestandteil des Alten- und Pflegeberufs ist, da dies die menschliche Ebene
+der reinen Dienstleistung ein wichtiger Bestandteil des Alten- und Pflegeberufs sind, da dies die menschliche Ebene
 adressiert, jedoch bedeuten derartige Gespräche und Zusatzleistungen rein rational gesehen einen kritischen Zeitverlust.
 Müssten weniger Wege ins Dienstzimmer angetreten werden, könnte das Potential für Ablenkungen in Zusammenhang mit
 der Dokumentation gesenkt werden und somit effektiv Zeit eingespart werden.\\
@@ -532,7 +534,7 @@ abgeschafft werden oder sogar vollständig von der manuellen Dokumentation abgese
 		\hline		
 		Drei Computer zur Dokumentation bei 4 - 5 Mitarbeitern führen zu Engpässen und Wartezeiten & Zeit\\		
 		\hline			
-		Auf dem Weg von Dienstzimmer zum Patient und zurück treten häufig "Störfaktoren" auf (Gespräche mit Angehörigen,
+		Auf dem Weg von Dienstzimmer zum Patienten und zurück treten häufig "Störfaktoren" auf (Gespräche mit Angehörigen,
 		Fragen durch Patienten, Telefon) & Zeit\\		
 		\hline		
 		Während der Arztvisite ist das Bereitstellen von Informationen zum Patienten wie die aktuelle Medikation meist mit
@@ -564,7 +566,7 @@ abgeschafft werden oder sogar vollständig von der manuellen Dokumentation abgese
 
 Der bisher beschriebene Status Quo der Dokumentation von Pflegeleistungen und vereinzelt auch ärztlich übertragbaren
 Tätigkeiten hat einige Punkte mit Verbesserungspotential offenbart. Die Befragung hat die Annahme bestätigt, dass eine
-Untersuchung sinnvoll ist, in wie fern eine stärkere Unterstützung durch IT den Dokumentationsvorgang effizienter
+Untersuchung sinnvoll ist, inwiefern eine stärkere Unterstützung durch IT den Dokumentationsvorgang effizienter
 und qualitativ hochwertiger machen kann. In Tabelle \ref{tab:docuProbs} werden die identifizierten Probleme noch einmal kurz
 zusammengefasst und die damit verbundenen kritischen Faktoren benannt. 
 
@@ -573,12 +575,12 @@ zusammengefasst und die damit verbundenen kritischen Faktoren benannt.
 
 Im folgenden Abschnitt werden die in der Diskussion des Status Quo identifizierten Anforderungen an eine mobile Lösung
 zur Unterstützung der Dokumentation aufgelistet und bewertet. Die Bewertung erfolgt danach, ob eine Anforderung bereits
-vorher antizipiert wurde und falls ja, wie sie umgesetzt wurde. Falls es sich um eine neue Anforderung handelt, wird
-überprüft, ob sie überhaupt umsetzbar ist und ob die Umsetzung für den Erfolg der Arbeit notwendig ist. Bei der Erhebung
-der Anforderungen muss darauf hingewiesen werden, dass den Teilnehmern vorher die Rahmenbedingungen wie die Nutzung
-eines Tablet-PCs und die damit verbundenen Möglichkeiten genannt wurden. Aus diesem Grund wurden manche Anforderungen
-genannt, die nicht zwingend aus dem momentanen Tagesablauf hervorgehen, sondern mehr genannt wurden, weil es möglich
-gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und nicht umgekehrt.
+antizipiert wurde und falls ja, wie sie umgesetzt wurde. Falls es sich um eine neue Anforderung handelt, wird überprüft,
+ob sie überhaupt umsetzbar ist und ob die Umsetzung für den Erfolg der Arbeit notwendig ist. Bei der Erhebung der
+Anforderungen muss darauf hingewiesen werden, dass den Teilnehmern vorher die Rahmenbedingungen wie die Nutzung eines
+Tablet-PCs und die damit verbundenen Möglichkeiten genannt wurden. Aus diesem Grund wurden manche Anforderungen genannt,
+die nicht zwingend aus dem momentanen Tagesablauf hervorgehen, sondern mehr genannt wurden, weil es möglich gemacht
+werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und nicht umgekehrt.
 
 \begin{enumerate}
   \item \textit{Die Anwendung muss übersichtlich strukturiert und intuitiv bedienbar sein.}
@@ -760,7 +762,7 @@ gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und n
   		\noindent Eine Spracherkennung zur Eingabe von Freitext wurde häufig gewünscht, da die Eingabe von Freitext über die
   		virtuelle Tastatur als zu langwierig angesehen wurde. Zwar bieten die neueren Betriebssysteme von Android und iOS
   		die Möglichkeit der Spracheingabe, jedoch ist hierzu eine Internetverbindung notwendig, was nicht immer
-  		gewährleisten werden kann. Der initiale Anforderungskatalog enthielt die Anforderung, dass \app auch ohne
+  		gewährleistet werden kann. Der initiale Anforderungskatalog enthielt die Anforderung, dass \app auch ohne
   		Internetverbindung funktionieren muss, was mit einer internetabhängigen Spracherkennung nicht zu vereinbaren ist.
   		Eventuell wäre es eine Möglichkeit, eine eigene Spracherkennung zu implementieren oder eine vorhandene zu
   		lizensieren und auf dem Endgerät verfügbar zu machen, jedoch ist zu vermuten, dass der zeitliche und finanzielle Aufwand hierfür
@@ -829,7 +831,7 @@ gemacht werden kann. Es bestimmte also teilweise das Angebot die Nachfrage und n
 Nachdem die Anforderungen an \app mit den Teilnehmern evaluiert wurden, wurde der Stand der Entwicklung der Anwendung
 vorgestellt. Fertiggestellt war zu diesem Zeitpunkt die Einstiegsseite mit der Übersicht über die verfügbaren Plug-Ins,
 das Plug-In \textit{Kontakte} und im Plug-In \textit{Touren} konnte bereits eine einfache Tagestruktur abgerufen
-werden, sprich pro Bewohner Tätigkeiten, die nur Bestätigt werden müssen. Zudem konnte jede Tätigkeit mit
+werden, sprich pro Bewohner Tätigkeiten, die nur bestätigt werden müssen. Zudem konnte jede Tätigkeit mit
 Begründung als "nicht durchgeführt" markiert werden. Die Dokumentation von Wunden per Foto und die Erfassung von
 Vitaldaten war noch nicht möglich. Es konnte jedoch zu jedem Patienten eine erste Version der Patientenakte abgerufen
 werden.\\
@@ -908,18 +910,21 @@ nicht berücksichtigt.
 
 Aufgrund der Ergebnisse des Abschlussfragebogens und des gewonnen Eindrucks kann die Schulung als grundsätzlich
 erfolgreich bewertet werden. Es konnte einerseits eine Reihe von Anforderungen gesammelt werden, andererseits konnte die
-Akzeptanz der bisher entwickelten Idee an einer ersten Endnutzergruppe getestet werden.  Das Ziel, bei den Teilnehmern
+Akzeptanz der bisher entwickelten Idee an einer ersten Endnutzergruppe getestet werden. Das Ziel, bei den Teilnehmern
 eine gewisse Begeisterung für die Tablet-Technologie zu wecken und daraus mit einer positiven Stimmung in die
 Anforderungsevaluation zu starten ist gelungen. Es war sehr erfreulich zu erfahren, dass die initialen Ideen und
 Anforderungen nicht völlig in die falsche Richtung gingen, sondern im Grunde den Nerv und die Notwendigkeiten der
 Teilnehmer trafen. Die Evaluation der Anforderungen in Abschnitt \ref{subsec:anforderungen} hat gezeigt, dass nur wenige
 in der Schulung genannte Anforderungen neu waren und dass an bestehenden Anforderungen nur geringe Änderungen
 vorgenommen werden mussten. Da einige der neuen Anforderungen nichts mit dem eigentlichen Ziel der Dokumentation der
-erbrachten Leistungen zu tun hat, wie z.B. die Verfügbarkeit eines Tropfenplans oder eine Spracherkennung, wurden die
-meisten neuen Anforderungen verworfen oder für eine eventuelle Weiterentwicklung zurückgestellt. Die übrigen
-Anforderungen zusammen mit den technischen Voraussetzungen aus Kapitel \ref{ch:anforderungsanalyse} ergeben eine gute
-Basis zur Entwicklung einer Anwendung, die Chancen hat, bei einer Weiterentwicklung zur Marktreife vom zuständigen Personal
+erbrachten Leistungen zu tun haben, wie z.B. die Verfügbarkeit eines Tropfenplans oder eine Spracherkennung, wurden die
+einige neue Anforderungen verworfen oder für eine eventuelle Weiterentwicklung zurückgestellt. Die übrigen Anforderungen
+zusammen mit den technischen Voraussetzungen aus Kapitel \ref{ch:anforderungsanalyse} ergeben eine gute Basis zur
+Entwicklung einer Anwendung, die Chancen hat, bei einer Weiterentwicklung zur Marktreife vom zuständigen Personal
 akzeptiert zu werden und einen echten Mehrwert bei der Dokumentation ärztliche übertragener Tätigkeiten zu liefern.
+Allerdings muss angemerkt werden, dass bei dieser Schulung ein qualitativer Ansatz verfolgt wurde, und die Ergebnisse in
+Folge dessen lediglich einen Hinweis auf die Benutzbarkeit und Akzeptanz von \app geben können, da die Anzahl der
+Teilnehmer für eine quantitative Bewertung zu gering war.
 
 
 		   

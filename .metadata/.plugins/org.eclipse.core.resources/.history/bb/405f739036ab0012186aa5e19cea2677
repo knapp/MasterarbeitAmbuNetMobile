@@ -1,0 +1,108 @@
+\chapter{Zusammenfassung und Ausblick}
+\label{ch:fazit}
+
+Das Ziel dieser Master-Arbeit war die Erstellung einer mobilen Anwendung, die Angehörige der Alten- und Pflegeberufe
+darin unterstützen sollte, an sie delegierte ärztliche Tätigkeiten zu dokumentieren. Die Daten sollten an das zentrale
+System \textit{CareNet} übermittelt werden, sodass der Arzt, der die Tätigkeiten in Auftrag gegeben hat, eine zeitnahe
+Kontrolle durchführen kann.\\
+Dieses Ziel konnte in der zur Verfügung stehenden Bearbeitungszeit nicht in vollem Umfang erreicht werden, jedoch
+konnten die wesentlichen Anforderungen umgesetzt werden. Eine Kernanforderung war, die Anwendung durch einen modularen
+Aufbau flexibel und an geänderte Rahmenbedingungen anpassbar zu gestalten. Technologisch war die einzige Vorgabe, dass
+moderne Tablet-PCs eingesetzt werden sollten. Dies erforderte einen zusätzlichen Evaluationsprozess, mit dem Ziel, die
+am besten geeignete Technologie zur Erstellung einer mobilen Anwendung zu finden. Der Vergleich von nativ entwickelten
+Anwendungen, WebApps und hybriden Anwendungen ergab, dass der hybride Ansatz trotz eventueller, die Performanz
+betreffender, Nachteile die beste Basistechnologie ist. Das entscheidende Argument war die potenzielle Portierbarkeit
+der Anwendung auf verschiedene Plattformen (Android, iOS, Windows Phone), da die endgültig zu verwendende Hardware noch
+nicht fest stand.\\
+Zur Realisierung der Anpassbarkeit der Anwendung wurde eine Plug-In-Architektur gewählt, bei der jegliche für den
+Endnutzer zu verwendende Funktionalität in Plug-Ins gekapselt werden sollte. Die Architektur konnte auf Basis von
+JavaScript, HTML und CSS umgesetzt werden, jedoch nahm der Entwurf und die Implementierung mehr Zeit in Anspruch, als
+zunächst geschätzt wurde. Zwar konnten trotz dieser Verzögerung die wesentlichen Funktionen umgesetzt werden, jedoch
+mussten manche wünschenswerte Eigenschaften aus Zeitgründen zurückgestellt werden. Implementiert werden konnte die
+Basisanwendung, ein Plug-In zum Abrufen von Kontaktdaten aus CareNet und ein Plug-In zur Darstellung einer Tour für eine
+\acl{mfp}, die die einzelnen Stationen (Klienten) sowie die zu erbringenden Leistungen enthielt. Bei den Leistungen
+wurden auf Basis der Anforderungsanalyse drei Leistungstypen identifiziert: (1) Standardleistungen, die nur eine
+Bestätigung benötigen, (2) eine Wunddokumentation, mit der eine Bilddatei verknüpft werden muss und (3) eine
+Vitalwerterfassung, mit der Messwerte von Blutdruck und Puls verbunden werden müssen. Standardleistungen und
+Wunddokumentation konnte den Anforderungen entsprechend umgesetzt werden, jedoch konnte die automatische
+Vitalwerterfassung durch den Anschluss von Messgeräten über Bluetooth nicht mehr realisiert werden. Die Erfassung von
+Vitalwerten ist momentan nur über manuelle Eingabe möglich. Eine weitere geplante Funktionalität, die aus Zeitgründen
+nicht mehr implementiert werden konnte, ist das Hinzufügen ungeplanter Leistungen wie Toilettengänge zu einer Station.\\
+Die bisher entwickelte mobile Anwendung bildet die notwendige Grundfunktionalität ab (bis auf die vorher genannten
+Punkte), um in CareNet zentral definierte Leistungen zu dokumentieren. Während der Anforderungsanalyse auf Basis von
+Literatur und in der durchgeführten Anwenderschulung (vgl. Kapitel \ref{sec:evalEndnutzerq}) konnten allerdings noch
+einige Erweiterungsmöglichkeiten identifiziert werden, die \app attraktiver machen würden.
+Hierzu zählen
+
+\begin{itemize}
+  \item Im Falle eines ambulanten Dienstes: Navigation zum Klienten per GPS, entweder in die Anwendung integriert oder
+  durch Nutzung externer Navigationsprogramme
+  \item Plausibilitätsprüfung von eingegebenen Werten
+  \item Warnungen bei eingegebenen kritischen Werten oder wenn Daten eines Klienten auf einen kritischen Zustand
+  schließen lassen (beispielsweise wenn eine bestimmte Zeit kein Toilettengang dokumentiert wurde)
+  \item Nutzung der per GPS ermittelten Position, um eine Behandlung auf dem Tablet-PC zu schließen, sobald sich die
+  behandelnde \acs{mfp} vom Einsatzort entfernt
+  \item Autovervollständigung und Drop-Down-Listen zur Beschleunigung der Dokumentation von Standardfällen
+  \item Einführung einer Spracherkennung, um die Beschreibung von Fällen zu beschleunigen, die nicht von den
+  Standardfällen abgedeckt werden
+  \item Integration einer Telefonfunktion für Notrufe und Rückfragen (Umsetzbarkeit hardwareabhängig)
+  \item Ein Logging-Verfahren, mit welchem dokumentiert wird, wer welche Änderungen in der mobilen Anwendung und im
+  Gesamtsystem durchgeführt hat
+\end{itemize}
+
+Die Realisierung von \app auf Basis einer Plug-In-Architektur bietet eine Vielzahl von Erweiterungsmöglichkeiten. Neben
+einer Erweiterung der Funktionen zur Dokumentation könnten auch völlig andere Anwendungsfelder von CareNet oder
+verwandten Produkten der nubedian GmbH mobil verfügbar gemacht werden, da diese über die gleiche
+\acs{rest}-Schnittstelle kommunizieren. Durch die Kapselung von Funktionalität innerhalb eines Plug-Ins könnten
+beispielsweise Vorgänge, Termine oder sonstige Daten mit einer individuellen grafischen Oberfläche auf dem Tablet-PC
+dargestellt werden, ohne Implementierungen anderer Plug-Ins zu beeinflussen. Da die Plug-Ins über eine
+Konfigurationsdatei der Basisanwendung hinzugefügt werden, ist außerdem die Möglichkeit gegeben, einen
+Autorisierungsmechanismus zu implementieren, mit dem bestimmten Personen in Abhängigkeit von ihren Rechten bestimmte
+Plug-Ins angezeigt werden. Der Vorteil wäre, dass die mobile Anwendung zur Laufzeit konfiguriert werden könnte, ohne
+diese neu kompilieren zu müssen, da die Informationen zur Autorisierung über die REST-Schnittstelle bezogen werden
+könnten. Da alle verwendeten Nachrichten und Beschriftungen zentral in Variablen festgehalten sind und nicht direkt in
+die einzelnen Elemente geschrieben sind, wäre sogar ein Modell zur Sprachkonfiguration denkbar. Diese könnte realisiert
+werden, indem alle Beschriftungs- und Nachrichtenvariablen beim Laden der Anwendung mit Daten aus einer Datei, die in
+der Anwendung hinterlegt werden kann, gefüllt werden.
+
+Die Plattformunabhängigkeit von \app und die damit verbundene Notwendigkeit, jegliche Funktionalität in JavaScript zu
+implementieren, bringt allerdings auch Nachteile mit sich. In Kapitel \ref{sec:basisanwendung} wurde bereits das Problem
+erläutert, dass nahezu alles in JavaScript global verfügbar ist und damit keine Einschränkung auf manche
+Quellcode-Bereiche wie in einer objektorientierten Sprache möglich ist. Für die Entwicklung bedeutet dies eine Reihe von
+Fehlerquellen aufgrund von doppelten Methoden- oder Variablennamen, die nicht automatisch gefunden werden und
+damit die Suche nach der sprichwörtlichen Nadel im Heuhaufen verursachen können. Die an die Entwickler gestellten
+Anforderungen bzgl. Disziplin bei der Einhaltung von Konventionen sind deutlich höher als bei einer stark
+werkzeuggestützten Entwicklung. Auch die Fehlersuche ist auf Grund geeigneter Standardwerkzeuge vor allem manueller
+Natur. Zwar gibt es verschiedene Ansätze, die Fehlersuche in JavaScript zu automatisieren, jedoch hat sich noch kein
+Standard-Werkzeug etabliert. Soll beispielsweise die für PhoneGap entwickelte Anwendung in einem WebKit-basierten
+Browser wie Google Chrome mit den dort vorhandenen Werkzeugen überprüft werden, müssen alle Anfragen an die Plattform
+(Hardware), wie z.B. der Aufruf der Kamera, von einer zusätzlichen JavaScript-Bibliothek emuliert werden. Vorhandene
+Emulatoren sind allerdings nicht fehlerfrei und deswegen können dort wieder externe Fehler auftreten, die nicht der
+eigentlich zu testenden Anwendung zuzuschreiben sind. Eine Eigenentwicklung eines Emulators wäre sehr aufwendig. Eine
+weitere Möglichkeit ist die Nutzung des "WEb INspector REmote" (Weinre) \cite{weinre}, der den Quellcode einer
+PhoneGap-Anwendung im Browser mit einem Schlüsselwort untersuchbar macht. Der Nachteil ist allerdings, dass bei Nutzung
+des Anbieterservers der gesamte Quellcode dem Anbieter zur Verfügung gestellt wird, was signifikante Sicherheitslücken
+verursachen kann. Es ist zwar möglich, einen eigenen Server mit der entsprechenden Software aufzusetzen, jedoch sorgt
+dies für deutlichen Zusatzaufwand, der sich bei Betrachtung der Mächtigkeit des Analysewerkzeuges nach Einschätzung des
+Autors kaum lohnt.
+
+Positiv an der Aufgabenstellung der vorliegenden Arbeit war, dass ein gesamter Software-Entwicklungsprozess gestaltet
+werden konnte. Alle grundlegenden Stationen einer Entwicklung von der Anforderungsanalyse über eine prototypische
+Entwicklung bis hin zur technischen Evaluation und einer Evaluation mit möglichen Endnutzern konnten durchlaufen werden.
+Speziell die Zielgruppenschulung mit den Angehörigen der Alten- und Krankenpflegeberufe mit positiver Rückmeldung war
+eine schöne Bestätigung, dass die entworfene Anwendung nicht völlig an den praktischen Anforderungen vorbei ging. Mit
+den dort gewonnen Eindrücken kann darauf geschlossen werden, dass eine technische Unterstützung der Dokumentation
+von Pflegetätigkeiten und delegierten ärztlichen Leistungen durchaus erwünscht ist, wenn sie denn anwenderfreundlich
+und auf die Bedürfnisse der Nutzer abgestimmt ist. Die grundsätzliche Akzeptanz ist vorhanden und kann durch gezielte
+Schulungen an intuitiv bedienbarer Hardware weiter gefördert und gefestigt werden. Probleme könnten allerdings auf
+technischer Ebene auftreten, da \app momentan stark auf eine Anbindung an CareNet ausgelegt ist und noch keine
+Schnittstellen zu anderen Verwaltungssystemen implementiert sind. Für eine Verbreitung der mobilen Lösung wäre dies
+jedoch unbedingt notwendig, da die Wahrscheinlichkeit dafür, dass eine soziale Einrichtung die finanziellen Mittel aufbringen
+möchte und aufbringen kann, um die gesamte vorhandene IT-Infrastruktur zu ersetzen, ist als gering einzuschätzen. Die
+Implementierung weiterer Schnittstellen wurde durch die Einführung der in Kapitel \ref{sec:entwurfsentscheidungen}
+erwähnten Middleware vorbereitet.
+
+Die Unterstützung der betreuenden Mitarbeiter war sehr gut und das Arbeitsklima sehr freundlich und motivierend. Die
+gewährten Freiheiten bei der Umsetzung und der Arbeitsweise sorgten für einen weitreichenden Gestaltungsspielraum, der
+für einen Entwurf der Anwendung förderlich war. Der Ablauf der gesamten Arbeit sowie das erarbeite Ergebnis kann
+aus Sicht des Autors als zufriedenstellend betrachtet werden.

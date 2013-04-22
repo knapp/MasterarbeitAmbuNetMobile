@@ -1,0 +1,58 @@
+% % introduction.tex %
+
+% % ==============================
+\chapter{Einleitung}
+\label{ch:einleitung}
+% % ==============================
+
+Nach Schätzungen des Statistischen Bundesamtes steigt der Anteil der über 65jährigen in der Bundesrepublik Deutschland
+von 19\% im Jahr 2005 auf 30\% im Jahr 2050 \cite{stat2050} bei gleichzeitig steigender Lebenserwartung. Dieser
+demographische Wandel birgt große Herausforderungen für das Gesundheitswesen, da eine stetig wachsende Anzahl an
+Patienten mit altersbedingten Krankheiten versorgt werden muss, die häufig multimorbid und immobil sind.\\
+Insbesondere Hausarztpraxen als zentrale Anlaufstellen für Beschwerden im Alter stehen vor neuen Aufgaben. Wo früher nur
+Heilkunde angewandt wurde, werden heute auch koordinative Aufgaben zwischen Fachärzten, Pflegediensten und Apotheken
+übernommen. Mit der steigenden Anzahl an pflegebedürftigen Personen wird sich dieser Trend weiter verstärken. Hinzu
+kommt, dass die steigende Anzahl an immobilen Patienten eine größere Anzahl an Hausbesuchen durch Hausärzte erfordert.
+Dem gegenüber steht eine sinkende Anzahl an Hausärzten, da auch deren Altersstruktur vom demographischen Wandel geprägt
+ist. Nach Schätzungen wird die Anzahl der Hausärzte bis 2020 bundesweit durchschnittlich um etwa 13\% zurückgehen
+(\cite[S. 65]{kopetsch2010}). Überdurchschnittlich hoch wird der Rückgang an Hausärzten in den ländlichen Regionen der
+neuen Bundesländer ausfallen (\cite[S. 52 ff.]{kopetsch2010}). Der Rückgang der Hausärzte wird somit bundesweit zu
+signifikanten Versorgungsengpässen führen, die kurzfristig nicht durch junge Ärzte ausgeglichen werden können.\\
+
+Um auch in Zukunft eine ausreichende Versorgung von Patienten gewährleisten zu können, wurde vom Gemeinsamen
+Bundesausschuss eine Richtlinie herausgegeben, die Rahmenbedingungen formuliert, in denen ärztliche Tätigkeiten auf
+Berufsangehörige der Alten- und Krankenpflege übertragen werden können \cite{richtlinie}. Diese Maßnahme soll Hausärzte
+bei Tätigkeiten entlasten, für die nicht unbedingt eine ärztliche Expertise notwendig ist. Insbesondere die Anzahl der
+vom Arzt durchzuführenden Hausbesuche könne sich hierdurch verringern. Ärztliche Tätigkeiten können dabei sowohl an
+Arzthelfer in einer Praxis, Mitarbeiter eines ambulanten Pflegedienstes, Pfleger in einem Alten- und Pflegeheim oder
+Gesundheits- und Krankenpflegern in einem Krankenhaus delegiert werden. Vor der Herausgabe der Richtlinie im März 2012
+wurde bereits in verschiedenen Modellprojekten der Nutzen von Übertragung von Tätigkeiten evaluiert. Mit dem
+Modellprojekt AGnES \cite{agnes} beispielsweise ließ sich belegen, dass durch die Übertragung positive Effekte bzgl.
+Effizienz und Qualität der ärztlichen Leistungen erzielt werden können. Um diese Effizienz- und Qualität zu erreichen,
+benötigen diejenigen, an die Leistungen übertragen werden sollen, allerdings gewisse Zusatzqualifikationen, die im
+Rahmen verschiedener Weiterbildungsprogramme erworben werden können. Beispiele hierfür sind \acs{verah}
+(\cite{verahZiele} (für Medizinische Fachangestellte) \cite{verahInfos}) oder \acs{mfp} (für Berufsangehörige der Alten-
+und Krankenpflege) \cite{raymond}. In einem ca. zweihundertstündigen Fortbildungsprogramm werden unter anderem
+Kenntnisse aus den Bereichen Case Management, Gesundheits-, Praxis- und Wundmanagement sowie IT vermittelt.\\
+Das Gesamtziel des Gemeinsamen Bundesausschusses ist, eine integrierte Versorgung von Pflegebedürftigen zu erreichen,
+bei der die Parteien des Gesundheitssystems (Ärzte, Pflegekräfte, Krankenkassen) intensiv zusammenarbeiten sollen. Eine enge
+Zusammenarbeit bedeutet einen hohen Koordinationsaufwand und damit verbunden ein hohes Maß an Informationsaustausch. Um
+das volle Potential der Übertragung ärztlicher Leistungen ausschöpfen zu können, müssen entsprechende EDV-Systeme
+unterstützend eingesetzt werden. Zwar werden auch heute schon vielfältige Verwaltungssysteme zur Dokumentation von
+entweder ärztlichen Tätigkeiten oder Pflegetätigkeiten eingesetzt, jedoch ist das Angebot an Software zur Unterstützung
+einer Zusammenarbeit zwischen Ärzten und Pflegedienstleistern gering. Gerade wenn es darum geht, vor Ort beim Klienten
+Vorgänge zu dokumentieren, wird häufig zunächst auf Papier dokumentiert und die Information erst zu einem späteren
+Zeitpunkt in ein EDV-System übertragen. Diese Medienbrüche Kosten Zeit und in der Folge Geld und die Fehlerquellen bei
+der manuellen Übertragung von Informationen sind vielfältig.\\
+Diese Master-Arbeit setzt an der Schnittstelle zwischen Ärzten und Berufsangehörigen der Alten- und Pflegeberufe an.
+
+Aufgebaut ist die Arbeit wie folgt: In Kapitel \ref{ch:ziele} werden die Ziele der Arbeit vorgestellt und in Kapitel
+\ref{ch:anforderungsanalyse} werden detailliert die Anforderungen an eine mobile Anwendung zur Dokumentation ärztlich
+übertragener Leistungen aufgelistet und die daraus abgeleiteten Entwurfsentscheidungen erläutert. Kapitel
+\ref{ch:pluginarchitektur} beschreibt die technische Umsetzung der Basisanwendung, wie Plug-Ins in diese eingebunden
+werden können und wie die Plug-Ins \textit{Kontakte} und \textit{Touren} aufgebaut wurden. Kapitel \ref{ch:Evaluation}
+beinhaltet eine umfangreiche Evaluation der entwickelten mobilen Anwendung angelehnt an die Kriterien der
+\acs{iso}/\acs{iec} 25000 und stellt die Ergebnisse einer durchgeführten Anwenderschulung dar, bevor in Kapitel
+\ref{ch:fazit} ein Fazit der vorliegenden Arbeit gezogen wird.
+
+

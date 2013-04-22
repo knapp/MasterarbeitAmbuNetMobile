@@ -11,8 +11,8 @@ funktionelle Anforderungen beschrieben und daraus technische Anforderungen abgel
 
 Zu Beginn der Bearbeitungszeit der Master-Arbeit konnte kein Termin mit den eigentlichen Endnutzern der mobilen
 Anwendung vereinbart werden, um eine direkte Anforderungserhebung durchzuführen. Aufgrund dessen musste zunächst eine
-Anforderungsanalyse auf Basis von Literatur, aktuellen und vorangegangenen Arbeiten ergänzt um Gespräche mit mit
-sachkundigen Mitarbeitern von Kranken- und Pflegeeinrichtungen durchgeführt werden. Da die Grundlage für die
+Anforderungsanalyse auf Basis von Literatur, aktuellen und vorangegangenen Arbeiten, ergänzt um Gespräche mit mit
+sachkundigen Mitarbeitern von Kranken- und Pflegeeinrichtungen, durchgeführt werden. Da die Grundlage für die
 Möglichkeit, ärztliche Tätigkeiten an speziell geschulte Pflegekräfte zu übertragen, die Richtlinie des Gemeinsamen
 Bundesausschusses basierend auf § 63 Abs. 3c SGB V ist, kann die Dokumentation der hier aufgelisteten übertragbaren
 Leistungen als Basisanforderung gesehen werden. Ein Problem ist aber, dass aus der Auflistung der Tätigkeiten nicht die
@@ -59,7 +59,7 @@ Einzelleistungen kontrollieren zu müssen.\\
 Konnte eine Leistung nicht oder nicht vollständig erbracht werden, muss es die Möglichkeit geben, dies zu dokumentieren.
 Neben einer Markierung der Leistung muss ein Feld für eine Begründung (Freitext oder mit vordefinierten Bausteinen)  der
 Nichterbringung der Leistung verfügbar sein. In der Übersicht über die Stationen einer Schicht sollte neben den
-Zuständen "`Erledigt"' und "`Offen"' außerdem der Zustand "Unvollständig abgeschlossen" ersichtlich sein, um zu zeigen,
+Zuständen "Erledigt" und "Offen" außerdem der Zustand "Unvollständig abgeschlossen" ersichtlich sein, um zu zeigen,
 dass zwar alle Leistungen bearbeitet wurden, jedoch nicht alle erbracht werden konnten.\\
 Bei der manuellen Dokumentation kann es immer wieder zu Fehlern kommen. Beispielsweise, wenn Werte falsch eingetragen
 oder Leistungen bestätigt werden, die eigentlich noch nicht vollständig erfüllt sind. Da diese Fehler auch mit einer
@@ -224,8 +224,8 @@ geladen wurden, die den auszuführenden Quellcode (die Webseite) enthalten. Im Fa
 JavaScript-Dateien, die ausgeführt werden, von keinem Server geladen, sondern sie sind mit in die Anwendung eingebunden.
 Nach der Same Origin Policy dürfte also nur an die Anwendung ein Aufruf mittels JavaScript erfolgen. Es wären also keine
 Aufrufe an einen externen Server möglich und damit PhoneGap zur Kommunikation mit CareNet nicht in der Lage. Der
-Hintergrund ist ein mögliches Sicherheitsproblem, wenn Code, der eigentlich von einem vertrauenswürdigen Server geladen
-wurde, lokal gespeicherte Daten ausliest (wie z.B. Zugangsdaten) und an eine andere nicht vertrauenswürdige Adresse
+Hintergrund ist ein mögliches Sicherheitsproblem, wenn der Code, der eigentlich von einem vertrauenswürdigen Server
+geladen wurde, lokal gespeicherte Daten ausliest (wie z.B. Zugangsdaten) und an eine andere nicht vertrauenswürdige Adresse
 schickt. Ist der Zugriff auf eine andere Adresse verboten, kann dies ausgeschlossen werden. In PhoneGap ist die Same
 Origin Policy in dieser Form allerdings nicht umgesetzt und damit kein Hindernis, um mit CareNet zu kommunizieren.\\
 Als Anforderung an \app wurde zwar zunächst nur die Bereitstellung auf Android-Endgeräten gefordert, jedoch ist nicht
@@ -237,8 +237,8 @@ touch-optimierter Benutzeroberflächen entwickelt wurden. Zwei verbreite Biblioth
 und Sencha Touch \cite{sencha}. Im Kontext dieser Arbeit wurde jQuery mobile aufgrund der Einfachheit in der Entwicklung
 und der Mächtigkeit der gebotenen Funktionalität gewählt.\\
 
-In \cite{diplChristina} hat sich gezeigt, dass sich einmal gestellte Anforderungen rasch ändern können und dass eine
-Anwendung so entworfen sein sollte, dass Anpassungen mit vertretbarem Aufwand durchgeführt werden können. Zwar ist
+In der Arbeit von Christina Hardt \cite{diplChristina} hat sich gezeigt, dass sich einmal gestellte Anforderungen rasch
+ändern können und dass eine Anwendung so entworfen sein sollte, dass Anpassungen mit vertretbarem Aufwand durchgeführt werden können. Zwar ist
 momentan die Menge an zu dokumentierenden Tätigkeiten durch eine abgeschlossene Liste in Richtlinie § 63 Abs. 3c SGB V
 beschränkt, jedoch sind Änderungen in Zukunft möglich. Neben zusätzlichen Tätigkeiten könnten auch andere funktionale
 Erweiterungen hinzukommen. Um diesen Anforderungen gerecht zu werden, wird die Anwendung auf Basis einer
